@@ -1,0 +1,29 @@
+[project]
+name = "rekka-ai"
+version = "0.1.0"
+description = "Truck detection from aerial images"
+readme = "README.md"
+requires-python = ">=3.14"
+dependencies = [
+    "typer>=0.27.0",
+]
+
+[project.scripts]
+rekka-ai = "rekka_ai.cli:app"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[dependency-groups]
+dev = [
+    "pytest>=9.1.1",
+    "ruff>=0.16.1",
+    "ty>=0.0.65",
+]
+
+[tool.ruff.lint]
+extend-select = ["I", "UP", "B"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
