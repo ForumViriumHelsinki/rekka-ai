@@ -31,14 +31,16 @@ pytestmark = pytest.mark.skipif(
 
 def _const(source: str, name: str) -> str:
     """The right-hand side of a top-level ``export const NAME = ...;``."""
-    match = re.search(rf"^export const {name}(?::[^=]+)? = (.+?);$", source, re.M)
+    match = re.search(
+        rf"^export const {name}(?::[^=]+)? = (.+?);$", source, re.MULTILINE
+    )
     if match is None:
         raise AssertionError(f"no `export const {name}` in the file")
     return match.group(1).strip()
 
 
 def _number(source: str, name: str) -> float:
-    return float(_const(source, name).rstrip(" as const").strip())
+    return float(_const(source, name).removesuffix(" as const").strip())
 
 
 def test_class_list_matches() -> None:
