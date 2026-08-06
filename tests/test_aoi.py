@@ -287,7 +287,7 @@ def test_real_collection_parses(tmp_path: Path) -> None:
     # a magic number here only ever fails for the wrong reason.
     declared = yaml.safe_load(Path("aois/helsinki.yaml").read_text())["aois"]
     assert len(aois) == len(declared)
-    assert {a.role for a in aois} == {"positive", "sparse"}
+    assert {a.role for a in aois} == {"positive", "sparse", "hard-negative"}
     # The split membership *is* pinned: it decides which numbers are honest,
     # so moving ground between train and validation should never be a quiet
     # diff. Update this list deliberately, never to make the test pass.
@@ -296,6 +296,7 @@ def test_real_collection_parses(tmp_path: Path) -> None:
         "pohjois-haaga",
         "kaivoksela",
         "jatkasaari",
+        "rastila",
     ]
 
 

@@ -36,6 +36,18 @@ aois:
       validation set with a harbour/industrial character (reported at
       EPSG:3879 25495669.19, 6672072.87).
 
+  - name: rastila
+    bbox: [395805, 6675894, 396105, 6676194]
+    role: hard-negative
+    split: validation
+    notes: >-
+      Rastila camping — rows of RVs and motorhomes, the annotation guide's
+      hardest confuser (van-fronted motorhomes are neither labelled nor
+      trucks). The first negative-role area in validation: eval's regression
+      check finally has something to measure. Will NOT be silent — the
+      detections here quantify RV confusion (reported at EPSG:3879
+      25506803.34, 6677241.87).
+
   # ---------------------------------------------------------------------------
   #  round one aois
   # ---------------------------------------------------------------------------
