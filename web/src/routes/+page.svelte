@@ -350,20 +350,29 @@
 				const row = Math.round(by / ROW_M) - Math.round(ay / ROW_M); // north first
 				return row !== 0 ? row : ax - bx; // then west first
 			});
-		const all = source.getFeatures();
-		const pending = all.filter((f) => (f.get('status') ?? 'candidate') === 'candidate');
-		// Unreviewed candidates come first while any remain. Once an area is
-		// fully reviewed N/P must still move: revisiting a verdict is the whole
-		// of a correction round, and going dead at 100% strands the operator on
-		// whichever box they last touched.
-		const ring = sweep(pending.length ? pending : all.slice());
+		// Walk the sweep over *every* feature, skipping the ones we do not want,
+		// rather than over a filtered ring. The filtered ring drops the current
+		// box the moment it gets a verdict, and stepping from a box that is not
+		// in the ring lands at an arbitrary offset — N happened to look right
+		// while P jumped to the second-to-last box in the area.
+		const ring = sweep(source.getFeatures().slice());
 		if (!ring.length) {
 			selectedInfo = 'no features here';
 			return;
 		}
+		// Unreviewed candidates come first while any remain. Once an area is
+		// fully reviewed N/P must still move: revisiting a verdict is the whole
+		// of a correction round, and going dead at 100% strands the operator on
+		// whichever box they last touched.
+		const unreviewed = (f: Feature) => (f.get('status') ?? 'candidate') === 'candidate';
+		const wanted = ring.some(unreviewed) ? unreviewed : () => true;
+		const mod = (i: number) => ((i % ring.length) + ring.length) % ring.length;
 		const currentFeature = select.getFeatures().getArray()[0];
-		let index = currentFeature ? ring.indexOf(currentFeature) : -1;
-		index = (index + step + ring.length) % ring.length;
+		// With nothing selected, N starts at the head of the sweep and P at its
+		// tail — the same both-ends symmetry as stepping off either edge.
+		const from = currentFeature ? ring.indexOf(currentFeature) : step > 0 ? -1 : 0;
+		let index = mod(from + step);
+		for (let i = 1; i < ring.length && !wanted(ring[index]); i++) index = mod(index + step);
 		const target = ring[index];
 		select.getFeatures().clear();
 		select.getFeatures().push(target);
