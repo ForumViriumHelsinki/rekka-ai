@@ -1,0 +1,2014 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25.190452188857414,
+              60.209833395581335
+            ],
+            [
+              25.19060939661076,
+              60.2099719963798
+            ],
+            [
+              25.190554685024193,
+              60.2099873650554
+            ],
+            [
+              25.190397477436466,
+              60.20984876419232
+            ],
+            [
+              25.190452188857414,
+              60.209833395581335
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.8786,
+        "length_m": 17.73,
+        "width_m": 3.48,
+        "heading_deg": 29.3,
+        "aoi": "vuosaari-channel-road",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "candidate",
+        "class": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25.190781494730313,
+              60.21012232190556
+            ],
+            [
+              25.190933148128813,
+              60.210258269770165
+            ],
+            [
+              25.190878047104867,
+              60.21027349205016
+            ],
+            [
+              25.190726393863862,
+              60.21013754412281
+            ],
+            [
+              25.190781494730313,
+              60.21012232190556
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.8731,
+        "length_m": 17.32,
+        "width_m": 3.49,
+        "heading_deg": 28.9,
+        "aoi": "vuosaari-channel-road",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "candidate",
+        "class": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25.191936147925485,
+              60.20916797580692
+            ],
+            [
+              25.191989840209335,
+              60.209179724424516
+            ],
+            [
+              25.19186764347709,
+              60.209318033182164
+            ],
+            [
+              25.191813951010722,
+              60.209306284515435
+            ],
+            [
+              25.191936147925485,
+              60.20916797580692
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.8665,
+        "length_m": 16.83,
+        "width_m": 3.25,
+        "heading_deg": 156.1,
+        "aoi": "vuosaari-channel-road",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "candidate",
+        "class": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25.190878325849447,
+              60.21008162434712
+            ],
+            [
+              25.19103385372578,
+              60.21022431389765
+            ],
+            [
+              25.190975928248765,
+              60.2102399499831
+            ],
+            [
+              25.190820400515328,
+              60.21009726036496
+            ],
+            [
+              25.190878325849447,
+              60.21008162434712
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.8655,
+        "length_m": 18.09,
+        "width_m": 3.65,
+        "heading_deg": 28.3,
+        "aoi": "vuosaari-channel-road",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "candidate",
+        "class": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25.19212823224004,
+              60.209256597508855
+            ],
+            [
+              25.192179364529327,
+              60.20926710025846
+            ],
+            [
+              25.19206431518232,
+              60.20940582098496
+            ],
+            [
+              25.192013182713954,
+              60.20939531822556
+            ],
+            [
+              25.19212823224004,
+              60.209256597508855
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.8637,
+        "length_m": 16.72,
+        "width_m": 3.07,
+        "heading_deg": 157.4,
+        "aoi": "vuosaari-channel-road",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "candidate",
+        "class": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25.192089740174882,
+              60.209222135869936
+            ],
+            [
+              25.19214012756115,
+              60.20923251741343
+            ],
+            [
+              25.19202647684526,
+              60.20936913221355
+            ],
+            [
+              25.191976089285223,
+              60.2093587506272
+            ],
+            [
+              25.192089740174882,
+              60.209222135869936
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.8604,
+        "length_m": 16.47,
+        "width_m": 3.02,
+        "heading_deg": 157.3,
+        "aoi": "vuosaari-channel-road",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "candidate",
+        "class": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25.19080596131476,
+              60.20989959636828
+            ],
+            [
+              25.190958253937435,
+              60.2100304243294
+            ],
+            [
+              25.190907471559814,
+              60.21004506424121
+            ],
+            [
+              25.19075517907127,
+              60.209914236222
+            ],
+            [
+              25.19080596131476,
+              60.20989959636828
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.8561,
+        "length_m": 16.85,
+        "width_m": 3.25,
+        "heading_deg": 29.9,
+        "aoi": "vuosaari-channel-road",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "candidate",
+        "class": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25.19062269653599,
+              60.20998248546661
+            ],
+            [
+              25.190773306419093,
+              60.21011619078614
+            ],
+            [
+              25.190718184579417,
+              60.210131567856514
+            ],
+            [
+              25.19056757484971,
+              60.20999786244039
+            ],
+            [
+              25.19062269653599,
+              60.20998248546661
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.8523,
+        "length_m": 17.08,
+        "width_m": 3.5,
+        "heading_deg": 29.1,
+        "aoi": "vuosaari-channel-road",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "candidate",
+        "class": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25.19225947567541,
+              60.209098233325136
+            ],
+            [
+              25.19231300910283,
+              60.209109546597375
+            ],
+            [
+              25.19219228940205,
+              60.20925102259477
+            ],
+            [
+              25.192138755785496,
+              60.209239709274165
+            ],
+            [
+              25.19225947567541,
+              60.209098233325136
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.8512,
+        "length_m": 17.13,
+        "width_m": 3.22,
+        "heading_deg": 156.8,
+        "aoi": "vuosaari-channel-road",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "candidate",
+        "class": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25.1919650680239,
+              60.20937470489273
+            ],
+            [
+              25.192017248320617,
+              60.209385254053615
+            ],
+            [
+              25.191899392411216,
+              60.209529632391856
+            ],
+            [
+              25.191847211923065,
+              60.20951908321914
+            ],
+            [
+              25.1919650680239,
+              60.20937470489273
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.8503,
+        "length_m": 17.36,
+        "width_m": 3.12,
+        "heading_deg": 157.7,
+        "aoi": "vuosaari-channel-road",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "candidate",
+        "class": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25.192059071937585,
+              60.2090191063045
+            ],
+            [
+              25.192111454562248,
+              60.20903006907865
+            ],
+            [
+              25.1919945626227,
+              60.209168401329514
+            ],
+            [
+              25.19194217981672,
+              60.20915743857803
+            ],
+            [
+              25.192059071937585,
+              60.2090191063045
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.8481,
+        "length_m": 16.72,
+        "width_m": 3.15,
+        "heading_deg": 157.0,
+        "aoi": "vuosaari-channel-road",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "candidate",
+        "class": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25.191798738972217,
+              60.20948546516911
+            ],
+            [
+              25.191858858234358,
+              60.20949713586517
+            ],
+            [
+              25.191745420447596,
+              60.20964185744939
+            ],
+            [
+              25.191685300960785,
+              60.20963018671087
+            ],
+            [
+              25.191798738972217,
+              60.20948546516911
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.8477,
+        "length_m": 17.31,
+        "width_m": 3.58,
+        "heading_deg": 158.5,
+        "aoi": "vuosaari-channel-road",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "candidate",
+        "class": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25.190697626590694,
+              60.2099302802526
+            ],
+            [
+              25.19085332678681,
+              60.21006722530728
+            ],
+            [
+              25.19080508269606,
+              60.21008080944843
+            ],
+            [
+              25.19064938265364,
+              60.209943864337326
+            ],
+            [
+              25.190697626590694,
+              60.2099302802526
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.8472,
+        "length_m": 17.53,
+        "width_m": 3.07,
+        "heading_deg": 29.3,
+        "aoi": "vuosaari-channel-road",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "candidate",
+        "class": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25.190537222391967,
+              60.20978431876917
+            ],
+            [
+              25.19069035523507,
+              60.20992097660873
+            ],
+            [
+              25.190637198775264,
+              60.20993572816035
+            ],
+            [
+              25.190484066084267,
+              60.20979907025968
+            ],
+            [
+              25.190537222391967,
+              60.20978431876917
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.845,
+        "length_m": 17.43,
+        "width_m": 3.37,
+        "heading_deg": 29.0,
+        "aoi": "vuosaari-channel-road",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "candidate",
+        "class": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25.19268103558913,
+              60.20854120881312
+            ],
+            [
+              25.192733884007225,
+              60.208552547562356
+            ],
+            [
+              25.192631048959633,
+              60.20867125860849
+            ],
+            [
+              25.192578200385924,
+              60.208659919818565
+            ],
+            [
+              25.19268103558913,
+              60.20854120881312
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.8444,
+        "length_m": 14.4,
+        "width_m": 3.19,
+        "heading_deg": 156.5,
+        "aoi": "vuosaari-channel-road",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "candidate",
+        "class": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25.19253878015166,
+              60.20852392997024
+            ],
+            [
+              25.192583635241547,
+              60.208533374187354
+            ],
+            [
+              25.192504104054443,
+              60.20862692882025
+            ],
+            [
+              25.192459248859194,
+              60.20861748450794
+            ],
+            [
+              25.19253878015166,
+              60.20852392997024
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.8427,
+        "length_m": 11.32,
+        "width_m": 2.7,
+        "heading_deg": 156.9,
+        "aoi": "vuosaari-channel-road",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "candidate",
+        "class": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25.19060211761386,
+              60.2097837577132
+            ],
+            [
+              25.190754434010586,
+              60.20991701704608
+            ],
+            [
+              25.19070353303663,
+              60.209931425735576
+            ],
+            [
+              25.19055121677933,
+              60.2097981663445
+            ],
+            [
+              25.19060211761386,
+              60.2097837577132
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.8414,
+        "length_m": 17.08,
+        "width_m": 3.25,
+        "heading_deg": 29.5,
+        "aoi": "vuosaari-channel-road",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "candidate",
+        "class": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25.192097035485553,
+              60.208633243569956
+            ],
+            [
+              25.19233059615039,
+              60.20866319361091
+            ],
+            [
+              25.192316526007662,
+              60.20869036964023
+            ],
+            [
+              25.19208296516237,
+              60.20866041957472
+            ],
+            [
+              25.192097035485553,
+              60.208633243569956
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.8406,
+        "length_m": 13.37,
+        "width_m": 3.13,
+        "heading_deg": 75.4,
+        "aoi": "vuosaari-channel-road",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "candidate",
+        "class": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25.191978740474422,
+              60.20919711113753
+            ],
+            [
+              25.192029117862166,
+              60.2092073130541
+            ],
+            [
+              25.191914355838936,
+              60.20934766451038
+            ],
+            [
+              25.191863978265012,
+              60.20933746255054
+            ],
+            [
+              25.191978740474422,
+              60.20919711113753
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.8405,
+        "length_m": 16.88,
+        "width_m": 3.02,
+        "heading_deg": 157.7,
+        "aoi": "vuosaari-channel-road",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "candidate",
+        "class": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25.19077164026927,
+              60.20993035893392
+            ],
+            [
+              25.190926782055666,
+              60.21006393163456
+            ],
+            [
+              25.19087351354603,
+              60.210079254059984
+            ],
+            [
+              25.190718371903607,
+              60.2099456812973
+            ],
+            [
+              25.19077164026927,
+              60.20993035893392
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.8405,
+        "length_m": 17.19,
+        "width_m": 3.41,
+        "heading_deg": 29.9,
+        "aoi": "vuosaari-channel-road",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "candidate",
+        "class": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25.192116195620823,
+              60.20857359999414
+            ],
+            [
+              25.192402000551418,
+              60.20863665625378
+            ],
+            [
+              25.192377642843297,
+              60.208664000187326
+            ],
+            [
+              25.1920918377214,
+              60.20860094387556
+            ],
+            [
+              25.192116195620823,
+              60.20857359999414
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.8398,
+        "length_m": 17.33,
+        "width_m": 3.33,
+        "heading_deg": 65.9,
+        "aoi": "vuosaari-channel-road",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "candidate",
+        "class": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25.192608055581495,
+              60.20852268693809
+            ],
+            [
+              25.192658288510774,
+              60.208533456910516
+            ],
+            [
+              25.192567942910337,
+              60.208637824048154
+            ],
+            [
+              25.19251770985098,
+              60.20862705404177
+            ],
+            [
+              25.192608055581495,
+              60.20852268693809
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.8384,
+        "length_m": 12.66,
+        "width_m": 3.03,
+        "heading_deg": 156.5,
+        "aoi": "vuosaari-channel-road",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "candidate",
+        "class": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25.192113000251215,
+              60.20903453057862
+            ],
+            [
+              25.19216273007589,
+              60.20904480952865
+            ],
+            [
+              25.192041284246457,
+              60.20919032942306
+            ],
+            [
+              25.191991554239745,
+              60.209180050496315
+            ],
+            [
+              25.192113000251215,
+              60.20903453057862
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.8379,
+        "length_m": 17.56,
+        "width_m": 2.99,
+        "heading_deg": 157.3,
+        "aoi": "vuosaari-channel-road",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "candidate",
+        "class": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25.19071164760057,
+              60.209755382120086
+            ],
+            [
+              25.190867219348945,
+              60.20988820880063
+            ],
+            [
+              25.1908154576139,
+              60.20990322301213
+            ],
+            [
+              25.190659886003466,
+              60.20977039627111
+            ],
+            [
+              25.19071164760057,
+              60.209755382120086
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.8367,
+        "length_m": 17.13,
+        "width_m": 3.32,
+        "heading_deg": 30.1,
+        "aoi": "vuosaari-channel-road",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "candidate",
+        "class": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25.192050989132333,
+              60.20919070558977
+            ],
+            [
+              25.192101914389177,
+              60.2092010860267
+            ],
+            [
+              25.1919835602424,
+              60.20934488857321
+            ],
+            [
+              25.191932634799883,
+              60.20933450809116
+            ],
+            [
+              25.192050989132333,
+              60.20919070558977
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.8359,
+        "length_m": 17.31,
+        "width_m": 3.05,
+        "heading_deg": 157.6,
+        "aoi": "vuosaari-channel-road",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "candidate",
+        "class": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25.19064647825974,
+              60.20975762528027
+            ],
+            [
+              25.1908013126429,
+              60.20989375957482
+            ],
+            [
+              25.190750518707024,
+              60.20990806705655
+            ],
+            [
+              25.190595684466683,
+              60.20977193270294
+            ],
+            [
+              25.19064647825974,
+              60.20975762528027
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.8346,
+        "length_m": 17.43,
+        "width_m": 3.24,
+        "heading_deg": 29.3,
+        "aoi": "vuosaari-channel-road",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "candidate",
+        "class": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25.19051878932787,
+              60.20983301700586
+            ],
+            [
+              25.19065664044625,
+              60.20995365062835
+            ],
+            [
+              25.19060884138724,
+              60.209967177907764
+            ],
+            [
+              25.19047099038742,
+              60.2098465442358
+            ],
+            [
+              25.19051878932787,
+              60.20983301700586
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.8332,
+        "length_m": 15.46,
+        "width_m": 3.05,
+        "heading_deg": 29.5,
+        "aoi": "vuosaari-channel-road",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "candidate",
+        "class": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25.1921698071514,
+              60.20904103722208
+            ],
+            [
+              25.19221634854994,
+              60.20905065942027
+            ],
+            [
+              25.192099131168995,
+              60.209191078076806
+            ],
+            [
+              25.19205258963972,
+              60.209181455769226
+            ],
+            [
+              25.1921698071514,
+              60.20904103722208
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.8332,
+        "length_m": 16.94,
+        "width_m": 2.79,
+        "heading_deg": 157.3,
+        "aoi": "vuosaari-channel-road",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "candidate",
+        "class": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25.192216470554563,
+              60.20906476967199
+            ],
+            [
+              25.19226955256723,
+              60.2090754199372
+            ],
+            [
+              25.192154663449298,
+              60.20921723966167
+            ],
+            [
+              25.192101581244977,
+              60.209206589419274
+            ],
+            [
+              25.192216470554563,
+              60.20906476967199
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.8321,
+        "length_m": 17.04,
+        "width_m": 3.17,
+        "heading_deg": 157.9,
+        "aoi": "vuosaari-channel-road",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "candidate",
+        "class": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25.191856186530792,
+              60.20934207101889
+            ],
+            [
+              25.191907287242163,
+              60.20935287234146
+            ],
+            [
+              25.191782507463635,
+              60.20949907528233
+            ],
+            [
+              25.191731406565708,
+              60.20948827391201
+            ],
+            [
+              25.191856186530792,
+              60.20934207101889
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.8301,
+        "length_m": 17.7,
+        "width_m": 3.08,
+        "heading_deg": 156.8,
+        "aoi": "vuosaari-channel-road",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "candidate",
+        "class": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25.190332263317828,
+              60.20991765401514
+            ],
+            [
+              25.190445783338145,
+              60.210015668399066
+            ],
+            [
+              25.190389958683475,
+              60.21003168078103
+            ],
+            [
+              25.19027643877419,
+              60.209933666349514
+            ],
+            [
+              25.190332263317828,
+              60.20991765401514
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.827,
+        "length_m": 12.6,
+        "width_m": 3.57,
+        "heading_deg": 29.8,
+        "aoi": "vuosaari-channel-road",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "candidate",
+        "class": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25.192542158927022,
+              60.20844875832368
+            ],
+            [
+              25.192589981788167,
+              60.20846002690829
+            ],
+            [
+              25.19247217807077,
+              60.208583852159585
+            ],
+            [
+              25.19242435506923,
+              60.208572583464296
+            ],
+            [
+              25.192542158927022,
+              60.20844875832368
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.8226,
+        "length_m": 15.26,
+        "width_m": 2.93,
+        "heading_deg": 154.5,
+        "aoi": "vuosaari-channel-road",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "candidate",
+        "class": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25.19192712341916,
+              60.20934331316096
+            ],
+            [
+              25.191979595829537,
+              60.209354319134626
+            ],
+            [
+              25.191859668502204,
+              60.20949592533919
+            ],
+            [
+              25.191807195905668,
+              60.209484919318406
+            ],
+            [
+              25.19192712341916,
+              60.20934331316096
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.8207,
+        "length_m": 17.12,
+        "width_m": 3.16,
+        "heading_deg": 157.0,
+        "aoi": "vuosaari-channel-road",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "candidate",
+        "class": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25.190683612255302,
+              60.20997736712858
+            ],
+            [
+              25.190818953654556,
+              60.21010011810545
+            ],
+            [
+              25.19077140571487,
+              60.21011310130646
+            ],
+            [
+              25.190636064456996,
+              60.209990350315486
+            ],
+            [
+              25.190683612255302,
+              60.20997736712858
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.8196,
+        "length_m": 15.6,
+        "width_m": 3.01,
+        "heading_deg": 28.6,
+        "aoi": "vuosaari-channel-road",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "candidate",
+        "class": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25.191814210488143,
+              60.20931610726073
+            ],
+            [
+              25.19186586616321,
+              60.20932741795007
+            ],
+            [
+              25.191741343981846,
+              60.20946826227917
+            ],
+            [
+              25.191689688128225,
+              60.209456951575916
+            ],
+            [
+              25.191814210488143,
+              60.20931610726073
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.8152,
+        "length_m": 17.14,
+        "width_m": 3.13,
+        "heading_deg": 156.1,
+        "aoi": "vuosaari-channel-road",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "candidate",
+        "class": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25.19040295576165,
+              60.20990880348123
+            ],
+            [
+              25.190510953443756,
+              60.2100029659987
+            ],
+            [
+              25.19045727483341,
+              60.21001821304201
+            ],
+            [
+              25.19034927725486,
+              60.209924050480986
+            ],
+            [
+              25.19040295576165,
+              60.20990880348123
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.8099,
+        "length_m": 12.08,
+        "width_m": 3.43,
+        "heading_deg": 29.6,
+        "aoi": "vuosaari-channel-road",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "candidate",
+        "class": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25.192117836651388,
+              60.20867023479272
+            ],
+            [
+              25.192354986962247,
+              60.208706412706874
+            ],
+            [
+              25.192339001691437,
+              60.20873236550394
+            ],
+            [
+              25.19210185121075,
+              60.20869618756145
+            ],
+            [
+              25.192117836651388,
+              60.20867023479272
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.8089,
+        "length_m": 13.75,
+        "width_m": 3.02,
+        "heading_deg": 72.8,
+        "aoi": "vuosaari-channel-road",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "candidate",
+        "class": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25.192171768478,
+              60.20903949400482
+            ],
+            [
+              25.192217331657037,
+              60.20904847407335
+            ],
+            [
+              25.19218038388956,
+              60.209094903615735
+            ],
+            [
+              25.192134820638998,
+              60.20908592353571
+            ],
+            [
+              25.192171768478,
+              60.20903949400482
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.8028,
+        "length_m": 5.56,
+        "width_m": 2.72,
+        "heading_deg": 158.2,
+        "aoi": "vuosaari-channel-road",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "candidate",
+        "class": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25.19244725422149,
+              60.20845695542981
+            ],
+            [
+              25.192494650460866,
+              60.20846866031804
+            ],
+            [
+              25.19239727654485,
+              60.208566318066055
+            ],
+            [
+              25.192349880199558,
+              60.208554613211724
+            ],
+            [
+              25.19244725422149,
+              60.20845695542981
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.8017,
+        "length_m": 12.15,
+        "width_m": 2.93,
+        "heading_deg": 153.4,
+        "aoi": "vuosaari-channel-road",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "candidate",
+        "class": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25.191612403874462,
+              60.20908955939351
+            ],
+            [
+              25.19166957725641,
+              60.20910123689535
+            ],
+            [
+              25.19153744004706,
+              60.209261464047785
+            ],
+            [
+              25.191480266570636,
+              60.209249786489195
+            ],
+            [
+              25.191612403874462,
+              60.20908955939351
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.7803,
+        "length_m": 19.3,
+        "width_m": 3.43,
+        "heading_deg": 157.5,
+        "aoi": "vuosaari-channel-road",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "candidate",
+        "class": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25.19210994492414,
+              60.20903723574686
+            ],
+            [
+              25.19215785554554,
+              60.20904688769612
+            ],
+            [
+              25.192117593156695,
+              60.20909638565401
+            ],
+            [
+              25.192069682492082,
+              60.209086733689205
+            ],
+            [
+              25.19210994492414,
+              60.20903723574686
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.7701,
+        "length_m": 5.95,
+        "width_m": 2.87,
+        "heading_deg": 157.8,
+        "aoi": "vuosaari-channel-road",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "candidate",
+        "class": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25.190116908359105,
+              60.209739341954624
+            ],
+            [
+              25.19015937272334,
+              60.20975849873445
+            ],
+            [
+              25.18993659280657,
+              60.20988079981796
+            ],
+            [
+              25.189894128413894,
+              60.20986164296718
+            ],
+            [
+              25.190116908359105,
+              60.209739341954624
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.7528,
+        "length_m": 18.39,
+        "width_m": 3.18,
+        "heading_deg": 137.6,
+        "aoi": "vuosaari-channel-road",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "candidate",
+        "class": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25.191749192116067,
+              60.20900856686913
+            ],
+            [
+              25.191798986406596,
+              60.209018931372796
+            ],
+            [
+              25.191736957540133,
+              60.2090927381352
+            ],
+            [
+              25.191687163157198,
+              60.20908237360414
+            ],
+            [
+              25.191749192116067,
+              60.20900856686913
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.7399,
+        "length_m": 8.91,
+        "width_m": 2.99,
+        "heading_deg": 157.1,
+        "aoi": "vuosaari-channel-road",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "candidate",
+        "class": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25.191619290920507,
+              60.209161288736794
+            ],
+            [
+              25.191672279614664,
+              60.20917203524335
+            ],
+            [
+              25.191563218175478,
+              60.209305219784504
+            ],
+            [
+              25.191510229302025,
+              60.20929447323467
+            ],
+            [
+              25.191619290920507,
+              60.209161288736794
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.7362,
+        "length_m": 16.02,
+        "width_m": 3.17,
+        "heading_deg": 157.7,
+        "aoi": "vuosaari-channel-road",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "candidate",
+        "class": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25.192472440209468,
+              60.208521998361164
+            ],
+            [
+              25.19252023250641,
+              60.208532827050824
+            ],
+            [
+              25.19247467163299,
+              60.20858263037095
+            ],
+            [
+              25.192426879312553,
+              60.20857180159648
+            ],
+            [
+              25.192472440209468,
+              60.208521998361164
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.7326,
+        "length_m": 6.1,
+        "width_m": 2.91,
+        "heading_deg": 155.4,
+        "aoi": "vuosaari-channel-road",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "candidate",
+        "class": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25.192382483192787,
+              60.20852171401357
+            ],
+            [
+              25.192432596291802,
+              60.2085355301001
+            ],
+            [
+              25.19239393383333,
+              60.208570263043654
+            ],
+            [
+              25.19234382069754,
+              60.20855644694262
+            ],
+            [
+              25.192382483192787,
+              60.20852171401357
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.5998,
+        "length_m": 4.42,
+        "width_m": 3.18,
+        "heading_deg": 150.8,
+        "aoi": "vuosaari-channel-road",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "candidate",
+        "class": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25.191898917139326,
+              60.20934735048501
+            ],
+            [
+              25.19190028428855,
+              60.20939479864741
+            ],
+            [
+              25.191863182395668,
+              60.20939506342583
+            ],
+            [
+              25.19186181530163,
+              60.20934761526302
+            ],
+            [
+              25.191898917139326,
+              60.20934735048501
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.5307,
+        "length_m": 5.29,
+        "width_m": 2.06,
+        "heading_deg": 0.7,
+        "aoi": "vuosaari-channel-road",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "candidate",
+        "class": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25.19149837302861,
+              60.209307396747356
+            ],
+            [
+              25.19154939539169,
+              60.20931815915199
+            ],
+            [
+              25.191427635166995,
+              60.209461120904244
+            ],
+            [
+              25.191376612690416,
+              60.209450358453026
+            ],
+            [
+              25.19149837302861,
+              60.209307396747356
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.4381,
+        "length_m": 17.3,
+        "width_m": 3.07,
+        "heading_deg": 156.9,
+        "aoi": "vuosaari-channel-road",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "candidate",
+        "class": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25.191599003348372,
+              60.20962634236572
+            ],
+            [
+              25.191652732857147,
+              60.20964559140505
+            ],
+            [
+              25.19157952455837,
+              60.20969619952007
+            ],
+            [
+              25.191525795009596,
+              60.20967695044911
+            ],
+            [
+              25.191599003348372,
+              60.20962634236572
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.3538,
+        "length_m": 6.95,
+        "width_m": 3.67,
+        "heading_deg": 144.1,
+        "aoi": "vuosaari-channel-road",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "candidate",
+        "class": ""
+      }
+    }
+  ]
+}

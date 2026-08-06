@@ -1,0 +1,1194 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25.059479015663182,
+              60.24769588054094
+            ],
+            [
+              25.05950410960489,
+              60.247720850400945
+            ],
+            [
+              25.059326113797535,
+              60.247765048491246
+            ],
+            [
+              25.059301019957406,
+              60.2477400785635
+            ],
+            [
+              25.059479015663182,
+              60.24769588054094
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.8442,
+        "length_m": 11.02,
+        "width_m": 3.11,
+        "heading_deg": 116.5,
+        "aoi": "tattariharju",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "candidate",
+        "class": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25.05959782273746,
+              60.247822879825996
+            ],
+            [
+              25.059621132650395,
+              60.247847796676105
+            ],
+            [
+              25.059425045811217,
+              60.247893121239876
+            ],
+            [
+              25.059401736014976,
+              60.24786820435552
+            ],
+            [
+              25.05959782273746,
+              60.247822879825996
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.8431,
+        "length_m": 11.98,
+        "width_m": 3.06,
+        "heading_deg": 114.9,
+        "aoi": "tattariharju",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "candidate",
+        "class": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25.059409484836845,
+              60.24833294122072
+            ],
+            [
+              25.059527559326693,
+              60.24840775997899
+            ],
+            [
+              25.059482478476422,
+              60.24842533779687
+            ],
+            [
+              25.059364404026073,
+              60.248350518998684
+            ],
+            [
+              25.059409484836845,
+              60.24833294122072
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.8345,
+        "length_m": 10.59,
+        "width_m": 3.17,
+        "heading_deg": 38.1,
+        "aoi": "tattariharju",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "candidate",
+        "class": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25.05885665355666,
+              60.24808994908916
+            ],
+            [
+              25.0588928353254,
+              60.24811128027791
+            ],
+            [
+              25.058755185453858,
+              60.24816896788373
+            ],
+            [
+              25.058719003710955,
+              60.24814763665768
+            ],
+            [
+              25.05885665355666,
+              60.24808994908916
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.823,
+        "length_m": 9.97,
+        "width_m": 3.11,
+        "heading_deg": 130.1,
+        "aoi": "tattariharju",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "candidate",
+        "class": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25.058383992664602,
+              60.24772532086348
+            ],
+            [
+              25.05842009520217,
+              60.24774692345177
+            ],
+            [
+              25.05819716015851,
+              60.247838979302614
+            ],
+            [
+              25.058161057666375,
+              60.247817376654005
+            ],
+            [
+              25.058383992664602,
+              60.24772532086348
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.8208,
+        "length_m": 16.05,
+        "width_m": 3.13,
+        "heading_deg": 129.7,
+        "aoi": "tattariharju",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "candidate",
+        "class": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25.05893518336502,
+              60.24812662895259
+            ],
+            [
+              25.058970814817535,
+              60.24814762327224
+            ],
+            [
+              25.058824606014777,
+              60.24820893388951
+            ],
+            [
+              25.05878897458919,
+              60.2481879395308
+            ],
+            [
+              25.05893518336502,
+              60.24812662895259
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.8138,
+        "length_m": 10.59,
+        "width_m": 3.06,
+        "heading_deg": 130.1,
+        "aoi": "tattariharju",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "candidate",
+        "class": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25.05965213595935,
+              60.247876378207735
+            ],
+            [
+              25.059675083128415,
+              60.24790135232045
+            ],
+            [
+              25.059508620983003,
+              60.24793914354534
+            ],
+            [
+              25.05948567393142,
+              60.24791416940399
+            ],
+            [
+              25.05965213595935,
+              60.247876378207735
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.8022,
+        "length_m": 10.14,
+        "width_m": 3.06,
+        "heading_deg": 114.5,
+        "aoi": "tattariharju",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "candidate",
+        "class": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25.059500285128767,
+              60.24828709774696
+            ],
+            [
+              25.059657581742815,
+              60.24838677695463
+            ],
+            [
+              25.059611145754857,
+              60.24840488187146
+            ],
+            [
+              25.059453849195034,
+              60.24830520260904
+            ],
+            [
+              25.059500285128767,
+              60.24828709774696
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.7944,
+        "length_m": 14.11,
+        "width_m": 3.27,
+        "heading_deg": 38.1,
+        "aoi": "tattariharju",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "candidate",
+        "class": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25.059502762216628,
+              60.247724588273904
+            ],
+            [
+              25.059527486515822,
+              60.247748377728215
+            ],
+            [
+              25.059351138226205,
+              60.24779366265485
+            ],
+            [
+              25.059326414020724,
+              60.24776987316784
+            ],
+            [
+              25.059502762216628,
+              60.247724588273904
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.7878,
+        "length_m": 10.99,
+        "width_m": 2.98,
+        "heading_deg": 117.3,
+        "aoi": "tattariharju",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "candidate",
+        "class": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25.058781324442393,
+              60.24805119710529
+            ],
+            [
+              25.058815753075965,
+              60.248071811732885
+            ],
+            [
+              25.058685321302963,
+              60.248125633770734
+            ],
+            [
+              25.058650892694832,
+              60.24810501910949
+            ],
+            [
+              25.058781324442393,
+              60.24805119710529
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.7743,
+        "length_m": 9.39,
+        "width_m": 2.99,
+        "heading_deg": 129.6,
+        "aoi": "tattariharju",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "candidate",
+        "class": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25.058877757501804,
+              60.247313062218254
+            ],
+            [
+              25.05890728319919,
+              60.24733114636551
+            ],
+            [
+              25.058819905369536,
+              60.247366396170435
+            ],
+            [
+              25.058790379688563,
+              60.24734831200386
+            ],
+            [
+              25.058877757501804,
+              60.247313062218254
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.7501,
+        "length_m": 6.23,
+        "width_m": 2.59,
+        "heading_deg": 129.0,
+        "aoi": "tattariharju",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "candidate",
+        "class": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25.059516349147692,
+              60.24775674139208
+            ],
+            [
+              25.059542422617675,
+              60.2477823112406
+            ],
+            [
+              25.059366594490246,
+              60.24782661078467
+            ],
+            [
+              25.059340521122067,
+              60.24780104090179
+            ],
+            [
+              25.059516349147692,
+              60.24775674139208
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.7173,
+        "length_m": 10.92,
+        "width_m": 3.19,
+        "heading_deg": 116.8,
+        "aoi": "tattariharju",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "candidate",
+        "class": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25.058569094894953,
+              60.24792671406865
+            ],
+            [
+              25.058608095307147,
+              60.24794883561028
+            ],
+            [
+              25.0584432034361,
+              60.24802066302068
+            ],
+            [
+              25.058404202980768,
+              60.24799854143087
+            ],
+            [
+              25.058569094894953,
+              60.24792671406865
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.6672,
+        "length_m": 12.14,
+        "width_m": 3.28,
+        "heading_deg": 131.2,
+        "aoi": "tattariharju",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "candidate",
+        "class": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25.05962353644897,
+              60.247851322711654
+            ],
+            [
+              25.059645029789905,
+              60.247874053922786
+            ],
+            [
+              25.05946442687814,
+              60.247916247284806
+            ],
+            [
+              25.05944293361745,
+              60.247893516044584
+            ],
+            [
+              25.05962353644897,
+              60.247851322711654
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.6362,
+        "length_m": 11.05,
+        "width_m": 2.8,
+        "heading_deg": 115.1,
+        "aoi": "tattariharju",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "candidate",
+        "class": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25.056950249753537,
+              60.247270521984554
+            ],
+            [
+              25.05709257287412,
+              60.24733808045521
+            ],
+            [
+              25.05705427676583,
+              60.2473580149143
+            ],
+            [
+              25.056911953637584,
+              60.247290456402766
+            ],
+            [
+              25.056950249753537,
+              60.247270521984554
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.6347,
+        "length_m": 10.9,
+        "width_m": 3.07,
+        "heading_deg": 46.3,
+        "aoi": "tattariharju",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "candidate",
+        "class": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25.058325066868875,
+              60.24770491690644
+            ],
+            [
+              25.058358713221665,
+              60.24772639048533
+            ],
+            [
+              25.058154784716926,
+              60.24780534063998
+            ],
+            [
+              25.058121138433815,
+              60.24778386700963
+            ],
+            [
+              25.058325066868875,
+              60.24770491690644
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.6296,
+        "length_m": 14.32,
+        "width_m": 3.03,
+        "heading_deg": 127.9,
+        "aoi": "tattariharju",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "candidate",
+        "class": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25.061023802528922,
+              60.246657643856786
+            ],
+            [
+              25.061053528320308,
+              60.246675301205485
+            ],
+            [
+              25.06096935524274,
+              60.24671031570541
+            ],
+            [
+              25.060939629464915,
+              60.24669265833794
+            ],
+            [
+              25.061023802528922,
+              60.246657643856786
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.6067,
+        "length_m": 6.08,
+        "width_m": 2.57,
+        "heading_deg": 129.9,
+        "aoi": "tattariharju",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "candidate",
+        "class": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25.05838771803844,
+              60.24728757278883
+            ],
+            [
+              25.058420523889044,
+              60.24730165668419
+            ],
+            [
+              25.058356863249653,
+              60.247338296670016
+            ],
+            [
+              25.058324057251966,
+              60.247324212759054
+            ],
+            [
+              25.05838771803844,
+              60.24728757278883
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.6016,
+        "length_m": 5.39,
+        "width_m": 2.4,
+        "heading_deg": 139.1,
+        "aoi": "tattariharju",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "candidate",
+        "class": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25.05941961704846,
+              60.24829183765218
+            ],
+            [
+              25.059553144579404,
+              60.24837378059987
+            ],
+            [
+              25.059514631651663,
+              60.248389286400794
+            ],
+            [
+              25.059381104153758,
+              60.24830734341455
+            ],
+            [
+              25.05941961704846,
+              60.24829183765218
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.5931,
+        "length_m": 11.75,
+        "width_m": 2.74,
+        "heading_deg": 39.0,
+        "aoi": "tattariharju",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "candidate",
+        "class": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25.057364548051964,
+              60.24673018210942
+            ],
+            [
+              25.057433014645323,
+              60.24677430251734
+            ],
+            [
+              25.05739888290885,
+              60.246787390240456
+            ],
+            [
+              25.05733041633406,
+              60.24674326981504
+            ],
+            [
+              25.057364548051964,
+              60.24673018210942
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.5459,
+        "length_m": 6.21,
+        "width_m": 2.39,
+        "heading_deg": 37.6,
+        "aoi": "tattariharju",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "candidate",
+        "class": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25.059004350784537,
+              60.24824383612829
+            ],
+            [
+              25.05903160693693,
+              60.24826068765033
+            ],
+            [
+              25.05895556610113,
+              60.248291075631904
+            ],
+            [
+              25.058928309962532,
+              60.248274224094835
+            ],
+            [
+              25.059004350784537,
+              60.24824383612829
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.52,
+        "length_m": 5.4,
+        "width_m": 2.41,
+        "heading_deg": 128.7,
+        "aoi": "tattariharju",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "candidate",
+        "class": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25.058239033992002,
+              60.24769509209
+            ],
+            [
+              25.058273447384533,
+              60.24771745571804
+            ],
+            [
+              25.058066831700508,
+              60.24779601372577
+            ],
+            [
+              25.058032418366416,
+              60.247773650078635
+            ],
+            [
+              25.058239033992002,
+              60.24769509209
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.5178,
+        "length_m": 14.41,
+        "width_m": 3.14,
+        "heading_deg": 127.4,
+        "aoi": "tattariharju",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "candidate",
+        "class": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25.057354782911947,
+              60.24713210818391
+            ],
+            [
+              25.057415850969132,
+              60.24717139818386
+            ],
+            [
+              25.057383017295773,
+              60.247184007991805
+            ],
+            [
+              25.05732194925442,
+              60.24714471797686
+            ],
+            [
+              25.057354782911947,
+              60.24713210818391
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.4888,
+        "length_m": 5.53,
+        "width_m": 2.3,
+        "heading_deg": 37.6,
+        "aoi": "tattariharju",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "candidate",
+        "class": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25.058428431101987,
+              60.24730946736887
+            ],
+            [
+              25.058457276910943,
+              60.24732385289009
+            ],
+            [
+              25.058388168316647,
+              60.24735809365184
+            ],
+            [
+              25.05835932247343,
+              60.247343708115686
+            ],
+            [
+              25.058428431101987,
+              60.24730946736887
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.474,
+        "length_m": 5.4,
+        "width_m": 2.26,
+        "heading_deg": 134.9,
+        "aoi": "tattariharju",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "candidate",
+        "class": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25.058402204827786,
+              60.24785522704207
+            ],
+            [
+              25.0584391555681,
+              60.24787594090777
+            ],
+            [
+              25.05833904481719,
+              60.2479200653639
+            ],
+            [
+              25.058302094228118,
+              60.24789935147042
+            ],
+            [
+              25.058402204827786,
+              60.24785522704207
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.4484,
+        "length_m": 7.41,
+        "width_m": 3.08,
+        "heading_deg": 131.5,
+        "aoi": "tattariharju",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "candidate",
+        "class": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25.06094130015774,
+              60.24660419409694
+            ],
+            [
+              25.06102244453713,
+              60.24663386585178
+            ],
+            [
+              25.06099634123786,
+              60.246651505311306
+            ],
+            [
+              25.06091519683843,
+              60.24662183354059
+            ],
+            [
+              25.06094130015774,
+              60.24660419409694
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.4464,
+        "length_m": 5.58,
+        "width_m": 2.44,
+        "heading_deg": 53.6,
+        "aoi": "tattariharju",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "candidate",
+        "class": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25.06003888958265,
+              60.24858212467241
+            ],
+            [
+              25.060048553601508,
+              60.248603793720925
+            ],
+            [
+              25.059958964349082,
+              60.24861366549784
+            ],
+            [
+              25.059949300386553,
+              60.2485919964771
+            ],
+            [
+              25.06003888958265,
+              60.24858212467241
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.3984,
+        "length_m": 5.08,
+        "width_m": 2.47,
+        "heading_deg": 102.4,
+        "aoi": "tattariharju",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "candidate",
+        "class": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25.059686579562545,
+              60.24882293509443
+            ],
+            [
+              25.059734591060877,
+              60.24886386688425
+            ],
+            [
+              25.059694790127658,
+              60.24887540120749
+            ],
+            [
+              25.05964677866209,
+              60.24883446940335
+            ],
+            [
+              25.059686579562545,
+              60.24882293509443
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.3413,
+        "length_m": 5.28,
+        "width_m": 2.55,
+        "heading_deg": 30.2,
+        "aoi": "tattariharju",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "candidate",
+        "class": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25.057920145100628,
+              60.24694677284493
+            ],
+            [
+              25.05798615065557,
+              60.246993858382474
+            ],
+            [
+              25.057950342867883,
+              60.24700626153041
+            ],
+            [
+              25.05788433733936,
+              60.24695917597516
+            ],
+            [
+              25.057920145100628,
+              60.24694677284493
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.281,
+        "length_m": 6.39,
+        "width_m": 2.42,
+        "heading_deg": 34.8,
+        "aoi": "tattariharju",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "candidate",
+        "class": ""
+      }
+    }
+  ]
+}

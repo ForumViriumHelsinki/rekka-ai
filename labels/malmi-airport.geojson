@@ -1,0 +1,1235 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25.055566221239378,
+              60.24847034974176
+            ],
+            [
+              25.05571485202868,
+              60.248512566470644
+            ],
+            [
+              25.055683740602028,
+              60.24853962905398
+            ],
+            [
+              25.055535109730105,
+              60.24849741229046
+            ],
+            [
+              25.055566221239378,
+              60.24847034974176
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.8447,
+        "length_m": 9.48,
+        "width_m": 3.47,
+        "heading_deg": 60.2,
+        "aoi": "malmi-airport",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "candidate",
+        "class": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25.054871965832234,
+              60.248202387111704
+            ],
+            [
+              25.054877862944505,
+              60.24822535535578
+            ],
+            [
+              25.05475138420104,
+              60.24823337870137
+            ],
+            [
+              25.05474548717587,
+              60.24821041045171
+            ],
+            [
+              25.054871965832234,
+              60.248202387111704
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.8444,
+        "length_m": 7.06,
+        "width_m": 2.58,
+        "heading_deg": 97.2,
+        "aoi": "malmi-airport",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "candidate",
+        "class": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25.05485059980637,
+              60.248178356067896
+            ],
+            [
+              25.05485903118404,
+              60.24820110005538
+            ],
+            [
+              25.054728782335555,
+              60.24821302988737
+            ],
+            [
+              25.054720351045116,
+              60.24819028589165
+            ],
+            [
+              25.05485059980637,
+              60.248178356067896
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.843,
+        "length_m": 7.33,
+        "width_m": 2.58,
+        "heading_deg": 100.4,
+        "aoi": "malmi-airport",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "candidate",
+        "class": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25.054557604938637,
+              60.24841964282983
+            ],
+            [
+              25.05456684879931,
+              60.24844878565119
+            ],
+            [
+              25.05442689518284,
+              60.24845975370919
+            ],
+            [
+              25.054417651426178,
+              60.2484306108781
+            ],
+            [
+              25.054557604938637,
+              60.24841964282983
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.8414,
+        "length_m": 7.85,
+        "width_m": 3.29,
+        "heading_deg": 98.9,
+        "aoi": "malmi-airport",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "candidate",
+        "class": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25.05510852543955,
+              60.24862136547294
+            ],
+            [
+              25.055117233931004,
+              60.24865070192316
+            ],
+            [
+              25.054938884793017,
+              60.24866378230989
+            ],
+            [
+              25.05493017645758,
+              60.24863444584802
+            ],
+            [
+              25.05510852543955,
+              60.24862136547294
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.8373,
+        "length_m": 9.98,
+        "width_m": 3.3,
+        "heading_deg": 98.3,
+        "aoi": "malmi-airport",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "candidate",
+        "class": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25.055300892305244,
+              60.24860469448836
+            ],
+            [
+              25.055311732982133,
+              60.24863174600891
+            ],
+            [
+              25.055140389376035,
+              60.24864871087667
+            ],
+            [
+              25.055129548834824,
+              60.24862165934218
+            ],
+            [
+              25.055300892305244,
+              60.24860469448836
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.8128,
+        "length_m": 9.68,
+        "width_m": 3.07,
+        "heading_deg": 101.2,
+        "aoi": "malmi-airport",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "candidate",
+        "class": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25.054503605261658,
+              60.24878763108939
+            ],
+            [
+              25.05451641886758,
+              60.24884812890029
+            ],
+            [
+              25.05446439729676,
+              60.248850851163375
+            ],
+            [
+              25.054451583785713,
+              60.24879035334745
+            ],
+            [
+              25.054503605261658,
+              60.24878763108939
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.8025,
+        "length_m": 6.78,
+        "width_m": 2.9,
+        "heading_deg": 6.0,
+        "aoi": "malmi-airport",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "candidate",
+        "class": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25.054568306662492,
+              60.24836158071558
+            ],
+            [
+              25.054576325798614,
+              60.24839096131048
+            ],
+            [
+              25.054426953290143,
+              60.24840103428245
+            ],
+            [
+              25.054418934285337,
+              60.24837165367854
+            ],
+            [
+              25.054568306662492,
+              60.24836158071558
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.7986,
+        "length_m": 8.35,
+        "width_m": 3.3,
+        "heading_deg": 97.7,
+        "aoi": "malmi-airport",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "candidate",
+        "class": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25.055662045459016,
+              60.24845701176794
+            ],
+            [
+              25.055797401827263,
+              60.248499705771074
+            ],
+            [
+              25.055766067709524,
+              60.24852425031775
+            ],
+            [
+              25.055630711280745,
+              60.24848155628281
+            ],
+            [
+              25.055662045459016,
+              60.24845701176794
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.7916,
+        "length_m": 8.88,
+        "width_m": 3.24,
+        "heading_deg": 57.6,
+        "aoi": "malmi-airport",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "candidate",
+        "class": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25.05467280076871,
+              60.24872868896046
+            ],
+            [
+              25.054676840290867,
+              60.248754994064356
+            ],
+            [
+              25.05449790149162,
+              60.24876178321251
+            ],
+            [
+              25.054493862112114,
+              60.2487354781032
+            ],
+            [
+              25.05467280076871,
+              60.24872868896046
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.788,
+        "length_m": 9.94,
+        "width_m": 2.94,
+        "heading_deg": 94.3,
+        "aoi": "malmi-airport",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "candidate",
+        "class": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25.05520481966893,
+              60.24850931961371
+            ],
+            [
+              25.05534633154039,
+              60.24854971481963
+            ],
+            [
+              25.05531594546069,
+              60.24857601500926
+            ],
+            [
+              25.055174433513155,
+              60.248535619771104
+            ],
+            [
+              25.05520481966893,
+              60.24850931961371
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.781,
+        "length_m": 9.04,
+        "width_m": 3.38,
+        "heading_deg": 60.1,
+        "aoi": "malmi-airport",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "candidate",
+        "class": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25.05587027245663,
+              60.24863416581178
+            ],
+            [
+              25.05587587685537,
+              60.2486626008632
+            ],
+            [
+              25.055721503959127,
+              60.24867011815984
+            ],
+            [
+              25.055715899692906,
+              60.2486416831019
+            ],
+            [
+              25.05587027245663,
+              60.24863416581178
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.7714,
+        "length_m": 8.59,
+        "width_m": 3.18,
+        "heading_deg": 95.5,
+        "aoi": "malmi-airport",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "candidate",
+        "class": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25.055843710496493,
+              60.24856973203639
+            ],
+            [
+              25.055851693982955,
+              60.248596204720094
+            ],
+            [
+              25.05565528382012,
+              60.24861083904028
+            ],
+            [
+              25.055647300492893,
+              60.24858436634484
+            ],
+            [
+              25.055843710496493,
+              60.24856973203639
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.7627,
+        "length_m": 11.0,
+        "width_m": 2.98,
+        "heading_deg": 98.5,
+        "aoi": "malmi-airport",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "candidate",
+        "class": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25.054567590932933,
+              60.24804752566148
+            ],
+            [
+              25.054603673002337,
+              60.248112420915696
+            ],
+            [
+              25.05455090121213,
+              60.248119670494205
+            ],
+            [
+              25.05451481923913,
+              60.24805477522568
+            ],
+            [
+              25.054567590932933,
+              60.24804752566148
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.7356,
+        "length_m": 7.5,
+        "width_m": 3.03,
+        "heading_deg": 15.4,
+        "aoi": "malmi-airport",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "candidate",
+        "class": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25.05503149135509,
+              60.248527391607624
+            ],
+            [
+              25.05518149755724,
+              60.24857133485742
+            ],
+            [
+              25.055151917166945,
+              60.24859628329357
+            ],
+            [
+              25.0550019108903,
+              60.24855234001055
+            ],
+            [
+              25.05503149135509,
+              60.248527391607624
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.7259,
+        "length_m": 9.64,
+        "width_m": 3.23,
+        "heading_deg": 59.4,
+        "aoi": "malmi-airport",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "candidate",
+        "class": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25.05611717322039,
+              60.24932605024415
+            ],
+            [
+              25.056121700544736,
+              60.24934815770096
+            ],
+            [
+              25.05598639229304,
+              60.24935500357127
+            ],
+            [
+              25.055981865058932,
+              60.24933289610984
+            ],
+            [
+              25.05611717322039,
+              60.24932605024415
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.7179,
+        "length_m": 7.53,
+        "width_m": 2.48,
+        "heading_deg": 95.8,
+        "aoi": "malmi-airport",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "candidate",
+        "class": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25.05463389780973,
+              60.248817808018465
+            ],
+            [
+              25.054646785170917,
+              60.2488665254222
+            ],
+            [
+              25.054596668669983,
+              60.248869800858195
+            ],
+            [
+              25.054583781381936,
+              60.24882108344963
+            ],
+            [
+              25.05463389780973,
+              60.248817808018465
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.7024,
+        "length_m": 5.47,
+        "width_m": 2.8,
+        "heading_deg": 7.4,
+        "aoi": "malmi-airport",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "candidate",
+        "class": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25.054568967160744,
+              60.24881877743496
+            ],
+            [
+              25.054580141686728,
+              60.24887176244778
+            ],
+            [
+              25.05453039434374,
+              60.248874354586896
+            ],
+            [
+              25.054519219897223,
+              60.24882136956992
+            ],
+            [
+              25.054568967160744,
+              60.24881877743496
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.6999,
+        "length_m": 5.94,
+        "width_m": 2.77,
+        "heading_deg": 5.9,
+        "aoi": "malmi-airport",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "candidate",
+        "class": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25.05477819602104,
+              60.249243010617484
+            ],
+            [
+              25.0548005047719,
+              60.249297951629146
+            ],
+            [
+              25.054755025854828,
+              60.24930251393526
+            ],
+            [
+              25.05473271717703,
+              60.249247572915955
+            ],
+            [
+              25.05477819602104,
+              60.249243010617484
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.6834,
+        "length_m": 6.24,
+        "width_m": 2.57,
+        "heading_deg": 11.4,
+        "aoi": "malmi-airport",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "candidate",
+        "class": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25.0569490117646,
+              60.247270857638945
+            ],
+            [
+              25.057094687337123,
+              60.247339363614884
+            ],
+            [
+              25.05705751228697,
+              60.24735889645817
+            ],
+            [
+              25.056911836705293,
+              60.24729039044168
+            ],
+            [
+              25.0569490117646,
+              60.247270857638945
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.6767,
+        "length_m": 11.11,
+        "width_m": 3.0,
+        "heading_deg": 46.5,
+        "aoi": "malmi-airport",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "candidate",
+        "class": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25.05344348038006,
+              60.2482906528828
+            ],
+            [
+              25.053449449118748,
+              60.24831235940369
+            ],
+            [
+              25.053352980652562,
+              60.24831891331924
+            ],
+            [
+              25.053347011976516,
+              60.24829720679401
+            ],
+            [
+              25.05344348038006,
+              60.2482906528828
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.6726,
+        "length_m": 5.39,
+        "width_m": 2.44,
+        "heading_deg": 97.7,
+        "aoi": "malmi-airport",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "candidate",
+        "class": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25.054086493609418,
+              60.24841274872502
+            ],
+            [
+              25.054097604780598,
+              60.24846563160628
+            ],
+            [
+              25.05405077361756,
+              60.2484680626909
+            ],
+            [
+              25.054039662521053,
+              60.248415179805725
+            ],
+            [
+              25.054086493609418,
+              60.24841274872502
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.6698,
+        "length_m": 5.92,
+        "width_m": 2.61,
+        "heading_deg": 5.9,
+        "aoi": "malmi-airport",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "candidate",
+        "class": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25.052508759418526,
+              60.24805527036145
+            ],
+            [
+              25.05251601857586,
+              60.24807531504104
+            ],
+            [
+              25.052421058756245,
+              60.24808381186396
+            ],
+            [
+              25.052413799663658,
+              60.24806376717918
+            ],
+            [
+              25.052508759418526,
+              60.24805527036145
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.6569,
+        "length_m": 5.34,
+        "width_m": 2.27,
+        "heading_deg": 100.2,
+        "aoi": "malmi-airport",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "candidate",
+        "class": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25.055594226233783,
+              60.24874815062801
+            ],
+            [
+              25.055610660916226,
+              60.248821023371555
+            ],
+            [
+              25.05555667931446,
+              60.24882403123167
+            ],
+            [
+              25.055540244750425,
+              60.24875115848145
+            ],
+            [
+              25.055594226233783,
+              60.24874815062801
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.6275,
+        "length_m": 8.17,
+        "width_m": 3.01,
+        "heading_deg": 6.3,
+        "aoi": "malmi-airport",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "candidate",
+        "class": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25.057354799835522,
+              60.24713091459914
+            ],
+            [
+              25.057417078248037,
+              60.24717100867306
+            ],
+            [
+              25.05738360937987,
+              60.24718385438307
+            ],
+            [
+              25.057321330983854,
+              60.24714376029355
+            ],
+            [
+              25.057354799835522,
+              60.24713091459914
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.4762,
+        "length_m": 5.64,
+        "width_m": 2.34,
+        "heading_deg": 37.6,
+        "aoi": "malmi-airport",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "candidate",
+        "class": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25.054862396479887,
+              60.24853890970519
+            ],
+            [
+              25.054995159593656,
+              60.248588340931654
+            ],
+            [
+              25.05496091316448,
+              60.248611066323974
+            ],
+            [
+              25.054828150010305,
+              60.24856163506345
+            ],
+            [
+              25.054862396479887,
+              60.24853890970519
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.4758,
+        "length_m": 9.19,
+        "width_m": 3.16,
+        "heading_deg": 53.1,
+        "aoi": "malmi-airport",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "candidate",
+        "class": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25.05389485290572,
+              60.248199623383805
+            ],
+            [
+              25.053899144460434,
+              60.248222281017576
+            ],
+            [
+              25.053798792303496,
+              60.24822697728971
+            ],
+            [
+              25.053794500817478,
+              60.24820431965271
+            ],
+            [
+              25.05389485290572,
+              60.248199623383805
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.4675,
+        "length_m": 5.58,
+        "width_m": 2.54,
+        "heading_deg": 95.3,
+        "aoi": "malmi-airport",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "candidate",
+        "class": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25.05329372004873,
+              60.24838815186027
+            ],
+            [
+              25.05329843660538,
+              60.24840859550141
+            ],
+            [
+              25.053200991266376,
+              60.24841415008057
+            ],
+            [
+              25.053196274769654,
+              60.248393706436005
+            ],
+            [
+              25.05329372004873,
+              60.24838815186027
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.4628,
+        "length_m": 5.43,
+        "width_m": 2.29,
+        "heading_deg": 96.5,
+        "aoi": "malmi-airport",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "candidate",
+        "class": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25.05411012968821,
+              60.249251443452685
+            ],
+            [
+              25.05415185130689,
+              60.249253110413214
+            ],
+            [
+              25.054143559810477,
+              60.249304379744565
+            ],
+            [
+              25.054101838126897,
+              60.24930271271299
+            ],
+            [
+              25.05411012968821,
+              60.249251443452685
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.4293,
+        "length_m": 5.73,
+        "width_m": 2.32,
+        "heading_deg": 175.4,
+        "aoi": "malmi-airport",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "candidate",
+        "class": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25.05307327185072,
+              60.24829090184144
+            ],
+            [
+              25.0531526037782,
+              60.24830237358624
+            ],
+            [
+              25.053141452708367,
+              60.24832142652997
+            ],
+            [
+              25.053062120738698,
+              60.24830995477857
+            ],
+            [
+              25.05307327185072,
+              60.24829090184144
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.3479,
+        "length_m": 4.58,
+        "width_m": 2.21,
+        "heading_deg": 73.7,
+        "aoi": "malmi-airport",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "candidate",
+        "class": ""
+      }
+    }
+  ]
+}

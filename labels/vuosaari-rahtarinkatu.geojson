@@ -1,0 +1,3326 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25.172512857248112,
+              60.2235614666719
+            ],
+            [
+              25.172577508560035,
+              60.223570292051356
+            ],
+            [
+              25.17249064963571,
+              60.223727742114406
+            ],
+            [
+              25.17242599803698,
+              60.223718916692945
+            ],
+            [
+              25.172512857248112,
+              60.2235614666719
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.866,
+        "length_m": 18.19,
+        "width_m": 3.72,
+        "heading_deg": 164.5,
+        "aoi": "vuosaari-rahtarinkatu",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "candidate",
+        "class": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25.169542418081775,
+              60.224451323643564
+            ],
+            [
+              25.16958564858475,
+              60.22460168428497
+            ],
+            [
+              25.169526055125598,
+              60.22460592374521
+            ],
+            [
+              25.16948282488987,
+              60.22445556308435
+            ],
+            [
+              25.169542418081775,
+              60.224451323643564
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.8639,
+        "length_m": 16.92,
+        "width_m": 3.34,
+        "heading_deg": 8.0,
+        "aoi": "vuosaari-rahtarinkatu",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "candidate",
+        "class": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25.17282736034026,
+              60.225309701263676
+            ],
+            [
+              25.17288846744553,
+              60.22531997028377
+            ],
+            [
+              25.172787282670345,
+              60.22546894605762
+            ],
+            [
+              25.1727261753193,
+              60.22545867699128
+            ],
+            [
+              25.17282736034026,
+              60.225309701263676
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.8589,
+        "length_m": 17.52,
+        "width_m": 3.57,
+        "heading_deg": 161.2,
+        "aoi": "vuosaari-rahtarinkatu",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "candidate",
+        "class": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25.17301034375158,
+              60.22407154283437
+            ],
+            [
+              25.17307038955093,
+              60.22407984513239
+            ],
+            [
+              25.172988525831286,
+              60.22422634709471
+            ],
+            [
+              25.172928479784606,
+              60.22421804475995
+            ],
+            [
+              25.17301034375158,
+              60.22407154283437
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.8566,
+        "length_m": 16.94,
+        "width_m": 3.45,
+        "heading_deg": 164.3,
+        "aoi": "vuosaari-rahtarinkatu",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "candidate",
+        "class": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25.1720453477774,
+              60.2236907979388
+            ],
+            [
+              25.172101802158405,
+              60.223698403033296
+            ],
+            [
+              25.17202029031418,
+              60.223848127422315
+            ],
+            [
+              25.17196383569452,
+              60.22384052229343
+            ],
+            [
+              25.1720453477774,
+              60.2236907979388
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.8559,
+        "length_m": 17.28,
+        "width_m": 3.24,
+        "heading_deg": 164.7,
+        "aoi": "vuosaari-rahtarinkatu",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "candidate",
+        "class": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25.169660134333032,
+              60.22338075900573
+            ],
+            [
+              25.169745314842796,
+              60.22345704411222
+            ],
+            [
+              25.169691027406643,
+              60.223472044078285
+            ],
+            [
+              25.16960584698397,
+              60.22339575893709
+            ],
+            [
+              25.169660134333032,
+              60.22338075900573
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.8524,
+        "length_m": 9.72,
+        "width_m": 3.44,
+        "heading_deg": 28.9,
+        "aoi": "vuosaari-rahtarinkatu",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "candidate",
+        "class": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25.172150789876245,
+              60.22431628461194
+            ],
+            [
+              25.172213116852717,
+              60.224325251849805
+            ],
+            [
+              25.17212640876667,
+              60.224474373725954
+            ],
+            [
+              25.17206408153068,
+              60.224465406447656
+            ],
+            [
+              25.172150789876245,
+              60.22431628461194
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.8524,
+        "length_m": 17.3,
+        "width_m": 3.6,
+        "heading_deg": 163.7,
+        "aoi": "vuosaari-rahtarinkatu",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "candidate",
+        "class": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25.17083270273571,
+              60.22539434938626
+            ],
+            [
+              25.170977235955228,
+              60.22553464971279
+            ],
+            [
+              25.17091993304611,
+              60.22554925538788
+            ],
+            [
+              25.170775399972523,
+              60.22540895499923
+            ],
+            [
+              25.17083270273571,
+              60.22539434938626
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.8519,
+        "length_m": 17.56,
+        "width_m": 3.57,
+        "heading_deg": 27.0,
+        "aoi": "vuosaari-rahtarinkatu",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "candidate",
+        "class": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25.172359441174635,
+              60.22425570431073
+            ],
+            [
+              25.172417456061233,
+              60.22426460200279
+            ],
+            [
+              25.17232680371645,
+              60.2244108562632
+            ],
+            [
+              25.172268788604836,
+              60.22440195860028
+            ],
+            [
+              25.172359441174635,
+              60.22425570431073
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.8518,
+        "length_m": 17.05,
+        "width_m": 3.36,
+        "heading_deg": 162.7,
+        "aoi": "vuosaari-rahtarinkatu",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "candidate",
+        "class": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25.17265878236989,
+              60.22418503139109
+            ],
+            [
+              25.17272005839672,
+              60.22419369572155
+            ],
+            [
+              25.17263677669127,
+              60.22433943401212
+            ],
+            [
+              25.17257550041431,
+              60.22433076964353
+            ],
+            [
+              25.17265878236989,
+              60.22418503139109
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.8468,
+        "length_m": 16.88,
+        "width_m": 3.53,
+        "heading_deg": 164.0,
+        "aoi": "vuosaari-rahtarinkatu",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "candidate",
+        "class": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25.169027756828065,
+              60.22423288342271
+            ],
+            [
+              25.169210254911864,
+              60.22427434167813
+            ],
+            [
+              25.169181832772768,
+              60.224305299686726
+            ],
+            [
+              25.16899933455266,
+              60.22426384139244
+            ],
+            [
+              25.169027756828065,
+              60.22423288342271
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.8455,
+        "length_m": 11.12,
+        "width_m": 3.79,
+        "heading_deg": 65.3,
+        "aoi": "vuosaari-rahtarinkatu",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "candidate",
+        "class": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25.174388150950968,
+              60.22490556114446
+            ],
+            [
+              25.174445316194497,
+              60.22491370089254
+            ],
+            [
+              25.17435691642318,
+              60.22506731126019
+            ],
+            [
+              25.174299750933997,
+              60.22505917147433
+            ],
+            [
+              25.174388150950968,
+              60.22490556114446
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.8432,
+        "length_m": 17.8,
+        "width_m": 3.3,
+        "heading_deg": 163.9,
+        "aoi": "vuosaari-rahtarinkatu",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "candidate",
+        "class": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25.17391899676959,
+              60.22503928898984
+            ],
+            [
+              25.173976432956305,
+              60.22504902162778
+            ],
+            [
+              25.173881837149377,
+              60.225187147480575
+            ],
+            [
+              25.17382440074894,
+              60.22517741480197
+            ],
+            [
+              25.17391899676959,
+              60.22503928898984
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.8379,
+        "length_m": 16.26,
+        "width_m": 3.36,
+        "heading_deg": 161.0,
+        "aoi": "vuosaari-rahtarinkatu",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "candidate",
+        "class": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25.1716541374645,
+              60.22379341145071
+            ],
+            [
+              25.1717160584397,
+              60.22379995345243
+            ],
+            [
+              25.17164960746586,
+              60.22395558931977
+            ],
+            [
+              25.171587686210476,
+              60.223949047321554
+            ],
+            [
+              25.1716541374645,
+              60.22379341145071
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.8347,
+        "length_m": 17.73,
+        "width_m": 3.51,
+        "heading_deg": 167.9,
+        "aoi": "vuosaari-rahtarinkatu",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "candidate",
+        "class": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25.17192785495111,
+              60.22375706650939
+            ],
+            [
+              25.17198601838181,
+              60.223763949200354
+            ],
+            [
+              25.1719407312513,
+              60.223858649405685
+            ],
+            [
+              25.17188256766228,
+              60.22385176669503
+            ],
+            [
+              25.17192785495111,
+              60.22375706650939
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.8344,
+        "length_m": 10.85,
+        "width_m": 3.31,
+        "heading_deg": 166.5,
+        "aoi": "vuosaari-rahtarinkatu",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "candidate",
+        "class": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25.171908025025196,
+              60.22520254619021
+            ],
+            [
+              25.17221631012727,
+              60.225254939716
+            ],
+            [
+              25.172194614612607,
+              60.22528652517006
+            ],
+            [
+              25.171886329248423,
+              60.22523413159424
+            ],
+            [
+              25.171908025025196,
+              60.22520254619021
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.8331,
+        "length_m": 18.05,
+        "width_m": 3.72,
+        "heading_deg": 71.0,
+        "aoi": "vuosaari-rahtarinkatu",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "candidate",
+        "class": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25.168510552601358,
+              60.22389887725239
+            ],
+            [
+              25.168711599628963,
+              60.22391406933477
+            ],
+            [
+              25.168702068504427,
+              60.223945280143546
+            ],
+            [
+              25.168501021290087,
+              60.223930088046885
+            ],
+            [
+              25.168510552601358,
+              60.22389887725239
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.8329,
+        "length_m": 11.27,
+        "width_m": 3.52,
+        "heading_deg": 81.2,
+        "aoi": "vuosaari-rahtarinkatu",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "candidate",
+        "class": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25.17007947885066,
+              60.22476997784026
+            ],
+            [
+              25.170208838583985,
+              60.22484099622876
+            ],
+            [
+              25.170163687884227,
+              60.22486134528018
+            ],
+            [
+              25.17003432816824,
+              60.22479032684786
+            ],
+            [
+              25.17007947885066,
+              60.22476997784026
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.8323,
+        "length_m": 10.68,
+        "width_m": 3.38,
+        "heading_deg": 42.0,
+        "aoi": "vuosaari-rahtarinkatu",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "candidate",
+        "class": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25.171764198683857,
+              60.22375010817175
+            ],
+            [
+              25.17182478192488,
+              60.22375679894232
+            ],
+            [
+              25.1717557261247,
+              60.22391152236049
+            ],
+            [
+              25.171695142612176,
+              60.22390483155867
+            ],
+            [
+              25.171764198683857,
+              60.22375010817175
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.8299,
+        "length_m": 17.66,
+        "width_m": 3.44,
+        "heading_deg": 167.3,
+        "aoi": "vuosaari-rahtarinkatu",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "candidate",
+        "class": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25.169764491879025,
+              60.22433923097253
+            ],
+            [
+              25.169825704065477,
+              60.22433977031107
+            ],
+            [
+              25.169820277600873,
+              60.224492179923146
+            ],
+            [
+              25.16975906513073,
+              60.224491640650726
+            ],
+            [
+              25.169764491879025,
+              60.22433923097253
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.8291,
+        "length_m": 16.98,
+        "width_m": 3.39,
+        "heading_deg": 178.8,
+        "aoi": "vuosaari-rahtarinkatu",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "candidate",
+        "class": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25.16945213835246,
+              60.22382528537722
+            ],
+            [
+              25.169504327240972,
+              60.22386859052963
+            ],
+            [
+              25.16946762576863,
+              60.22387953506863
+            ],
+            [
+              25.169415436945492,
+              60.2238362299018
+            ],
+            [
+              25.16945213835246,
+              60.22382528537722
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.8247,
+        "length_m": 5.63,
+        "width_m": 2.37,
+        "heading_deg": 30.8,
+        "aoi": "vuosaari-rahtarinkatu",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "candidate",
+        "class": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25.171598788601557,
+              60.223087913262916
+            ],
+            [
+              25.17162120628368,
+              60.22310733386383
+            ],
+            [
+              25.171531392742057,
+              60.223132988672305
+            ],
+            [
+              25.171508975095485,
+              60.22311356805629
+            ],
+            [
+              25.171598788601557,
+              60.223087913262916
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.8226,
+        "length_m": 5.74,
+        "width_m": 2.5,
+        "heading_deg": 119.7,
+        "aoi": "vuosaari-rahtarinkatu",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "candidate",
+        "class": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25.172198874506,
+              60.22403761414739
+            ],
+            [
+              25.17239200301751,
+              60.22406562512287
+            ],
+            [
+              25.17237538816852,
+              60.22409397101971
+            ],
+            [
+              25.172182259504375,
+              60.22406596002027
+            ],
+            [
+              25.172198874506,
+              60.22403761414739
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.8194,
+        "length_m": 11.15,
+        "width_m": 3.29,
+        "heading_deg": 73.6,
+        "aoi": "vuosaari-rahtarinkatu",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "candidate",
+        "class": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25.168547732410197,
+              60.224735216842106
+            ],
+            [
+              25.168597320710877,
+              60.22477855262828
+            ],
+            [
+              25.168559732848777,
+              60.224789194824645
+            ],
+            [
+              25.16851014458159,
+              60.2247458590245
+            ],
+            [
+              25.168547732410197,
+              60.224735216842106
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.8186,
+        "length_m": 5.56,
+        "width_m": 2.4,
+        "heading_deg": 29.5,
+        "aoi": "vuosaari-rahtarinkatu",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "candidate",
+        "class": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25.172828273240018,
+              60.22463517043898
+            ],
+            [
+              25.17288828109432,
+              60.22464481158943
+            ],
+            [
+              25.172821397127272,
+              60.22474781563368
+            ],
+            [
+              25.17276138910426,
+              60.224738174453236
+            ],
+            [
+              25.172828273240018,
+              60.22463517043898
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.8169,
+        "length_m": 12.06,
+        "width_m": 3.49,
+        "heading_deg": 161.9,
+        "aoi": "vuosaari-rahtarinkatu",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "candidate",
+        "class": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25.17146612808798,
+              60.224126165133534
+            ],
+            [
+              25.171759405768213,
+              60.22416991940324
+            ],
+            [
+              25.171740997438327,
+              60.224200450853765
+            ],
+            [
+              25.171447719509793,
+              60.224156696543695
+            ],
+            [
+              25.17146612808798,
+              60.224126165133534
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.8163,
+        "length_m": 16.97,
+        "width_m": 3.55,
+        "heading_deg": 73.2,
+        "aoi": "vuosaari-rahtarinkatu",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "candidate",
+        "class": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25.173809186222375,
+              60.22355686647676
+            ],
+            [
+              25.173856284316486,
+              60.22357187867257
+            ],
+            [
+              25.17368869040518,
+              60.2237019856114
+            ],
+            [
+              25.173641592201047,
+              60.2236869733907
+            ],
+            [
+              25.173809186222375,
+              60.22355686647676
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.8109,
+        "length_m": 17.22,
+        "width_m": 3.1,
+        "heading_deg": 147.2,
+        "aoi": "vuosaari-rahtarinkatu",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "candidate",
+        "class": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25.172194674882768,
+              60.22394265810485
+            ],
+            [
+              25.172493678697656,
+              60.22398645053675
+            ],
+            [
+              25.172473818406836,
+              60.22402000430772
+            ],
+            [
+              25.172174814312697,
+              60.223976211822844
+            ],
+            [
+              25.172194674882768,
+              60.22394265810485
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.8046,
+        "length_m": 17.27,
+        "width_m": 3.9,
+        "heading_deg": 73.4,
+        "aoi": "vuosaari-rahtarinkatu",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "candidate",
+        "class": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25.17222223744676,
+              60.22399323869341
+            ],
+            [
+              25.17250179968483,
+              60.2240340387378
+            ],
+            [
+              25.172483476291273,
+              60.224065105807384
+            ],
+            [
+              25.172203913811337,
+              60.224024305724704
+            ],
+            [
+              25.17222223744676,
+              60.22399323869341
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.8045,
+        "length_m": 16.15,
+        "width_m": 3.61,
+        "heading_deg": 73.5,
+        "aoi": "vuosaari-rahtarinkatu",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "candidate",
+        "class": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25.171425430002426,
+              60.22568766878251
+            ],
+            [
+              25.17148777383367,
+              60.22569713591153
+            ],
+            [
+              25.17143156189137,
+              60.225788722855064
+            ],
+            [
+              25.17136921790238,
+              60.22577925570786
+            ],
+            [
+              25.171425430002426,
+              60.22568766878251
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.795,
+        "length_m": 10.67,
+        "width_m": 3.61,
+        "heading_deg": 162.9,
+        "aoi": "vuosaari-rahtarinkatu",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "candidate",
+        "class": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25.16974447429289,
+              60.224364254460596
+            ],
+            [
+              25.169742139803986,
+              60.22451952572835
+            ],
+            [
+              25.169665081394836,
+              60.22451923902183
+            ],
+            [
+              25.169667416248114,
+              60.22436396775527
+            ],
+            [
+              25.16974447429289,
+              60.224364254460596
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.7889,
+        "length_m": 17.3,
+        "width_m": 4.27,
+        "heading_deg": 179.4,
+        "aoi": "vuosaari-rahtarinkatu",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "candidate",
+        "class": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25.170841043838617,
+              60.22313597326037
+            ],
+            [
+              25.170872427478102,
+              60.223162261893314
+            ],
+            [
+              25.170714181896777,
+              60.22320900976756
+            ],
+            [
+              25.17068279835638,
+              60.22318272109736
+            ],
+            [
+              25.170841043838617,
+              60.22313597326037
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.7884,
+        "length_m": 10.2,
+        "width_m": 3.41,
+        "heading_deg": 120.6,
+        "aoi": "vuosaari-rahtarinkatu",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "candidate",
+        "class": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25.168931453397846,
+              60.225160019596366
+            ],
+            [
+              25.168979351399916,
+              60.22520328206527
+            ],
+            [
+              25.168939790069206,
+              60.22521411930082
+            ],
+            [
+              25.168891892103403,
+              60.22517085681771
+            ],
+            [
+              25.168931453397846,
+              60.225160019596366
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.7736,
+        "length_m": 5.5,
+        "width_m": 2.5,
+        "heading_deg": 28.7,
+        "aoi": "vuosaari-rahtarinkatu",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "candidate",
+        "class": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25.16846577351358,
+              60.22476226472979
+            ],
+            [
+              25.16851722499731,
+              60.22480825288661
+            ],
+            [
+              25.168480324024298,
+              60.22481846798892
+            ],
+            [
+              25.1684288725762,
+              60.22477247981785
+            ],
+            [
+              25.16846577351358,
+              60.22476226472979
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.7634,
+        "length_m": 5.86,
+        "width_m": 2.34,
+        "heading_deg": 29.0,
+        "aoi": "vuosaari-rahtarinkatu",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "candidate",
+        "class": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25.16838358335629,
+              60.22420837171992
+            ],
+            [
+              25.16844033381854,
+              60.22420896049894
+            ],
+            [
+              25.16843719188514,
+              60.224283891878684
+            ],
+            [
+              25.16838044129344,
+              60.224283303098375
+            ],
+            [
+              25.16838358335629,
+              60.22420837171992
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.7593,
+        "length_m": 8.35,
+        "width_m": 3.15,
+        "heading_deg": 178.7,
+        "aoi": "vuosaari-rahtarinkatu",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "candidate",
+        "class": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25.169995243864744,
+              60.22339106311673
+            ],
+            [
+              25.17001059469985,
+              60.22341337522766
+            ],
+            [
+              25.169885964104328,
+              60.2234345932239
+            ],
+            [
+              25.169870613343942,
+              60.223412281098604
+            ],
+            [
+              25.169995243864744,
+              60.22339106311673
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.7416,
+        "length_m": 7.3,
+        "width_m": 2.63,
+        "heading_deg": 108.7,
+        "aoi": "vuosaari-rahtarinkatu",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "candidate",
+        "class": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25.173060930488763,
+              60.22530136845259
+            ],
+            [
+              25.173121021105633,
+              60.225309125594805
+            ],
+            [
+              25.173069591160207,
+              60.22540769900494
+            ],
+            [
+              25.173009500375006,
+              60.2253999418396
+            ],
+            [
+              25.173060930488763,
+              60.22530136845259
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.7322,
+        "length_m": 11.35,
+        "width_m": 3.44,
+        "heading_deg": 165.3,
+        "aoi": "vuosaari-rahtarinkatu",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "candidate",
+        "class": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25.170000131509944,
+              60.224786766557585
+            ],
+            [
+              25.170211636499452,
+              60.224909760275544
+            ],
+            [
+              25.17016382821648,
+              60.224930102198535
+            ],
+            [
+              25.169952323205976,
+              60.22480710841337
+            ],
+            [
+              25.170000131509944,
+              60.224786766557585
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.7319,
+        "length_m": 18.03,
+        "width_m": 3.49,
+        "heading_deg": 40.4,
+        "aoi": "vuosaari-rahtarinkatu",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "candidate",
+        "class": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25.168709735621203,
+              60.22488177389256
+            ],
+            [
+              25.168758014722897,
+              60.22492223525946
+            ],
+            [
+              25.168725437112677,
+              60.22493185329268
+            ],
+            [
+              25.168677158036946,
+              60.224891391913985
+            ],
+            [
+              25.168709735621203,
+              60.22488177389256
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.7123,
+        "length_m": 5.24,
+        "width_m": 2.1,
+        "heading_deg": 30.5,
+        "aoi": "vuosaari-rahtarinkatu",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "candidate",
+        "class": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25.171739644786538,
+              60.2255642798411
+            ],
+            [
+              25.17180216144944,
+              60.225574601565114
+            ],
+            [
+              25.171688692894897,
+              60.22574464094279
+            ],
+            [
+              25.171626175943725,
+              60.22573431916571
+            ],
+            [
+              25.171739644786538,
+              60.2255642798411
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.7099,
+        "length_m": 19.96,
+        "width_m": 3.65,
+        "heading_deg": 161.5,
+        "aoi": "vuosaari-rahtarinkatu",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "candidate",
+        "class": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25.173766727148852,
+              60.22353913339424
+            ],
+            [
+              25.173803272400622,
+              60.22355004291217
+            ],
+            [
+              25.173669804918937,
+              60.22366067655763
+            ],
+            [
+              25.173633259588613,
+              60.22364976707162
+            ],
+            [
+              25.173766727148852,
+              60.22353913339424
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.7081,
+        "length_m": 14.38,
+        "width_m": 2.36,
+        "heading_deg": 148.9,
+        "aoi": "vuosaari-rahtarinkatu",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "candidate",
+        "class": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25.169905105656195,
+              60.2238495929031
+            ],
+            [
+              25.169936887933083,
+              60.22386396026319
+            ],
+            [
+              25.169863353936545,
+              60.22390421109446
+            ],
+            [
+              25.16983157165281,
+              60.22388984371684
+            ],
+            [
+              25.169905105656195,
+              60.2238495929031
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.6755,
+        "length_m": 6.06,
+        "width_m": 2.38,
+        "heading_deg": 137.6,
+        "aoi": "vuosaari-rahtarinkatu",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "candidate",
+        "class": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25.168284135556018,
+              60.22424827628505
+            ],
+            [
+              25.168287261062314,
+              60.22433681891516
+            ],
+            [
+              25.168231410143004,
+              60.22433730675407
+            ],
+            [
+              25.168228284787265,
+              60.22424876412263
+            ],
+            [
+              25.168284135556018,
+              60.22424827628505
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.6664,
+        "length_m": 9.87,
+        "width_m": 3.1,
+        "heading_deg": 0.9,
+        "aoi": "vuosaari-rahtarinkatu",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "candidate",
+        "class": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25.16889114719044,
+              60.22517671423862
+            ],
+            [
+              25.168929093015866,
+              60.22521123915981
+            ],
+            [
+              25.16889306320067,
+              60.22522103720239
+            ],
+            [
+              25.168855117399623,
+              60.22518651227096
+            ],
+            [
+              25.16889114719044,
+              60.22517671423862
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.647,
+        "length_m": 4.38,
+        "width_m": 2.28,
+        "heading_deg": 28.5,
+        "aoi": "vuosaari-rahtarinkatu",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "candidate",
+        "class": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25.169164823352013,
+              60.223571590394194
+            ],
+            [
+              25.169212238505292,
+              60.2236187268593
+            ],
+            [
+              25.16917209746516,
+              60.223628718398
+            ],
+            [
+              25.169124682372235,
+              60.223581581918594
+            ],
+            [
+              25.169164823352013,
+              60.223571590394194
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.6417,
+        "length_m": 5.87,
+        "width_m": 2.49,
+        "heading_deg": 26.4,
+        "aoi": "vuosaari-rahtarinkatu",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "candidate",
+        "class": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25.17005978834772,
+              60.22367412536445
+            ],
+            [
+              25.170137182546977,
+              60.22374874107711
+            ],
+            [
+              25.170084299516432,
+              60.223762314058895
+            ],
+            [
+              25.170006905405252,
+              60.22368769831553
+            ],
+            [
+              25.17005978834772,
+              60.22367412536445
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.6259,
+        "length_m": 9.35,
+        "width_m": 3.3,
+        "heading_deg": 27.1,
+        "aoi": "vuosaari-rahtarinkatu",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "candidate",
+        "class": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25.169490926926862,
+              60.22367236193622
+            ],
+            [
+              25.16953869089067,
+              60.22371543045679
+            ],
+            [
+              25.16950053816031,
+              60.22372590053513
+            ],
+            [
+              25.169452774231267,
+              60.223682832000875
+            ],
+            [
+              25.169490926926862,
+              60.22367236193622
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.6169,
+        "length_m": 5.48,
+        "width_m": 2.41,
+        "heading_deg": 28.7,
+        "aoi": "vuosaari-rahtarinkatu",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "candidate",
+        "class": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25.16825509431767,
+              60.223757482671324
+            ],
+            [
+              25.168344139143223,
+              60.223780665256015
+            ],
+            [
+              25.168321479717473,
+              60.223802201725064
+            ],
+            [
+              25.16823243484946,
+              60.223779019125246
+            ],
+            [
+              25.16825509431767,
+              60.223757482671324
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.6086,
+        "length_m": 5.57,
+        "width_m": 2.71,
+        "heading_deg": 62.2,
+        "aoi": "vuosaari-rahtarinkatu",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "candidate",
+        "class": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25.173695714612922,
+              60.22504301855054
+            ],
+            [
+              25.173747573443435,
+              60.225051193756876
+            ],
+            [
+              25.17369399403276,
+              60.22513528760281
+            ],
+            [
+              25.173642135082698,
+              60.22512711237569
+            ],
+            [
+              25.173695714612922,
+              60.22504301855054
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.6056,
+        "length_m": 9.83,
+        "width_m": 3.01,
+        "heading_deg": 162.3,
+        "aoi": "vuosaari-rahtarinkatu",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "candidate",
+        "class": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25.172373442490386,
+              60.22321588134946
+            ],
+            [
+              25.172484328207553,
+              60.223250227915706
+            ],
+            [
+              25.172453368695763,
+              60.22327496128499
+            ],
+            [
+              25.172342482927363,
+              60.22324061469301
+            ],
+            [
+              25.172373442490386,
+              60.22321588134946
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.6028,
+        "length_m": 7.24,
+        "width_m": 3.25,
+        "heading_deg": 57.9,
+        "aoi": "vuosaari-rahtarinkatu",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "candidate",
+        "class": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25.16813871898661,
+              60.223869321505305
+            ],
+            [
+              25.16823937530638,
+              60.223900889079246
+            ],
+            [
+              25.168212554438604,
+              60.223922050759036
+            ],
+            [
+              25.16811189807968,
+              60.22389048316487
+            ],
+            [
+              25.16813871898661,
+              60.223869321505305
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.6006,
+        "length_m": 6.59,
+        "width_m": 2.79,
+        "heading_deg": 57.6,
+        "aoi": "vuosaari-rahtarinkatu",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "candidate",
+        "class": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25.173693060009317,
+              60.22504106078258
+            ],
+            [
+              25.17374892687909,
+              60.22504935838302
+            ],
+            [
+              25.173624404950804,
+              60.22525679813935
+            ],
+            [
+              25.173568537759365,
+              60.2252485004869
+            ],
+            [
+              25.173693060009317,
+              60.22504106078258
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.5983,
+        "length_m": 24.12,
+        "width_m": 3.23,
+        "heading_deg": 163.2,
+        "aoi": "vuosaari-rahtarinkatu",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "candidate",
+        "class": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25.172152509540588,
+              60.22520485171084
+            ],
+            [
+              25.172292828853113,
+              60.225228279155075
+            ],
+            [
+              25.172273483551628,
+              60.22525694802252
+            ],
+            [
+              25.17213316412171,
+              60.225233520557985
+            ],
+            [
+              25.172152509540588,
+              60.22520485171084
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.5934,
+        "length_m": 8.2,
+        "width_m": 3.37,
+        "heading_deg": 71.3,
+        "aoi": "vuosaari-rahtarinkatu",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "candidate",
+        "class": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25.170729265929708,
+              60.224623571207474
+            ],
+            [
+              25.17075472205601,
+              60.224646568348206
+            ],
+            [
+              25.17061579894574,
+              60.22468461782258
+            ],
+            [
+              25.170590342894315,
+              60.22466162058683
+            ],
+            [
+              25.170729265929708,
+              60.224623571207474
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.5914,
+        "length_m": 8.79,
+        "width_m": 2.92,
+        "heading_deg": 118.7,
+        "aoi": "vuosaari-rahtarinkatu",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "candidate",
+        "class": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25.16837603611846,
+              60.22389824620483
+            ],
+            [
+              25.16848529705411,
+              60.22390594619672
+            ],
+            [
+              25.168478184596026,
+              60.2239309192474
+            ],
+            [
+              25.16836892357893,
+              60.223923219249706
+            ],
+            [
+              25.16837603611846,
+              60.22389824620483
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.5907,
+        "length_m": 6.12,
+        "width_m": 2.81,
+        "heading_deg": 81.8,
+        "aoi": "vuosaari-rahtarinkatu",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "candidate",
+        "class": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25.168807044903694,
+              60.22426057341721
+            ],
+            [
+              25.16905613798676,
+              60.22432028591157
+            ],
+            [
+              25.169026889051317,
+              60.2243504766308
+            ],
+            [
+              25.168777795792224,
+              60.224290764081886
+            ],
+            [
+              25.168807044903694,
+              60.22426057341721
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.5904,
+        "length_m": 15.32,
+        "width_m": 3.73,
+        "heading_deg": 64.1,
+        "aoi": "vuosaari-rahtarinkatu",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "candidate",
+        "class": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25.168559646360507,
+              60.223833284775424
+            ],
+            [
+              25.168664307604395,
+              60.22384156196932
+            ],
+            [
+              25.168657025473525,
+              60.22386434672868
+            ],
+            [
+              25.168552364158828,
+              60.22385606952908
+            ],
+            [
+              25.168559646360507,
+              60.223833284775424
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.5888,
+        "length_m": 5.87,
+        "width_m": 2.57,
+        "heading_deg": 80.8,
+        "aoi": "vuosaari-rahtarinkatu",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "candidate",
+        "class": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25.16995734851113,
+              60.22481847658064
+            ],
+            [
+              25.170087607575134,
+              60.2249133562005
+            ],
+            [
+              25.170019578673582,
+              60.2249364651192
+            ],
+            [
+              25.16988931971425,
+              60.224841585432834
+            ],
+            [
+              25.16995734851113,
+              60.22481847658064
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.5637,
+        "length_m": 12.8,
+        "width_m": 4.57,
+        "heading_deg": 34.2,
+        "aoi": "vuosaari-rahtarinkatu",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "candidate",
+        "class": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25.171127488551846,
+              60.224232830176064
+            ],
+            [
+              25.17159351632203,
+              60.22430546783498
+            ],
+            [
+              25.171569956598493,
+              60.22434286958626
+            ],
+            [
+              25.171103928349496,
+              60.224270231879466
+            ],
+            [
+              25.171127488551846,
+              60.224232830176064
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.5539,
+        "length_m": 27.07,
+        "width_m": 4.37,
+        "heading_deg": 72.5,
+        "aoi": "vuosaari-rahtarinkatu",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "candidate",
+        "class": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25.170576379408374,
+              60.22454302140567
+            ],
+            [
+              25.17060209696674,
+              60.224565040117945
+            ],
+            [
+              25.170453307035597,
+              60.22460804017063
+            ],
+            [
+              25.17042758954323,
+              60.224586021429644
+            ],
+            [
+              25.170576379408374,
+              60.22454302140567
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.5462,
+        "length_m": 9.54,
+        "width_m": 2.84,
+        "heading_deg": 120.0,
+        "aoi": "vuosaari-rahtarinkatu",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "candidate",
+        "class": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25.169661458838217,
+              60.223454473567415
+            ],
+            [
+              25.169883972877532,
+              60.22365903932874
+            ],
+            [
+              25.169816653794822,
+              60.22367715894936
+            ],
+            [
+              25.16959414005154,
+              60.22347259304135
+            ],
+            [
+              25.169661458838217,
+              60.223454473567415
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.4639,
+        "length_m": 25.91,
+        "width_m": 4.24,
+        "heading_deg": 28.3,
+        "aoi": "vuosaari-rahtarinkatu",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "candidate",
+        "class": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25.168450811070652,
+              60.225498816621794
+            ],
+            [
+              25.168509416861784,
+              60.225541703029954
+            ],
+            [
+              25.168472026685354,
+              60.2255543448799
+            ],
+            [
+              25.168413420920352,
+              60.2255114584382
+            ],
+            [
+              25.168450811070652,
+              60.225498816621794
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.429,
+        "length_m": 5.78,
+        "width_m": 2.51,
+        "heading_deg": 34.1,
+        "aoi": "vuosaari-rahtarinkatu",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "candidate",
+        "class": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25.172223249541165,
+              60.223297191536915
+            ],
+            [
+              25.172347764746814,
+              60.2233223555976
+            ],
+            [
+              25.172322431319476,
+              60.223353374780125
+            ],
+            [
+              25.172197916015538,
+              60.22332821069582
+            ],
+            [
+              25.172223249541165,
+              60.223297191536915
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.4055,
+        "length_m": 7.45,
+        "width_m": 3.73,
+        "heading_deg": 67.7,
+        "aoi": "vuosaari-rahtarinkatu",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "candidate",
+        "class": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25.168725991744815,
+              60.22411293202811
+            ],
+            [
+              25.16872717053307,
+              60.224160914103265
+            ],
+            [
+              25.16868124524366,
+              60.22416119325694
+            ],
+            [
+              25.16868006652251,
+              60.22411321118133
+            ],
+            [
+              25.168725991744815,
+              60.22411293202811
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.4016,
+        "length_m": 5.35,
+        "width_m": 2.55,
+        "heading_deg": 0.6,
+        "aoi": "vuosaari-rahtarinkatu",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "candidate",
+        "class": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25.17232958931246,
+              60.223243990976265
+            ],
+            [
+              25.17244046411361,
+              60.223277455338625
+            ],
+            [
+              25.172409376354345,
+              60.223302943204175
+            ],
+            [
+              25.172298501498727,
+              60.223269478815965
+            ],
+            [
+              25.17232958931246,
+              60.223243990976265
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.3968,
+        "length_m": 7.19,
+        "width_m": 3.32,
+        "heading_deg": 58.6,
+        "aoi": "vuosaari-rahtarinkatu",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "candidate",
+        "class": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25.17088471230176,
+              60.222970321459854
+            ],
+            [
+              25.170914334709654,
+              60.222998276610696
+            ],
+            [
+              25.17078813745962,
+              60.223031367579615
+            ],
+            [
+              25.17075851514642,
+              60.22300341240069
+            ],
+            [
+              25.17088471230176,
+              60.222970321459854
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.3795,
+        "length_m": 7.91,
+        "width_m": 3.52,
+        "heading_deg": 117.6,
+        "aoi": "vuosaari-rahtarinkatu",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "candidate",
+        "class": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25.16811746318556,
+              60.224168288126194
+            ],
+            [
+              25.168148978941517,
+              60.224195300071216
+            ],
+            [
+              25.168025203948947,
+              60.22423103339517
+            ],
+            [
+              25.16799368826041,
+              60.22420402142089
+            ],
+            [
+              25.16811746318556,
+              60.224168288126194
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.3704,
+        "length_m": 7.93,
+        "width_m": 3.48,
+        "heading_deg": 120.0,
+        "aoi": "vuosaari-rahtarinkatu",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "candidate",
+        "class": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25.168303130211356,
+              60.22424781675243
+            ],
+            [
+              25.168357119889052,
+              60.22424863353525
+            ],
+            [
+              25.168352851596683,
+              60.22431844400697
+            ],
+            [
+              25.168298861804306,
+              60.224317627222476
+            ],
+            [
+              25.168303130211356,
+              60.22424781675243
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.3517,
+        "length_m": 7.78,
+        "width_m": 2.99,
+        "heading_deg": 178.1,
+        "aoi": "vuosaari-rahtarinkatu",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "candidate",
+        "class": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25.168158053731272,
+              60.2240646098782
+            ],
+            [
+              25.168290125263457,
+              60.224070378018126
+            ],
+            [
+              25.16828486508057,
+              60.224100180153954
+            ],
+            [
+              25.16815279342942,
+              60.22409441200886
+            ],
+            [
+              25.168158053731272,
+              60.2240646098782
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.3372,
+        "length_m": 7.35,
+        "width_m": 3.33,
+        "heading_deg": 84.8,
+        "aoi": "vuosaari-rahtarinkatu",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "candidate",
+        "class": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25.17274243092702,
+              60.22465454870716
+            ],
+            [
+              25.17279601895107,
+              60.22466325553651
+            ],
+            [
+              25.172756446726037,
+              60.22472351886865
+            ],
+            [
+              25.17270285861407,
+              60.224714812023414
+            ],
+            [
+              25.17274243092702,
+              60.22465454870716
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.3362,
+        "length_m": 7.06,
+        "width_m": 3.12,
+        "heading_deg": 161.8,
+        "aoi": "vuosaari-rahtarinkatu",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "candidate",
+        "class": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25.168186305699873,
+              60.22382252154138
+            ],
+            [
+              25.168277934280688,
+              60.223844316501264
+            ],
+            [
+              25.168258673726722,
+              60.22386435309987
+            ],
+            [
+              25.168167045033996,
+              60.223842558143986
+            ],
+            [
+              25.168186305699873,
+              60.22382252154138
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.3246,
+        "length_m": 5.63,
+        "width_m": 2.47,
+        "heading_deg": 64.3,
+        "aoi": "vuosaari-rahtarinkatu",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "candidate",
+        "class": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25.171532483208953,
+              60.224128360689335
+            ],
+            [
+              25.171532302071746,
+              60.22414114581983
+            ],
+            [
+              25.17145948021947,
+              60.22414089043209
+            ],
+            [
+              25.171459661385033,
+              60.224128105301695
+            ],
+            [
+              25.171532483208953,
+              60.224128360689335
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.3222,
+        "length_m": 4.04,
+        "width_m": 1.42,
+        "heading_deg": 89.4,
+        "aoi": "vuosaari-rahtarinkatu",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "candidate",
+        "class": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25.168113872214295,
+              60.2238960828152
+            ],
+            [
+              25.16820370365232,
+              60.22392144753611
+            ],
+            [
+              25.16818054938162,
+              60.223941738604786
+            ],
+            [
+              25.168090717905915,
+              60.223916373868306
+            ],
+            [
+              25.168113872214295,
+              60.2238960828152
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.3134,
+        "length_m": 5.72,
+        "width_m": 2.6,
+        "heading_deg": 60.3,
+        "aoi": "vuosaari-rahtarinkatu",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "candidate",
+        "class": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25.168573136826698,
+              60.22437076288878
+            ],
+            [
+              25.168736560492835,
+              60.224411792707805
+            ],
+            [
+              25.168712057810826,
+              60.22443594130227
+            ],
+            [
+              25.168548634055018,
+              60.22439491145326
+            ],
+            [
+              25.168573136826698,
+              60.22437076288878
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.3109,
+        "length_m": 10.15,
+        "width_m": 3.01,
+        "heading_deg": 63.1,
+        "aoi": "vuosaari-rahtarinkatu",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "candidate",
+        "class": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25.17295321671034,
+              60.222986625690226
+            ],
+            [
+              25.17301786480749,
+              60.222992943103044
+            ],
+            [
+              25.172936784118157,
+              60.223198266195986
+            ],
+            [
+              25.172872135632602,
+              60.22319194881246
+            ],
+            [
+              25.17295321671034,
+              60.222986625690226
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.3042,
+        "length_m": 23.31,
+        "width_m": 3.65,
+        "heading_deg": 168.7,
+        "aoi": "vuosaari-rahtarinkatu",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "candidate",
+        "class": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25.173137155650085,
+              60.22451929915669
+            ],
+            [
+              25.173191243991727,
+              60.22452819492286
+            ],
+            [
+              25.17310766496438,
+              60.22465393587232
+            ],
+            [
+              25.173053576438132,
+              60.224645040072346
+            ],
+            [
+              25.173137155650085,
+              60.22451929915669
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.3015,
+        "length_m": 14.76,
+        "width_m": 3.16,
+        "heading_deg": 161.6,
+        "aoi": "vuosaari-rahtarinkatu",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "candidate",
+        "class": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25.171887907916236,
+              60.225584420718086
+            ],
+            [
+              25.17194100548875,
+              60.22559310158227
+            ],
+            [
+              25.171891492683127,
+              60.22566803210282
+            ],
+            [
+              25.171838395002457,
+              60.22565935121898
+            ],
+            [
+              25.171887907916236,
+              60.225584420718086
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.2998,
+        "length_m": 8.79,
+        "width_m": 3.1,
+        "heading_deg": 161.7,
+        "aoi": "vuosaari-rahtarinkatu",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "candidate",
+        "class": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25.171939415649206,
+              60.223346712359806
+            ],
+            [
+              25.172029223214302,
+              60.223380248048436
+            ],
+            [
+              25.17199912192522,
+              60.22340019517921
+            ],
+            [
+              25.171909314336244,
+              60.22336665947027
+            ],
+            [
+              25.171939415649206,
+              60.223346712359806
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.2979,
+        "length_m": 6.22,
+        "width_m": 2.78,
+        "heading_deg": 53.0,
+        "aoi": "vuosaari-rahtarinkatu",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "candidate",
+        "class": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25.170680341896563,
+              60.224679290807245
+            ],
+            [
+              25.170706863450867,
+              60.22470965208225
+            ],
+            [
+              25.170441841494235,
+              60.224766933475344
+            ],
+            [
+              25.170415320138538,
+              60.224736572147556
+            ],
+            [
+              25.170680341896563,
+              60.224679290807245
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.2929,
+        "length_m": 16.01,
+        "width_m": 3.69,
+        "heading_deg": 113.3,
+        "aoi": "vuosaari-rahtarinkatu",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "candidate",
+        "class": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25.172907765250994,
+              60.22463534873819
+            ],
+            [
+              25.172966008295923,
+              60.22464467551648
+            ],
+            [
+              25.17293396770931,
+              60.22469418289195
+            ],
+            [
+              25.172875724585612,
+              60.22468485609972
+            ],
+            [
+              25.172907765250994,
+              60.22463534873819
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.2837,
+        "length_m": 5.79,
+        "width_m": 3.39,
+        "heading_deg": 162.0,
+        "aoi": "vuosaari-rahtarinkatu",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "candidate",
+        "class": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25.16991431973494,
+              60.22361429450178
+            ],
+            [
+              25.170038045757465,
+              60.223728320598376
+            ],
+            [
+              25.169986649158314,
+              60.22374212041748
+            ],
+            [
+              25.169862923193275,
+              60.22362809427322
+            ],
+            [
+              25.16991431973494,
+              60.22361429450178
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.2684,
+        "length_m": 14.44,
+        "width_m": 3.24,
+        "heading_deg": 28.2,
+        "aoi": "vuosaari-rahtarinkatu",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "candidate",
+        "class": ""
+      }
+    }
+  ]
+}

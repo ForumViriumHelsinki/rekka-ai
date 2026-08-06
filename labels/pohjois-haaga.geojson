@@ -1,0 +1,415 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              24.88901739170335,
+              60.232217774675405
+            ],
+            [
+              24.889059969362158,
+              60.23222673814489
+            ],
+            [
+              24.889016069780688,
+              60.232278310664896
+            ],
+            [
+              24.88897349206712,
+              60.23226934714716
+            ],
+            [
+              24.88901739170335,
+              60.232217774675405
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.8285,
+        "length_m": 6.24,
+        "width_m": 2.56,
+        "heading_deg": 157.2,
+        "aoi": "pohjois-haaga",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "candidate",
+        "class": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              24.889132844177617,
+              60.232243258821754
+            ],
+            [
+              24.889175729654983,
+              60.2322483454016
+            ],
+            [
+              24.88915145486258,
+              60.23229896198381
+            ],
+            [
+              24.889108569322868,
+              60.23229387539617
+            ],
+            [
+              24.889132844177617,
+              60.232243258821754
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.8136,
+        "length_m": 5.8,
+        "width_m": 2.44,
+        "heading_deg": 166.7,
+        "aoi": "pohjois-haaga",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "candidate",
+        "class": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              24.889674004390667,
+              60.233088065062816
+            ],
+            [
+              24.889886396877753,
+              60.233127663603845
+            ],
+            [
+              24.889868112435163,
+              60.233151917076604
+            ],
+            [
+              24.889655719813263,
+              60.233112318506414
+            ],
+            [
+              24.889674004390667,
+              60.233088065062816
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.8036,
+        "length_m": 12.57,
+        "width_m": 2.89,
+        "heading_deg": 69.5,
+        "aoi": "pohjois-haaga",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "candidate",
+        "class": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              24.88928132153725,
+              60.23225866553781
+            ],
+            [
+              24.889326739133185,
+              60.23226478708178
+            ],
+            [
+              24.889298065173918,
+              60.232317401455575
+            ],
+            [
+              24.889252647510556,
+              60.23231127990185
+            ],
+            [
+              24.88928132153725,
+              60.23225866553781
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.792,
+        "length_m": 6.07,
+        "width_m": 2.61,
+        "heading_deg": 164.9,
+        "aoi": "pohjois-haaga",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "candidate",
+        "class": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              24.889685632519978,
+              60.23312354750731
+            ],
+            [
+              24.88993680164152,
+              60.23317167948755
+            ],
+            [
+              24.889916896239978,
+              60.2331973677817
+            ],
+            [
+              24.889665726951137,
+              60.233149235763925
+            ],
+            [
+              24.889685632519978,
+              60.23312354750731
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.7734,
+        "length_m": 14.91,
+        "width_m": 3.07,
+        "heading_deg": 69.0,
+        "aoi": "pohjois-haaga",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "candidate",
+        "class": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              24.88972071479531,
+              60.23293861169154
+            ],
+            [
+              24.889821898776272,
+              60.23296084912686
+            ],
+            [
+              24.8898038632672,
+              60.2329811443045
+            ],
+            [
+              24.889702679235924,
+              60.23295890685549
+            ],
+            [
+              24.88972071479531,
+              60.23293861169154
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.7205,
+        "length_m": 6.13,
+        "width_m": 2.47,
+        "heading_deg": 66.3,
+        "aoi": "pohjois-haaga",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "candidate",
+        "class": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              24.890102977368937,
+              60.23300954809059
+            ],
+            [
+              24.890208560290883,
+              60.233030261229075
+            ],
+            [
+              24.890191725493725,
+              60.23305148325552
+            ],
+            [
+              24.89008614251417,
+              60.23303077010369
+            ],
+            [
+              24.890102977368937,
+              60.23300954809059
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.5883,
+        "length_m": 6.29,
+        "width_m": 2.54,
+        "heading_deg": 68.6,
+        "aoi": "pohjois-haaga",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "candidate",
+        "class": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              24.889289853511603,
+              60.23226116263441
+            ],
+            [
+              24.889287307958,
+              60.23231631873592
+            ],
+            [
+              24.889254485412916,
+              60.23231594410821
+            ],
+            [
+              24.88925703102164,
+              60.23226078800733
+            ],
+            [
+              24.889289853511603,
+              60.23226116263441
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.564,
+        "length_m": 6.15,
+        "width_m": 1.82,
+        "heading_deg": 178.8,
+        "aoi": "pohjois-haaga",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "candidate",
+        "class": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              24.88778937314352,
+              60.23267840522292
+            ],
+            [
+              24.887886052258693,
+              60.23269136135794
+            ],
+            [
+              24.8878747971099,
+              60.2327121320424
+            ],
+            [
+              24.887778117938016,
+              60.23269917589919
+            ],
+            [
+              24.88778937314352,
+              60.23267840522292
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.4345,
+        "length_m": 5.55,
+        "width_m": 2.4,
+        "heading_deg": 75.0,
+        "aoi": "pohjois-haaga",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "candidate",
+        "class": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              24.88742125398603,
+              60.23290548492681
+            ],
+            [
+              24.887511242555295,
+              60.23291992035092
+            ],
+            [
+              24.88749871667762,
+              60.232939231220904
+            ],
+            [
+              24.88740872806094,
+              60.232924795788335
+            ],
+            [
+              24.88742125398603,
+              60.23290548492681
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.27,
+        "length_m": 5.24,
+        "width_m": 2.26,
+        "heading_deg": 72.2,
+        "aoi": "pohjois-haaga",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "candidate",
+        "class": ""
+      }
+    }
+  ]
+}
