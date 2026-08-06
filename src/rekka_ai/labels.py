@@ -58,10 +58,27 @@ def read(path: Path) -> dict[str, Any]:
     return json.loads(path.read_text())
 
 
+def _normalize_numbers(value: Any) -> Any:
+    """Integral floats become ints, so Python and JS writers agree on disk.
+
+    json.dumps writes a float 175.0 as ``175.0``; JSON.stringify writes the
+    same number as ``175``. Normalizing on write keeps the label files
+    byte-stable across the Python CLI and the web labelling tool, so a review
+    edit never reformats a file.
+    """
+    if isinstance(value, float) and value.is_integer():
+        return int(value)
+    if isinstance(value, list):
+        return [_normalize_numbers(v) for v in value]
+    if isinstance(value, dict):
+        return {k: _normalize_numbers(v) for k, v in value.items()}
+    return value
+
+
 def write(path: Path, collection: dict[str, Any]) -> None:
     """Write a label file, creating its directory. Indented so diffs are readable."""
     path.parent.mkdir(parents=True, exist_ok=True)
-    path.write_text(json.dumps(collection, indent=2) + "\n")
+    path.write_text(json.dumps(_normalize_numbers(collection), indent=2) + "\n")
 
 
 def summarise(collection: dict[str, Any]) -> dict[str, int]:

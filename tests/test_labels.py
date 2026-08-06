@@ -126,3 +126,24 @@ def test_validate_reports_broken_geometry_instead_of_raising() -> None:
         }
         problems = labels.validate(collection)
         assert problems == ["feature 0: no polygon ring to check"], geometry
+
+
+def test_write_normalizes_integral_floats_for_js_round_trip(tmp_path: Path) -> None:
+    """json.dumps writes 175.0 as "175.0", JSON.stringify as "175". Normalizing
+    keeps the file byte-stable across the Python CLI and the web tool."""
+    collection = {
+        "type": "FeatureCollection",
+        "features": [
+            {
+                "type": "Feature",
+                "geometry": {"type": "Polygon", "coordinates": [[]]},
+                "properties": {"heading_deg": 175.0, "length_m": 12.5},
+            }
+        ],
+    }
+    path = tmp_path / "area.geojson"
+    labels.write(path, collection)
+    text = path.read_text()
+    assert '"heading_deg": 175' in text
+    assert "175.0" not in text
+    assert '"length_m": 12.5' in text
