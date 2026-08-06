@@ -126,3 +126,21 @@ aois:
     bbox: [398470, 6677656, 398870, 6677956]
     role: positive
     notes: Mixed yard — keep concrete mixers and confirmed trucks; bare trailers with no tractor unit are negatives; a lone tractor unit (bobtail) may fall under the 6 m length gate; van-fronted lookalikes (motorhome category) are hardest — avoid.
+
+  - name: marjaniemi
+    bbox: [392628, 6674754, 392928, 6675054]
+    role: hard-negative
+    notes: >-
+      Marina — five packed piers of moored boats, plus a winter storage yard of
+      hulls on cradles. From above a boat is a truck-sized oriented rectangle,
+      and one on a cradle beside a road is the most truck-like presentation in
+      the collection. Worth having because fine-tuning rebuilds the head to
+      three classes on land-only imagery: DOTA's `ship` knowledge is discarded,
+      so the model ends up with no information about vessels at all. The first
+      negative in train — the training side's only other negative signal is
+      rejected candidates inside positive areas. Framed 100 m west of the
+      basin's centre on purpose: it trades open water, which teaches nothing,
+      for the yard. The access road holds cars only — no truck, bus or van in
+      the square, checked against the 2025 imagery, which is what lets the
+      whole area be declared empty (reported at EPSG:3879 25503760.5,
+      6676019.2).
