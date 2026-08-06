@@ -70,11 +70,7 @@ export class UndoStack {
 		const last = this.#entries[this.#entries.length - 1];
 		// Mid-burst on the same box: the state already remembered is the one
 		// worth going back to, so keep it and let this change fold into it.
-		if (
-			last?.kind === 'edit' &&
-			last.feature === feature &&
-			this.#now() - last.at < COALESCE_MS
-		) {
+		if (last?.kind === 'edit' && last.feature === feature && this.#now() - last.at < COALESCE_MS) {
 			last.at = this.#now();
 			return;
 		}

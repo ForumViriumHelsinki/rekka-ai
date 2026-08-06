@@ -21,3 +21,25 @@ jobs:
       - run: uv run ruff format --check
       - run: uv run ty check
       - run: uv run pytest
+
+  # The labelling tool is where the project can actually lose work, so its
+  # tests are not optional: they cover the save path, the geometry the labels
+  # are built from, and the symbology that says what a box means.
+  web:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: web
+    steps:
+      - uses: actions/checkout@v7
+      - uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: latest
+      # --frozen-lockfile so CI installs what bun.lock pins rather than
+      # resolving afresh; `prepare` runs svelte-kit sync, which generates the
+      # .svelte-kit/tsconfig.json that tsconfig.json extends. Without it
+      # `check` fails on a clean checkout before it reads a line of source.
+      - run: bun install --frozen-lockfile
+      - run: bun run lint
+      - run: bun run check
+      - run: bun run test

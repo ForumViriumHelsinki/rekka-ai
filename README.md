@@ -1,6 +1,6 @@
 # rekka-ai
 
-Truck detection from aerial images.
+Truck (and other vehicle) detection from aerial images.
 
 This is a model-training loop, not a straight-through pipeline: a pretrained
 detector proposes, a human corrects, and each round the improved model
