@@ -115,11 +115,21 @@ export function selectedStyleFor(feature: Feature): Style[] {
 		return {
 			mid: [(x1 + x2) / 2, (y1 + y2) / 2] as Coord,
 			length: Math.hypot(x2 - x1, y2 - y1),
-			rotation: -Math.atan2(y2 - y1, x2 - x1),
 		};
 	});
-	const long = edges.reduce((a, b) => (b.length > a.length ? b : a));
-	const short = edges.reduce((a, b) => (b.length < a.length ? b : a));
+	// Which of the two *parallel* edges each label sits on is chosen by where
+	// the edge is, never by where it falls in the ring. A rectangle's opposite
+	// sides are the same length, so picking by `reduce` picks whichever the
+	// ring happens to list first — and a box rebuilt from its centreline comes
+	// back with its vertices rotated or mirrored, identical on the map but
+	// listed differently. That is what threw the labels from one side to the
+	// other on every arrow press. Keyed on a diagonal for the reason given in
+	// `centrelineOf`: an axis key ties at exactly the headings vehicles park at.
+	const key = (e: { mid: Coord }) => e.mid[0] + e.mid[1];
+	const byLength = [...edges].sort((a, b) => b.length - a.length);
+	const outer = (a: (typeof edges)[0], b: (typeof edges)[0]) => (key(a) >= key(b) ? a : b);
+	const long = outer(byLength[0], byLength[1]);
+	const short = outer(byLength[2], byLength[3]);
 	// Concentric and opaque, not a wash. A wide semi-transparent halo blends
 	// with whatever orthophoto is underneath — amber over asphalt, over grass,
 	// over a blue container — and every one of those blends is a different
@@ -142,11 +152,20 @@ export function selectedStyleFor(feature: Feature): Style[] {
 	];
 }
 
-/** A measurement label at an edge's midpoint, rotated with the edge and
- * flipped the right way up whatever the box's heading. */
-function edgeLabel(edge: { mid: Coord; rotation: number }, text: string): Style {
-	let rotation = ((edge.rotation % Math.PI) + Math.PI) % Math.PI;
-	if (rotation > Math.PI / 2) rotation -= Math.PI;
+/** A measurement label at an edge's midpoint, drawn level.
+ *
+ * It used to rotate with its edge, folded upright by subtracting a half turn
+ * past 90°. That fold is a discontinuity, and no choice of boundary removes
+ * it: text kept upright through a full revolution has to flip somewhere. The
+ * boundary landed at 0° and 90°, which is where vehicles actually sit — they
+ * park square to roads and buildings — so nudging a box across the line with
+ * the arrow keys mirrored a label on every press, back and forth.
+ *
+ * Level text has no such angle. The label still says which edge it belongs to
+ * by sitting on it, which was the point of following the edge; being parallel
+ * to it was only ever decoration, and decoration that flips is worse than
+ * none. */
+function edgeLabel(edge: { mid: Coord }, text: string): Style {
 	return new Style({
 		geometry: new Point(edge.mid),
 		text: new Text({
@@ -155,7 +174,6 @@ function edgeLabel(edge: { mid: Coord; rotation: number }, text: string): Style 
 			fill: new Fill({ color: '#ffd88a' }),
 			backgroundFill: new Fill({ color: 'rgba(5,7,10,0.72)' }),
 			padding: [1, 4, 1, 4],
-			rotation,
 		}),
 	});
 }

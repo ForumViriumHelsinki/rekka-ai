@@ -178,6 +178,45 @@ def validate(collection: dict[str, Any]) -> list[str]:
     return problems
 
 
+def displaced(collection: dict[str, Any], bounds: Any) -> list[str]:
+    """Features whose centre has left the area they belong to.
+
+    Worth its own check because the failure is silent. Export writes a label
+    only into windows that fully contain it, and windows only cover the area,
+    so a box dragged off the area lands in no window at all: it does not
+    become a bad label, it stops being a label, and the dataset comes out
+    smaller than the review count promised. Nothing else notices -- such a
+    feature is still a valid rectangle with a valid verdict, so ``validate``
+    passes it.
+
+    The centre rather than the whole ring, matching the rule
+    ``detections.within_region`` already applies: a vehicle straddling the
+    boundary belongs to whichever side its centre sits on.
+    """
+    problems = []
+    for index, feature in enumerate(collection.get("features", [])):
+        ring = _ring_of(feature)
+        if ring is None or len(ring) < 4:
+            continue  # `validate` reports broken geometry; one voice each
+        easting = sum(p[0] for p in ring[:4]) / 4
+        northing = sum(p[1] for p in ring[:4]) / 4
+        if not (
+            bounds.min_easting <= easting <= bounds.max_easting
+            and bounds.min_northing <= northing <= bounds.max_northing
+        ):
+            away = max(
+                bounds.min_easting - easting,
+                easting - bounds.max_easting,
+                bounds.min_northing - northing,
+                northing - bounds.max_northing,
+            )
+            problems.append(
+                f"feature {index}: centre is {away:.0f} m outside the area "
+                "(dragged by accident? it would export as nothing)"
+            )
+    return problems
+
+
 def _ring_of(feature: dict[str, Any]) -> list[list[float]] | None:
     """A feature's outer ring, or ``None`` if it has no usable one.
 

@@ -197,3 +197,32 @@ def test_read_refuses_a_file_from_before_the_crs_switch(tmp_path: Path) -> None:
     )
     with pytest.raises(ValueError, match="EPSG::3879"):
         labels.read(path)
+
+
+def _bounds():
+    from rekka_ai.imagery.tiles import Bounds
+
+    return Bounds(25495900.0, 6672900.0, 25496200.0, 6673200.0)
+
+
+def test_a_box_inside_its_area_is_not_displaced() -> None:
+    collection = {"features": [_feature(status="confirmed", klass="truck")]}
+    assert labels.displaced(collection, _bounds()) == []
+
+
+def test_a_dragged_box_is_reported_with_how_far_it_went() -> None:
+    """The silent failure: export writes a label only into windows that
+    contain it, and windows only cover the area, so this one exports as
+    nothing while `validate` still calls it perfectly good."""
+    ring = _ring(25501000.0, 6678000.0, 16.0, 3.0)
+    collection = {"features": [_feature(status="confirmed", klass="truck", ring=ring)]}
+    assert labels.validate(collection) == []
+    problems = labels.displaced(collection, _bounds())
+    assert len(problems) == 1
+    assert "4808 m outside" in problems[0]
+
+
+def test_displaced_leaves_broken_geometry_to_validate() -> None:
+    """One voice per problem: a null geometry is `validate`'s to report."""
+    feature = {"type": "Feature", "geometry": None, "properties": {}}
+    assert labels.displaced({"features": [feature]}, _bounds()) == []

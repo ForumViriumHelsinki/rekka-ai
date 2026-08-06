@@ -68,8 +68,24 @@ export const LENGTH_STEP_M = 0.25;
 export const LENGTH_COARSE_M = 1.0;
 export const MIN_LENGTH_M = 2.0;
 export const MAX_LENGTH_M = 30.0;
-export const ROTATE_STEP_DEG = 1;
-export const ROTATE_COARSE_DEG = 5;
+/**
+ * Rotation is only ever a correction: a hand-drawn box takes its heading from
+ * the nose-to-tail click, and a detected one arrives roughly right. Nothing
+ * needs to be spun a long way, so both steps are sized for the last degree
+ * rather than the first ninety.
+ *
+ * 1° was too coarse because it is not a small angle at this scale: on a 16 m
+ * box it swings each end through 14 cm, which is a whole pixel of misalignment
+ * at both ends at once at z16 — and the map zooms to ~0.8 cm/px, where the
+ * same press jumps an end by 18 px. 0.2° moves that end 2.8 cm.
+ *
+ * Not finer than 0.2°, and not an odd fraction of it: `heading_deg` is stored
+ * rounded to one decimal, so 0.1° is the smallest change that can survive a
+ * save. A step below that would leave the operator pressing a key and watching
+ * nothing happen.
+ */
+export const ROTATE_STEP_DEG = 0.2;
+export const ROTATE_COARSE_DEG = 1;
 
 export function clampLength(length: number): number {
 	return Math.min(MAX_LENGTH_M, Math.max(MIN_LENGTH_M, length));
@@ -83,6 +99,52 @@ export function clampLength(length: number): number {
  * calls the *longer* side the length, so a box shrunk under its own width
  * would silently swap its length and width and jump its heading by 90°.
  */
+/**
+ * The box's axis as [nose, tail]: the midpoints of its two short edges.
+ *
+ * Ordered by geometry, and deliberately *not* by position in the ring. Reading the
+ * pair off in ring order looks equivalent and is not: `boxFromCentreline` lays
+ * a box down as `[nose+h, tail+h, tail-h, nose-h]`, so its first short edge is
+ * the one at the **tail**, and taking that as the nose hands back a reversed
+ * axis. Rebuilding from a reversed axis returns the same box with its vertices
+ * rotated by two — geometrically identical, so nothing looked wrong — and the
+ * next read reverses it again. Every arrow-key press therefore flipped the
+ * ring between two orderings, and anything keyed to a ring index went with it:
+ * the measurement labels jumped from one side of the box to the other and
+ * back, on rotation and on length alike.
+ *
+ * Nose and tail are interchangeable here on purpose — a parked vehicle's axis
+ * has no direction, which is why `measure` reports heading modulo 180 — so
+ * fixing the order costs nothing and buys a ring that stops moving.
+ *
+ * The ordering keys on a diagonal rather than on an axis. Ranking the two ends
+ * by northing ties whenever the box runs east–west, and by easting whenever it
+ * runs north–south, and those are precisely the headings vehicles park at:
+ * beside a kerb, square to a building. On a tie the comparison falls through to
+ * float noise in the last bits, which flips at random. `x + y` only ties for a
+ * box on the other diagonal, and the `x - y` fallback settles that.
+ *
+ * Picking one end of an axis cannot be continuous through a whole revolution —
+ * the box maps onto itself every 180°, so the ends must swap somewhere. This
+ * only chooses *where*, and puts it somewhere the operator rarely works.
+ */
+export function centrelineOf(ring: Coord[]): [Coord, Coord] {
+	const edge = (i: number) => Math.hypot(ring[i + 1][0] - ring[i][0], ring[i + 1][1] - ring[i][1]);
+	const short = edge(0) <= edge(1) ? 0 : 1;
+	const mid = (i: number): Coord => [
+		(ring[i][0] + ring[i + 1][0]) / 2,
+		(ring[i][1] + ring[i + 1][1]) / 2,
+	];
+	const a = mid(short);
+	const b = mid((short + 2) % 4);
+	const key = (p: Coord) => p[0] + p[1];
+	const tie = (p: Coord) => p[0] - p[1];
+	// Sub-millimetre: below the precision a coordinate is ever stored at, so a
+	// difference smaller than this is noise rather than geometry.
+	const first = Math.abs(key(a) - key(b)) > 1e-6 ? key(a) > key(b) : tie(a) > tie(b);
+	return first ? [a, b] : [b, a];
+}
+
 export function scaleCentreline(
 	nose: Coord,
 	tail: Coord,

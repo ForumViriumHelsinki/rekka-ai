@@ -382,6 +382,9 @@ def export(
         if unreviewed:
             problems.append(f"{area.name}: {unreviewed} unreviewed candidate(s)")
         problems.extend(f"{area.name}: {p}" for p in labels.validate(collection))
+        problems.extend(
+            f"{area.name}: {p}" for p in labels.displaced(collection, area.bounds)
+        )
         features_by_name[area.name] = collection["features"]
     if problems:
         typer.echo(f"export blocked by {len(problems)} problem(s):", err=True)

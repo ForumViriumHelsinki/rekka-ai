@@ -8,10 +8,19 @@
 import { describe, expect, test } from 'vitest';
 import Feature from 'ol/Feature';
 import Polygon from 'ol/geom/Polygon';
+import Point from 'ol/geom/Point';
 import type { Stroke, Style } from 'ol/style';
 
 import { COLOURS, aoiStyle, neighbourStyle, selectedStyleFor, styleFor } from './mapStyles';
-import { boxFromCentreline } from './obb';
+import {
+	boxFromCentreline,
+	centrelineOf,
+	rotateCentreline,
+	scaleCentreline,
+	ROTATE_STEP_DEG,
+	LENGTH_STEP_M,
+	type Coord,
+} from './obb';
 
 function box(properties: Record<string, unknown>): Feature {
 	const feature = new Feature(
@@ -132,6 +141,75 @@ describe('a neighbouring area', () => {
 		for (const style of neighbour()) {
 			expect(classColours).not.toContain(style.getStroke()?.getColor());
 			expect(classColours).not.toContain(style.getFill()?.getColor());
+		}
+	});
+});
+
+describe('measurement labels while a box is nudged', () => {
+	/** The bug: the labels used to rotate with their edge, folded upright past
+	 * 90 deg. The fold is a discontinuity, and it sat at headings 0 and 90 --
+	 * where vehicles actually park -- so an arrow-key nudge across the line
+	 * mirrored a label through 180 deg, every press, back and forth. */
+	test('never flip as the box turns through a full revolution', () => {
+		let nose: Coord = [25496000, 6673000];
+		let tail: Coord = [25496016, 6673000];
+		const seen = new Set<number | undefined>();
+		for (let i = 0; i < 900; i++) {
+			const feature = new Feature(new Polygon([boxFromCentreline(nose, tail, 3)]));
+			feature.setProperties({ length_m: 16, width_m: 3, status: 'confirmed', class: 'truck' });
+			for (const style of selectedStyleFor(feature)) {
+				if (style.getText()) seen.add(style.getText()!.getRotation());
+			}
+			[nose, tail] = rotateCentreline(nose, tail, 0.2);
+		}
+		// One value across every heading: no angle, so nothing to jump.
+		expect([...seen]).toEqual([undefined]);
+	});
+
+	test('keep their side across repeated nudges', () => {
+		// The bug, exactly as reported: every arrow press threw the labels from
+		// the top of the box to the bottom and back — on rotation and on length
+		// alike — because a rebuilt ring lists the same corners in a different
+		// order, and the labels followed the ring rather than the ground.
+		const sideOf = (ring: Coord[]) => {
+			const feature = new Feature(new Polygon([ring]));
+			feature.setProperties({ length_m: 16, width_m: 3, status: 'confirmed', class: 'truck' });
+			const [first] = selectedStyleFor(feature)
+				.filter((s) => s.getText()?.getText() === '16 m')
+				.map((s) => (s.getGeometry() as Point).getCoordinates());
+			return first;
+		};
+		for (const [what, nudge] of [
+			['rotation', (n: Coord, t: Coord) => rotateCentreline(n, t, ROTATE_STEP_DEG)],
+			['length', (n: Coord, t: Coord) => scaleCentreline(n, t, LENGTH_STEP_M, 3)],
+		] as const) {
+			let ring = boxFromCentreline([25496000, 6673000], [25496016, 6673000], 3) as Coord[];
+			const sides: number[] = [];
+			for (let i = 0; i < 8; i++) {
+				sides.push(sideOf(ring)[1]);
+				ring = boxFromCentreline(...nudge(...centrelineOf(ring)), 3) as Coord[];
+			}
+			// Swapping sides moves the label by a whole box width. Rotation drags
+			// it a few centimetres, so anything near 3 m is a flip and nothing else.
+			const spread = Math.max(...sides) - Math.min(...sides);
+			expect(spread, `${what}: ${sides.join(' ')}`).toBeLessThan(1);
+		}
+	});
+
+	test('sit on the edge they measure, which is what names them', () => {
+		const feature = box({ status: 'confirmed', class: 'truck' });
+		const ring = (feature.getGeometry() as Polygon).getCoordinates()[0] as Coord[];
+		const mids = selectedStyleFor(feature)
+			.filter((s) => s.getText())
+			.map((s) => (s.getGeometry() as Point).getCoordinates());
+		expect(mids).toHaveLength(2);
+		for (const [mx, my] of mids) {
+			const onAnEdge = [0, 1, 2, 3].some((i) => {
+				const ex = (ring[i][0] + ring[i + 1][0]) / 2;
+				const ey = (ring[i][1] + ring[i + 1][1]) / 2;
+				return Math.hypot(mx - ex, my - ey) < 1e-6;
+			});
+			expect(onAnEdge).toBe(true);
 		}
 	});
 });

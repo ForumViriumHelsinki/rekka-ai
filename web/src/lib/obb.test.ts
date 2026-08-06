@@ -6,6 +6,9 @@ import {
 	clampWidth,
 	scaleCentreline,
 	rotateCentreline,
+	centrelineOf,
+	ROTATE_STEP_DEG,
+	ROTATE_COARSE_DEG,
 	type Coord,
 } from './obb';
 
@@ -135,3 +138,27 @@ for (let i = 0; i < 40; i++) {
 		stillRectangular = false;
 }
 ok('40 mixed nudges leave the ring a rectangle', stillRectangular);
+
+// `heading_deg` is stored rounded to one decimal, so a step under 0.1 deg can
+// round away entirely: the operator presses an arrow and the box does not
+// move. The fine step must survive that rounding, and coarse must outrank it.
+ok(
+	'the fine rotation step survives heading_deg rounding',
+	Math.round(ROTATE_STEP_DEG * 10) / 10 === ROTATE_STEP_DEG && ROTATE_STEP_DEG >= 0.1,
+	ROTATE_STEP_DEG,
+);
+ok('coarse rotation outranks fine', ROTATE_COARSE_DEG > ROTATE_STEP_DEG);
+
+// `centrelineOf` used to read its ends off in ring order, which for a box laid
+// down by `boxFromCentreline` hands back [tail, nose]. Rebuilding from a
+// reversed axis returns the same box with its vertices rotated by two, and the
+// next read reverses it again — so the ring flipped between two orderings on
+// every arrow press. Canonical ordering makes the rebuild a fixed point.
+{
+	const once = boxFromCentreline(...centrelineOf(boxFromCentreline(nose, tail, 3) as Coord[]), 3);
+	const twice = boxFromCentreline(...centrelineOf(once as Coord[]), 3);
+	ok(
+		'rebuilding from the recovered centreline is a fixed point',
+		JSON.stringify(once) === JSON.stringify(twice),
+	);
+}

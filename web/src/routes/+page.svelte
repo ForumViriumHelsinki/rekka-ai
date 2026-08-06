@@ -28,6 +28,7 @@
 	import { GRID, orthoLayer, resolutionAt, MAX_ZOOM } from '$lib/grid';
 	import {
 		boxFromCentreline,
+		centrelineOf,
 		clampWidth,
 		measure,
 		scaleCentreline,
@@ -45,6 +46,7 @@
 	import KeyHelp from '$lib/KeyHelp.svelte';
 	import ClassToolbar from '$lib/ClassToolbar.svelte';
 	import { LabelStore, refreshMeasurements } from '$lib/labelStore.svelte';
+	import { UndoStack } from '$lib/undo.svelte';
 	import {
 		COLOURS,
 		aoiStyle,
@@ -121,6 +123,9 @@
 			}
 		},
 	});
+	/** One step back for a change the operator did not mean. Autosave commits
+	 * every edit within a second, so this is the only in-session safety net. */
+	const undoStack = new UndoStack();
 	const source = store.source;
 	const markDirty = () => store.markDirty();
 	const save = () => store.save();
@@ -157,6 +162,7 @@
 			return;
 		}
 		loadError = '';
+		undoStack.clear();
 		aoiSource.clear();
 		aoiSource.addFeature(new Feature(fromExtent(aoi.extent)));
 		showNeighbours();
@@ -213,6 +219,7 @@
 		});
 		refreshMeasurements(feature);
 		source.addFeature(feature);
+		undoStack.added(feature);
 		// Select what was just drawn. A box is at its most wrong the moment it
 		// is placed, so the next action is almost always to correct it — making
 		// that cost a click back onto a box you are already looking at was the
@@ -277,6 +284,7 @@
 		activeClass = klass;
 		const picked = select.getFeatures().getArray();
 		for (const feature of picked) {
+			undoStack.edit(feature);
 			feature.set('class', klass);
 			if ((feature.get('status') ?? 'candidate') !== 'added') feature.set('status', 'confirmed');
 		}
@@ -295,6 +303,7 @@
 	function rejectSelected() {
 		const picked = select.getFeatures().getArray();
 		for (const feature of picked) {
+			undoStack.edit(feature);
 			feature.set('status', 'rejected');
 			feature.set('class', '');
 		}
@@ -306,23 +315,35 @@
 		}
 	}
 
-	function deleteSelected() {
-		for (const feature of [...select.getFeatures().getArray()]) source.removeFeature(feature);
+	/** Step back, and put the selection on what came back so the change is
+	 * visible rather than merely reversed. Saves like any other edit: the file
+	 * already holds the mistake, so undo is only undone once it reaches disk. */
+	function undoLast() {
+		// Checked before, not after: undoing a hand-drawn box also returns null,
+		// and treating that as "nothing happened" would skip the save.
+		if (!undoStack.depth) return;
+		const restored = undoStack.undo(source);
 		select.getFeatures().clear();
-		setSelected(null);
+		if (restored) {
+			select.getFeatures().push(restored);
+			setSelected(restored);
+			describe(restored);
+		} else {
+			setSelected(null);
+			selectedInfo = '';
+		}
+		source.changed();
 		markDirty();
 	}
 
-	/** The box's axis as [nose, tail]: midpoints of the two short edges. */
-	function centrelineOf(ring: Coord[]): [Coord, Coord] {
-		const edge = (i: number) =>
-			Math.hypot(ring[i + 1][0] - ring[i][0], ring[i + 1][1] - ring[i][1]);
-		const short = edge(0) <= edge(1) ? 0 : 1;
-		const mid = (i: number): Coord => [
-			(ring[i][0] + ring[i + 1][0]) / 2,
-			(ring[i][1] + ring[i + 1][1]) / 2,
-		];
-		return [mid(short), mid((short + 2) % 4)];
+	function deleteSelected() {
+		for (const feature of [...select.getFeatures().getArray()]) {
+			undoStack.removed(feature, source.getFeatures().indexOf(feature));
+			source.removeFeature(feature);
+		}
+		select.getFeatures().clear();
+		setSelected(null);
+		markDirty();
 	}
 
 	/** Shift+scroll on a selected box rebuilds it around its own axis with a
@@ -335,6 +356,7 @@
 		const m = measure(ring);
 		const next = clampWidth(m.width + delta);
 		if (next === m.width) return;
+		undoStack.edit(selected);
 		const [nose, tail] = centrelineOf(ring);
 		geometry.setCoordinates([boxFromCentreline(nose, tail, next)]);
 		width = next; // the next drawn box starts from what was just corrected
@@ -350,6 +372,7 @@
 		if (!selected) return;
 		const geometry = selected.getGeometry() as Polygon;
 		const ring = geometry.getCoordinates()[0] as Coord[];
+		undoStack.edit(selected);
 		const [nose, tail] = centrelineOf(ring);
 		const boxWidth = measure(ring).width;
 		const [nextNose, nextTail] = correct(nose, tail, boxWidth);
@@ -530,6 +553,13 @@
 			run: () => deleteSelected(),
 		},
 		{
+			keys: '⌘/⌃ Z',
+			label: 'undo the last change',
+			on: ['z'],
+			when: (e) => e.ctrlKey || e.metaKey,
+			run: () => undoLast(),
+		},
+		{
 			keys: '⌘/⌃ S',
 			label: 'save now',
 			on: ['s'],
@@ -649,6 +679,11 @@
 		// Drag moves the selected box. Bound to the selection collection, so an
 		// accidental drag on an unselected box pans the map instead of moving it.
 		translate = new Translate({ features: select.getFeatures() });
+		// Captured on start, while the box is still where it was: this is the
+		// gesture most likely to go somewhere unintended.
+		translate.on('translatestart', () => {
+			if (selected) undoStack.edit(selected);
+		});
 		translate.on('translateend', () => {
 			if (selected) describe(selected);
 			markDirty();
