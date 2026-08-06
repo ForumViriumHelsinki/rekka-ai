@@ -7,7 +7,7 @@ detector proposes, a human corrects, and each round the improved model
 proposes the next batch on new ground.
 
 ```mermaid
-flowchart LR
+flowchart TD
     fetch[fetch<br>orthophoto tiles] --> bootstrap[bootstrap<br>zero-shot pre-labels]
     bootstrap --> stage[stage<br>per-area label files]
     stage --> review[web/<br>human review]
@@ -85,7 +85,9 @@ model proposed its boxes, and that is what the round number records.
 
 The labelling batch uses `--min-length 4.0` rather than the 6 m default: vans
 are a labelled class of their own, and the 5–6 m band is exactly where they
-live (392 candidates at 4.0 m versus 286 at 6 m). See DESIGN.md §5.
+live — over the current 17 positive areas that is 713 candidates at 4.0 m
+against 559 at 6 m, so a quarter of the batch would otherwise never be seen.
+See DESIGN.md §5.
 
 Output is a GeoJSON of oriented polygons carrying `length_m`, `width_m`,
 `heading_deg`, `confidence`, and the source layer. Coordinates are **EPSG:3879**
@@ -121,21 +123,43 @@ Click an area, then:
 | `X` | reject (kept as a hard negative, not deleted) |
 | `N` / `P` | jump to next / previous unreviewed candidate |
 | `D` | draw: click the nose, click the tail, scroll for width, click or `Enter` to place |
-| wheel | vehicle width once the tail is set |
+| wheel | vehicle width once the tail is set, while drawing |
 | `Esc` | redo the in-progress sketch, or stop drawing |
+| drag | move the selected box |
+| `⇧` scroll | width of the selected box |
+| `↑` / `↓` | length of the selected box (`⇧` coarse) |
+| `←` / `→` | rotate the selected box (`⇧` coarse) |
+| `Del` | delete the selected box |
+| `⌘/⌃ Z` | undo the last change |
+| `⌘/⌃ S` | save now |
 
 Drawing is a **centreline**, not four corners: measured over the candidates,
 width varies by 0.37 m while length varies by 4.32 m, so only the axis is worth
-drawing by hand. Edits save automatically back to `labels/<aoi>.geojson`.
+drawing by hand. Edits save automatically back to `labels/<aoi>.geojson`, so
+`⌘/⌃ Z` is the safety net for a mis-drag rather than "don't save yet" — a burst
+of arrow-key nudges undoes as one action, not one press at a time.
+
+The surrounding areas are drawn on the map too, in a quieter outline with their
+name. Clicking one opens it, so moving to the next area does not mean going back
+to the sidebar.
+
+Areas with `role: hard-negative` — `rastila`, `marjaniemi` — sit under **Not
+staged** at 0/0, and that is correct rather than a job left undone: no candidates
+are staged for them and there is nothing to review. Their contribution is the
+imagery itself, exported as background, so the model learns that motorhomes and
+moored boats are not trucks. See DESIGN.md §5.
 
 ### Training
 
 `export` turns the reviewed files into a YOLO-OBB dataset under
 `data/dataset/` — split by whole AOI from the collection's `split` field,
 never at random, so adjacent near-duplicate windows cannot straddle train and
-validation. It refuses to run while any area has unreviewed candidates or
-schema problems: pixel labels are baked to a zoom and tiling, so errors baked
-with them are expensive to find later.
+validation. It refuses to run while any area has unreviewed candidates, schema
+problems, or a box whose centre has drifted outside its area: pixel labels are
+baked to a zoom and tiling, so errors baked with them are expensive to find
+later. The last check exists because that failure is otherwise silent — a box
+dragged off its area lands in no export window at all, so it does not become a
+bad label, it stops being a label.
 
 ```sh
 uv run rekka-ai export --aoi aois/helsinki.yaml
@@ -146,7 +170,7 @@ the loop, MLflow owns the record (`runs/mlflow.db`). Needs the `train` extra:
 
 ```sh
 uv sync --extra train
-uv run rekka-ai train                     # autobatch, dataset's own 1024 px windows
+uv run rekka-ai train --name round1       # autobatch, dataset's own 1024 px windows
 uv run rekka-ai train --batch 2           # small or display-shared GPU
 
 # Inspect runs
@@ -213,8 +237,13 @@ uv run ruff format     # format
 uv run ty check        # type check
 uv run pytest          # tests
 
-cd web && bun run test     # labelling-tool geometry tests (bun run, not bun test:
-                           # bare `bun test` is bun's own runner, not vitest)
+cd web
+bun run test      # labelling-tool tests (bun run, not bun test: bare
+                  # `bun test` is bun's own runner, not vitest)
+bun run check     # svelte-check
+bun run lint      # prettier --check
 ```
 
-CI runs the Python four on every pull request.
+CI runs the Python four on every pull request. The `web/` checks are not in CI
+yet, so run them before pushing anything under `web/` — the geometry and save
+paths there carry their own regression tests.
