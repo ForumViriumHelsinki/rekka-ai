@@ -1,4 +1,5 @@
 import json
+import re
 from pathlib import Path
 
 import pytest
@@ -39,9 +40,19 @@ def test_fetch_dry_run_reports_tile_count() -> None:
     assert "tiles covering" in result.stdout
 
 
+_ANSI = re.compile(r"\x1b\[[0-9;]*m")
+
+
 def _flat(output: str) -> str:
-    """Collapse rich's error box so wrapped messages can be matched."""
-    return " ".join(output.replace("\u2502", " ").split())
+    """Collapse rich's error box so wrapped messages can be matched.
+
+    Strip ANSI escapes first: typer forces its console into terminal mode
+    whenever GITHUB_ACTIONS (or FORCE_COLOR) is set, regardless of whether
+    it writes to a tty, so the box is coloured on CI but not locally. The
+    escapes ride on the box borders and land between the matched words.
+    """
+    plain = _ANSI.sub("", output).replace("\u2502", " ")
+    return " ".join(plain.split())
 
 
 def _total_tiles(output: str) -> int:
