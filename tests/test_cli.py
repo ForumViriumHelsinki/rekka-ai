@@ -1,4 +1,3 @@
-import json
 import re
 from pathlib import Path
 
@@ -173,7 +172,13 @@ def test_bootstrap_reports_when_no_area_has_the_role(tmp_path: Path) -> None:
 
 
 def _feature(aoi: str, **properties: object) -> dict:
-    ring = [[24.9, 60.1], [24.91, 60.1], [24.91, 60.11], [24.9, 60.11], [24.9, 60.1]]
+    ring = [
+        [25496000.0, 6673000.0],
+        [25496008.0, 6673000.0],
+        [25496008.0, 6673002.5],
+        [25496000.0, 6673002.5],
+        [25496000.0, 6673000.0],
+    ]
     return {
         "type": "Feature",
         "geometry": {"type": "Polygon", "coordinates": [ring]},
@@ -190,9 +195,8 @@ def _feature(aoi: str, **properties: object) -> dict:
 
 
 def _write_geojson(path: Path, *features: dict) -> None:
-    path.write_text(
-        json.dumps({"type": "FeatureCollection", "features": list(features)})
-    )
+    """Through `labels.write`, so fixtures carry the `crs` member real files do."""
+    labels.write(path, {"type": "FeatureCollection", "features": list(features)})
 
 
 def _stage(labels_dir: Path, candidates: Path, *extra: str):

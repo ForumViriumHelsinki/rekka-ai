@@ -24,7 +24,6 @@ from typing import Any
 import yaml
 
 from rekka_ai import labels
-from rekka_ai.geo import to_grid
 from rekka_ai.imagery.aoi import Aoi
 from rekka_ai.imagery.windows import (
     OVERLAP_M,
@@ -49,28 +48,25 @@ IMAGE_QUALITY = 95
 
 
 def grid_corners(feature: dict[str, Any]) -> list[tuple[float, float]]:
-    """A label feature's ring in EPSG:3879, closing coordinate dropped."""
+    """A label feature's ring in EPSG:3879, closing coordinate dropped.
+
+    Label files are stored in the grid CRS, so this reads corners rather than
+    projecting them.
+    """
     ring = feature["geometry"]["coordinates"][0]
-    return [to_grid(lon, lat) for lon, lat in ring[:4]]
+    return [(easting, northing) for easting, northing in ring[:4]]
 
 
 @dataclass(frozen=True, slots=True)
 class LabelBox:
-    """A label ready to write: its class index, and its ring already projected."""
+    """A label ready to write: its class index, and its ring in grid metres."""
 
     class_index: int
     corners: list[tuple[float, float]]
 
 
 def label_boxes(features: list[dict[str, Any]]) -> list[LabelBox]:
-    """The writable labels among ``features``, projected to EPSG:3879 once.
-
-    Projecting here rather than inside the window loop is what keeps export
-    linear: every box is tested against every window in the area, so a
-    transform in that loop costs ``features x windows`` pyproj calls -- for one
-    6 km² area that is ~890,000 calls and 20 seconds of pure reprojection,
-    against 1,267 calls and 0.03 s when hoisted.
-    """
+    """The writable labels among ``features``, as grid-metre corners."""
     boxes = []
     for feature in features:
         properties = feature.get("properties", {})

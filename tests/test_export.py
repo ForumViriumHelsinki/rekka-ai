@@ -16,7 +16,6 @@ from rekka_ai.export import (
     label_boxes,
     window_label_lines,
 )
-from rekka_ai.geo import to_wgs84
 from rekka_ai.imagery.aoi import Aoi
 from rekka_ai.imagery.tiles import TILE_SIZE, Bounds
 from rekka_ai.imagery.windows import Window, pixel_to_grid
@@ -34,7 +33,7 @@ def _feature(
     klass: str = "truck",
 ) -> dict:
     """A label feature covering window-local pixels, built via the ground."""
-    ring = [list(to_wgs84(*pixel_to_grid(x, y, window.zoom))) for x, y in local_pixels]
+    ring = [list(pixel_to_grid(x, y, window.zoom)) for x, y in local_pixels]
     ring.append(ring[0])
     return {
         "type": "Feature",

@@ -74,15 +74,24 @@ uv run rekka-ai bootstrap --aoi aois/helsinki.yaml --name tattariharjuntie \
 
 # Every area with a given role — the labelling batch
 uv run rekka-ai bootstrap --aoi aois/helsinki.yaml --role positive \
-    --min-length 4.0 --out data/candidates/positives.geojson
+    --min-length 4.0 --out data/candidates/round1.geojson
 ```
+
+A whole labelling batch is named by **round** — a single-area peek by its area,
+as above. `--role positive` is a filter every round passes, so it distinguishes
+nothing, and the areas are in the file anyway: each feature carries its `aoi`,
+which the collection maps back to a role. What a file cannot tell you is which
+model proposed its boxes, and that is what the round number records.
 
 The labelling batch uses `--min-length 4.0` rather than the 6 m default: vans
 are a labelled class of their own, and the 5–6 m band is exactly where they
 live (392 candidates at 4.0 m versus 286 at 6 m). See DESIGN.md §5.
 
-Output is a WGS84 GeoJSON of oriented polygons carrying `length_m`, `width_m`,
-`heading_deg`, `confidence`, and the source layer.
+Output is a GeoJSON of oriented polygons carrying `length_m`, `width_m`,
+`heading_deg`, `confidence`, and the source layer. Coordinates are **EPSG:3879**
+metres, declared by a `crs` member rather than the WGS84 RFC 7946 assumes — see
+DESIGN.md §2. GDAL-based tools (QGIS, `ogr2ogr`) honour it; for anything that
+does not, convert with `ogr2ogr -f GeoJSON out.geojson -t_srs EPSG:4326 in.geojson`.
 
 ### Labelling
 
@@ -90,7 +99,7 @@ Split the candidates into per-AOI label files under `labels/` — version
 controlled, because labels are the one artifact that cannot be regenerated:
 
 ```sh
-uv run rekka-ai stage --candidates data/candidates/positives.geojson
+uv run rekka-ai stage --candidates data/candidates/round1.geojson
 uv run rekka-ai progress          # per-area review counts, and schema problems
 ```
 
@@ -180,8 +189,8 @@ end to end — fetch the tiles, detect, split into per-area files, report:
 ```sh
 uv run rekka-ai fetch --aoi aois/helsinki.yaml
 uv run rekka-ai bootstrap --aoi aois/helsinki.yaml --role positive \
-    --min-length 4.0 --out data/candidates/positives.geojson
-uv run rekka-ai stage --candidates data/candidates/positives.geojson
+    --min-length 4.0 --out data/candidates/round1.geojson
+uv run rekka-ai stage --candidates data/candidates/round1.geojson
 uv run rekka-ai progress
 ```
 

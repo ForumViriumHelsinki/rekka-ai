@@ -9,7 +9,7 @@ from shapely.geometry import Point, Polygon
 from shapely.geometry.base import BaseGeometry
 from shapely.prepared import prep
 
-from rekka_ai.geo import to_wgs84
+from rekka_ai.geo import COORD_DECIMALS, crs_member
 
 #: Two boxes overlapping more than this are taken to be the same vehicle seen
 #: from two windows.
@@ -139,7 +139,12 @@ def _iou(a: Polygon, b: Polygon) -> float:
 
 
 def to_geojson(detections: list[Detection], **properties: Any) -> dict[str, Any]:
-    """A WGS84 FeatureCollection, one oriented polygon per detection.
+    """An EPSG:3879 FeatureCollection, one oriented polygon per detection.
+
+    Corners are already grid metres, so this writes them as they are: the
+    candidates go on to become label files, and a WGS84 hop here would be a
+    conversion out and a conversion back for nobody's benefit. The ``crs``
+    member is what says so.
 
     Extra keyword arguments are copied onto every feature -- source layer and
     zoom in practice, so a file of candidates stays interpretable once it has
@@ -147,16 +152,17 @@ def to_geojson(detections: list[Detection], **properties: Any) -> dict[str, Any]
     """
     return {
         "type": "FeatureCollection",
+        "crs": crs_member(),
         "features": [_feature(d, properties) for d in detections],
     }
 
 
 def _feature(detection: Detection, properties: dict[str, Any]) -> dict[str, Any]:
-    ring = [to_wgs84(e, n) for e, n in detection.corners]
+    ring = [[round(v, COORD_DECIMALS) for v in corner] for corner in detection.corners]
     ring.append(ring[0])  # GeoJSON rings must close
     return {
         "type": "Feature",
-        "geometry": {"type": "Polygon", "coordinates": [[list(p) for p in ring]]},
+        "geometry": {"type": "Polygon", "coordinates": [ring]},
         "properties": {
             "label": detection.label,
             "confidence": round(detection.confidence, 4),

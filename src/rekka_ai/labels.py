@@ -5,9 +5,13 @@ version control under ``labels/``, one GeoJSON file per AOI. Per-AOI files keep
 diffs small, let the work be resumed area by area, and make progress countable
 without a database.
 
-Files are **WGS84**, per RFC 7946, so QGIS and every other tool reads them
-without special handling. All geometry *maths* happens in EPSG:3879, where
-metres are metres.
+Files are **EPSG:3879**, declared by a ``crs`` member -- not the WGS84 that RFC
+7946 mandates. The detector produces metres, the tile grid is metres, the
+labelling tool's map is metres, and every measurement here is metres; storing
+degrees put a reprojection on both sides of the file, and reprojecting is not
+exactly reversible. The visible symptom was that changing one box's class
+rewrote all 417 lines of coordinates in a file, because a save re-derived every
+coordinate it had just read. See ``geo.crs_member`` for what QGIS makes of it.
 
 Measurements are always recomputed from geometry rather than trusted: an editor
 moves a vertex, and a stored ``length_m`` becomes silently wrong the moment it
@@ -21,7 +25,7 @@ from pathlib import Path
 from typing import Any
 
 from rekka_ai.detect.detections import Detection
-from rekka_ai.geo import to_grid
+from rekka_ai.geo import COORD_DECIMALS, GRID_CRS_NAME, crs_member
 
 #: What a labelled object is. ``van`` is a real class rather than an exclusion:
 #: the detector fires on vans, and labelling them explicitly is better than
@@ -38,13 +42,13 @@ UNLABELLED = ""
 
 
 def measurements(ring: list[list[float]]) -> dict[str, float]:
-    """Length, width and heading of a WGS84 ring, computed in EPSG:3879.
+    """Length, width and heading of an EPSG:3879 ring, in metres.
 
     Accepts the closing coordinate GeoJSON requires, and ignores it.
     """
     if len(ring) < 4:
         raise ValueError(f"expected at least 4 corners, got {len(ring)}")
-    corners = [tuple(to_grid(lon, lat)) for lon, lat in ring[:4]]
+    corners = [(easting, northing) for easting, northing in ring[:4]]
     detection = Detection(label="", confidence=0.0, corners=tuple(corners))
     return {
         "length_m": round(detection.length_m, 2),
@@ -54,8 +58,25 @@ def measurements(ring: list[list[float]]) -> dict[str, float]:
 
 
 def read(path: Path) -> dict[str, Any]:
-    """One area's label file, as a GeoJSON FeatureCollection."""
-    return json.loads(path.read_text())
+    """One area's label file, as a GeoJSON FeatureCollection.
+
+    Refuses a file that does not declare the grid CRS. A pre-switch WGS84 file
+    parses perfectly well and is wrong in a way nothing downstream notices:
+    degrees read as metres make every box a few centimetres across, so the
+    rectangle check still passes, every label falls outside every export
+    window, and the dataset comes out empty for no stated reason.
+    """
+    collection = json.loads(path.read_text())
+    declared = collection.get("crs", {}).get("properties", {}).get("name")
+    if declared != GRID_CRS_NAME:
+        raise ValueError(
+            f"{path} declares CRS {declared!r}, expected {GRID_CRS_NAME!r}. "
+            "Label files written before the EPSG:3879 switch are WGS84. If the "
+            "file holds no review work, regenerate it with `bootstrap` then "
+            "`stage --force`; if it does, reproject it in place first -- "
+            "`ogr2ogr -s_srs EPSG:4326 -t_srs EPSG:3879` keeps the verdicts."
+        )
+    return collection
 
 
 def _normalize_numbers(value: Any) -> Any:
@@ -75,10 +96,39 @@ def _normalize_numbers(value: Any) -> Any:
     return value
 
 
+def round_ring(ring: list[list[float]]) -> list[list[float]]:
+    """A ring rounded to ``COORD_DECIMALS``, the precision files are kept at.
+
+    Both writers round to the same place, so a coordinate that survives an edit
+    untouched is written back as the identical digits rather than as a slightly
+    different tail -- the difference between a one-line diff and a whole file.
+    """
+    return [[round(v, COORD_DECIMALS) for v in position] for position in ring]
+
+
+def _round_coordinates(feature: dict[str, Any]) -> dict[str, Any]:
+    geometry = feature.get("geometry")
+    if not isinstance(geometry, dict) or not isinstance(
+        geometry.get("coordinates"), list
+    ):
+        return feature
+    rings = [round_ring(ring) for ring in geometry["coordinates"]]
+    return {**feature, "geometry": {**geometry, "coordinates": rings}}
+
+
 def write(path: Path, collection: dict[str, Any]) -> None:
-    """Write a label file, creating its directory. Indented so diffs are readable."""
+    """Write a label file, creating its directory. Indented so diffs are readable.
+
+    The ``crs`` member is stamped here rather than expected from the caller:
+    it is a fact about the format, and a file that lost it would be read back
+    as WGS84 by anything that trusts RFC 7946.
+    """
     path.parent.mkdir(parents=True, exist_ok=True)
-    path.write_text(json.dumps(_normalize_numbers(collection), indent=2) + "\n")
+    head: dict[str, Any] = {"type": "FeatureCollection", "crs": crs_member()}
+    rest = {k: v for k, v in collection.items() if k not in head}
+    features = [_round_coordinates(f) for f in collection.get("features", [])]
+    document = {**head, **rest, "features": features}
+    path.write_text(json.dumps(_normalize_numbers(document), indent=2) + "\n")
 
 
 def summarise(collection: dict[str, Any]) -> dict[str, int]:
@@ -149,7 +199,7 @@ def _ring_of(feature: dict[str, Any]) -> list[list[float]] | None:
 
 
 def _is_rectangle(ring: list[list[float]], tolerance_m: float = 0.5) -> bool:
-    corners = [to_grid(lon, lat) for lon, lat in ring[:4]]
+    corners = ring[:4]
     # Opposite sides equal and diagonals equal is enough to pin a rectangle.
     sides = [math.dist(corners[i], corners[(i + 1) % 4]) for i in range(4)]
     diagonals = [math.dist(corners[0], corners[2]), math.dist(corners[1], corners[3])]

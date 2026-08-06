@@ -9,6 +9,7 @@ import { afterEach, beforeEach, describe, expect, test, vi } from 'vitest';
 import Feature from 'ol/Feature';
 import Polygon from 'ol/geom/Polygon';
 
+import { GRID_CRS } from './grid';
 import { LabelStore, RETRY_DELAY_MS, SAVE_DEBOUNCE_MS } from './labelStore.svelte';
 import { boxFromCentreline } from './obb';
 
@@ -123,18 +124,19 @@ describe('save', () => {
 		expect(feature.get('width_m')).toBeCloseTo(3, 2);
 	});
 
-	test('writes WGS84, as RFC 7946 requires', async () => {
+	test('writes EPSG:3879 metres, and says so', async () => {
 		const fetchMock = vi.fn(ok) as unknown as ReturnType<typeof vi.fn>;
 		vi.stubGlobal('fetch', fetchMock);
 		store.source.addFeature(box({ status: 'added', class: 'truck' }));
 		await store.save();
 		const body = JSON.parse(fetchMock.mock.calls[0][1]!.body as string);
-		const [lon, lat] = body.features[0].geometry.coordinates[0][0];
-		// Helsinki, in degrees — not the 2.5e7 easting of EPSG:3879.
-		expect(lon).toBeGreaterThan(24);
-		expect(lon).toBeLessThan(26);
-		expect(lat).toBeGreaterThan(59);
-		expect(lat).toBeLessThan(61);
+		// A reader that trusts RFC 7946 would put these boxes off Africa, so
+		// the `crs` member is not decoration — it is the whole declaration.
+		expect(body.crs).toEqual(GRID_CRS);
+		const [easting, northing] = body.features[0].geometry.coordinates[0][0];
+		// Helsinki in grid metres — not the ~25° a WGS84 write would give.
+		expect(easting).toBeCloseTo(25496000, -2);
+		expect(northing).toBeCloseTo(6673000, -2);
 	});
 });
 
@@ -186,6 +188,7 @@ describe('load', () => {
 				status: 200,
 				json: async () => ({
 					type: 'FeatureCollection',
+					crs: GRID_CRS,
 					features: [
 						{
 							type: 'Feature',
@@ -193,11 +196,11 @@ describe('load', () => {
 								type: 'Polygon',
 								coordinates: [
 									[
-										[24.93, 60.17],
-										[24.9301, 60.17],
-										[24.9301, 60.1701],
-										[24.93, 60.1701],
-										[24.93, 60.17],
+										[25496000, 6673000],
+										[25496016, 6673000],
+										[25496016, 6673002.5],
+										[25496000, 6673002.5],
+										[25496000, 6673000],
 									],
 								],
 							},
@@ -223,5 +226,113 @@ describe('load', () => {
 		await expect(store.load('nope')).rejects.toThrow('HTTP 404');
 		// The features that were open are still there to be saved.
 		expect(store.source.getFeatures()).toHaveLength(1);
+	});
+});
+
+describe('round trip', () => {
+	// Two features exactly as `labels.write` leaves them: EPSG:3879 metres at
+	// COORD_DECIMALS, including an integral coordinate (which JSON.stringify
+	// and json.dumps only agree on because Python normalizes 175.0 to 175).
+	// Two, because one cannot catch a reordering.
+	const FIRST_RING = [
+		[25496000.123, 6673000.877],
+		[25496016.123, 6673000.877],
+		[25496016.123, 6673003.377],
+		[25496000.123, 6673003.377],
+		[25496000.123, 6673000.877],
+	];
+	const SECOND_RING = [
+		[25496100, 6673100.5],
+		[25496112.25, 6673100.5],
+		[25496112.25, 6673103],
+		[25496100, 6673103],
+		[25496100, 6673100.5],
+	];
+	const FIXTURE = {
+		type: 'FeatureCollection',
+		crs: GRID_CRS,
+		features: [
+			{
+				type: 'Feature',
+				geometry: { type: 'Polygon', coordinates: [FIRST_RING] },
+				properties: { aoi: 'kamppi', status: 'candidate', class: '', length_m: 12.34 },
+			},
+			{
+				type: 'Feature',
+				geometry: { type: 'Polygon', coordinates: [SECOND_RING] },
+				properties: { aoi: 'kamppi', status: 'candidate', class: '', length_m: 56.78 },
+			},
+		],
+	};
+
+	function stubLoadAndCapturePut(): ReturnType<typeof vi.fn> {
+		const fetchMock = vi.fn(async (url: string, init?: { method?: string }) => {
+			if (init?.method === 'PUT') return ok();
+			return { ok: true, status: 200, json: async () => FIXTURE } as Response;
+		});
+		vi.stubGlobal('fetch', fetchMock);
+		return fetchMock;
+	}
+
+	function putBody(fetchMock: ReturnType<typeof vi.fn>) {
+		const put = fetchMock.mock.calls.find((c) => c[1]?.method === 'PUT');
+		return JSON.parse(put![1]!.body as string);
+	}
+
+	test('loading and saving without an edit reproduces the file exactly', async () => {
+		// The regression this whole CRS choice exists for: an operator opens an
+		// area, changes nothing, and the file must come back identical — not
+		// merely equivalent to eight decimal places.
+		const fetchMock = stubLoadAndCapturePut();
+		await store.load('kamppi');
+		await store.save();
+		expect(JSON.stringify(putBody(fetchMock))).toBe(JSON.stringify(FIXTURE));
+	});
+
+	test('a verdict edit changes the properties it touched and nothing else', async () => {
+		const fetchMock = stubLoadAndCapturePut();
+		await store.load('kamppi');
+		const feature = store.source.getFeatures().find((f) => f.get('length_m') === 12.34)!;
+		feature.set('status', 'confirmed');
+		feature.set('class', 'truck');
+		await store.save();
+		const body = putBody(fetchMock);
+		expect(body.features[0].geometry.coordinates).toEqual([FIRST_RING]);
+		expect(body.features[0].properties.status).toBe('confirmed');
+		expect(body.features[0].properties.class).toBe('truck');
+		// Untouched geometry is not re-measured, so a JS/Python disagreement in
+		// the last rounded digit cannot creep into a file nobody edited.
+		expect(body.features[0].properties.length_m).toBe(12.34);
+		expect(body.features[1]).toEqual(FIXTURE.features[1]);
+	});
+
+	test('a geometry edit recomputes measurements, without internal keys', async () => {
+		const fetchMock = stubLoadAndCapturePut();
+		await store.load('kamppi');
+		const feature = store.source.getFeatures().find((f) => f.get('length_m') === 12.34)!;
+		const geometry = feature.getGeometry() as Polygon;
+		// Stretch the 16 m box to 20 m along its long axis.
+		const ring = (geometry.getCoordinates()[0] as number[][]).map(([x, y], i) => [
+			i === 1 || i === 2 ? x + 4 : x,
+			y,
+		]);
+		geometry.setCoordinates([ring]);
+		await store.save();
+		const written = putBody(fetchMock).features[0];
+		expect(written.properties.length_m).toBeCloseTo(20, 2);
+		expect(Object.keys(written.properties)).not.toContain('rekka:geomDirty');
+		expect(Object.keys(written.properties)).not.toContain('rekka:order');
+	});
+
+	test('a hand-drawn box is measured and appended after the file features', async () => {
+		const fetchMock = stubLoadAndCapturePut();
+		await store.load('kamppi');
+		store.source.addFeature(box({ status: 'added', class: 'truck' }));
+		await store.save();
+		const body = putBody(fetchMock);
+		expect(body.features).toHaveLength(3);
+		expect(body.features[2].properties.class).toBe('truck');
+		// Never measured before, so it must be measured now.
+		expect(body.features[2].properties.length_m).toBeCloseTo(16, 2);
 	});
 });

@@ -18,6 +18,7 @@ from rekka_ai.detect.detections import (
     within_region,
 )
 from rekka_ai.detect.sweep import LARGE_VEHICLE, RawDetection, sweep
+from rekka_ai.geo import crs_member
 from rekka_ai.imagery.aoi import Aoi, load_aois
 from rekka_ai.imagery.tiles import Bounds, Tile
 from rekka_ai.imagery.windows import Window
@@ -130,14 +131,16 @@ def test_merge_of_nothing_is_nothing() -> None:
     assert merge([]) == []
 
 
-def test_geojson_is_wgs84_with_a_closed_ring() -> None:
+def test_geojson_is_grid_metres_with_a_closed_ring() -> None:
     collection = to_geojson([_detection(EAST_WEST)], source_layer="L", zoom=ZOOM)
     assert collection["type"] == "FeatureCollection"
+    # Candidates become label files unchanged, so they carry the same `crs`
+    # member; without it `labels.read` rejects the file staging just wrote.
+    assert collection["crs"] == crs_member()
     ring = collection["features"][0]["geometry"]["coordinates"][0]
     assert ring[0] == ring[-1], "GeoJSON rings must close"
     assert len(ring) == 5
-    lon, lat = ring[0]
-    assert 24 < lon < 26 and 59 < lat < 61  # Helsinki, in degrees
+    assert ring[0] == list(EAST_WEST[0]), "corners are written as they are held"
 
 
 def test_geojson_carries_measurements_and_provenance() -> None:

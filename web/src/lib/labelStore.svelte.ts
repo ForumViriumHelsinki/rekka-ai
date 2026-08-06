@@ -16,14 +16,28 @@
  *   features under the next area's name.
  * - **Measurements are recomputed from geometry on the way out**, never
  *   trusted from memory: a dragged vertex leaves a stale `length_m` otherwise.
+ *   But only where the geometry actually changed — recomputing `length_m` for
+ *   an untouched box risks this and Python disagreeing in the last rounded
+ *   digit, which is a diff nobody asked for.
+ * - **The file is written in the map's own CRS.** Label files store EPSG:3879
+ *   (see `geo.crs_member` on the Python side), so reading and writing move no
+ *   coordinates at all: OpenLayers skips the transform when the data and
+ *   feature projections match, and a `COORD_DECIMALS` write reproduces the
+ *   digits already on disk. Round-tripping through WGS84 instead re-derived
+ *   every coordinate in the file on every save, so changing one box's class
+ *   rewrote all of them.
  */
 import GeoJSON from 'ol/format/GeoJSON';
 import type Polygon from 'ol/geom/Polygon';
 import VectorSource from 'ol/source/Vector';
-import type Feature from 'ol/Feature';
+import Feature from 'ol/Feature';
 
-import { GRID, WGS84 } from '$lib/grid';
+import { COORD_DECIMALS, GRID, GRID_CRS } from '$lib/grid';
 import { measure, type Coord } from '$lib/obb';
+
+/** Internal feature properties, never written to disk. */
+const GEOM_DIRTY = 'rekka:geomDirty';
+const ORDER = 'rekka:order';
 
 /** Long enough to absorb a burst of keystrokes, short enough to feel saved. */
 export const SAVE_DEBOUNCE_MS = 800;
@@ -47,8 +61,9 @@ export function emptyCounts(): Counts {
 /** Recompute a box's measurements from its geometry.
  *
  * Exported because the page edits geometry directly (drag, wheel, arrows) and
- * must refresh as it goes; the store also does it for every feature on save,
- * so nothing stale can reach disk even if a caller forgets. */
+ * must refresh as it goes; the store also does it on save for every feature
+ * whose geometry changed, so nothing stale can reach disk even if a caller
+ * forgets. */
 export function refreshMeasurements(feature: Feature): void {
 	const ring = (feature.getGeometry() as Polygon).getCoordinates()[0] as Coord[];
 	const m = measure(ring);
@@ -100,12 +115,20 @@ export class LabelStore {
 		this.area = name;
 		this.source.clear();
 		if (collection.features?.length) {
-			this.source.addFeatures(
-				this.#format.readFeatures(collection, {
-					featureProjection: GRID,
-					dataProjection: WGS84,
-				}),
-			);
+			const features = this.#format.readFeatures(collection, {
+				featureProjection: GRID,
+				dataProjection: GRID,
+			});
+			// Remember each feature's position in the file, and watch its
+			// geometry. VectorSource holds features in a spatial index whose
+			// iteration order is arbitrary, so saving in that order would
+			// reshuffle the whole file; and only a geometry that actually moved
+			// needs its measurements recomputed.
+			features.forEach((feature, i) => {
+				feature.set(ORDER, i, true);
+				feature.getGeometry()?.on('change', () => feature.set(GEOM_DIRTY, true, true));
+			});
+			this.source.addFeatures(features);
 		}
 		this.recount();
 		this.dirty = false;
@@ -127,13 +150,38 @@ export class LabelStore {
 		this.cancelPending();
 		this.saving = true;
 		this.saveError = '';
-		const features = this.source.getFeatures();
-		for (const feature of features) refreshMeasurements(feature);
-		const geojson = this.#format.writeFeaturesObject(features, {
-			featureProjection: GRID,
-			dataProjection: WGS84,
-			decimals: 8,
+		// File order first (VectorSource's spatial index iterates arbitrarily),
+		// hand-drawn additions last.
+		const features = this.source
+			.getFeatures()
+			.slice()
+			.sort(
+				(a, b) =>
+					((a.get(ORDER) as number | undefined) ?? Infinity) -
+					((b.get(ORDER) as number | undefined) ?? Infinity),
+			);
+		const out = features.map((feature) => {
+			// Edited geometry, or a hand-drawn box that has never been measured.
+			// `=== undefined`, not falsy: the first feature in the file is 0.
+			if (feature.get(GEOM_DIRTY) || feature.get(ORDER) === undefined) {
+				refreshMeasurements(feature);
+			}
+			// Serialize through a clone so the internal bookkeeping keys never
+			// reach disk.
+			const clone = new Feature(feature.getGeometry());
+			for (const [key, value] of Object.entries(feature.getProperties())) {
+				if (key === GEOM_DIRTY || key === ORDER || key === 'geometry') continue;
+				clone.set(key, value, true);
+			}
+			return this.#format.writeFeatureObject(clone, {
+				featureProjection: GRID,
+				dataProjection: GRID,
+				decimals: COORD_DECIMALS,
+			});
 		});
+		// `crs` first, as `labels.write` orders it: the two writers take turns
+		// on these files and a key-order difference is a diff of its own.
+		const geojson = { type: 'FeatureCollection', crs: GRID_CRS, features: out };
 		try {
 			const response = await fetch(`/api/labels/${this.area}`, {
 				method: 'PUT',

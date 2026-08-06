@@ -15,7 +15,7 @@ from pathlib import Path
 
 import pytest
 
-from rekka_ai import labels
+from rekka_ai import geo, labels
 from rekka_ai.cli import BOOTSTRAP_ZOOM
 from rekka_ai.imagery import tiles
 from rekka_ai.imagery.layers import LATEST_YEAR, layer_for_year
@@ -30,9 +30,13 @@ pytestmark = pytest.mark.skipif(
 
 
 def _const(source: str, name: str) -> str:
-    """The right-hand side of a top-level ``export const NAME = ...;``."""
+    """The right-hand side of a top-level ``export const NAME = ...;``.
+
+    DOTALL so an object literal spanning several lines is captured whole; the
+    match is still non-greedy, so it ends at that constant's own semicolon.
+    """
     match = re.search(
-        rf"^export const {name}(?::[^=]+)? = (.+?);$", source, re.MULTILINE
+        rf"^export const {name}(?::[^=]+)? = (.+?);$", source, re.MULTILINE | re.DOTALL
     )
     if match is None:
         raise AssertionError(f"no `export const {name}` in the file")
@@ -69,6 +73,20 @@ def test_latest_layer_matches() -> None:
 )
 def test_grid_scalars_match(web_name: str, python_value: float) -> None:
     assert _number(GRID.read_text(), web_name) == python_value
+
+
+def test_coordinate_precision_matches() -> None:
+    """Both writers must round to the same place, or every save reformats."""
+    assert _number(GRID.read_text(), "COORD_DECIMALS") == geo.COORD_DECIMALS
+
+
+def test_stored_crs_matches() -> None:
+    """The web tool stamps the `crs` member itself; a different spelling there
+    would leave half the label files claiming a CRS the other half deny."""
+    declared = re.search(r"name: '([^']+)'", _const(GRID.read_text(), "GRID_CRS"))
+    assert declared is not None, "no CRS name in `export const GRID_CRS`"
+    assert declared.group(1) == geo.GRID_CRS_NAME
+    assert geo.crs_member()["properties"]["name"] == geo.GRID_CRS_NAME
 
 
 def test_grid_origin_matches() -> None:

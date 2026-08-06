@@ -6,20 +6,19 @@ from pathlib import Path
 import pytest
 
 from rekka_ai import labels
-from rekka_ai.geo import to_wgs84
+from rekka_ai.geo import crs_member
 
 
 def _ring(
     easting: float, northing: float, length: float, width: float
 ) -> list[list[float]]:
-    """A closed WGS84 ring for an axis-aligned box, as the tool would write it."""
-    corners = [
-        (easting, northing),
-        (easting + length, northing),
-        (easting + length, northing + width),
-        (easting, northing + width),
+    """A closed EPSG:3879 ring for an axis-aligned box, as the tool writes it."""
+    ring = [
+        [easting, northing],
+        [easting + length, northing],
+        [easting + length, northing + width],
+        [easting, northing + width],
     ]
-    ring = [list(to_wgs84(e, n)) for e, n in corners]
     return [*ring, ring[0]]
 
 
@@ -36,8 +35,8 @@ def _feature(status: str = "candidate", klass: str = "", **geometry: object) -> 
     }
 
 
-def test_measurements_are_computed_in_metres_not_degrees() -> None:
-    """The file is WGS84; measuring it as degrees would give ~0.0001."""
+def test_measurements_are_computed_in_metres() -> None:
+    """The file is EPSG:3879, so a stored coordinate is already a metre."""
     m = labels.measurements(_ring(25496000.0, 6673000.0, 16.0, 3.0))
     assert m["length_m"] == pytest.approx(16.0, abs=0.01)
     assert m["width_m"] == pytest.approx(3.0, abs=0.01)
@@ -63,11 +62,11 @@ def test_unknown_class_is_a_problem() -> None:
 def test_non_rectangle_is_a_problem() -> None:
     """A freehand polygon cannot become a YOLO-OBB label."""
     blob = [
-        [24.93, 60.16],
-        [24.94, 60.16],
-        [24.945, 60.18],
-        [24.93, 60.175],
-        [24.93, 60.16],
+        [25496000.0, 6673000.0],
+        [25496016.0, 6673000.0],
+        [25496022.0, 6673011.0],
+        [25496000.0, 6673008.0],
+        [25496000.0, 6673000.0],
     ]
     problems = labels.validate(
         {"features": [_feature(status="added", klass="truck", ring=blob)]}
@@ -101,10 +100,13 @@ def test_reviewed_counts_only_verdicts() -> None:
 
 
 def test_staged_files_are_valid(tmp_path: Path) -> None:
-    """Everything stage() writes must pass validation as an unreviewed file."""
+    """Everything stage() writes must pass validation as an unreviewed file.
+
+    Read through `labels.read`, so a real file that lost its `crs` member --
+    or never had one -- fails here rather than at export time.
+    """
     for path in sorted(Path("labels").glob("*.geojson")):
-        collection = json.loads(path.read_text())
-        assert labels.validate(collection) == [], path.name
+        assert labels.validate(labels.read(path)) == [], path.name
 
 
 def test_validate_reports_broken_geometry_instead_of_raising() -> None:
@@ -147,3 +149,51 @@ def test_write_normalizes_integral_floats_for_js_round_trip(tmp_path: Path) -> N
     assert '"heading_deg": 175' in text
     assert "175.0" not in text
     assert '"length_m": 12.5' in text
+
+
+def test_write_stamps_the_grid_crs(tmp_path: Path) -> None:
+    """A file without the member is a WGS84 file by definition, so the writer
+    puts it there rather than trusting every caller to remember."""
+    path = tmp_path / "area.geojson"
+    labels.write(path, {"type": "FeatureCollection", "features": [_feature()]})
+    document = json.loads(path.read_text())
+    assert document["crs"] == crs_member()
+    # Ahead of the features, matching what the web tool writes: the two take
+    # turns on these files and key order is a diff like any other.
+    assert list(document) == ["type", "crs", "features"]
+
+
+def test_write_rounds_coordinates_to_the_shared_precision(tmp_path: Path) -> None:
+    """Both writers round to the same place, or a save reformats the file."""
+    ring = [[25496000.123456789, 6673000.987654321]] * 5
+    path = tmp_path / "area.geojson"
+    labels.write(path, {"features": [_feature(ring=ring)]})
+    written = labels.read(path)["features"][0]["geometry"]["coordinates"][0]
+    assert written[0] == [25496000.123, 6673000.988]
+
+
+def test_write_then_read_then_write_is_byte_stable(tmp_path: Path) -> None:
+    """The property the whole CRS choice exists for: a file that goes through
+    the tools untouched comes back out identical, so a one-box edit is a
+    one-box diff."""
+    path = tmp_path / "area.geojson"
+    labels.write(path, {"features": [_feature(status="confirmed", klass="truck")]})
+    first = path.read_text()
+    labels.write(path, labels.read(path))
+    assert path.read_text() == first
+
+
+def test_read_refuses_a_file_from_before_the_crs_switch(tmp_path: Path) -> None:
+    """Degrees read as metres make every box a few centimetres across: the
+    rectangle check still passes and the dataset silently exports empty."""
+    path = tmp_path / "old.geojson"
+    path.write_text(
+        json.dumps(
+            {
+                "type": "FeatureCollection",
+                "features": [_feature(ring=[[24.93, 60.17]] * 5)],
+            }
+        )
+    )
+    with pytest.raises(ValueError, match="EPSG::3879"):
+        labels.read(path)

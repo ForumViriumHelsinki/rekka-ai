@@ -15,7 +15,6 @@ import TileLayer from 'ol/layer/Tile';
 import { GK25_DEF, TM35FIN_DEF } from '$lib/projection';
 
 export const GRID = 'EPSG:3879';
-export const WGS84 = 'EPSG:4326';
 export const TILE_SIZE = 256;
 export const MAX_ZOOM = 17;
 export const BASE_RESOLUTION = 8192;
@@ -28,6 +27,22 @@ export const BASE_RESOLUTION = 8192;
  * swapped relative to the capabilities document, deliberately.
  */
 export const ORIGIN: [number, number] = [24451424, 8388608];
+
+/**
+ * Decimal places kept for a stored coordinate — millimetres, mirroring
+ * `geo.COORD_DECIMALS`. Both writers round to the same place, which is what
+ * lets an untouched coordinate survive a save as the same digits.
+ */
+export const COORD_DECIMALS = 3;
+
+/**
+ * The `crs` member label files carry, mirroring `geo.crs_member`. Label files
+ * are EPSG:3879, not the WGS84 RFC 7946 mandates, and this is what says so.
+ */
+export const GRID_CRS = {
+	type: 'name',
+	properties: { name: 'urn:ogc:def:crs:EPSG::3879' },
+} as const;
 
 export const ENDPOINT = 'https://kartta.hel.fi/ws/geoserver/avoindata/gwc/service/wmts';
 export const MATRIX_SET = 'ETRS-GK25';
