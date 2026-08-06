@@ -11,6 +11,7 @@ import { Fill, Stroke, Style, Text } from 'ol/style';
 import Point from 'ol/geom/Point';
 import Polygon from 'ol/geom/Polygon';
 import type Feature from 'ol/Feature';
+import type { FeatureLike } from 'ol/Feature';
 
 import type { Coord } from '$lib/obb';
 
@@ -40,6 +41,41 @@ export const aoiStyle = [
 		stroke: new Stroke({ color: 'rgba(255,255,255,0.95)', width: 2, lineDash: [10, 8] }),
 	}),
 ];
+
+/** Another area's boundary: findable enough to aim at, quiet enough to ignore.
+ *
+ * Cased like `aoiStyle`, and for the same reason — a single thin line is what
+ * an orthophoto eats. Being *dimmer* than the current boundary does not make
+ * it readable at 1 px; it just makes it invisible over bright concrete, which
+ * is most of a yard. So the hierarchy is carried by the bright line on top
+ * (narrower, less opaque, tighter dashes) while the dark rail underneath keeps
+ * both boundaries legible over anything.
+ *
+ * Neutral, like the current boundary: a boundary is neither chrome nor
+ * classification, so it borrows from neither palette.
+ *
+ * The fill is almost nothing, but not nothing: it is what makes the whole
+ * rectangle a click target instead of an outline to hit. */
+export function neighbourStyle(feature: FeatureLike): Style[] {
+	return [
+		new Style({
+			stroke: new Stroke({ color: 'rgba(0,0,0,0.5)', width: 4 }),
+			fill: new Fill({ color: 'rgba(255,255,255,0.03)' }),
+		}),
+		new Style({
+			stroke: new Stroke({ color: 'rgba(255,255,255,0.7)', width: 1.75, lineDash: [6, 7] }),
+			// Named, because clicking an unlabelled rectangle to be taken
+			// somewhere unknown is not navigation.
+			text: new Text({
+				text: String(feature.get('name') ?? ''),
+				font: '600 11px ui-monospace, monospace',
+				fill: new Fill({ color: 'rgba(255,255,255,0.75)' }),
+				backgroundFill: new Fill({ color: 'rgba(5,7,10,0.6)' }),
+				padding: [1, 4, 1, 4],
+			}),
+		}),
+	];
+}
 
 export function styleFor(feature: Feature): Style {
 	const status = feature.get('status') ?? 'candidate';

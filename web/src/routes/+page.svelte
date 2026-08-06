@@ -19,6 +19,7 @@
 	import Feature from 'ol/Feature';
 	import type { FeatureLike } from 'ol/Feature';
 	import type { EventsKey } from 'ol/events';
+	import { containsCoordinate } from 'ol/extent';
 	import { click } from 'ol/events/condition';
 	import { unByKey } from 'ol/Observable';
 	// Without this the zoom, attribution and scale controls render unstyled.
@@ -44,7 +45,14 @@
 	import KeyHelp from '$lib/KeyHelp.svelte';
 	import ClassToolbar from '$lib/ClassToolbar.svelte';
 	import { LabelStore, refreshMeasurements } from '$lib/labelStore.svelte';
-	import { COLOURS, aoiStyle, selectedStyleFor, sketchStyle, styleFor } from '$lib/mapStyles';
+	import {
+		COLOURS,
+		aoiStyle,
+		neighbourStyle,
+		selectedStyleFor,
+		sketchStyle,
+		styleFor,
+	} from '$lib/mapStyles';
 
 	let aois = $state<AoiInfo[]>([]);
 	let loading = $state(true);
@@ -94,6 +102,10 @@
 	/** The current area's bbox, drawn so "am I still inside the area" is
 	 * visible rather than memorised. */
 	let aoiSource: VectorSource;
+	/** Every *other* area's bbox — where else there is work, and a click target
+	 * to go there. Kept apart from `aoiSource` so the current boundary keeps its
+	 * own styling, and so selection can stay scoped away from both. */
+	let neighbourSource: VectorSource;
 	let drawListeners: EventsKey[] = [];
 	/** Held so onDestroy can remove it; see the note at its registration. */
 	let onWheel: ((event: WheelEvent) => void) | null = null;
@@ -147,11 +159,24 @@
 		loadError = '';
 		aoiSource.clear();
 		aoiSource.addFeature(new Feature(fromExtent(aoi.extent)));
+		showNeighbours();
 		// minResolution, not maxResolution: OL's FitOptions has no such key and
 		// silently ignored it, so opening a small area used to zoom straight
 		// past the imagery's real detail. "Minimum resolution we zoom to" is the
 		// floor on metres-per-pixel — z16 is where the labels were drawn.
 		map.getView().fit(aoi.extent, { padding: [24, 24, 24, 24], minResolution: resolutionAt(16) });
+	}
+
+	/** Redraw the other areas' boundaries. Called on every open, and once before
+	 * the first, when nothing is open and all of them are a way in. */
+	function showNeighbours() {
+		neighbourSource.clear();
+		for (const aoi of aois) {
+			if (aoi.name === current?.name) continue;
+			const feature = new Feature(fromExtent(aoi.extent));
+			feature.set('name', aoi.name);
+			neighbourSource.addFeature(feature);
+		}
 	}
 
 	function showSketch(geometry: LineString | Polygon) {
@@ -543,11 +568,17 @@
 
 		sketchSource = new VectorSource();
 		aoiSource = new VectorSource();
+		neighbourSource = new VectorSource();
 		const labelLayer = new VectorLayer({ source, style: layerStyle });
+		// Bottom of the vector stack: a neighbour must never draw over a box
+		// being judged, and hit-testing walks top-down, so labels are asked
+		// first for any click.
+		const neighbourLayer = new VectorLayer({ source: neighbourSource, style: neighbourStyle });
 		map = new Map({
 			target: 'map',
 			layers: [
 				orthoLayer(layerName),
+				neighbourLayer,
 				new VectorLayer({ source: aoiSource, style: aoiStyle }),
 				labelLayer,
 				new VectorLayer({ source: sketchSource, style: sketchStyle }),
@@ -586,6 +617,34 @@
 		select = new Select({ condition: click, style: null, layers: [labelLayer] });
 		select.on('select', () => setSelected(select.getFeatures().getArray()[0] ?? null));
 		map.addInteraction(select);
+
+		// Clicking a neighbouring area opens it, so moving on does not mean
+		// going back to the sidebar. A plain map listener rather than a second
+		// Select: Select is scoped to the labels precisely so a boundary can
+		// never be selected, dragged or deleted, and that should stay true.
+		map.on('click', (event) => {
+			// Three things outrank navigation. Drawing owns its clicks while it
+			// is placing a box; a click that lands on a label is a selection;
+			// and a click inside the area being labelled never leaves it,
+			// whatever overlaps it — the collection has two overlapping pairs,
+			// and losing an edit to a stray click on one would be indefensible.
+			if (drawing) return;
+			if (current && containsCoordinate(current.extent, event.coordinate)) return;
+			let onLabel = false;
+			let target: AoiInfo | undefined;
+			map.forEachFeatureAtPixel(event.pixel, (feature, layer) => {
+				if (layer === labelLayer) {
+					onLabel = true;
+					return true; // stop: the click belongs to the selection
+				}
+				if (layer === neighbourLayer && !target) {
+					target = aois.find((a) => a.name === feature.get('name'));
+				}
+				return false;
+			});
+			if (!onLabel && target) void open(target);
+		});
+		showNeighbours();
 
 		// Drag moves the selected box. Bound to the selection collection, so an
 		// accidental drag on an unselected box pans the map instead of moving it.

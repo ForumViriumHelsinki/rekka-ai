@@ -8,9 +8,9 @@
 import { describe, expect, test } from 'vitest';
 import Feature from 'ol/Feature';
 import Polygon from 'ol/geom/Polygon';
-import type { Stroke } from 'ol/style';
+import type { Stroke, Style } from 'ol/style';
 
-import { COLOURS, selectedStyleFor, styleFor } from './mapStyles';
+import { COLOURS, aoiStyle, neighbourStyle, selectedStyleFor, styleFor } from './mapStyles';
 import { boxFromCentreline } from './obb';
 
 function box(properties: Record<string, unknown>): Feature {
@@ -72,5 +72,66 @@ describe('unselected boxes', () => {
 		const stroke = styleFor(box({ status: 'rejected', class: 'truck' })).getStroke();
 		expect(stroke?.getLineDash()).toBeTruthy();
 		expect(stroke?.getColor()).toBe(COLOURS.rejected);
+	});
+});
+
+describe('a neighbouring area', () => {
+	const neighbour = () => {
+		const feature = new Feature(
+			new Polygon([
+				[
+					[0, 0],
+					[10, 0],
+					[10, 10],
+					[0, 10],
+					[0, 0],
+				],
+			]),
+		);
+		feature.set('name', 'kylasaari');
+		return neighbourStyle(feature);
+	};
+
+	const alpha = (colour: string) => Number(colour.match(/,\s*([\d.]+)\s*\)$/)?.[1] ?? 1);
+	/** The bright line, not the dark rail under it: the widest-drawn stroke is
+	 * the casing, and the one after it is what the eye actually reads. */
+	const accent = (styles: Style[]) => styles[styles.length - 1].getStroke()!;
+
+	test('is named, so clicking it is navigation and not a guess', () => {
+		const texts = neighbour()
+			.map((s) => s.getText()?.getText())
+			.filter(Boolean);
+		expect(texts).toEqual(['kylasaari']);
+	});
+
+	test('is cased, because a single thin line is lost against an orthophoto', () => {
+		// The regression this guards: drawn as one 1 px line it was invisible
+		// over bright concrete, which is most of a yard. Dimming it further is
+		// the wrong lever — contrast comes from the dark rail underneath.
+		const casing = neighbour()[0].getStroke()!;
+		expect(casing.getColor()).toContain('0,0,0');
+		expect(casing.getWidth()!).toBeGreaterThan(accent(neighbour()).getWidth()!);
+	});
+
+	test('is quieter than the boundary of the area being labelled', () => {
+		// "Where I am" versus "where I could go" has to survive a glance, and
+		// both are cased — so the hierarchy has to live in the bright line.
+		const here = accent(aoiStyle);
+		const there = accent(neighbour());
+		expect(there.getWidth()!).toBeLessThan(here.getWidth()!);
+		expect(alpha(there.getColor() as string)).toBeLessThan(alpha(here.getColor() as string));
+	});
+
+	test('carries a fill, or the whole rectangle is not a click target', () => {
+		// Hit-testing a stroke-only polygon only hits the outline.
+		expect(neighbour().some((s) => s.getFill())).toBe(true);
+	});
+
+	test('is drawn in no class colour, so it cannot read as a verdict', () => {
+		const classColours = Object.values(COLOURS);
+		for (const style of neighbour()) {
+			expect(classColours).not.toContain(style.getStroke()?.getColor());
+			expect(classColours).not.toContain(style.getFill()?.getColor());
+		}
 	});
 });
