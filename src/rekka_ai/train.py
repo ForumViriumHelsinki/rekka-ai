@@ -12,6 +12,7 @@ mlflow and ultralytics: CI and the fetch path stay usable without them.
 
 import os
 from pathlib import Path
+from typing import Any, cast
 
 from rekka_ai import track
 from rekka_ai.detect.sweep import DEFAULT_WEIGHTS
@@ -76,5 +77,5 @@ def train(
     trainer = model.trainer
     assert trainer is not None  # set by model.train() above
     # Ultralytics sets trainer.best (path to best.pt); its MultiTrainer type
-    # union does not declare it.
-    return Path(str(trainer.best))  # ty: ignore[unresolved-attribute]
+    # union does not declare it, so read it off a cast.
+    return Path(str(cast(Any, trainer).best))

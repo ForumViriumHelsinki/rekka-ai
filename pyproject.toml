@@ -43,3 +43,19 @@ extend-select = ["I", "UP", "B"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
+
+# Imports of the optional extras (detect: ultralytics, geopandas; train:
+# ultralytics, mlflow) are lazy on purpose, so the base install -- and CI --
+# has none of them. ty cannot resolve what is not installed; that is the
+# feature, not a bug. Ignore unresolved-import only in the files that do this.
+[[tool.ty.overrides]]
+include = [
+    "src/rekka_ai/detect/sweep.py",
+    "src/rekka_ai/evaluate.py",
+    "src/rekka_ai/imagery/aoi.py",
+    "src/rekka_ai/track.py",
+    "src/rekka_ai/train.py",
+]
+
+[tool.ty.overrides.rules]
+unresolved-import = "ignore"
