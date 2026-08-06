@@ -280,7 +280,7 @@
         "confidence": 0.8025,
         "length_m": 6.78,
         "width_m": 2.9,
-        "heading_deg": 6.0,
+        "heading_deg": 6,
         "aoi": "malmi-airport",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
@@ -524,7 +524,7 @@
       },
       "properties": {
         "confidence": 0.7627,
-        "length_m": 11.0,
+        "length_m": 11,
         "width_m": 2.98,
         "heading_deg": 98.5,
         "aoi": "malmi-airport",
@@ -812,7 +812,7 @@
       "properties": {
         "confidence": 0.6767,
         "length_m": 11.11,
-        "width_m": 3.0,
+        "width_m": 3,
         "heading_deg": 46.5,
         "aoi": "malmi-airport",
         "source_layer": "Ortoilmakuva_2025_5cm",

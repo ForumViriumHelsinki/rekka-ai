@@ -401,7 +401,7 @@
       },
       "properties": {
         "confidence": 0.7126,
-        "length_m": 5.0,
+        "length_m": 5,
         "width_m": 2.36,
         "heading_deg": 26.9,
         "aoi": "kylasaari",

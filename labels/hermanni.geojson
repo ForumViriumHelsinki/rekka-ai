@@ -362,7 +362,7 @@
         "confidence": 0.4494,
         "length_m": 7.29,
         "width_m": 2.92,
-        "heading_deg": 32.0,
+        "heading_deg": 32,
         "aoi": "hermanni",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
