@@ -1,0 +1,51 @@
+@import '@fontsource/geist/400.css';
+@import '@fontsource/geist/500.css';
+@import '@fontsource/geist/600.css';
+@import '@fontsource/geist-mono/400.css';
+@import '@fontsource/geist-mono/500.css';
+@import 'tailwindcss';
+
+/* Design tokens. Dark by default — this is a tool for staring at aerial
+   imagery, and a bright chrome around it wrecks your judgement of contrast. */
+@theme {
+	--color-ink: #0a0c0f;
+	--color-panel: #12151a;
+	--color-raised: #1a1e25;
+	--color-line: #232831;
+	--color-fg: #e7eaf0;
+	--color-muted: #838d9d;
+	--color-dim: #5d6673;
+
+	/* The chrome's single accent: a desaturated amber for selection, focus
+	   and the active tool. The class colours below are map symbology and
+	   stay off the chrome. */
+	--color-accent: #d9a040;
+
+	--color-truck: #3ddc84;
+	--color-bus: #4aa3ff;
+	--color-van: #c07cf5;
+	--color-reject: #ff5a5a;
+	--color-candidate: #f0a726;
+
+	/* The CSS built-in easings are too weak to read as intentional. */
+	--ease-out: cubic-bezier(0.23, 1, 0.32, 1);
+
+	--font-sans: 'Geist', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif;
+	/* Every measurement, count and coordinate sets in mono. */
+	--font-mono: 'Geist Mono', ui-monospace, 'SF Mono', Menlo, monospace;
+}
+
+html,
+body {
+	height: 100%;
+	background: var(--color-ink);
+	color: var(--color-fg);
+	font-family: var(--font-sans);
+	-webkit-font-smoothing: antialiased;
+}
+
+/* Thin scrollbars: the sidebar scrolls often and a fat bar eats the gutter. */
+* {
+	scrollbar-width: thin;
+	scrollbar-color: var(--color-line) transparent;
+}
