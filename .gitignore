@@ -14,8 +14,12 @@ dist/
 downloads/
 eggs/
 .eggs/
-lib/
-lib64/
+# Anchored to the repo root. Unanchored, `lib/` matches a directory of that
+# name at any depth -- which silently swallowed the whole of `web/src/lib/`:
+# git would not track it, and Tailwind (which skips gitignored files when it
+# scans for classes) generated no CSS for any component living there.
+/lib/
+/lib64/
 parts/
 sdist/
 var/
@@ -218,3 +222,21 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# rekka-ai: reproducible artifacts. Labels under labels/ are NOT ignored --
+# they are the one thing here that cannot be regenerated. runs/ includes the
+# MLflow store (runs/mlflow.db, runs/mlartifacts/): experiment history is
+# valuable, but not version-controllable.
+data/
+models/
+runs/
+*.pt
+mlruns/
+
+# labelling tool (web/) — bun is the package manager; bun.lock is the one
+# committed lockfile. Ignoring package-lock.json stops a stray `npm install`
+# from quietly creating a second, disagreeing source of truth.
+node_modules/
+.svelte-kit/
+web/build/
+web/package-lock.json
