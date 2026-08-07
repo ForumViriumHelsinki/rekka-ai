@@ -40,12 +40,12 @@
         "confidence": 0.8285,
         "length_m": 6.24,
         "width_m": 2.56,
-        "heading_deg": 157.2,
+        "heading_deg": 157.1,
         "aoi": "pohjois-haaga",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
-        "status": "candidate",
-        "class": ""
+        "status": "confirmed",
+        "class": "van"
       }
     },
     {
@@ -85,8 +85,8 @@
         "aoi": "pohjois-haaga",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
-        "status": "candidate",
-        "class": ""
+        "status": "confirmed",
+        "class": "van"
       }
     },
     {
@@ -126,8 +126,8 @@
         "aoi": "pohjois-haaga",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
-        "status": "candidate",
-        "class": ""
+        "status": "confirmed",
+        "class": "bus"
       }
     },
     {
@@ -167,8 +167,8 @@
         "aoi": "pohjois-haaga",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
-        "status": "candidate",
-        "class": ""
+        "status": "confirmed",
+        "class": "van"
       }
     },
     {
@@ -208,8 +208,8 @@
         "aoi": "pohjois-haaga",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
-        "status": "candidate",
-        "class": ""
+        "status": "confirmed",
+        "class": "bus"
       }
     },
     {
@@ -249,8 +249,8 @@
         "aoi": "pohjois-haaga",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
-        "status": "candidate",
-        "class": ""
+        "status": "confirmed",
+        "class": "van"
       }
     },
     {
@@ -290,90 +290,8 @@
         "aoi": "pohjois-haaga",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
-        "status": "candidate",
-        "class": ""
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Polygon",
-        "coordinates": [
-          [
-            [
-              25493865.729,
-              6679955.169
-            ],
-            [
-              25493865.598,
-              6679961.314
-            ],
-            [
-              25493863.779,
-              6679961.276
-            ],
-            [
-              25493863.91,
-              6679955.13
-            ],
-            [
-              25493865.729,
-              6679955.169
-            ]
-          ]
-        ]
-      },
-      "properties": {
-        "confidence": 0.564,
-        "length_m": 6.15,
-        "width_m": 1.82,
-        "heading_deg": 178.8,
-        "aoi": "pohjois-haaga",
-        "source_layer": "Ortoilmakuva_2025_5cm",
-        "zoom": 16,
-        "status": "candidate",
-        "class": ""
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Polygon",
-        "coordinates": [
-          [
-            [
-              25493782.668,
-              6680001.797
-            ],
-            [
-              25493788.028,
-              6680003.231
-            ],
-            [
-              25493787.408,
-              6680005.547
-            ],
-            [
-              25493782.049,
-              6680004.112
-            ],
-            [
-              25493782.668,
-              6680001.797
-            ]
-          ]
-        ]
-      },
-      "properties": {
-        "confidence": 0.4345,
-        "length_m": 5.55,
-        "width_m": 2.4,
-        "heading_deg": 75,
-        "aoi": "pohjois-haaga",
-        "source_layer": "Ortoilmakuva_2025_5cm",
-        "zoom": 16,
-        "status": "candidate",
-        "class": ""
+        "status": "confirmed",
+        "class": "van"
       }
     },
     {
@@ -413,8 +331,49 @@
         "aoi": "pohjois-haaga",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
-        "status": "candidate",
-        "class": ""
+        "status": "confirmed",
+        "class": "van"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25493887.624,
+              6679990.677
+            ],
+            [
+              25493895.375,
+              6679974.48
+            ],
+            [
+              25493893.125,
+              6679973.403
+            ],
+            [
+              25493885.373,
+              6679989.6
+            ],
+            [
+              25493887.624,
+              6679990.677
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "class": "bus",
+        "status": "added",
+        "confidence": null,
+        "aoi": "pohjois-haaga",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "length_m": 17.96,
+        "width_m": 2.49,
+        "heading_deg": 154.4
       }
     }
   ]

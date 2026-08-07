@@ -44,8 +44,8 @@
         "aoi": "tattariharju",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
-        "status": "candidate",
-        "class": ""
+        "status": "confirmed",
+        "class": "truck"
       }
     },
     {
@@ -85,8 +85,8 @@
         "aoi": "tattariharju",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
-        "status": "candidate",
-        "class": ""
+        "status": "confirmed",
+        "class": "truck"
       }
     },
     {
@@ -126,8 +126,8 @@
         "aoi": "tattariharju",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
-        "status": "candidate",
-        "class": ""
+        "status": "confirmed",
+        "class": "truck"
       }
     },
     {
@@ -167,8 +167,8 @@
         "aoi": "tattariharju",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
-        "status": "candidate",
-        "class": ""
+        "status": "confirmed",
+        "class": "truck"
       }
     },
     {
@@ -208,8 +208,8 @@
         "aoi": "tattariharju",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
-        "status": "candidate",
-        "class": ""
+        "status": "confirmed",
+        "class": "truck"
       }
     },
     {
@@ -249,8 +249,8 @@
         "aoi": "tattariharju",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
-        "status": "candidate",
-        "class": ""
+        "status": "confirmed",
+        "class": "truck"
       }
     },
     {
@@ -290,49 +290,8 @@
         "aoi": "tattariharju",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
-        "status": "candidate",
-        "class": ""
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Polygon",
-        "coordinates": [
-          [
-            [
-              25503295.206,
-              6681737.061
-            ],
-            [
-              25503303.908,
-              6681748.175
-            ],
-            [
-              25503301.334,
-              6681750.19
-            ],
-            [
-              25503292.633,
-              6681739.076
-            ],
-            [
-              25503295.206,
-              6681737.061
-            ]
-          ]
-        ]
-      },
-      "properties": {
-        "confidence": 0.7944,
-        "length_m": 14.11,
-        "width_m": 3.27,
-        "heading_deg": 38.1,
-        "aoi": "tattariharju",
-        "source_layer": "Ortoilmakuva_2025_5cm",
-        "zoom": 16,
-        "status": "candidate",
-        "class": ""
+        "status": "confirmed",
+        "class": "truck"
       }
     },
     {
@@ -372,8 +331,8 @@
         "aoi": "tattariharju",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
-        "status": "candidate",
-        "class": ""
+        "status": "confirmed",
+        "class": "truck"
       }
     },
     {
@@ -413,8 +372,8 @@
         "aoi": "tattariharju",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
-        "status": "candidate",
-        "class": ""
+        "status": "confirmed",
+        "class": "truck"
       }
     },
     {
@@ -454,8 +413,8 @@
         "aoi": "tattariharju",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
-        "status": "candidate",
-        "class": ""
+        "status": "confirmed",
+        "class": "truck"
       }
     },
     {
@@ -495,8 +454,8 @@
         "aoi": "tattariharju",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
-        "status": "candidate",
-        "class": ""
+        "status": "confirmed",
+        "class": "truck"
       }
     },
     {
@@ -536,8 +495,8 @@
         "aoi": "tattariharju",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
-        "status": "candidate",
-        "class": ""
+        "status": "confirmed",
+        "class": "truck"
       }
     },
     {
@@ -577,8 +536,8 @@
         "aoi": "tattariharju",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
-        "status": "candidate",
-        "class": ""
+        "status": "confirmed",
+        "class": "truck"
       }
     },
     {
@@ -618,49 +577,8 @@
         "aoi": "tattariharju",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
-        "status": "candidate",
-        "class": ""
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Polygon",
-        "coordinates": [
-          [
-            [
-              25503230.178,
-              6681672.139
-            ],
-            [
-              25503232.04,
-              6681674.533
-            ],
-            [
-              25503220.738,
-              6681683.319
-            ],
-            [
-              25503218.877,
-              6681680.925
-            ],
-            [
-              25503230.178,
-              6681672.139
-            ]
-          ]
-        ]
-      },
-      "properties": {
-        "confidence": 0.6296,
-        "length_m": 14.32,
-        "width_m": 3.03,
-        "heading_deg": 127.9,
-        "aoi": "tattariharju",
-        "source_layer": "Ortoilmakuva_2025_5cm",
-        "zoom": 16,
-        "status": "candidate",
-        "class": ""
+        "status": "confirmed",
+        "class": "truck"
       }
     },
     {
@@ -700,8 +618,8 @@
         "aoi": "tattariharju",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
-        "status": "candidate",
-        "class": ""
+        "status": "confirmed",
+        "class": "van"
       }
     },
     {
@@ -741,8 +659,8 @@
         "aoi": "tattariharju",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
-        "status": "candidate",
-        "class": ""
+        "status": "confirmed",
+        "class": "van"
       }
     },
     {
@@ -782,8 +700,8 @@
         "aoi": "tattariharju",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
-        "status": "candidate",
-        "class": ""
+        "status": "confirmed",
+        "class": "truck"
       }
     },
     {
@@ -823,8 +741,8 @@
         "aoi": "tattariharju",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
-        "status": "candidate",
-        "class": ""
+        "status": "confirmed",
+        "class": "van"
       }
     },
     {
@@ -864,49 +782,8 @@
         "aoi": "tattariharju",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
-        "status": "candidate",
-        "class": ""
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Polygon",
-        "coordinates": [
-          [
-            [
-              25503225.415,
-              6681671.04
-            ],
-            [
-              25503227.318,
-              6681673.533
-            ],
-            [
-              25503215.868,
-              6681682.276
-            ],
-            [
-              25503213.964,
-              6681679.782
-            ],
-            [
-              25503225.415,
-              6681671.04
-            ]
-          ]
-        ]
-      },
-      "properties": {
-        "confidence": 0.5178,
-        "length_m": 14.41,
-        "width_m": 3.14,
-        "heading_deg": 127.4,
-        "aoi": "tattariharju",
-        "source_layer": "Ortoilmakuva_2025_5cm",
-        "zoom": 16,
-        "status": "candidate",
-        "class": ""
+        "status": "confirmed",
+        "class": "van"
       }
     },
     {
@@ -946,8 +823,8 @@
         "aoi": "tattariharju",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
-        "status": "candidate",
-        "class": ""
+        "status": "confirmed",
+        "class": "van"
       }
     },
     {
@@ -987,49 +864,8 @@
         "aoi": "tattariharju",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
-        "status": "candidate",
-        "class": ""
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Polygon",
-        "coordinates": [
-          [
-            [
-              25503234.436,
-              6681688.889
-            ],
-            [
-              25503236.48,
-              6681691.199
-            ],
-            [
-              25503230.931,
-              6681696.11
-            ],
-            [
-              25503228.887,
-              6681693.801
-            ],
-            [
-              25503234.436,
-              6681688.889
-            ]
-          ]
-        ]
-      },
-      "properties": {
-        "confidence": 0.4484,
-        "length_m": 7.41,
-        "width_m": 3.08,
-        "heading_deg": 131.5,
-        "aoi": "tattariharju",
-        "source_layer": "Ortoilmakuva_2025_5cm",
-        "zoom": 16,
-        "status": "candidate",
-        "class": ""
+        "status": "confirmed",
+        "class": "van"
       }
     },
     {
@@ -1069,8 +905,8 @@
         "aoi": "tattariharju",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
-        "status": "candidate",
-        "class": ""
+        "status": "confirmed",
+        "class": "van"
       }
     },
     {
@@ -1110,8 +946,8 @@
         "aoi": "tattariharju",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
-        "status": "candidate",
-        "class": ""
+        "status": "confirmed",
+        "class": "van"
       }
     },
     {
@@ -1151,8 +987,8 @@
         "aoi": "tattariharju",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
-        "status": "candidate",
-        "class": ""
+        "status": "confirmed",
+        "class": "van"
       }
     },
     {
@@ -1192,8 +1028,8 @@
         "aoi": "tattariharju",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
-        "status": "candidate",
-        "class": ""
+        "status": "confirmed",
+        "class": "truck"
       }
     }
   ]

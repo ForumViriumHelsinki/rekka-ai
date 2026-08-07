@@ -44,8 +44,8 @@
         "aoi": "vuosaari-rahtarinkatu",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
-        "status": "candidate",
-        "class": ""
+        "status": "confirmed",
+        "class": "truck"
       }
     },
     {
@@ -85,8 +85,8 @@
         "aoi": "vuosaari-rahtarinkatu",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
-        "status": "candidate",
-        "class": ""
+        "status": "confirmed",
+        "class": "truck"
       }
     },
     {
@@ -121,13 +121,13 @@
       "properties": {
         "confidence": 0.8589,
         "length_m": 17.52,
-        "width_m": 3.57,
+        "width_m": 3.58,
         "heading_deg": 161.2,
         "aoi": "vuosaari-rahtarinkatu",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
-        "status": "candidate",
-        "class": ""
+        "status": "confirmed",
+        "class": "truck"
       }
     },
     {
@@ -167,8 +167,8 @@
         "aoi": "vuosaari-rahtarinkatu",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
-        "status": "candidate",
-        "class": ""
+        "status": "confirmed",
+        "class": "truck"
       }
     },
     {
@@ -208,8 +208,8 @@
         "aoi": "vuosaari-rahtarinkatu",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
-        "status": "candidate",
-        "class": ""
+        "status": "confirmed",
+        "class": "truck"
       }
     },
     {
@@ -249,8 +249,8 @@
         "aoi": "vuosaari-rahtarinkatu",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
-        "status": "candidate",
-        "class": ""
+        "status": "confirmed",
+        "class": "truck"
       }
     },
     {
@@ -290,8 +290,8 @@
         "aoi": "vuosaari-rahtarinkatu",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
-        "status": "candidate",
-        "class": ""
+        "status": "confirmed",
+        "class": "truck"
       }
     },
     {
@@ -331,8 +331,8 @@
         "aoi": "vuosaari-rahtarinkatu",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
-        "status": "candidate",
-        "class": ""
+        "status": "confirmed",
+        "class": "truck"
       }
     },
     {
@@ -367,13 +367,13 @@
       "properties": {
         "confidence": 0.8518,
         "length_m": 17.05,
-        "width_m": 3.36,
+        "width_m": 3.37,
         "heading_deg": 162.7,
         "aoi": "vuosaari-rahtarinkatu",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
-        "status": "candidate",
-        "class": ""
+        "status": "confirmed",
+        "class": "truck"
       }
     },
     {
@@ -413,8 +413,8 @@
         "aoi": "vuosaari-rahtarinkatu",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
-        "status": "candidate",
-        "class": ""
+        "status": "confirmed",
+        "class": "truck"
       }
     },
     {
@@ -454,8 +454,8 @@
         "aoi": "vuosaari-rahtarinkatu",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
-        "status": "candidate",
-        "class": ""
+        "status": "confirmed",
+        "class": "truck"
       }
     },
     {
@@ -495,8 +495,8 @@
         "aoi": "vuosaari-rahtarinkatu",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
-        "status": "candidate",
-        "class": ""
+        "status": "confirmed",
+        "class": "truck"
       }
     },
     {
@@ -536,8 +536,8 @@
         "aoi": "vuosaari-rahtarinkatu",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
-        "status": "candidate",
-        "class": ""
+        "status": "confirmed",
+        "class": "truck"
       }
     },
     {
@@ -577,8 +577,8 @@
         "aoi": "vuosaari-rahtarinkatu",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
-        "status": "candidate",
-        "class": ""
+        "status": "confirmed",
+        "class": "truck"
       }
     },
     {
@@ -588,38 +588,38 @@
         "coordinates": [
           [
             [
-              25509528.71,
-              6679014.94
+              25509529.323,
+              6679026.328
             ],
             [
-              25509531.931,
-              6679015.715
+              25509533.382,
+              6679009.464
             ],
             [
-              25509529.394,
-              6679026.26
+              25509530.161,
+              6679008.689
             ],
             [
-              25509526.172,
-              6679025.484
+              25509526.102,
+              6679025.553
             ],
             [
-              25509528.71,
-              6679014.94
+              25509529.323,
+              6679026.328
             ]
           ]
         ]
       },
       "properties": {
         "confidence": 0.8344,
-        "length_m": 10.85,
+        "length_m": 17.35,
         "width_m": 3.31,
         "heading_deg": 166.5,
         "aoi": "vuosaari-rahtarinkatu",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
-        "status": "candidate",
-        "class": ""
+        "status": "confirmed",
+        "class": "truck"
       }
     },
     {
@@ -659,8 +659,8 @@
         "aoi": "vuosaari-rahtarinkatu",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
-        "status": "candidate",
-        "class": ""
+        "status": "confirmed",
+        "class": "truck"
       }
     },
     {
@@ -700,8 +700,8 @@
         "aoi": "vuosaari-rahtarinkatu",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
-        "status": "candidate",
-        "class": ""
+        "status": "confirmed",
+        "class": "truck"
       }
     },
     {
@@ -741,8 +741,8 @@
         "aoi": "vuosaari-rahtarinkatu",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
-        "status": "candidate",
-        "class": ""
+        "status": "confirmed",
+        "class": "truck"
       }
     },
     {
@@ -782,8 +782,8 @@
         "aoi": "vuosaari-rahtarinkatu",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
-        "status": "candidate",
-        "class": ""
+        "status": "confirmed",
+        "class": "truck"
       }
     },
     {
@@ -823,8 +823,8 @@
         "aoi": "vuosaari-rahtarinkatu",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
-        "status": "candidate",
-        "class": ""
+        "status": "confirmed",
+        "class": "truck"
       }
     },
     {
@@ -864,8 +864,8 @@
         "aoi": "vuosaari-rahtarinkatu",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
-        "status": "candidate",
-        "class": ""
+        "status": "confirmed",
+        "class": "van"
       }
     },
     {
@@ -905,8 +905,8 @@
         "aoi": "vuosaari-rahtarinkatu",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
-        "status": "candidate",
-        "class": ""
+        "status": "confirmed",
+        "class": "van"
       }
     },
     {
@@ -946,8 +946,8 @@
         "aoi": "vuosaari-rahtarinkatu",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
-        "status": "candidate",
-        "class": ""
+        "status": "confirmed",
+        "class": "truck"
       }
     },
     {
@@ -987,8 +987,8 @@
         "aoi": "vuosaari-rahtarinkatu",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
-        "status": "candidate",
-        "class": ""
+        "status": "confirmed",
+        "class": "van"
       }
     },
     {
@@ -998,38 +998,38 @@
         "coordinates": [
           [
             [
-              25509578.357,
-              6679112.905
+              25509578.128,
+              6679125.287
             ],
             [
-              25509581.68,
-              6679113.988
+              25509583.415,
+              6679109.067
             ],
             [
-              25509577.943,
-              6679125.454
+              25509580.092,
+              6679107.984
             ],
             [
-              25509574.62,
-              6679124.371
+              25509574.805,
+              6679124.204
             ],
             [
-              25509578.357,
-              6679112.905
+              25509578.128,
+              6679125.287
             ]
           ]
         ]
       },
       "properties": {
         "confidence": 0.8169,
-        "length_m": 12.06,
-        "width_m": 3.49,
+        "length_m": 17.06,
+        "width_m": 3.5,
         "heading_deg": 161.9,
         "aoi": "vuosaari-rahtarinkatu",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
-        "status": "candidate",
-        "class": ""
+        "status": "confirmed",
+        "class": "truck"
       }
     },
     {
@@ -1069,8 +1069,8 @@
         "aoi": "vuosaari-rahtarinkatu",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
-        "status": "candidate",
-        "class": ""
+        "status": "confirmed",
+        "class": "truck"
       }
     },
     {
@@ -1110,8 +1110,8 @@
         "aoi": "vuosaari-rahtarinkatu",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
-        "status": "candidate",
-        "class": ""
+        "status": "confirmed",
+        "class": "truck"
       }
     },
     {
@@ -1145,14 +1145,14 @@
       },
       "properties": {
         "confidence": 0.8046,
-        "length_m": 17.27,
+        "length_m": 17.28,
         "width_m": 3.9,
         "heading_deg": 73.4,
         "aoi": "vuosaari-rahtarinkatu",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
-        "status": "candidate",
-        "class": ""
+        "status": "confirmed",
+        "class": "truck"
       }
     },
     {
@@ -1192,8 +1192,8 @@
         "aoi": "vuosaari-rahtarinkatu",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
-        "status": "candidate",
-        "class": ""
+        "status": "confirmed",
+        "class": "truck"
       }
     },
     {
@@ -1233,8 +1233,8 @@
         "aoi": "vuosaari-rahtarinkatu",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
-        "status": "candidate",
-        "class": ""
+        "status": "confirmed",
+        "class": "truck"
       }
     },
     {
@@ -1274,8 +1274,8 @@
         "aoi": "vuosaari-rahtarinkatu",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
-        "status": "candidate",
-        "class": ""
+        "status": "confirmed",
+        "class": "truck"
       }
     },
     {
@@ -1315,8 +1315,8 @@
         "aoi": "vuosaari-rahtarinkatu",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
-        "status": "candidate",
-        "class": ""
+        "status": "confirmed",
+        "class": "truck"
       }
     },
     {
@@ -1356,8 +1356,8 @@
         "aoi": "vuosaari-rahtarinkatu",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
-        "status": "candidate",
-        "class": ""
+        "status": "confirmed",
+        "class": "van"
       }
     },
     {
@@ -1397,8 +1397,8 @@
         "aoi": "vuosaari-rahtarinkatu",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
-        "status": "candidate",
-        "class": ""
+        "status": "confirmed",
+        "class": "van"
       }
     },
     {
@@ -1438,8 +1438,8 @@
         "aoi": "vuosaari-rahtarinkatu",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
-        "status": "candidate",
-        "class": ""
+        "status": "confirmed",
+        "class": "truck"
       }
     },
     {
@@ -1479,8 +1479,8 @@
         "aoi": "vuosaari-rahtarinkatu",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
-        "status": "candidate",
-        "class": ""
+        "status": "confirmed",
+        "class": "van"
       }
     },
     {
@@ -1520,8 +1520,8 @@
         "aoi": "vuosaari-rahtarinkatu",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
-        "status": "candidate",
-        "class": ""
+        "status": "confirmed",
+        "class": "truck"
       }
     },
     {
@@ -1561,8 +1561,8 @@
         "aoi": "vuosaari-rahtarinkatu",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
-        "status": "candidate",
-        "class": ""
+        "status": "confirmed",
+        "class": "truck"
       }
     },
     {
@@ -1602,8 +1602,8 @@
         "aoi": "vuosaari-rahtarinkatu",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
-        "status": "candidate",
-        "class": ""
+        "status": "confirmed",
+        "class": "van"
       }
     },
     {
@@ -1643,8 +1643,8 @@
         "aoi": "vuosaari-rahtarinkatu",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
-        "status": "candidate",
-        "class": ""
+        "status": "confirmed",
+        "class": "truck"
       }
     },
     {
@@ -1684,8 +1684,8 @@
         "aoi": "vuosaari-rahtarinkatu",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
-        "status": "candidate",
-        "class": ""
+        "status": "confirmed",
+        "class": "truck"
       }
     },
     {
@@ -1725,8 +1725,8 @@
         "aoi": "vuosaari-rahtarinkatu",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
-        "status": "candidate",
-        "class": ""
+        "status": "confirmed",
+        "class": "van"
       }
     },
     {
@@ -1766,8 +1766,8 @@
         "aoi": "vuosaari-rahtarinkatu",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
-        "status": "candidate",
-        "class": ""
+        "status": "confirmed",
+        "class": "truck"
       }
     },
     {
@@ -1807,8 +1807,8 @@
         "aoi": "vuosaari-rahtarinkatu",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
-        "status": "candidate",
-        "class": ""
+        "status": "confirmed",
+        "class": "van"
       }
     },
     {
@@ -1848,8 +1848,8 @@
         "aoi": "vuosaari-rahtarinkatu",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
-        "status": "candidate",
-        "class": ""
+        "status": "confirmed",
+        "class": "van"
       }
     },
     {
@@ -1889,8 +1889,8 @@
         "aoi": "vuosaari-rahtarinkatu",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
-        "status": "candidate",
-        "class": ""
+        "status": "confirmed",
+        "class": "truck"
       }
     },
     {
@@ -1930,8 +1930,8 @@
         "aoi": "vuosaari-rahtarinkatu",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
-        "status": "candidate",
-        "class": ""
+        "status": "confirmed",
+        "class": "van"
       }
     },
     {
@@ -1971,49 +1971,8 @@
         "aoi": "vuosaari-rahtarinkatu",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
-        "status": "candidate",
-        "class": ""
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Polygon",
-        "coordinates": [
-          [
-            [
-              25509626.312,
-              6679158.472
-            ],
-            [
-              25509629.184,
-              6679159.39
-            ],
-            [
-              25509626.19,
-              6679168.752
-            ],
-            [
-              25509623.318,
-              6679167.833
-            ],
-            [
-              25509626.312,
-              6679158.472
-            ]
-          ]
-        ]
-      },
-      "properties": {
-        "confidence": 0.6056,
-        "length_m": 9.83,
-        "width_m": 3.01,
-        "heading_deg": 162.3,
-        "aoi": "vuosaari-rahtarinkatu",
-        "source_layer": "Ortoilmakuva_2025_5cm",
-        "zoom": 16,
-        "status": "candidate",
-        "class": ""
+        "status": "confirmed",
+        "class": "van"
       }
     },
     {
@@ -2053,8 +2012,8 @@
         "aoi": "vuosaari-rahtarinkatu",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
-        "status": "candidate",
-        "class": ""
+        "status": "confirmed",
+        "class": "truck"
       }
     },
     {
@@ -2094,8 +2053,8 @@
         "aoi": "vuosaari-rahtarinkatu",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
-        "status": "candidate",
-        "class": ""
+        "status": "confirmed",
+        "class": "van"
       }
     },
     {
@@ -2105,24 +2064,24 @@
         "coordinates": [
           [
             [
-              25509626.166,
-              6679158.253
+              25509626.003,
+              6679158.416
             ],
             [
-              25509629.26,
-              6679159.186
+              25509629.097,
+              6679159.349
             ],
             [
-              25509622.298,
-              6679182.28
+              25509622.135,
+              6679182.443
             ],
             [
-              25509619.204,
-              6679181.347
+              25509619.041,
+              6679181.51
             ],
             [
-              25509626.166,
-              6679158.253
+              25509626.003,
+              6679158.416
             ]
           ]
         ]
@@ -2135,8 +2094,8 @@
         "aoi": "vuosaari-rahtarinkatu",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
-        "status": "candidate",
-        "class": ""
+        "status": "confirmed",
+        "class": "truck"
       }
     },
     {
@@ -2146,38 +2105,38 @@
         "coordinates": [
           [
             [
-              25509540.74,
-              6679176.278
+              25509548.183,
+              6679178.872
             ],
             [
-              25509548.51,
-              6679178.909
+              25509534.967,
+              6679174.397
             ],
             [
-              25509547.429,
-              6679182.1
+              25509533.887,
+              6679177.589
             ],
             [
-              25509539.66,
-              6679179.47
+              25509547.103,
+              6679182.063
             ],
             [
-              25509540.74,
-              6679176.278
+              25509548.183,
+              6679178.872
             ]
           ]
         ]
       },
       "properties": {
         "confidence": 0.5934,
-        "length_m": 8.2,
+        "length_m": 13.95,
         "width_m": 3.37,
         "heading_deg": 71.3,
         "aoi": "vuosaari-rahtarinkatu",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
-        "status": "candidate",
-        "class": ""
+        "status": "confirmed",
+        "class": "truck"
       }
     },
     {
@@ -2187,38 +2146,38 @@
         "coordinates": [
           [
             [
-              25509462.031,
-              6679111.31
+              25509462.608,
+              6679110.953
             ],
             [
-              25509463.435,
-              6679113.876
+              25509451.828,
+              6679116.852
             ],
             [
-              25509455.725,
-              6679118.095
+              25509453.232,
+              6679119.418
             ],
             [
-              25509454.321,
-              6679115.529
+              25509464.012,
+              6679113.519
             ],
             [
-              25509462.031,
-              6679111.31
+              25509462.608,
+              6679110.953
             ]
           ]
         ]
       },
       "properties": {
         "confidence": 0.5914,
-        "length_m": 8.79,
+        "length_m": 12.29,
         "width_m": 2.92,
         "heading_deg": 118.7,
         "aoi": "vuosaari-rahtarinkatu",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
-        "status": "candidate",
-        "class": ""
+        "status": "confirmed",
+        "class": "truck"
       }
     },
     {
@@ -2258,8 +2217,8 @@
         "aoi": "vuosaari-rahtarinkatu",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
-        "status": "candidate",
-        "class": ""
+        "status": "confirmed",
+        "class": "van"
       }
     },
     {
@@ -2299,8 +2258,8 @@
         "aoi": "vuosaari-rahtarinkatu",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
-        "status": "candidate",
-        "class": ""
+        "status": "confirmed",
+        "class": "truck"
       }
     },
     {
@@ -2340,8 +2299,8 @@
         "aoi": "vuosaari-rahtarinkatu",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
-        "status": "candidate",
-        "class": ""
+        "status": "confirmed",
+        "class": "van"
       }
     },
     {
@@ -2381,8 +2340,8 @@
         "aoi": "vuosaari-rahtarinkatu",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
-        "status": "candidate",
-        "class": ""
+        "status": "confirmed",
+        "class": "truck"
       }
     },
     {
@@ -2422,8 +2381,8 @@
         "aoi": "vuosaari-rahtarinkatu",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
-        "status": "candidate",
-        "class": ""
+        "status": "confirmed",
+        "class": "truck"
       }
     },
     {
@@ -2463,8 +2422,8 @@
         "aoi": "vuosaari-rahtarinkatu",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
-        "status": "candidate",
-        "class": ""
+        "status": "confirmed",
+        "class": "truck"
       }
     },
     {
@@ -2504,8 +2463,8 @@
         "aoi": "vuosaari-rahtarinkatu",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
-        "status": "candidate",
-        "class": ""
+        "status": "confirmed",
+        "class": "truck"
       }
     },
     {
@@ -2540,13 +2499,13 @@
       "properties": {
         "confidence": 0.429,
         "length_m": 5.78,
-        "width_m": 2.51,
+        "width_m": 2.5,
         "heading_deg": 34.1,
         "aoi": "vuosaari-rahtarinkatu",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
-        "status": "candidate",
-        "class": ""
+        "status": "confirmed",
+        "class": "van"
       }
     },
     {
@@ -2586,8 +2545,8 @@
         "aoi": "vuosaari-rahtarinkatu",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
-        "status": "candidate",
-        "class": ""
+        "status": "confirmed",
+        "class": "truck"
       }
     },
     {
@@ -2627,8 +2586,8 @@
         "aoi": "vuosaari-rahtarinkatu",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
-        "status": "candidate",
-        "class": ""
+        "status": "confirmed",
+        "class": "van"
       }
     },
     {
@@ -2668,49 +2627,8 @@
         "aoi": "vuosaari-rahtarinkatu",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
-        "status": "candidate",
-        "class": ""
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Polygon",
-        "coordinates": [
-          [
-            [
-              25509471.123,
-              6678927.134
-            ],
-            [
-              25509472.757,
-              6678930.253
-            ],
-            [
-              25509465.753,
-              6678933.921
-            ],
-            [
-              25509464.119,
-              6678930.802
-            ],
-            [
-              25509471.123,
-              6678927.134
-            ]
-          ]
-        ]
-      },
-      "properties": {
-        "confidence": 0.3795,
-        "length_m": 7.91,
-        "width_m": 3.52,
-        "heading_deg": 117.6,
-        "aoi": "vuosaari-rahtarinkatu",
-        "source_layer": "Ortoilmakuva_2025_5cm",
-        "zoom": 16,
-        "status": "candidate",
-        "class": ""
+        "status": "confirmed",
+        "class": "truck"
       }
     },
     {
@@ -2750,8 +2668,8 @@
         "aoi": "vuosaari-rahtarinkatu",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
-        "status": "candidate",
-        "class": ""
+        "status": "confirmed",
+        "class": "truck"
       }
     },
     {
@@ -2791,8 +2709,8 @@
         "aoi": "vuosaari-rahtarinkatu",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
-        "status": "candidate",
-        "class": ""
+        "status": "confirmed",
+        "class": "truck"
       }
     },
     {
@@ -2832,8 +2750,8 @@
         "aoi": "vuosaari-rahtarinkatu",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
-        "status": "candidate",
-        "class": ""
+        "status": "confirmed",
+        "class": "truck"
       }
     },
     {
@@ -2873,8 +2791,8 @@
         "aoi": "vuosaari-rahtarinkatu",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
-        "status": "candidate",
-        "class": ""
+        "status": "confirmed",
+        "class": "truck"
       }
     },
     {
@@ -2914,49 +2832,8 @@
         "aoi": "vuosaari-rahtarinkatu",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
-        "status": "candidate",
-        "class": ""
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Polygon",
-        "coordinates": [
-          [
-            [
-              25509506.69,
-              6679056.251
-            ],
-            [
-              25509506.676,
-              6679057.675
-            ],
-            [
-              25509502.64,
-              6679057.636
-            ],
-            [
-              25509502.654,
-              6679056.212
-            ],
-            [
-              25509506.69,
-              6679056.251
-            ]
-          ]
-        ]
-      },
-      "properties": {
-        "confidence": 0.3222,
-        "length_m": 4.04,
-        "width_m": 1.42,
-        "heading_deg": 89.4,
-        "aoi": "vuosaari-rahtarinkatu",
-        "source_layer": "Ortoilmakuva_2025_5cm",
-        "zoom": 16,
-        "status": "candidate",
-        "class": ""
+        "status": "confirmed",
+        "class": "van"
       }
     },
     {
@@ -2990,14 +2867,14 @@
       },
       "properties": {
         "confidence": 0.3134,
-        "length_m": 5.72,
+        "length_m": 5.73,
         "width_m": 2.6,
         "heading_deg": 60.3,
         "aoi": "vuosaari-rahtarinkatu",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
-        "status": "candidate",
-        "class": ""
+        "status": "confirmed",
+        "class": "van"
       }
     },
     {
@@ -3031,14 +2908,14 @@
       },
       "properties": {
         "confidence": 0.3109,
-        "length_m": 10.15,
+        "length_m": 10.14,
         "width_m": 3.01,
         "heading_deg": 63.1,
         "aoi": "vuosaari-rahtarinkatu",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
-        "status": "candidate",
-        "class": ""
+        "status": "confirmed",
+        "class": "truck"
       }
     },
     {
@@ -3078,8 +2955,8 @@
         "aoi": "vuosaari-rahtarinkatu",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
-        "status": "candidate",
-        "class": ""
+        "status": "confirmed",
+        "class": "truck"
       }
     },
     {
@@ -3119,8 +2996,8 @@
         "aoi": "vuosaari-rahtarinkatu",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
-        "status": "candidate",
-        "class": ""
+        "status": "confirmed",
+        "class": "truck"
       }
     },
     {
@@ -3160,8 +3037,8 @@
         "aoi": "vuosaari-rahtarinkatu",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
-        "status": "candidate",
-        "class": ""
+        "status": "confirmed",
+        "class": "truck"
       }
     },
     {
@@ -3197,12 +3074,12 @@
         "confidence": 0.2979,
         "length_m": 6.22,
         "width_m": 2.78,
-        "heading_deg": 53,
+        "heading_deg": 52.9,
         "aoi": "vuosaari-rahtarinkatu",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
-        "status": "candidate",
-        "class": ""
+        "status": "confirmed",
+        "class": "van"
       }
     },
     {
@@ -3242,8 +3119,8 @@
         "aoi": "vuosaari-rahtarinkatu",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
-        "status": "candidate",
-        "class": ""
+        "status": "confirmed",
+        "class": "truck"
       }
     },
     {
@@ -3253,38 +3130,38 @@
         "coordinates": [
           [
             [
-              25509582.763,
-              6679112.936
+              25509584.197,
+              6679119.413
             ],
             [
-              25509585.988,
-              6679113.984
+              25509588.69,
+              6679105.58
             ],
             [
-              25509584.198,
-              6679119.495
+              25509585.465,
+              6679104.532
             ],
             [
-              25509580.973,
-              6679118.447
+              25509580.972,
+              6679118.365
             ],
             [
-              25509582.763,
-              6679112.936
+              25509584.197,
+              6679119.413
             ]
           ]
         ]
       },
       "properties": {
         "confidence": 0.2837,
-        "length_m": 5.79,
+        "length_m": 14.54,
         "width_m": 3.39,
         "heading_deg": 162,
         "aoi": "vuosaari-rahtarinkatu",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
-        "status": "candidate",
-        "class": ""
+        "status": "confirmed",
+        "class": "truck"
       }
     },
     {
@@ -3324,8 +3201,172 @@
         "aoi": "vuosaari-rahtarinkatu",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
-        "status": "candidate",
-        "class": ""
+        "status": "confirmed",
+        "class": "truck"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25509586.195,
+              6679162.93
+            ],
+            [
+              25509572.856,
+              6679158.381
+            ],
+            [
+              25509572.113,
+              6679160.558
+            ],
+            [
+              25509585.453,
+              6679165.107
+            ],
+            [
+              25509586.195,
+              6679162.93
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "class": "truck",
+        "status": "added",
+        "confidence": null,
+        "aoi": "vuosaari-rahtarinkatu",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "length_m": 14.09,
+        "width_m": 2.3,
+        "heading_deg": 71.2
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25509596.717,
+              6679138.264
+            ],
+            [
+              25509609.852,
+              6679143.17
+            ],
+            [
+              25509610.657,
+              6679141.016
+            ],
+            [
+              25509597.522,
+              6679136.109
+            ],
+            [
+              25509596.717,
+              6679138.264
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "class": "truck",
+        "status": "added",
+        "confidence": null,
+        "aoi": "vuosaari-rahtarinkatu",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "length_m": 14.02,
+        "width_m": 2.3,
+        "heading_deg": 69.5
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25509601.906,
+              6679095.957
+            ],
+            [
+              25509597.253,
+              6679109.289
+            ],
+            [
+              25509599.424,
+              6679110.047
+            ],
+            [
+              25509604.077,
+              6679096.715
+            ],
+            [
+              25509601.906,
+              6679095.957
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "class": "truck",
+        "status": "added",
+        "confidence": null,
+        "aoi": "vuosaari-rahtarinkatu",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "length_m": 14.12,
+        "width_m": 2.3,
+        "heading_deg": 160.8
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25509591.226,
+              6679102.126
+            ],
+            [
+              25509586.694,
+              6679115
+            ],
+            [
+              25509588.863,
+              6679115.764
+            ],
+            [
+              25509593.396,
+              6679102.89
+            ],
+            [
+              25509591.226,
+              6679102.126
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "class": "truck",
+        "status": "added",
+        "confidence": null,
+        "aoi": "vuosaari-rahtarinkatu",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "length_m": 13.65,
+        "width_m": 2.3,
+        "heading_deg": 160.6
       }
     }
   ]
