@@ -168,6 +168,48 @@ export function scaleCentreline(
 	];
 }
 
+/**
+ * Move one end of a centreline along its own axis, leaving the other end put.
+ *
+ * The handle drag's edit: the operator has one end of the box right and wants
+ * the other one somewhere else, and midpoint scaling (`scaleCentreline`)
+ * would move the end that was already right. Which end moves comes from the
+ * pointer, never from the nose/tail ordering — that ordering is a geometric
+ * convention (see `centrelineOf`), and the operator has no way to know it.
+ *
+ * Only the on-axis part of the drag is applied. The perpendicular part is
+ * dropped rather than followed: the gesture changes length, not heading —
+ * a free drag would quietly rotate about the anchored end, and rotation
+ * already has the arrow keys.
+ *
+ * `width` floors the result for the same reason as `scaleCentreline`: under
+ * its own width the box swaps length and width in `measure` and jumps its
+ * heading by 90°. Dragging back past the anchored end therefore stops at the
+ * floor instead of flipping the box inside out.
+ */
+export function moveEnd(
+	nose: Coord,
+	tail: Coord,
+	end: 'nose' | 'tail',
+	target: Coord,
+	width = MIN_LENGTH_M,
+): [Coord, Coord] {
+	const [anchor, moving] = end === 'nose' ? [tail, nose] : [nose, tail];
+	const dx = moving[0] - anchor[0];
+	const dy = moving[1] - anchor[1];
+	const length = Math.hypot(dx, dy);
+	// A degenerate centreline has no axis to extend along; leave it alone.
+	if (length < 1e-6) return [nose, tail];
+	const ux = dx / length;
+	const uy = dy / length;
+	// Projection onto the axis. Negative means the pointer went back past the
+	// anchor, which the floor turns into "as short as it goes", not a flip.
+	const along = (target[0] - anchor[0]) * ux + (target[1] - anchor[1]) * uy;
+	const next = Math.max(clampLength(along), width);
+	const moved: Coord = [anchor[0] + ux * next, anchor[1] + uy * next];
+	return end === 'nose' ? [moved, anchor] : [anchor, moved];
+}
+
 /** Rotate a centreline about its midpoint. Positive degrees turn clockwise, so
  * a right-arrow press raises the compass heading `measure` reports. */
 export function rotateCentreline(nose: Coord, tail: Coord, degrees: number): [Coord, Coord] {

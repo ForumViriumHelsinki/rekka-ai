@@ -4,6 +4,7 @@ import {
 	boxFromCentreline,
 	measure,
 	clampWidth,
+	moveEnd,
 	scaleCentreline,
 	rotateCentreline,
 	centrelineOf,
@@ -148,6 +149,57 @@ ok(
 	ROTATE_STEP_DEG,
 );
 ok('coarse rotation outranks fine', ROTATE_COARSE_DEG > ROTATE_STEP_DEG);
+
+// --- moving one end -----------------------------------------------------------
+// The handle drag's edit: one end stays put, the other follows the pointer's
+// projection onto the axis.
+
+const [keepN, moveT] = moveEnd(nose, tail, 'tail', [nose[0] + 20, nose[1]], 3);
+ok('moving the tail leaves the nose put', keepN[0] === nose[0] && keepN[1] === nose[1]);
+ok('moved end lands on the target', near(moveT[0], nose[0] + 20) && near(moveT[1], nose[1]));
+const movedBox = measure(boxFromCentreline(keepN, moveT, 3));
+ok('moving an end sets the new length', near(movedBox.length, 20), movedBox.length);
+ok('moving an end keeps width', near(movedBox.width, 3), movedBox.width);
+ok('moving an end keeps heading', near(movedBox.heading, 90, 1e-9), movedBox.heading);
+
+// The perpendicular part of the drag is dropped: the gesture changes length,
+// not heading.
+const [offN, offT] = moveEnd(nose, tail, 'tail', [nose[0] + 20, nose[1] + 5], 3);
+ok(
+	'the off-axis part of the drag is ignored',
+	near(offN[0], nose[0]) && near(offT[0], nose[0] + 20) && near(offT[1], nose[1]),
+	[offN, offT],
+);
+
+const [moveN, keepT] = moveEnd(nose, tail, 'nose', [nose[0] - 4, nose[1]], 3);
+ok('moving the nose leaves the tail put', keepT[0] === tail[0] && keepT[1] === tail[1]);
+ok('nose lengthens towards the pointer', near(moveN[0], nose[0] - 4), moveN);
+
+// A diagonal box: the projection, not the axes, decides the new end.
+const diag = Math.hypot(20, 20);
+const [dAnchor, dMoved] = moveEnd([0, 0], [10, 10], 'tail', [20, 20], 3);
+ok('diagonal: anchored end stays put', dAnchor[0] === 0 && dAnchor[1] === 0);
+ok(
+	'diagonal: new length runs along the axis',
+	near(Math.hypot(dMoved[0], dMoved[1]), diag, 1e-9) && near(dMoved[0], dMoved[1], 1e-9),
+	dMoved,
+);
+
+const [clN, clT] = moveEnd(nose, tail, 'tail', [nose[0] + 1000, nose[1]], 3);
+ok('moving an end clamps at max length', near(measure(boxFromCentreline(clN, clT, 3)).length, 30));
+
+// Dragging back past the anchor stops at the width floor rather than flipping
+// the box inside out — see the note on `scaleCentreline`.
+const [flN, flT] = moveEnd(nose, tail, 'tail', [nose[0] - 50, nose[1]], 3);
+ok('dragging past the anchor stops at the width floor', near(flT[0], nose[0] + 3), flT);
+ok('the floor keeps the anchored end put', flN[0] === nose[0] && flN[1] === nose[1]);
+
+// A degenerate centreline has no axis, so moving an end is a no-op.
+const [zen, zet] = moveEnd(nose, nose, 'tail', [nose[0] + 10, nose[1]]);
+ok(
+	'moving an end of a zero-length centreline is a no-op',
+	zen[0] === nose[0] && zet[0] === nose[0],
+);
 
 // `centrelineOf` used to read its ends off in ring order, which for a box laid
 // down by `boxFromCentreline` hands back [tail, nose]. Rebuilding from a

@@ -45,12 +45,25 @@ describe('selection', () => {
 		}
 	});
 
-	test('marks selection with a colour no class uses', () => {
-		// Otherwise the marker reads as a classification.
-		const classColours = Object.values(COLOURS);
-		const selected = strokeColours(box({ status: 'confirmed', class: 'truck' }));
-		const marker = selected.filter((c) => !classColours.includes(c));
-		expect(marker.length).toBeGreaterThan(0);
+	test('marks selection with a wider class-coloured stroke, not a new colour', () => {
+		// The amber halo is gone: amber is the candidate class colour, so a
+		// selected candidate read as amber-on-amber. Selection is carried by
+		// the width bump — the handles and edge labels only exist on a
+		// selection, and they do the rest of the marking.
+		for (const klass of ['truck', 'bus', 'van'] as const) {
+			const feature = box({ status: 'confirmed', class: klass });
+			const bumped = selectedStyleFor(feature)
+				.filter((s) => s.getStroke()?.getColor() === COLOURS[klass])
+				.map((s) => s.getStroke()!.getWidth()!);
+			expect(bumped, klass).toHaveLength(1);
+			expect(bumped[0], klass).toBeGreaterThan(styleFor(feature).getStroke()!.getWidth()!);
+		}
+	});
+
+	test('keeps the dark casing, because one thin stroke is lost on an orthophoto', () => {
+		const [casing] = selectedStyleFor(box({ status: 'confirmed', class: 'truck' }));
+		expect(casing.getStroke()?.getColor()).toContain('8,10,14');
+		expect(casing.getStroke()!.getWidth()!).toBeGreaterThan(4);
 	});
 
 	test('adds no second fill over the one styleFor already draws', () => {

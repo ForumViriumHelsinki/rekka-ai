@@ -7,7 +7,7 @@
  * nothing with the interface chrome, so a colour on the map always means a
  * classification and never a selection.
  */
-import { Fill, Stroke, Style, Text } from 'ol/style';
+import { Fill, Stroke, Style, Text, Circle as CircleStyle } from 'ol/style';
 import Point from 'ol/geom/Point';
 import Polygon from 'ol/geom/Polygon';
 import type Feature from 'ol/Feature';
@@ -28,6 +28,17 @@ export const COLOURS: Record<string, string> = {
 export const sketchStyle = new Style({
 	stroke: new Stroke({ color: '#ffc14d', width: 2, lineDash: [6, 6] }),
 	fill: new Fill({ color: 'rgba(255,180,60,0.08)' }),
+});
+
+/** The draggable end of a selected box. Cased like the selection halo —
+ * dark rim, amber core — because a handle is chrome, not symbology: it must
+ * read as "grab me" and never as a fifth class colour. */
+export const handleStyle = new Style({
+	image: new CircleStyle({
+		radius: 5,
+		fill: new Fill({ color: '#ffc14d' }),
+		stroke: new Stroke({ color: 'rgba(8,10,14,0.9)', width: 2 }),
+	}),
 });
 
 // A casing, not a single line: one stroke can always be lost against some
@@ -77,37 +88,58 @@ export function neighbourStyle(feature: FeatureLike): Style[] {
 	];
 }
 
-export function styleFor(feature: Feature): Style {
+/** The classification colour a box's status and class map to. Shared by the
+ * plain and selected styles so the two can never drift apart. */
+function colourFor(feature: Feature): string {
 	const status = feature.get('status') ?? 'candidate';
 	const klass = feature.get('class') ?? '';
-	const rejected = status === 'rejected';
-	const colour = rejected ? COLOURS.rejected : klass ? COLOURS[klass] : COLOURS.candidate;
+	return status === 'rejected' ? COLOURS.rejected : klass ? COLOURS[klass] : COLOURS.candidate;
+}
+
+/** The one fill a box gets, selected or not: candidates are tinted so
+ * unreviewed work reads at a glance; everything else is nearly nothing, but
+ * not nothing — the fill is what makes the box a click target. */
+function fillFor(feature: Feature): Fill {
+	const status = feature.get('status') ?? 'candidate';
+	return new Fill({
+		color: status === 'candidate' ? 'rgba(240,167,38,0.10)' : 'rgba(0,0,0,0.01)',
+	});
+}
+
+export function styleFor(feature: Feature): Style {
+	const rejected = (feature.get('status') ?? 'candidate') === 'rejected';
 	return new Style({
 		stroke: new Stroke({
-			color: colour,
+			color: colourFor(feature),
 			width: rejected ? 1.5 : 2.5,
 			lineDash: rejected ? [5, 5] : undefined,
 		}),
-		fill: new Fill({
-			color: status === 'candidate' ? 'rgba(240,167,38,0.10)' : 'rgba(0,0,0,0.01)',
-		}),
+		fill: fillFor(feature),
 	});
 }
 
 /** Selection must be unmistakable at a glance: N/P jumps between candidates
  * dozens of times a session, and "which box am I on" cannot be a guess.
  *
- * A halo *under* the box rather than a stroke replacing it, so the class
- * colour still reads while the box is selected. Covering it up meant every
- * selected box looked alike whatever its verdict, which is why labelling
- * used to drop the highlight to reveal the colour — and that in turn left
- * the box uneditable until it was clicked again. The halo is amber, never
- * a class colour, so it still cannot be read as a classification.
+ * The marker is a *width bump of the class colour*, not a halo. It used to be
+ * an amber ring under the box, but amber is also the candidate class colour,
+ * so a selected candidate read as amber-on-amber — and a highlight that
+ * collides with a classification breaks the file's one rule: a colour on the
+ * map means a classification, never a selection. The bump keeps the class
+ * colour pure and lets the things that only exist on a selection — the end
+ * handles and the measurement labels — do the rest of the marking.
+ *
+ * The dark casing underneath stays: one thin stroke can always be lost
+ * against some part of an orthophoto — pale on concrete, dark in shadow —
+ * and a yard is mostly bright concrete. Widths are sized for the object, not
+ * the screen: a 3 m vehicle is ~24 px across at z16, so the whole ring has
+ * to stay under about a third of that or it swallows the box it is marking.
  *
  * Rendered by the layer itself (see the page's layerStyle), not the Select
  * interaction's style: the Select overlay is unreliable when the selection
  * is changed programmatically by N/P. */
 export function selectedStyleFor(feature: Feature): Style[] {
+	const rejected = (feature.get('status') ?? 'candidate') === 'rejected';
 	const ring = (feature.getGeometry() as Polygon).getCoordinates()[0] as Coord[];
 	const edges = [0, 1, 2, 3].map((i) => {
 		const [x1, y1] = ring[i];
@@ -130,23 +162,21 @@ export function selectedStyleFor(feature: Feature): Style[] {
 	const outer = (a: (typeof edges)[0], b: (typeof edges)[0]) => (key(a) >= key(b) ? a : b);
 	const long = outer(byLength[0], byLength[1]);
 	const short = outer(byLength[2], byLength[3]);
-	// Concentric and opaque, not a wash. A wide semi-transparent halo blends
-	// with whatever orthophoto is underneath — amber over asphalt, over grass,
-	// over a blue container — and every one of those blends is a different
-	// muddy brown. Opaque strokes stacked widest-first give three crisp bands
-	// instead: a dark rim that reads on pale concrete, the amber accent that
-	// means "selected", and the class colour as the core.
-	//
-	// Widths are sized for the object, not the screen: a 3 m vehicle is ~24 px
-	// across at z16, so the whole ring has to stay under about a third of that
-	// or it swallows the box it is marking.
-	//
-	// No fill here. `styleFor` already supplies one, and stacking a second was
-	// half the muddiness.
+	// Two opaque strokes, widest first: the dark casing that keeps the ring
+	// readable over bright concrete, and the class colour on top, wide enough
+	// that the bump from the unselected 2.5 px reads at a glance. Exactly one
+	// fill — the same one `styleFor` draws; stacking a second translucent
+	// fill is what used to make the highlight muddy.
 	return [
-		new Style({ stroke: new Stroke({ color: 'rgba(8,10,14,0.9)', width: 8 }) }),
-		new Style({ stroke: new Stroke({ color: '#ffc14d', width: 5 }) }),
-		styleFor(feature), // the class colour, as the core of the ring
+		new Style({ stroke: new Stroke({ color: 'rgba(8,10,14,0.9)', width: 7 }) }),
+		new Style({
+			stroke: new Stroke({
+				color: colourFor(feature),
+				width: 4,
+				lineDash: rejected ? [5, 5] : undefined,
+			}),
+			fill: fillFor(feature),
+		}),
 		edgeLabel(long, `${feature.get('length_m')} m`),
 		edgeLabel(short, `${feature.get('width_m')} m`),
 	];

@@ -14,14 +14,10 @@
 	import { Fill, Stroke, Style, Text } from 'ol/style';
 	import Polygon from 'ol/geom/Polygon';
 	import { fromExtent } from 'ol/geom/Polygon';
-	import Point from 'ol/geom/Point';
-	import LineString from 'ol/geom/LineString';
 	import Feature from 'ol/Feature';
 	import type { FeatureLike } from 'ol/Feature';
-	import type { EventsKey } from 'ol/events';
 	import { containsCoordinate } from 'ol/extent';
 	import { click } from 'ol/events/condition';
-	import { unByKey } from 'ol/Observable';
 	// Without this the zoom, attribution and scale controls render unstyled.
 	import 'ol/ol.css';
 
@@ -47,9 +43,12 @@
 	import ClassToolbar from '$lib/ClassToolbar.svelte';
 	import { LabelStore, refreshMeasurements } from '$lib/labelStore.svelte';
 	import { UndoStack } from '$lib/undo.svelte';
+	import { EndHandles } from '$lib/endHandles';
+	import { DrawMode } from '$lib/drawMode.svelte';
 	import {
 		COLOURS,
 		aoiStyle,
+		handleStyle,
 		neighbourStyle,
 		selectedStyleFor,
 		sketchStyle,
@@ -61,7 +60,6 @@
 	let current = $state<AoiInfo | null>(null);
 	let width = $state(DEFAULT_WIDTH_M);
 	let activeClass = $state<Klass>('truck');
-	let drawing = $state(false);
 	let selectedInfo = $state('');
 	let loadError = $state('');
 	/** Set from /api/aois before the map is built; the initial value is only
@@ -91,16 +89,9 @@
 	let select: Select;
 	let translate: Translate;
 	let wheelZoom: MouseWheelZoom;
-	/** Drawing is a three-phase state machine, not an OL Draw interaction:
-	 * 0 = click the nose, 1 = click the tail, 2 = scroll for width, click to
-	 * place. The OL Draw interaction cannot wait for a third input, which is
-	 * why the wheel used to fight the second click. */
-	let drawPhase = $state<0 | 1 | 2>(0);
-	let nose: Coord | null = null;
-	let tail: Coord | null = null;
-	/** The in-progress preview lives in its own source so it is never saved. */
-	let sketch: Feature | null = null;
-	let sketchSource: VectorSource;
+	/** Hand-drawing a new box — see drawMode.svelte.ts. Created with the map;
+	 * `drawing`/`phase` live there because the footer and keymap read them. */
+	let drawMode = $state<DrawMode | null>(null);
 	/** The current area's bbox, drawn so "am I still inside the area" is
 	 * visible rather than memorised. */
 	let aoiSource: VectorSource;
@@ -108,7 +99,9 @@
 	 * to go there. Kept apart from `aoiSource` so the current boundary keeps its
 	 * own styling, and so selection can stay scoped away from both. */
 	let neighbourSource: VectorSource;
-	let drawListeners: EventsKey[] = [];
+	/** Draggable ends of the selected box — the one-ended length edit. Created
+	 * with the map; every box-moving code path pokes `endHandles.sync()`. */
+	let endHandles: EndHandles | null = null;
 	/** Held so onDestroy can remove it; see the note at its registration. */
 	let onWheel: ((event: WheelEvent) => void) | null = null;
 	/** Owns the features, the dirty flag and the save path — see labelStore. */
@@ -140,6 +133,7 @@
 		if (selected === feature) return;
 		selected = feature;
 		describe(feature ?? undefined);
+		endHandles?.sync();
 		source?.changed(); // layerStyle closes over `selected`
 	}
 
@@ -151,7 +145,7 @@
 	async function open(aoi: AoiInfo) {
 		if (store.dirty) await store.save();
 		current = aoi;
-		stopDrawing();
+		drawMode?.stop();
 		select.getFeatures().clear();
 		setSelected(null);
 		selectedInfo = '';
@@ -185,29 +179,9 @@
 		}
 	}
 
-	function showSketch(geometry: LineString | Polygon) {
-		if (sketch) sketch.setGeometry(geometry);
-		else {
-			sketch = new Feature(geometry);
-			sketchSource.addFeature(sketch);
-		}
-	}
-
-	function clearSketch() {
-		if (sketch) {
-			sketchSource.removeFeature(sketch);
-			sketch = null;
-		}
-	}
-
-	function sketchBox() {
-		if (nose && tail) showSketch(new Polygon([boxFromCentreline(nose, tail, width)]));
-	}
-
-	/** Turn the preview into a real feature, then leave draw mode — one box
-	 * per D press, so a stray click can never place an unintended box. */
-	function commitBox() {
-		if (!nose || !tail) return;
+	/** Turn the axis DrawMode committed into a real feature. DrawMode owns the
+	 * gesture; the page owns what a box means: source, undo, selection, dirty. */
+	function commitBox(nose: Coord, tail: Coord) {
 		const feature = new Feature(new Polygon([boxFromCentreline(nose, tail, width)]));
 		feature.setProperties({
 			class: activeClass,
@@ -228,56 +202,6 @@
 		select.getFeatures().push(feature);
 		setSelected(feature);
 		markDirty();
-		stopDrawing();
-	}
-
-	function cancelSketch() {
-		nose = null;
-		tail = null;
-		drawPhase = 0;
-		clearSketch();
-	}
-
-	function onDrawClick(event: { coordinate: number[] }) {
-		const at = event.coordinate as Coord;
-		if (drawPhase === 0) {
-			nose = at;
-			drawPhase = 1;
-		} else if (drawPhase === 1) {
-			tail = at;
-			drawPhase = 2;
-			sketchBox();
-		} else {
-			commitBox();
-		}
-	}
-
-	function onDrawMove(event: { coordinate: number[] }) {
-		if (drawPhase === 1 && nose) {
-			// A plain centreline — the box only appears once the tail is set,
-			// so the width step reads as width, not as a moving rectangle.
-			showSketch(new LineString([nose, event.coordinate as Coord]));
-		}
-	}
-
-	function startDrawing() {
-		if (drawing || !map) return;
-		drawing = true;
-		cancelSketch();
-		wheelZoom.setActive(false); // the wheel sets width while drawing
-		select.setActive(false);
-		translate.setActive(false);
-		drawListeners.push(map.on('click', onDrawClick), map.on('pointermove', onDrawMove));
-	}
-
-	function stopDrawing() {
-		for (const key of drawListeners) unByKey(key);
-		drawListeners = [];
-		cancelSketch();
-		drawing = false;
-		wheelZoom?.setActive(true);
-		select?.setActive(true);
-		translate?.setActive(true);
 	}
 
 	function applyClass(klass: Klass) {
@@ -332,6 +256,9 @@
 			setSelected(null);
 			selectedInfo = '';
 		}
+		// Undoing a geometry edit restores the ring on the *same* feature, so
+		// setSelected above may early-return with the handles left stale.
+		endHandles?.sync();
 		source.changed();
 		markDirty();
 	}
@@ -362,6 +289,7 @@
 		width = next; // the next drawn box starts from what was just corrected
 		refreshMeasurements(selected);
 		describe(selected);
+		endHandles?.sync();
 		markDirty();
 	}
 
@@ -379,6 +307,7 @@
 		geometry.setCoordinates([boxFromCentreline(nextNose, nextTail, boxWidth)]);
 		refreshMeasurements(selected);
 		describe(selected);
+		endHandles?.sync();
 		markDirty();
 	}
 
@@ -507,22 +436,23 @@
 			keys: 'D',
 			label: 'draw: nose, tail, scroll width',
 			on: ['d'],
-			run: () => (drawing ? stopDrawing() : startDrawing()),
+			run: () => (drawMode?.drawing ? drawMode.stop() : drawMode?.start()),
 		},
 		{
 			keys: 'Enter',
 			label: 'place box while drawing',
 			on: ['enter'],
-			when: () => drawing && drawPhase === 2,
-			run: () => commitBox(),
+			when: () => drawMode?.drawing === true && drawMode?.phase === 2,
+			run: () => drawMode?.commit(),
 		},
 		{
 			keys: 'Esc',
 			label: 'redo sketch / stop drawing',
 			on: ['escape'],
-			run: () => (drawing && drawPhase > 0 ? cancelSketch() : stopDrawing()),
+			run: () => (drawMode?.drawing && drawMode.phase > 0 ? drawMode.cancel() : drawMode?.stop()),
 		},
 		{ keys: 'drag', label: 'move selected box' },
+		{ keys: 'drag end', label: 'resize one end of selected box' },
 		{ keys: '⇧ scroll', label: 'width of selected box' },
 		{
 			keys: '↑ ↓',
@@ -596,10 +526,13 @@
 		}
 		loading = false;
 
-		sketchSource = new VectorSource();
+		const sketchSource = new VectorSource();
 		aoiSource = new VectorSource();
 		neighbourSource = new VectorSource();
 		const labelLayer = new VectorLayer({ source, style: layerStyle });
+		// Topmost: a handle must never be hidden by the box it belongs to, and
+		// hit-testing walks top-down, so handles are found before anything else.
+		const handleLayer = new VectorLayer({ source: new VectorSource(), style: handleStyle });
 		// Bottom of the vector stack: a neighbour must never draw over a box
 		// being judged, and hit-testing walks top-down, so labels are asked
 		// first for any click.
@@ -612,6 +545,7 @@
 				new VectorLayer({ source: aoiSource, style: aoiStyle }),
 				labelLayer,
 				new VectorLayer({ source: sketchSource, style: sketchStyle }),
+				handleLayer,
 			],
 			// Arrows nudge the selected box's length and heading, so the map must
 			// not also pan on them: two things moving at once is unreadable.
@@ -658,7 +592,7 @@
 			// and a click inside the area being labelled never leaves it,
 			// whatever overlaps it — the collection has two overlapping pairs,
 			// and losing an edit to a stray click on one would be indefensible.
-			if (drawing) return;
+			if (drawMode?.drawing) return;
 			if (current && containsCoordinate(current.extent, event.coordinate)) return;
 			let onLabel = false;
 			let target: AoiInfo | undefined;
@@ -684,11 +618,43 @@
 		translate.on('translatestart', () => {
 			if (selected) undoStack.edit(selected);
 		});
+		translate.on('translating', () => endHandles?.sync());
 		translate.on('translateend', () => {
 			if (selected) describe(selected);
+			endHandles?.sync();
 			markDirty();
 		});
 		map.addInteraction(translate);
+
+		// Hand-drawing a new box. Owns the gesture, the sketch preview and its
+		// listeners; the page answers onCommit with what a new box means.
+		drawMode = new DrawMode({
+			map,
+			sketchSource,
+			select,
+			translate,
+			wheelZoom,
+			getWidth: () => width,
+			onCommit: commitBox,
+		});
+
+		// Draggable ends of the selected box — the one-ended length edit. Owns
+		// its handles, its raw pointer session and its teardown; the page only
+		// answers its callbacks and pokes sync() after anything moves the box.
+		endHandles = new EndHandles({
+			map,
+			layer: handleLayer,
+			getSelected: () => selected,
+			isDrawing: () => drawMode?.drawing ?? false,
+			// Captured on start, while the box is still where it was, so one
+			// undo reverts the whole drag.
+			onGestureStart: (feature) => undoStack.edit(feature),
+			onGestureMove: (feature) => {
+				refreshMeasurements(feature);
+				describe(feature);
+			},
+			onGestureEnd: () => markDirty(),
+		});
 
 		// Capture phase: this must run before OpenLayers' own wheel-zoom
 		// listener, or resizing would also zoom the map. Plain scroll always
@@ -698,13 +664,11 @@
 		// callback is async, and Svelte only honours a returned teardown from a
 		// synchronous onMount — an async one always returns a Promise.
 		onWheel = (event: WheelEvent) => {
-			if (drawing) {
+			if (drawMode?.drawing) {
 				event.preventDefault();
 				event.stopPropagation();
 				width = clampWidth(width + (event.deltaY < 0 ? WIDTH_STEP_M : -WIDTH_STEP_M));
-				// Only the width phase previews live — before the tail exists a
-				// box would just be noise chasing the cursor.
-				if (drawPhase === 2) sketchBox();
+				drawMode.preview();
 			} else if (selected && event.shiftKey) {
 				event.preventDefault();
 				event.stopPropagation();
@@ -722,11 +686,11 @@
 
 	onDestroy(() => {
 		store.cancelPending();
+		drawMode?.destroy();
+		endHandles?.destroy();
 		if (onWheel && map) {
 			map.getViewport().removeEventListener('wheel', onWheel, { capture: true });
 		}
-		unByKey(drawListeners);
-		drawListeners = [];
 	});
 </script>
 
@@ -783,11 +747,11 @@
 	</aside>
 
 	<main class="relative flex min-w-0 flex-col">
-		<div id="map" data-drawing={drawing} class="flex-1 bg-[#05070a]"></div>
+		<div id="map" data-drawing={drawMode?.drawing ?? false} class="flex-1 bg-[#05070a]"></div>
 
 		<ClassToolbar
 			{activeClass}
-			{drawing}
+			drawing={drawMode?.drawing ?? false}
 			{width}
 			hasSelection={selected !== null}
 			saveState={store.saveState}
@@ -808,15 +772,15 @@
 		{/if}
 
 		<footer class="flex items-center gap-4 border-t border-line bg-panel px-3 py-1.5 text-xs">
-			<span class="transition-colors duration-150 {drawing ? 'text-accent' : 'text-dim'}">
-				{drawing
-					? drawPhase === 0
+			<span class="transition-colors duration-150 {drawMode?.drawing ? 'text-accent' : 'text-dim'}">
+				{drawMode?.drawing
+					? drawMode.phase === 0
 						? 'drawing — click the nose'
-						: drawPhase === 1
+						: drawMode.phase === 1
 							? 'drawing — click the tail'
 							: 'scroll to set width — click or Enter to place, Esc to redo'
 					: selected
-						? '⇧scroll: adjust width · drag: move · Del: delete'
+						? '⇧scroll: adjust width · drag: move · drag end: resize · Del: delete'
 						: 'select a box, or press D to draw'}
 			</span>
 			<span class="ml-auto font-mono text-[11px] text-muted">{selectedInfo}</span>
