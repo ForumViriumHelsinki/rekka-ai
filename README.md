@@ -87,12 +87,12 @@ The labelling batch uses `--min-length 4.0` rather than the 6 m default: vans
 are a labelled class of their own, and the 5–6 m band is exactly where they
 live — over the current 17 positive areas that is 713 candidates at 4.0 m
 against 559 at 6 m, so a quarter of the batch would otherwise never be seen.
-See DESIGN.md §5.
+See docs/DESIGN.md §5.
 
 Output is a GeoJSON of oriented polygons carrying `length_m`, `width_m`,
 `heading_deg`, `confidence`, and the source layer. Coordinates are **EPSG:3879**
 metres, declared by a `crs` member rather than the WGS84 RFC 7946 assumes — see
-DESIGN.md §2. GDAL-based tools (QGIS, `ogr2ogr`) honour it; for anything that
+docs/DESIGN.md §2. GDAL-based tools (QGIS, `ogr2ogr`) honour it; for anything that
 does not, convert with `ogr2ogr -f GeoJSON out.geojson -t_srs EPSG:4326 in.geojson`.
 
 ### Labelling
@@ -147,7 +147,7 @@ Areas with `role: hard-negative` — `rastila`, `marjaniemi` — sit under **Not
 staged** at 0/0, and that is correct rather than a job left undone: no candidates
 are staged for them and there is nothing to review. Their contribution is the
 imagery itself, exported as background, so the model learns that motorhomes and
-moored boats are not trucks. See DESIGN.md §5.
+moored boats are not trucks. See docs/DESIGN.md §5.
 
 ### Training
 
@@ -181,7 +181,7 @@ uv run mlflow ui --backend-store-uri sqlite:///runs/mlflow.db
 
 `eval` judges a weights file against the ship gates — truck recall ≥ 0.90 and
 precision ≥ 0.85 at a PR-chosen operating confidence, per-area counts within
-10%, negative-role areas silent (see DESIGN.md §7):
+10%, negative-role areas silent (see docs/DESIGN.md §7):
 
 ```sh
 uv run rekka-ai eval --weights runs/train/round1/weights/best.pt \
@@ -204,6 +204,40 @@ uv run rekka-ai stage --candidates data/detections/jatkasaari.geojson
 
 Each round the model proposes and the human only corrects; the correction
 count per round measures how much the model still misses.
+
+### Choosing round-2 areas (`mine`)
+
+After round 1 is trained and evaluated, do not hand-pick more obvious yards.
+`mine` proposes the next batch from OpenStreetMap industrial landuse and the
+trained weights:
+
+```sh
+uv sync --extra detect
+uv run rekka-ai mine \
+    --weights runs/train/round1/weights/best.pt \
+    --operating-confidence 0.17 \
+    --existing aois/helsinki.yaml \
+    --out data/mining/round2.yaml \
+    --dry-run          # eligible cells + tile estimate; no imagery, no GPU
+```
+
+A real run writes `data/mining/round2.yaml` (collection-shaped proposals) and
+a sibling `.geojson` report with the signals that justified each pick. It
+**never edits** `aois/helsinki.yaml` or `labels/`. Review the GeoJSON, copy
+accepted entries into the collection, then `detect` and `stage`. Quiet cells
+(no detections) still need an empty label file before export — pass the
+proposal collection to stage:
+
+```sh
+uv run rekka-ai stage \
+    --candidates data/detections/round2.geojson \
+    --aoi data/mining/round2.yaml
+```
+
+Helsinki only for now: the 2025 5 cm WMTS covers Helsinki. Espoo and Vantaa
+are deferred until an HSY imagery source exists. OSM responses are cached
+under `data/osm/` (gitignored); `--refresh-osm` re-fetches. Attribution:
+© OpenStreetMap contributors.
 
 ### Rebuilding from scratch
 
@@ -229,6 +263,18 @@ free.
 
 Imagery is © Helsingin kaupunki, Kaupunkimittauspalvelut.
 
+## License
+
+Two licenses, split along the codebase's own boundary:
+
+- **The Python backend** (everything outside `web/`) is
+  [AGPL-3.0](LICENSE), because it builds on Ultralytics YOLO, which is
+  AGPL-3.0. That includes serving it: offering the detector over a network
+  gives those users the right to the source.
+- **The labelling web app** (`web/`) is a separate work, communicating with
+  the backend only through data files — it is [MIT](web/LICENSE), so it can
+  be reused freely in other projects.
+
 ## Development
 
 ```sh
@@ -244,6 +290,5 @@ bun run check     # svelte-check
 bun run lint      # prettier --check
 ```
 
-CI runs the Python four on every pull request. The `web/` checks are not in CI
-yet, so run them before pushing anything under `web/` — the geometry and save
-paths there carry their own regression tests.
+CI runs both the Python four and the web three on every pull request and push
+to `main`.

@@ -3,6 +3,7 @@ name = "rekka-ai"
 version = "0.1.0"
 description = "Truck detection from aerial images"
 readme = "README.md"
+license = "AGPL-3.0-only"
 requires-python = ">=3.14"
 dependencies = [
     "httpx>=0.28.1",
