@@ -6,7 +6,7 @@ the output honest:
 
 - **Split by whole AOI, never at random.** The collection's ``split`` field
   decides which directory an area's windows land in, so near-duplicate
-  adjacent windows cannot straddle train and validation (DESIGN.md §2).
+  adjacent windows cannot straddle train and validation (docs/DESIGN.md §2).
 - **A box is written only into windows that fully contain it.** The 30 m
   window overlap exceeds the longest road-legal rig, so every vehicle is whole
   in at least one window; a box in the overlap lands in two, which skews

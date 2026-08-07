@@ -1,7 +1,7 @@
 """Tile geometry for the Helsinki ``ETRS-GK25`` WMTS grid.
 
 Pure arithmetic, no I/O. Every value here was read from the service's
-GetCapabilities document; see ``DESIGN.md`` for the provenance.
+GetCapabilities document; see ``docs/DESIGN.md`` for the provenance.
 
 The grid is a plain power-of-two pyramid over EPSG:3879, anchored at a
 top-left origin, so a tile index is exact arithmetic rather than a warp.

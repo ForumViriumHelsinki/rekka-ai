@@ -1,3 +1,4 @@
+import json
 import re
 from pathlib import Path
 
@@ -367,3 +368,308 @@ def test_detect_requires_weights(tmp_path: Path) -> None:
     )
     assert result.exit_code != 0
     assert "no weights at" in _flat(result.output)
+
+
+def test_stage_aoi_writes_empty_files_for_quiet_areas(tmp_path: Path) -> None:
+    """Mined quiet cells have no candidates; --aoi still stages an empty file."""
+    candidates = tmp_path / "candidates.geojson"
+    _write_geojson(candidates, _feature("dense-yard"))
+    collection = tmp_path / "round2.yaml"
+    collection.write_text(
+        'crs: "EPSG:3067"\naois:\n'
+        "  - {name: dense-yard, bbox: [399000, 6675000, 399300, 6675300]}\n"
+        "  - {name: quiet-yard, bbox: [402000, 6678000, 402300, 6678300]}\n"
+    )
+    labels_dir = tmp_path / "labels"
+
+    result = _stage(labels_dir, candidates, "--aoi", str(collection))
+
+    assert result.exit_code == 0
+    assert "dense-yard: 1 candidates" in result.stdout
+    assert "quiet-yard: 0 candidates" in result.stdout
+    assert labels.read(labels_dir / "quiet-yard.geojson")["features"] == []
+
+
+def _seed_osm_cache(cache_root: Path) -> None:
+    """A minimal industrial polygon inside Helsinki, as Overpass would cache it."""
+    from rekka_ai.osm import build_query, cache_path, query_hash
+
+    query = build_query("Helsinki")
+    path = cache_path(cache_root, "Helsinki")
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_text(
+        json.dumps(
+            {
+                "municipality": "Helsinki",
+                "ref": "091",
+                "profile": "industrial",
+                "query": query,
+                "query_hash": query_hash(query),
+                "fetched_at": "2026-08-07T00:00:00+00:00",
+                "attribution": "© OpenStreetMap contributors",
+                "elements": [
+                    {
+                        "type": "way",
+                        "id": 1,
+                        "tags": {"landuse": "industrial"},
+                        "geometry": [
+                            {"lat": 60.20, "lon": 24.95},
+                            {"lat": 60.20, "lon": 24.98},
+                            {"lat": 60.23, "lon": 24.98},
+                            {"lat": 60.23, "lon": 24.95},
+                            {"lat": 60.20, "lon": 24.95},
+                        ],
+                    }
+                ],
+            }
+        )
+    )
+
+
+def test_mine_dry_run_reports_pool_without_inference(
+    tmp_path: Path, collection: str
+) -> None:
+    weights = tmp_path / "best.pt"
+    weights.touch()
+    osm_cache = tmp_path / "osm"
+    _seed_osm_cache(osm_cache)
+    out = tmp_path / "round2.yaml"
+
+    result = runner.invoke(
+        app,
+        [
+            "mine",
+            "--weights",
+            str(weights),
+            "--operating-confidence",
+            "0.17",
+            "--existing",
+            collection,
+            "--osm-cache",
+            str(osm_cache),
+            "--out",
+            str(out),
+            "--count",
+            "2",
+            "--pool-size",
+            "4",
+            "--dry-run",
+        ],
+    )
+
+    assert result.exit_code == 0, result.output
+    assert "eligible cells:" in result.stdout
+    assert "dry run: skipping imagery fetch and inference" in result.stdout
+    assert not out.exists()  # proposal-only path never writes on dry-run
+
+
+def test_mine_requires_weights_and_operating_confidence(
+    tmp_path: Path, collection: str
+) -> None:
+    missing = runner.invoke(
+        app,
+        [
+            "mine",
+            "--weights",
+            str(tmp_path / "nope.pt"),
+            "--operating-confidence",
+            "0.17",
+            "--existing",
+            collection,
+            "--out",
+            str(tmp_path / "out.yaml"),
+            "--dry-run",
+        ],
+    )
+    assert missing.exit_code != 0
+    assert "no weights at" in _flat(missing.output)
+
+    weights = tmp_path / "best.pt"
+    weights.touch()
+    bad_conf = runner.invoke(
+        app,
+        [
+            "mine",
+            "--weights",
+            str(weights),
+            "--operating-confidence",
+            "1.5",
+            "--existing",
+            collection,
+            "--out",
+            str(tmp_path / "out.yaml"),
+            "--dry-run",
+        ],
+    )
+    assert bad_conf.exit_code != 0
+    assert "operating-confidence must be between 0 and 1" in _flat(bad_conf.output)
+
+
+def test_mine_rejects_unsupported_municipality(tmp_path: Path, collection: str) -> None:
+    weights = tmp_path / "best.pt"
+    weights.touch()
+    result = runner.invoke(
+        app,
+        [
+            "mine",
+            "--weights",
+            str(weights),
+            "--operating-confidence",
+            "0.17",
+            "--existing",
+            collection,
+            "--municipality",
+            "Espoo",
+            "--out",
+            str(tmp_path / "out.yaml"),
+            "--dry-run",
+        ],
+    )
+    assert result.exit_code != 0
+    assert "not supported yet" in _flat(result.output)
+
+
+def test_mine_never_edits_the_existing_collection(
+    tmp_path: Path, collection: str
+) -> None:
+    weights = tmp_path / "best.pt"
+    weights.touch()
+    osm_cache = tmp_path / "osm"
+    _seed_osm_cache(osm_cache)
+    before = Path(collection).read_text()
+
+    result = runner.invoke(
+        app,
+        [
+            "mine",
+            "--weights",
+            str(weights),
+            "--operating-confidence",
+            "0.17",
+            "--existing",
+            collection,
+            "--osm-cache",
+            str(osm_cache),
+            "--out",
+            str(tmp_path / "round2.yaml"),
+            "--count",
+            "2",
+            "--pool-size",
+            "4",
+            "--dry-run",
+        ],
+    )
+
+    assert result.exit_code == 0
+    assert Path(collection).read_text() == before
+
+
+def test_mine_writes_proposal_yaml_and_geojson(
+    tmp_path: Path, collection: str, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    """A non-dry run writes proposals without torch: stub the detector path."""
+    from rekka_ai.detect.detections import Detection
+
+    weights = tmp_path / "best.pt"
+    weights.touch()
+    osm_cache = tmp_path / "osm"
+    _seed_osm_cache(osm_cache)
+    out = tmp_path / "mining" / "round2.yaml"
+
+    class _FakeDetector:
+        def __init__(self, *args: object, **kwargs: object) -> None:
+            pass
+
+    def _fake_sweep(aoi, **kwargs: object) -> list[Detection]:
+        # One near-threshold box inside the AOI so selection has something to pick.
+        easting = (aoi.bounds.min_easting + aoi.bounds.max_easting) / 2
+        northing = (aoi.bounds.min_northing + aoi.bounds.max_northing) / 2
+        return [
+            Detection(
+                label="truck",
+                confidence=0.17,
+                corners=(
+                    (easting - 4, northing - 1.25),
+                    (easting + 4, northing - 1.25),
+                    (easting + 4, northing + 1.25),
+                    (easting - 4, northing + 1.25),
+                ),
+                aoi=aoi.name,
+            )
+        ]
+
+    class _FakeFetcher:
+        def __init__(self, *args: object, **kwargs: object) -> None:
+            self.failures: list = []
+
+        def __enter__(self):
+            return self
+
+        def __exit__(self, *exc: object) -> None:
+            return None
+
+    monkeypatch.setattr("rekka_ai.cli.YoloObb", _FakeDetector)
+    monkeypatch.setattr("rekka_ai.cli.sweep", _fake_sweep)
+    monkeypatch.setattr("rekka_ai.cli.TileFetcher", _FakeFetcher)
+
+    result = runner.invoke(
+        app,
+        [
+            "mine",
+            "--weights",
+            str(weights),
+            "--operating-confidence",
+            "0.17",
+            "--existing",
+            collection,
+            "--osm-cache",
+            str(osm_cache),
+            "--out",
+            str(out),
+            "--count",
+            "2",
+            "--pool-size",
+            "4",
+        ],
+    )
+
+    assert result.exit_code == 0, result.output
+    assert out.exists()
+    report = out.with_suffix(".geojson")
+    assert report.exists()
+    body = out.read_text()
+    assert "EPSG:3067" in body
+    assert "role: positive" in body
+    assert "split: train" in body
+    assert "mine-091-" in body
+    geojson = json.loads(report.read_text())
+    assert geojson["type"] == "FeatureCollection"
+    assert len(geojson["features"]) == 2
+    assert geojson["features"][0]["properties"]["attribution"].startswith(
+        "© OpenStreetMap"
+    )
+    # Proposal-only: the existing collection and labels/ stay untouched.
+    assert Path(collection).exists()
+    assert not (tmp_path / "labels").exists()
+
+
+def test_stage_aoi_still_refuses_overwrite_without_force(tmp_path: Path) -> None:
+    labels_dir = tmp_path / "labels"
+    labels_dir.mkdir()
+    _write_geojson(
+        labels_dir / "quiet-yard.geojson",
+        _feature("quiet-yard", status="confirmed", **{"class": "truck"}),
+    )
+    candidates = tmp_path / "candidates.geojson"
+    _write_geojson(candidates)  # no features
+    collection = tmp_path / "round2.yaml"
+    collection.write_text(
+        'crs: "EPSG:3067"\naois:\n'
+        "  - {name: quiet-yard, bbox: [402000, 6678000, 402300, 6678300]}\n"
+    )
+
+    result = _stage(labels_dir, candidates, "--aoi", str(collection))
+
+    assert result.exit_code == 0
+    assert "quiet-yard: exists with 1 reviewed, skipping" in result.stdout
+    assert labels.reviewed(labels.read(labels_dir / "quiet-yard.geojson")) == 1

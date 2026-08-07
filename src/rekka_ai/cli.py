@@ -41,16 +41,40 @@ from rekka_ai.imagery.aoi import (
 from rekka_ai.imagery.layers import LATEST_YEAR, layer_for_year
 from rekka_ai.imagery.tiles import count_tiles, resolution, tiles_covering
 from rekka_ai.imagery.wmts import DEFAULT_WORKERS, MAX_ATTEMPTS, TileFetcher
+from rekka_ai.mine import (
+    DEFAULT_COUNT,
+    DEFAULT_POOL_SIZE,
+    DEFAULT_SEED,
+    cells_covering,
+    detections_in_cell,
+    disperse_pool,
+    estimate_tiles,
+    exclude_existing,
+    project_features_to_tm35fin,
+    proposal_geojson,
+    proposal_yaml,
+    rank_cells,
+    select_proposals,
+)
+from rekka_ai.osm import (
+    DEFAULT_CACHE as DEFAULT_OSM_CACHE,
+)
+from rekka_ai.osm import (
+    PROFILES,
+    fetch_industrial,
+    require_profile,
+    require_supported_municipality,
+)
 from rekka_ai.train import AUTOBATCH, DEFAULT_EPOCHS
 from rekka_ai.train import train as run_train
 
 app = typer.Typer(help="Truck detection from Helsinki aerial orthophotos.")
 
-#: z16 is 12.5 cm/px, where a semi-trailer is ~132 px. See DESIGN.md.
+#: z16 is 12.5 cm/px, where a semi-trailer is ~132 px. See docs/DESIGN.md.
 DEFAULT_ZOOM = 16
 #: Also z16. Matching DOTA's pretrain GSD at z15 was the obvious guess and it
 #: is wrong: measured on the `tattariharjuntie` area, z15 finds 7 candidates and z16 finds
-#: 22 above the length gate. See DESIGN.md section 4.
+#: 22 above the length gate. See docs/DESIGN.md section 4.
 BOOTSTRAP_ZOOM = 16
 DEFAULT_CACHE = Path("data/cache")
 #: Version-controlled: labels are the one artifact that cannot be regenerated.
@@ -242,11 +266,22 @@ def stage(
     force: Annotated[
         bool, typer.Option(help="Overwrite label files that already exist.")
     ] = False,
+    aoi: Annotated[
+        str | None,
+        typer.Option(
+            help="YAML AOI collection: also stage an empty label file for every "
+            "named area that has no candidates (quiet mined cells)."
+        ),
+    ] = None,
 ) -> None:
     """Split bootstrap candidates into per-AOI label files, ready to review.
 
     Existing files are left alone unless --force: re-running the detector must
     never quietly discard hours of human correction.
+
+    ``--aoi`` writes an empty FeatureCollection for collection entries that
+    produced no candidates — mined quiet cells still need a reviewed file
+    before export will accept them as background.
     """
     collection = labels.read(candidates)
     by_aoi: dict[str, list[dict[str, object]]] = {}
@@ -257,6 +292,14 @@ def stage(
         properties.setdefault("class", labels.UNLABELLED)
         properties.pop("label", None)
         by_aoi.setdefault(name, []).append({**feature, "properties": properties})
+
+    if aoi is not None:
+        try:
+            areas = load_aois(aoi)
+        except ValueError as exc:
+            raise typer.BadParameter(str(exc)) from exc
+        for area in areas:
+            by_aoi.setdefault(area.name, [])
 
     written = skipped = 0
     for name, features in sorted(by_aoi.items()):
@@ -275,6 +318,193 @@ def stage(
     typer.echo(f"staged {written} file(s), skipped {skipped} -> {labels_dir}")
     if skipped and not force:
         typer.echo("re-run with --force to replace the skipped files")
+
+
+@app.command()
+def mine(
+    weights: Annotated[Path, typer.Option(help="Trained weights to score cells with.")],
+    operating_confidence: Annotated[
+        float,
+        typer.Option(
+            help="Operating confidence from eval; near-threshold cells are scored around it."
+        ),
+    ],
+    out: Annotated[
+        Path, typer.Option(help="Proposal YAML to write (sibling .geojson report too).")
+    ] = Path("data/mining/round2.yaml"),
+    existing: Annotated[
+        Path,
+        typer.Option(help="Current AOI collection to exclude (overlap + buffer)."),
+    ] = Path("aois/helsinki.yaml"),
+    municipality: Annotated[
+        str, typer.Option(help="Finnish municipality to mine inside.")
+    ] = "Helsinki",
+    profile: Annotated[
+        str,
+        typer.Option(help=f"OSM landuse profile ({', '.join(sorted(PROFILES))})."),
+    ] = "industrial",
+    count: Annotated[
+        int, typer.Option(help="How many AOIs to propose.")
+    ] = DEFAULT_COUNT,
+    pool_size: Annotated[
+        int, typer.Option(help="How many dispersed cells to sweep before selecting.")
+    ] = DEFAULT_POOL_SIZE,
+    seed: Annotated[
+        int, typer.Option(help="Deterministic seed for pool dispersion.")
+    ] = DEFAULT_SEED,
+    year: Annotated[
+        int, typer.Option(help="Flight year of the orthophoto layer.")
+    ] = LATEST_YEAR,
+    zoom: Annotated[
+        int, typer.Option(help="Tile grid zoom level (0-17).")
+    ] = DEFAULT_ZOOM,
+    min_length: Annotated[
+        float, typer.Option(help="Drop detections shorter than this, in metres.")
+    ] = 4.0,
+    confidence: Annotated[
+        float | None,
+        typer.Option(
+            help="Detection floor for the sweep. Default: half the operating confidence."
+        ),
+    ] = None,
+    cache: Annotated[Path, typer.Option(help="Tile cache directory.")] = DEFAULT_CACHE,
+    osm_cache: Annotated[
+        Path, typer.Option(help="Directory for cached Overpass responses.")
+    ] = DEFAULT_OSM_CACHE,
+    refresh_osm: Annotated[
+        bool, typer.Option(help="Re-fetch industrial geometry from Overpass.")
+    ] = False,
+    workers: Annotated[
+        int, typer.Option(help="Concurrent tile requests.")
+    ] = DEFAULT_WORKERS,
+    dry_run: Annotated[
+        bool,
+        typer.Option(
+            help="Report eligible cells and tile estimate; skip imagery and inference."
+        ),
+    ] = False,
+) -> None:
+    """Propose the next labelling AOIs from OSM industrial land and a model.
+
+    Writes a standalone proposal YAML and a sibling GeoJSON report — never
+    edits the version-controlled collection. Review the report, copy accepted
+    entries into aois/, then detect and stage as usual. Needs the 'detect'
+    extra (uv sync --extra detect). Helsinki only: the current imagery does
+    not cover Espoo or Vantaa.
+    """
+    if not weights.exists():
+        raise typer.BadParameter(f"no weights at {weights}")
+    if not (0.0 < operating_confidence < 1.0):
+        raise typer.BadParameter("operating-confidence must be between 0 and 1")
+    if count < 1:
+        raise typer.BadParameter("count must be at least 1")
+    if pool_size < count:
+        raise typer.BadParameter("pool-size must be at least count")
+
+    try:
+        require_supported_municipality(municipality)
+        require_profile(profile)
+        layer = layer_for_year(year)
+        existing_aois = load_aois(str(existing))
+    except ValueError as exc:
+        raise typer.BadParameter(str(exc)) from exc
+
+    detection_floor = (
+        confidence if confidence is not None else max(0.05, operating_confidence / 2)
+    )
+
+    typer.echo(
+        f"mining {municipality} ({profile}): excluding {len(existing_aois)} existing "
+        f"AOIs, proposing {count} of {pool_size} pool cells"
+    )
+    osm = fetch_industrial(
+        municipality,
+        profile=profile,
+        cache_root=osm_cache,
+        refresh=refresh_osm,
+    )
+    typer.echo(
+        f"  OSM: {len(osm.features)} features "
+        f"(query {osm.query_hash}, fetched {osm.fetched_at})"
+    )
+
+    industrial = project_features_to_tm35fin(osm.features)
+    if industrial.is_empty:
+        raise typer.BadParameter(
+            f"no usable {profile} geometry for {municipality}; "
+            "try --refresh-osm or a different profile"
+        )
+
+    eligible = exclude_existing(
+        cells_covering(industrial, municipality_ref=osm.ref),
+        existing_aois,
+    )
+    if not eligible:
+        raise typer.BadParameter(
+            "no eligible cells after excluding the existing collection; "
+            "widen the profile or shrink the exclusion buffer"
+        )
+    pool = disperse_pool(eligible, pool_size, seed=seed)
+    tile_estimate = estimate_tiles(pool, zoom)
+    typer.echo(
+        f"  eligible cells: {len(eligible)}; pool: {len(pool)}; "
+        f"~{tile_estimate} tiles at z{zoom}"
+    )
+    if dry_run:
+        typer.echo("dry run: skipping imagery fetch and inference")
+        return
+
+    detector = YoloObb(str(weights), confidence=detection_floor)
+    detections_by_name: dict[str, list[Detection]] = {}
+    with TileFetcher(cache, workers=workers) as fetcher:
+        for index, cell in enumerate(pool, start=1):
+            area = cell.as_aoi()
+            found = sweep(
+                area,
+                detector=detector,
+                layer=layer,
+                zoom=zoom,
+                cache_root=cache,
+                fetcher=fetcher,
+                min_length_m=min_length,
+                on_skip=typer.echo,
+            )
+            # Centre-filter to the cell: windows overhang by the overlap, and
+            # a detection in the overhang belongs to a neighbour (or nowhere).
+            detections_by_name[cell.name] = detections_in_cell(found, cell)
+            if index == len(pool) or index % 10 == 0:
+                typer.echo(f"  swept {index}/{len(pool)} pool cells")
+
+    ranked = rank_cells(
+        pool, detections_by_name, operating_confidence=operating_confidence
+    )
+    proposals = select_proposals(ranked, count)
+    if not proposals:
+        typer.echo("no proposals could be selected from the pool", err=True)
+        raise typer.Exit(1)
+
+    out.parent.mkdir(parents=True, exist_ok=True)
+    out.write_text(proposal_yaml(proposals))
+    report = out.with_suffix(".geojson")
+    report.write_text(
+        json.dumps(
+            proposal_geojson(
+                proposals, osm=osm, operating_confidence=operating_confidence
+            ),
+            indent=2,
+        )
+        + "\n"
+    )
+    by_stratum = Counter(p.stratum for p in proposals)
+    typer.echo(
+        f"done: {len(proposals)} proposals "
+        f"({', '.join(f'{k}={v}' for k, v in sorted(by_stratum.items()))}) "
+        f"-> {out} and {report}"
+    )
+    typer.echo(
+        "review the GeoJSON, copy accepted entries into the AOI collection, "
+        "then detect + stage. This command never edits aois/ or labels/."
+    )
 
 
 @app.command()

@@ -1,7 +1,7 @@
 """The labelling tool's mirrors of Python constants must not drift.
 
 ``web/`` restates a handful of values Python owns -- the class list, the tile
-grid, the flight layer -- because the browser cannot import them. DESIGN.md
+grid, the flight layer -- because the browser cannot import them. docs/DESIGN.md
 says the two "cannot drift"; on its own, that is a comment between two
 hardcoded copies. This is the mechanism that makes it true.
 

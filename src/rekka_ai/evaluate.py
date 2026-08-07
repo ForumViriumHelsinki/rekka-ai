@@ -4,7 +4,7 @@ Training logs validation metrics per epoch, but a weights file outlives its
 run — this measures one directly, and adds what the training pass does not:
 an operating point chosen from the PR curve, per-area count checks, the
 hard-negative regression check, and a verdict against the gates from
-DESIGN.md §7.
+docs/DESIGN.md §7.
 """
 
 import os
@@ -19,7 +19,7 @@ from rekka_ai.imagery.aoi import Aoi
 from rekka_ai.imagery.windows import WINDOW_SIZE
 from rekka_ai.imagery.wmts import TileSource
 
-#: The ship-decision gates (DESIGN.md §7). Recall first: a missed truck costs
+#: The ship-decision gates (docs/DESIGN.md §7). Recall first: a missed truck costs
 #: hand-labelling, a false box costs a glance.
 GATE_RECALL = 0.90
 GATE_PRECISION = 0.85
