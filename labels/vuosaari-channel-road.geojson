@@ -1810,6 +1810,47 @@
         "width_m": 2.3,
         "heading_deg": 156.5
       }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25510665.92,
+              6677383.834
+            ],
+            [
+              25510663.479,
+              6677388.812
+            ],
+            [
+              25510665.544,
+              6677389.825
+            ],
+            [
+              25510667.985,
+              6677384.847
+            ],
+            [
+              25510665.92,
+              6677383.834
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "class": "van",
+        "status": "added",
+        "confidence": null,
+        "aoi": "vuosaari-channel-road",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "length_m": 5.54,
+        "width_m": 2.3,
+        "heading_deg": 153.9
+      }
     }
   ]
 }

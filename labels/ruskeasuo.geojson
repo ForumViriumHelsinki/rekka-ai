@@ -3204,6 +3204,47 @@
         "status": "confirmed",
         "class": "van"
       }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25494808.103,
+              6677171.302
+            ],
+            [
+              25494811.292,
+              6677175.831
+            ],
+            [
+              25494813.091,
+              6677174.564
+            ],
+            [
+              25494809.902,
+              6677170.036
+            ],
+            [
+              25494808.103,
+              6677171.302
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "class": "van",
+        "status": "added",
+        "confidence": null,
+        "aoi": "ruskeasuo",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "length_m": 5.54,
+        "width_m": 2.2,
+        "heading_deg": 35.2
+      }
     }
   ]
 }

@@ -1031,6 +1031,129 @@
         "status": "confirmed",
         "class": "truck"
       }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25503285.179,
+              6681744.723
+            ],
+            [
+              25503281.755,
+              6681740.502
+            ],
+            [
+              25503280.28,
+              6681741.698
+            ],
+            [
+              25503283.703,
+              6681745.92
+            ],
+            [
+              25503285.179,
+              6681744.723
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "class": "van",
+        "status": "added",
+        "confidence": null,
+        "aoi": "tattariharju",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "length_m": 5.44,
+        "width_m": 1.9,
+        "heading_deg": 39
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25503283.37,
+              6681747.029
+            ],
+            [
+              25503278.562,
+              6681741.595
+            ],
+            [
+              25503276.765,
+              6681743.186
+            ],
+            [
+              25503281.573,
+              6681748.62
+            ],
+            [
+              25503283.37,
+              6681747.029
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "class": "van",
+        "status": "added",
+        "confidence": null,
+        "aoi": "tattariharju",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "length_m": 7.26,
+        "width_m": 2.4,
+        "heading_deg": 41.5
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25503305.855,
+              6681802.981
+            ],
+            [
+              25503302.995,
+              6681798.46
+            ],
+            [
+              25503300.967,
+              6681799.743
+            ],
+            [
+              25503303.827,
+              6681804.264
+            ],
+            [
+              25503305.855,
+              6681802.981
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "class": "van",
+        "status": "added",
+        "confidence": null,
+        "aoi": "tattariharju",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "length_m": 5.35,
+        "width_m": 2.4,
+        "heading_deg": 32.3
+      }
     }
   ]
 }

@@ -1236,6 +1236,88 @@
         "width_m": 2,
         "heading_deg": 128.6
       }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25502954.468,
+              6681842.666
+            ],
+            [
+              25502955.197,
+              6681847.392
+            ],
+            [
+              25502957.371,
+              6681847.056
+            ],
+            [
+              25502956.642,
+              6681842.331
+            ],
+            [
+              25502954.468,
+              6681842.666
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "class": "van",
+        "status": "added",
+        "confidence": null,
+        "aoi": "malmi-airport",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "length_m": 4.78,
+        "width_m": 2.2,
+        "heading_deg": 8.8
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25503027.578,
+              6681873.372
+            ],
+            [
+              25503026.524,
+              6681866.472
+            ],
+            [
+              25503023.559,
+              6681866.925
+            ],
+            [
+              25503024.612,
+              6681873.825
+            ],
+            [
+              25503027.578,
+              6681873.372
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "class": "truck",
+        "status": "added",
+        "confidence": null,
+        "aoi": "malmi-airport",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "length_m": 6.98,
+        "width_m": 3,
+        "heading_deg": 8.7
+      }
     }
   ]
 }

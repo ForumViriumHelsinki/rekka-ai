@@ -580,6 +580,47 @@
         "width_m": 2,
         "heading_deg": 34.6
       }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25498693.032,
+              6675895.683
+            ],
+            [
+              25498700.095,
+              6675899.67
+            ],
+            [
+              25498701.471,
+              6675897.232
+            ],
+            [
+              25498694.408,
+              6675893.245
+            ],
+            [
+              25498693.032,
+              6675895.683
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "class": "truck",
+        "status": "added",
+        "confidence": null,
+        "aoi": "hermanni",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "length_m": 8.11,
+        "width_m": 2.8,
+        "heading_deg": 60.6
+      }
     }
   ]
 }

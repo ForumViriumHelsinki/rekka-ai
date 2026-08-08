@@ -413,8 +413,8 @@
         "aoi": "kaivoksela",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
-        "status": "candidate",
-        "class": ""
+        "status": "confirmed",
+        "class": "truck"
       }
     },
     {
@@ -2709,8 +2709,8 @@
         "aoi": "kaivoksela",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
-        "status": "candidate",
-        "class": ""
+        "status": "confirmed",
+        "class": "truck"
       }
     },
     {
@@ -6071,7 +6071,7 @@
         "aoi": "kaivoksela",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
-        "status": "candidate",
+        "status": "rejected",
         "class": ""
       }
     },

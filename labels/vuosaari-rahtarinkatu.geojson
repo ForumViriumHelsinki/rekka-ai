@@ -2135,8 +2135,8 @@
         "aoi": "vuosaari-rahtarinkatu",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
-        "status": "confirmed",
-        "class": "truck"
+        "status": "rejected",
+        "class": ""
       }
     },
     {
@@ -3201,8 +3201,8 @@
         "aoi": "vuosaari-rahtarinkatu",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
-        "status": "confirmed",
-        "class": "truck"
+        "status": "rejected",
+        "class": ""
       }
     },
     {
@@ -3235,8 +3235,8 @@
         ]
       },
       "properties": {
-        "class": "truck",
-        "status": "added",
+        "class": "",
+        "status": "rejected",
         "confidence": null,
         "aoi": "vuosaari-rahtarinkatu",
         "source_layer": "Ortoilmakuva_2025_5cm",
@@ -3276,8 +3276,8 @@
         ]
       },
       "properties": {
-        "class": "truck",
-        "status": "added",
+        "class": "",
+        "status": "rejected",
         "confidence": null,
         "aoi": "vuosaari-rahtarinkatu",
         "source_layer": "Ortoilmakuva_2025_5cm",
@@ -3367,6 +3367,252 @@
         "length_m": 13.65,
         "width_m": 2.3,
         "heading_deg": 160.6
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25509349.113,
+              6679084.793
+            ],
+            [
+              25509355.089,
+              6679087.597
+            ],
+            [
+              25509356.491,
+              6679084.61
+            ],
+            [
+              25509350.515,
+              6679081.805
+            ],
+            [
+              25509349.113,
+              6679084.793
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "class": "truck",
+        "status": "added",
+        "confidence": null,
+        "aoi": "vuosaari-rahtarinkatu",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "length_m": 6.6,
+        "width_m": 3.3,
+        "heading_deg": 64.9
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25509354.592,
+              6679079.61
+            ],
+            [
+              25509348.895,
+              6679076.814
+            ],
+            [
+              25509347.441,
+              6679079.777
+            ],
+            [
+              25509353.138,
+              6679082.573
+            ],
+            [
+              25509354.592,
+              6679079.61
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "class": "truck",
+        "status": "added",
+        "confidence": null,
+        "aoi": "vuosaari-rahtarinkatu",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "length_m": 6.35,
+        "width_m": 3.3,
+        "heading_deg": 63.9
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25509354.443,
+              6679082.633
+            ],
+            [
+              25509360.206,
+              6679085.64
+            ],
+            [
+              25509361.732,
+              6679082.714
+            ],
+            [
+              25509355.969,
+              6679079.708
+            ],
+            [
+              25509354.443,
+              6679082.633
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "class": "truck",
+        "status": "added",
+        "confidence": null,
+        "aoi": "vuosaari-rahtarinkatu",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "length_m": 6.5,
+        "width_m": 3.3,
+        "heading_deg": 62.4
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25509323.653,
+              6679056.229
+            ],
+            [
+              25509329.899,
+              6679056.93
+            ],
+            [
+              25509330.267,
+              6679053.65
+            ],
+            [
+              25509324.022,
+              6679052.949
+            ],
+            [
+              25509323.653,
+              6679056.229
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "class": "truck",
+        "status": "added",
+        "confidence": null,
+        "aoi": "vuosaari-rahtarinkatu",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "length_m": 6.28,
+        "width_m": 3.3,
+        "heading_deg": 83.6
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25509320.769,
+              6679056.735
+            ],
+            [
+              25509313.789,
+              6679057.17
+            ],
+            [
+              25509313.994,
+              6679060.463
+            ],
+            [
+              25509320.974,
+              6679060.028
+            ],
+            [
+              25509320.769,
+              6679056.735
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "class": "truck",
+        "status": "added",
+        "confidence": null,
+        "aoi": "vuosaari-rahtarinkatu",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "length_m": 6.99,
+        "width_m": 3.3,
+        "heading_deg": 93.6
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25509340.558,
+              6679060.463
+            ],
+            [
+              25509340.339,
+              6679068.528
+            ],
+            [
+              25509343.637,
+              6679068.618
+            ],
+            [
+              25509343.857,
+              6679060.552
+            ],
+            [
+              25509340.558,
+              6679060.463
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "class": "truck",
+        "status": "added",
+        "confidence": null,
+        "aoi": "vuosaari-rahtarinkatu",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "length_m": 8.07,
+        "width_m": 3.3,
+        "heading_deg": 178.4
       }
     }
   ]
