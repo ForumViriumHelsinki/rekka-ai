@@ -44,8 +44,8 @@
         "aoi": "malmi-airport",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
-        "status": "candidate",
-        "class": ""
+        "status": "confirmed",
+        "class": "truck"
       }
     },
     {
@@ -85,8 +85,8 @@
         "aoi": "malmi-airport",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
-        "status": "candidate",
-        "class": ""
+        "status": "confirmed",
+        "class": "van"
       }
     },
     {
@@ -126,8 +126,8 @@
         "aoi": "malmi-airport",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
-        "status": "candidate",
-        "class": ""
+        "status": "confirmed",
+        "class": "van"
       }
     },
     {
@@ -167,8 +167,8 @@
         "aoi": "malmi-airport",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
-        "status": "candidate",
-        "class": ""
+        "status": "confirmed",
+        "class": "truck"
       }
     },
     {
@@ -208,8 +208,8 @@
         "aoi": "malmi-airport",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
-        "status": "candidate",
-        "class": ""
+        "status": "confirmed",
+        "class": "truck"
       }
     },
     {
@@ -243,14 +243,14 @@
       },
       "properties": {
         "confidence": 0.8128,
-        "length_m": 9.68,
+        "length_m": 9.67,
         "width_m": 3.07,
         "heading_deg": 101.2,
         "aoi": "malmi-airport",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
-        "status": "candidate",
-        "class": ""
+        "status": "confirmed",
+        "class": "truck"
       }
     },
     {
@@ -290,8 +290,8 @@
         "aoi": "malmi-airport",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
-        "status": "candidate",
-        "class": ""
+        "status": "confirmed",
+        "class": "truck"
       }
     },
     {
@@ -331,8 +331,8 @@
         "aoi": "malmi-airport",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
-        "status": "candidate",
-        "class": ""
+        "status": "confirmed",
+        "class": "truck"
       }
     },
     {
@@ -372,8 +372,8 @@
         "aoi": "malmi-airport",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
-        "status": "candidate",
-        "class": ""
+        "status": "confirmed",
+        "class": "truck"
       }
     },
     {
@@ -413,8 +413,8 @@
         "aoi": "malmi-airport",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
-        "status": "candidate",
-        "class": ""
+        "status": "confirmed",
+        "class": "truck"
       }
     },
     {
@@ -454,8 +454,8 @@
         "aoi": "malmi-airport",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
-        "status": "candidate",
-        "class": ""
+        "status": "confirmed",
+        "class": "truck"
       }
     },
     {
@@ -495,8 +495,8 @@
         "aoi": "malmi-airport",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
-        "status": "candidate",
-        "class": ""
+        "status": "confirmed",
+        "class": "truck"
       }
     },
     {
@@ -536,8 +536,8 @@
         "aoi": "malmi-airport",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
-        "status": "candidate",
-        "class": ""
+        "status": "confirmed",
+        "class": "truck"
       }
     },
     {
@@ -577,8 +577,8 @@
         "aoi": "malmi-airport",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
-        "status": "candidate",
-        "class": ""
+        "status": "confirmed",
+        "class": "truck"
       }
     },
     {
@@ -618,8 +618,8 @@
         "aoi": "malmi-airport",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
-        "status": "candidate",
-        "class": ""
+        "status": "confirmed",
+        "class": "truck"
       }
     },
     {
@@ -659,8 +659,8 @@
         "aoi": "malmi-airport",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
-        "status": "candidate",
-        "class": ""
+        "status": "confirmed",
+        "class": "truck"
       }
     },
     {
@@ -694,14 +694,14 @@
       },
       "properties": {
         "confidence": 0.7024,
-        "length_m": 5.47,
+        "length_m": 5.48,
         "width_m": 2.8,
         "heading_deg": 7.4,
         "aoi": "malmi-airport",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
-        "status": "candidate",
-        "class": ""
+        "status": "confirmed",
+        "class": "van"
       }
     },
     {
@@ -741,8 +741,8 @@
         "aoi": "malmi-airport",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
-        "status": "candidate",
-        "class": ""
+        "status": "confirmed",
+        "class": "van"
       }
     },
     {
@@ -776,14 +776,14 @@
       },
       "properties": {
         "confidence": 0.6834,
-        "length_m": 6.24,
+        "length_m": 6.25,
         "width_m": 2.57,
         "heading_deg": 11.4,
         "aoi": "malmi-airport",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
-        "status": "candidate",
-        "class": ""
+        "status": "confirmed",
+        "class": "van"
       }
     },
     {
@@ -823,8 +823,8 @@
         "aoi": "malmi-airport",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
-        "status": "candidate",
-        "class": ""
+        "status": "confirmed",
+        "class": "truck"
       }
     },
     {
@@ -864,8 +864,8 @@
         "aoi": "malmi-airport",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
-        "status": "candidate",
-        "class": ""
+        "status": "confirmed",
+        "class": "truck"
       }
     },
     {
@@ -905,8 +905,8 @@
         "aoi": "malmi-airport",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
-        "status": "candidate",
-        "class": ""
+        "status": "confirmed",
+        "class": "van"
       }
     },
     {
@@ -946,8 +946,8 @@
         "aoi": "malmi-airport",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
-        "status": "candidate",
-        "class": ""
+        "status": "confirmed",
+        "class": "van"
       }
     },
     {
@@ -983,12 +983,12 @@
         "confidence": 0.6275,
         "length_m": 8.17,
         "width_m": 3.01,
-        "heading_deg": 6.3,
+        "heading_deg": 6.4,
         "aoi": "malmi-airport",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
-        "status": "candidate",
-        "class": ""
+        "status": "confirmed",
+        "class": "truck"
       }
     },
     {
@@ -1028,8 +1028,8 @@
         "aoi": "malmi-airport",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
-        "status": "candidate",
-        "class": ""
+        "status": "confirmed",
+        "class": "van"
       }
     },
     {
@@ -1069,8 +1069,8 @@
         "aoi": "malmi-airport",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
-        "status": "candidate",
-        "class": ""
+        "status": "confirmed",
+        "class": "truck"
       }
     },
     {
@@ -1105,13 +1105,13 @@
       "properties": {
         "confidence": 0.4675,
         "length_m": 5.58,
-        "width_m": 2.54,
+        "width_m": 2.53,
         "heading_deg": 95.3,
         "aoi": "malmi-airport",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
-        "status": "candidate",
-        "class": ""
+        "status": "confirmed",
+        "class": "van"
       }
     },
     {
@@ -1151,8 +1151,8 @@
         "aoi": "malmi-airport",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
-        "status": "candidate",
-        "class": ""
+        "status": "confirmed",
+        "class": "van"
       }
     },
     {
@@ -1192,8 +1192,8 @@
         "aoi": "malmi-airport",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
-        "status": "candidate",
-        "class": ""
+        "status": "confirmed",
+        "class": "van"
       }
     },
     {
@@ -1203,38 +1203,38 @@
         "coordinates": [
           [
             [
-              25502939.269,
-              6681737.182
+              25502975.832,
+              6681743.544
             ],
             [
-              25502943.662,
-              6681738.463
+              25502969.638,
+              6681748.492
             ],
             [
-              25502943.042,
-              6681740.586
+              25502970.886,
+              6681750.055
             ],
             [
-              25502938.65,
-              6681739.304
+              25502977.08,
+              6681745.106
             ],
             [
-              25502939.269,
-              6681737.182
+              25502975.832,
+              6681743.544
             ]
           ]
         ]
       },
       "properties": {
-        "confidence": 0.3479,
-        "length_m": 4.58,
-        "width_m": 2.21,
-        "heading_deg": 73.7,
+        "class": "truck",
+        "status": "added",
+        "confidence": null,
         "aoi": "malmi-airport",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
-        "status": "candidate",
-        "class": ""
+        "length_m": 7.93,
+        "width_m": 2,
+        "heading_deg": 128.6
       }
     }
   ]

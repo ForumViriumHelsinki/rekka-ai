@@ -44,8 +44,8 @@
         "aoi": "kaivoksela",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
-        "status": "candidate",
-        "class": ""
+        "status": "confirmed",
+        "class": "bus"
       }
     },
     {
@@ -85,8 +85,8 @@
         "aoi": "kaivoksela",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
-        "status": "candidate",
-        "class": ""
+        "status": "confirmed",
+        "class": "truck"
       }
     },
     {
@@ -126,8 +126,8 @@
         "aoi": "kaivoksela",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
-        "status": "candidate",
-        "class": ""
+        "status": "confirmed",
+        "class": "truck"
       }
     },
     {
@@ -167,8 +167,8 @@
         "aoi": "kaivoksela",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
-        "status": "candidate",
-        "class": ""
+        "status": "confirmed",
+        "class": "truck"
       }
     },
     {
@@ -208,8 +208,8 @@
         "aoi": "kaivoksela",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
-        "status": "candidate",
-        "class": ""
+        "status": "confirmed",
+        "class": "truck"
       }
     },
     {
@@ -219,38 +219,38 @@
         "coordinates": [
           [
             [
-              25493260.672,
-              6683664.758
+              25493270.328,
+              6683665.697
             ],
             [
-              25493270.788,
-              6683665.684
+              25493260.71,
+              6683664.817
             ],
             [
-              25493270.489,
-              6683668.959
+              25493260.41,
+              6683668.092
             ],
             [
-              25493260.373,
-              6683668.034
+              25493270.028,
+              6683668.971
             ],
             [
-              25493260.672,
-              6683664.758
+              25493270.328,
+              6683665.697
             ]
           ]
         ]
       },
       "properties": {
         "confidence": 0.8342,
-        "length_m": 10.16,
+        "length_m": 9.66,
         "width_m": 3.29,
         "heading_deg": 84.8,
         "aoi": "kaivoksela",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
-        "status": "candidate",
-        "class": ""
+        "status": "confirmed",
+        "class": "truck"
       }
     },
     {
@@ -290,8 +290,8 @@
         "aoi": "kaivoksela",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
-        "status": "candidate",
-        "class": ""
+        "status": "confirmed",
+        "class": "truck"
       }
     },
     {
@@ -331,8 +331,8 @@
         "aoi": "kaivoksela",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
-        "status": "candidate",
-        "class": ""
+        "status": "confirmed",
+        "class": "truck"
       }
     },
     {
@@ -372,8 +372,8 @@
         "aoi": "kaivoksela",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
-        "status": "candidate",
-        "class": ""
+        "status": "confirmed",
+        "class": "van"
       }
     },
     {
@@ -454,8 +454,8 @@
         "aoi": "kaivoksela",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
-        "status": "candidate",
-        "class": ""
+        "status": "confirmed",
+        "class": "truck"
       }
     },
     {
@@ -495,8 +495,8 @@
         "aoi": "kaivoksela",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
-        "status": "candidate",
-        "class": ""
+        "status": "confirmed",
+        "class": "truck"
       }
     },
     {
@@ -536,8 +536,8 @@
         "aoi": "kaivoksela",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
-        "status": "candidate",
-        "class": ""
+        "status": "confirmed",
+        "class": "truck"
       }
     },
     {
@@ -577,8 +577,8 @@
         "aoi": "kaivoksela",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
-        "status": "candidate",
-        "class": ""
+        "status": "confirmed",
+        "class": "truck"
       }
     },
     {
@@ -618,8 +618,8 @@
         "aoi": "kaivoksela",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
-        "status": "candidate",
-        "class": ""
+        "status": "confirmed",
+        "class": "bus"
       }
     },
     {
@@ -659,8 +659,8 @@
         "aoi": "kaivoksela",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
-        "status": "candidate",
-        "class": ""
+        "status": "confirmed",
+        "class": "truck"
       }
     },
     {
@@ -700,8 +700,8 @@
         "aoi": "kaivoksela",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
-        "status": "candidate",
-        "class": ""
+        "status": "confirmed",
+        "class": "truck"
       }
     },
     {
@@ -741,8 +741,8 @@
         "aoi": "kaivoksela",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
-        "status": "candidate",
-        "class": ""
+        "status": "confirmed",
+        "class": "truck"
       }
     },
     {
@@ -782,8 +782,8 @@
         "aoi": "kaivoksela",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
-        "status": "candidate",
-        "class": ""
+        "status": "confirmed",
+        "class": "truck"
       }
     },
     {
@@ -823,8 +823,8 @@
         "aoi": "kaivoksela",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
-        "status": "candidate",
-        "class": ""
+        "status": "confirmed",
+        "class": "truck"
       }
     },
     {
@@ -864,8 +864,8 @@
         "aoi": "kaivoksela",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
-        "status": "candidate",
-        "class": ""
+        "status": "confirmed",
+        "class": "truck"
       }
     },
     {
@@ -905,8 +905,8 @@
         "aoi": "kaivoksela",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
-        "status": "candidate",
-        "class": ""
+        "status": "confirmed",
+        "class": "truck"
       }
     },
     {
@@ -946,8 +946,8 @@
         "aoi": "kaivoksela",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
-        "status": "candidate",
-        "class": ""
+        "status": "confirmed",
+        "class": "truck"
       }
     },
     {
@@ -987,8 +987,8 @@
         "aoi": "kaivoksela",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
-        "status": "candidate",
-        "class": ""
+        "status": "confirmed",
+        "class": "truck"
       }
     },
     {
@@ -998,38 +998,38 @@
         "coordinates": [
           [
             [
-              25493172.708,
-              6683699.79
+              25493181.661,
+              6683703.292
             ],
             [
-              25493181.77,
-              6683703.258
+              25493160.691,
+              6683695.267
             ],
             [
-              25493180.828,
-              6683705.72
+              25493159.749,
+              6683697.729
             ],
             [
-              25493171.766,
-              6683702.252
+              25493180.719,
+              6683705.754
             ],
             [
-              25493172.708,
-              6683699.79
+              25493181.661,
+              6683703.292
             ]
           ]
         ]
       },
       "properties": {
         "confidence": 0.8257,
-        "length_m": 9.7,
+        "length_m": 22.45,
         "width_m": 2.64,
         "heading_deg": 69.1,
         "aoi": "kaivoksela",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
-        "status": "candidate",
-        "class": ""
+        "status": "confirmed",
+        "class": "truck"
       }
     },
     {
@@ -1069,8 +1069,8 @@
         "aoi": "kaivoksela",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
-        "status": "candidate",
-        "class": ""
+        "status": "confirmed",
+        "class": "truck"
       }
     },
     {
@@ -1110,8 +1110,8 @@
         "aoi": "kaivoksela",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
-        "status": "candidate",
-        "class": ""
+        "status": "confirmed",
+        "class": "truck"
       }
     },
     {
@@ -1151,8 +1151,8 @@
         "aoi": "kaivoksela",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
-        "status": "candidate",
-        "class": ""
+        "status": "confirmed",
+        "class": "truck"
       }
     },
     {
@@ -1192,8 +1192,8 @@
         "aoi": "kaivoksela",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
-        "status": "candidate",
-        "class": ""
+        "status": "confirmed",
+        "class": "truck"
       }
     },
     {
@@ -1233,8 +1233,8 @@
         "aoi": "kaivoksela",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
-        "status": "candidate",
-        "class": ""
+        "status": "confirmed",
+        "class": "truck"
       }
     },
     {
@@ -1274,8 +1274,8 @@
         "aoi": "kaivoksela",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
-        "status": "candidate",
-        "class": ""
+        "status": "confirmed",
+        "class": "truck"
       }
     },
     {
@@ -1315,8 +1315,8 @@
         "aoi": "kaivoksela",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
-        "status": "candidate",
-        "class": ""
+        "status": "confirmed",
+        "class": "truck"
       }
     },
     {
@@ -1356,8 +1356,8 @@
         "aoi": "kaivoksela",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
-        "status": "candidate",
-        "class": ""
+        "status": "confirmed",
+        "class": "truck"
       }
     },
     {
@@ -1397,8 +1397,8 @@
         "aoi": "kaivoksela",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
-        "status": "candidate",
-        "class": ""
+        "status": "confirmed",
+        "class": "truck"
       }
     },
     {
@@ -1438,8 +1438,8 @@
         "aoi": "kaivoksela",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
-        "status": "candidate",
-        "class": ""
+        "status": "confirmed",
+        "class": "bus"
       }
     },
     {
@@ -1479,8 +1479,8 @@
         "aoi": "kaivoksela",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
-        "status": "candidate",
-        "class": ""
+        "status": "confirmed",
+        "class": "truck"
       }
     },
     {
@@ -1520,8 +1520,8 @@
         "aoi": "kaivoksela",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
-        "status": "candidate",
-        "class": ""
+        "status": "confirmed",
+        "class": "truck"
       }
     },
     {
@@ -1561,8 +1561,8 @@
         "aoi": "kaivoksela",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
-        "status": "candidate",
-        "class": ""
+        "status": "confirmed",
+        "class": "truck"
       }
     },
     {
@@ -1602,8 +1602,8 @@
         "aoi": "kaivoksela",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
-        "status": "candidate",
-        "class": ""
+        "status": "confirmed",
+        "class": "truck"
       }
     },
     {
@@ -1643,8 +1643,8 @@
         "aoi": "kaivoksela",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
-        "status": "candidate",
-        "class": ""
+        "status": "confirmed",
+        "class": "truck"
       }
     },
     {
@@ -1684,8 +1684,8 @@
         "aoi": "kaivoksela",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
-        "status": "candidate",
-        "class": ""
+        "status": "confirmed",
+        "class": "truck"
       }
     },
     {
@@ -1725,8 +1725,8 @@
         "aoi": "kaivoksela",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
-        "status": "candidate",
-        "class": ""
+        "status": "confirmed",
+        "class": "truck"
       }
     },
     {
@@ -1766,8 +1766,8 @@
         "aoi": "kaivoksela",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
-        "status": "candidate",
-        "class": ""
+        "status": "confirmed",
+        "class": "van"
       }
     },
     {
@@ -1807,8 +1807,8 @@
         "aoi": "kaivoksela",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
-        "status": "candidate",
-        "class": ""
+        "status": "confirmed",
+        "class": "van"
       }
     },
     {
@@ -1848,8 +1848,8 @@
         "aoi": "kaivoksela",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
-        "status": "candidate",
-        "class": ""
+        "status": "confirmed",
+        "class": "truck"
       }
     },
     {
@@ -1889,8 +1889,8 @@
         "aoi": "kaivoksela",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
-        "status": "candidate",
-        "class": ""
+        "status": "confirmed",
+        "class": "truck"
       }
     },
     {
@@ -1930,8 +1930,8 @@
         "aoi": "kaivoksela",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
-        "status": "candidate",
-        "class": ""
+        "status": "confirmed",
+        "class": "truck"
       }
     },
     {
@@ -1971,8 +1971,8 @@
         "aoi": "kaivoksela",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
-        "status": "candidate",
-        "class": ""
+        "status": "confirmed",
+        "class": "truck"
       }
     },
     {
@@ -2012,8 +2012,8 @@
         "aoi": "kaivoksela",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
-        "status": "candidate",
-        "class": ""
+        "status": "confirmed",
+        "class": "truck"
       }
     },
     {
@@ -2053,8 +2053,8 @@
         "aoi": "kaivoksela",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
-        "status": "candidate",
-        "class": ""
+        "status": "confirmed",
+        "class": "truck"
       }
     },
     {
@@ -2094,8 +2094,8 @@
         "aoi": "kaivoksela",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
-        "status": "candidate",
-        "class": ""
+        "status": "confirmed",
+        "class": "truck"
       }
     },
     {
@@ -2135,8 +2135,8 @@
         "aoi": "kaivoksela",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
-        "status": "candidate",
-        "class": ""
+        "status": "confirmed",
+        "class": "truck"
       }
     },
     {
@@ -2176,8 +2176,8 @@
         "aoi": "kaivoksela",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
-        "status": "candidate",
-        "class": ""
+        "status": "confirmed",
+        "class": "truck"
       }
     },
     {
@@ -2217,8 +2217,8 @@
         "aoi": "kaivoksela",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
-        "status": "candidate",
-        "class": ""
+        "status": "confirmed",
+        "class": "truck"
       }
     },
     {
@@ -2258,8 +2258,8 @@
         "aoi": "kaivoksela",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
-        "status": "candidate",
-        "class": ""
+        "status": "confirmed",
+        "class": "bus"
       }
     },
     {
@@ -2299,8 +2299,8 @@
         "aoi": "kaivoksela",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
-        "status": "candidate",
-        "class": ""
+        "status": "confirmed",
+        "class": "van"
       }
     },
     {
@@ -2340,8 +2340,8 @@
         "aoi": "kaivoksela",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
-        "status": "candidate",
-        "class": ""
+        "status": "confirmed",
+        "class": "truck"
       }
     },
     {
@@ -2381,8 +2381,8 @@
         "aoi": "kaivoksela",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
-        "status": "candidate",
-        "class": ""
+        "status": "confirmed",
+        "class": "truck"
       }
     },
     {
@@ -2422,8 +2422,8 @@
         "aoi": "kaivoksela",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
-        "status": "candidate",
-        "class": ""
+        "status": "confirmed",
+        "class": "truck"
       }
     },
     {
@@ -2463,8 +2463,8 @@
         "aoi": "kaivoksela",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
-        "status": "candidate",
-        "class": ""
+        "status": "confirmed",
+        "class": "truck"
       }
     },
     {
@@ -2504,8 +2504,8 @@
         "aoi": "kaivoksela",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
-        "status": "candidate",
-        "class": ""
+        "status": "confirmed",
+        "class": "van"
       }
     },
     {
@@ -2545,8 +2545,8 @@
         "aoi": "kaivoksela",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
-        "status": "candidate",
-        "class": ""
+        "status": "confirmed",
+        "class": "van"
       }
     },
     {
@@ -2586,8 +2586,8 @@
         "aoi": "kaivoksela",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
-        "status": "candidate",
-        "class": ""
+        "status": "confirmed",
+        "class": "truck"
       }
     },
     {
@@ -2622,13 +2622,13 @@
       "properties": {
         "confidence": 0.8045,
         "length_m": 10.14,
-        "width_m": 3.07,
+        "width_m": 3.08,
         "heading_deg": 79.2,
         "aoi": "kaivoksela",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
-        "status": "candidate",
-        "class": ""
+        "status": "confirmed",
+        "class": "truck"
       }
     },
     {
@@ -2668,8 +2668,8 @@
         "aoi": "kaivoksela",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
-        "status": "candidate",
-        "class": ""
+        "status": "confirmed",
+        "class": "truck"
       }
     },
     {
@@ -2750,8 +2750,8 @@
         "aoi": "kaivoksela",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
-        "status": "candidate",
-        "class": ""
+        "status": "confirmed",
+        "class": "van"
       }
     },
     {
@@ -2791,8 +2791,8 @@
         "aoi": "kaivoksela",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
-        "status": "candidate",
-        "class": ""
+        "status": "confirmed",
+        "class": "truck"
       }
     },
     {
@@ -2832,8 +2832,8 @@
         "aoi": "kaivoksela",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
-        "status": "candidate",
-        "class": ""
+        "status": "confirmed",
+        "class": "truck"
       }
     },
     {
@@ -2873,8 +2873,8 @@
         "aoi": "kaivoksela",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
-        "status": "candidate",
-        "class": ""
+        "status": "confirmed",
+        "class": "truck"
       }
     },
     {
@@ -2914,8 +2914,8 @@
         "aoi": "kaivoksela",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
-        "status": "candidate",
-        "class": ""
+        "status": "confirmed",
+        "class": "bus"
       }
     },
     {
@@ -2955,8 +2955,8 @@
         "aoi": "kaivoksela",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
-        "status": "candidate",
-        "class": ""
+        "status": "confirmed",
+        "class": "truck"
       }
     },
     {
@@ -2996,8 +2996,8 @@
         "aoi": "kaivoksela",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
-        "status": "candidate",
-        "class": ""
+        "status": "confirmed",
+        "class": "truck"
       }
     },
     {
@@ -3037,8 +3037,8 @@
         "aoi": "kaivoksela",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
-        "status": "candidate",
-        "class": ""
+        "status": "confirmed",
+        "class": "van"
       }
     },
     {
@@ -3078,8 +3078,8 @@
         "aoi": "kaivoksela",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
-        "status": "candidate",
-        "class": ""
+        "status": "confirmed",
+        "class": "truck"
       }
     },
     {
@@ -3089,38 +3089,38 @@
         "coordinates": [
           [
             [
-              25493169.83,
-              6683804.446
+              25493180.353,
+              6683805.701
             ],
             [
-              25493180.505,
-              6683805.516
+              25493154.504,
+              6683803.111
             ],
             [
-              25493180.191,
-              6683808.641
+              25493154.191,
+              6683806.237
             ],
             [
-              25493169.517,
-              6683807.572
+              25493180.04,
+              6683808.826
             ],
             [
-              25493169.83,
-              6683804.446
+              25493180.353,
+              6683805.701
             ]
           ]
         ]
       },
       "properties": {
         "confidence": 0.8018,
-        "length_m": 10.73,
+        "length_m": 25.98,
         "width_m": 3.14,
         "heading_deg": 84.3,
         "aoi": "kaivoksela",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
-        "status": "candidate",
-        "class": ""
+        "status": "confirmed",
+        "class": "truck"
       }
     },
     {
@@ -3160,8 +3160,8 @@
         "aoi": "kaivoksela",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
-        "status": "candidate",
-        "class": ""
+        "status": "confirmed",
+        "class": "truck"
       }
     },
     {
@@ -3201,8 +3201,8 @@
         "aoi": "kaivoksela",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
-        "status": "candidate",
-        "class": ""
+        "status": "confirmed",
+        "class": "van"
       }
     },
     {
@@ -3242,8 +3242,8 @@
         "aoi": "kaivoksela",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
-        "status": "candidate",
-        "class": ""
+        "status": "confirmed",
+        "class": "truck"
       }
     },
     {
@@ -3283,8 +3283,8 @@
         "aoi": "kaivoksela",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
-        "status": "candidate",
-        "class": ""
+        "status": "confirmed",
+        "class": "truck"
       }
     },
     {
@@ -3324,8 +3324,8 @@
         "aoi": "kaivoksela",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
-        "status": "candidate",
-        "class": ""
+        "status": "confirmed",
+        "class": "truck"
       }
     },
     {
@@ -3365,8 +3365,8 @@
         "aoi": "kaivoksela",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
-        "status": "candidate",
-        "class": ""
+        "status": "confirmed",
+        "class": "truck"
       }
     },
     {
@@ -3406,8 +3406,8 @@
         "aoi": "kaivoksela",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
-        "status": "candidate",
-        "class": ""
+        "status": "confirmed",
+        "class": "van"
       }
     },
     {
@@ -3447,8 +3447,8 @@
         "aoi": "kaivoksela",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
-        "status": "candidate",
-        "class": ""
+        "status": "confirmed",
+        "class": "truck"
       }
     },
     {
@@ -3483,13 +3483,13 @@
       "properties": {
         "confidence": 0.7915,
         "length_m": 9.98,
-        "width_m": 3.06,
+        "width_m": 3.05,
         "heading_deg": 76.5,
         "aoi": "kaivoksela",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
-        "status": "candidate",
-        "class": ""
+        "status": "confirmed",
+        "class": "truck"
       }
     },
     {
@@ -3529,8 +3529,8 @@
         "aoi": "kaivoksela",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
-        "status": "candidate",
-        "class": ""
+        "status": "confirmed",
+        "class": "truck"
       }
     },
     {
@@ -3564,14 +3564,14 @@
       },
       "properties": {
         "confidence": 0.7914,
-        "length_m": 9.38,
+        "length_m": 9.39,
         "width_m": 2.7,
         "heading_deg": 81.4,
         "aoi": "kaivoksela",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
-        "status": "candidate",
-        "class": ""
+        "status": "confirmed",
+        "class": "truck"
       }
     },
     {
@@ -3611,8 +3611,8 @@
         "aoi": "kaivoksela",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
-        "status": "candidate",
-        "class": ""
+        "status": "confirmed",
+        "class": "truck"
       }
     },
     {
@@ -3622,38 +3622,38 @@
         "coordinates": [
           [
             [
-              25493173.793,
-              6683773.555
+              25493183.651,
+              6683773.907
             ],
             [
-              25493183.771,
-              6683773.987
+              25493161.934,
+              6683772.966
             ],
             [
-              25493183.655,
-              6683776.653
+              25493161.818,
+              6683775.632
             ],
             [
-              25493173.677,
-              6683776.22
+              25493183.535,
+              6683776.573
             ],
             [
-              25493173.793,
-              6683773.555
+              25493183.651,
+              6683773.907
             ]
           ]
         ]
       },
       "properties": {
         "confidence": 0.7857,
-        "length_m": 9.99,
+        "length_m": 21.74,
         "width_m": 2.67,
         "heading_deg": 87.5,
         "aoi": "kaivoksela",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
-        "status": "candidate",
-        "class": ""
+        "status": "confirmed",
+        "class": "truck"
       }
     },
     {
@@ -3693,8 +3693,8 @@
         "aoi": "kaivoksela",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
-        "status": "candidate",
-        "class": ""
+        "status": "confirmed",
+        "class": "truck"
       }
     },
     {
@@ -3734,8 +3734,8 @@
         "aoi": "kaivoksela",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
-        "status": "candidate",
-        "class": ""
+        "status": "confirmed",
+        "class": "bus"
       }
     },
     {
@@ -3775,8 +3775,8 @@
         "aoi": "kaivoksela",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
-        "status": "candidate",
-        "class": ""
+        "status": "confirmed",
+        "class": "truck"
       }
     },
     {
@@ -3816,8 +3816,8 @@
         "aoi": "kaivoksela",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
-        "status": "candidate",
-        "class": ""
+        "status": "confirmed",
+        "class": "truck"
       }
     },
     {
@@ -3827,38 +3827,38 @@
         "coordinates": [
           [
             [
-              25493171.263,
-              6683795.992
+              25493182.08,
+              6683796.926
             ],
             [
-              25493182.163,
-              6683796.808
+              25493156.222,
+              6683794.989
             ],
             [
-              25493181.953,
-              6683799.615
+              25493156.012,
+              6683797.796
             ],
             [
-              25493171.053,
-              6683798.798
+              25493181.87,
+              6683799.733
             ],
             [
-              25493171.263,
-              6683795.992
+              25493182.08,
+              6683796.926
             ]
           ]
         ]
       },
       "properties": {
         "confidence": 0.7833,
-        "length_m": 10.93,
+        "length_m": 25.93,
         "width_m": 2.81,
         "heading_deg": 85.7,
         "aoi": "kaivoksela",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
-        "status": "candidate",
-        "class": ""
+        "status": "confirmed",
+        "class": "truck"
       }
     },
     {
@@ -3898,8 +3898,8 @@
         "aoi": "kaivoksela",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
-        "status": "candidate",
-        "class": ""
+        "status": "confirmed",
+        "class": "truck"
       }
     },
     {
@@ -3939,8 +3939,8 @@
         "aoi": "kaivoksela",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
-        "status": "candidate",
-        "class": ""
+        "status": "confirmed",
+        "class": "van"
       }
     },
     {
@@ -3980,8 +3980,8 @@
         "aoi": "kaivoksela",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
-        "status": "candidate",
-        "class": ""
+        "status": "confirmed",
+        "class": "van"
       }
     },
     {
@@ -4021,8 +4021,8 @@
         "aoi": "kaivoksela",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
-        "status": "candidate",
-        "class": ""
+        "status": "confirmed",
+        "class": "truck"
       }
     },
     {
@@ -4062,8 +4062,8 @@
         "aoi": "kaivoksela",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
-        "status": "candidate",
-        "class": ""
+        "status": "confirmed",
+        "class": "truck"
       }
     },
     {
@@ -4103,8 +4103,8 @@
         "aoi": "kaivoksela",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
-        "status": "candidate",
-        "class": ""
+        "status": "confirmed",
+        "class": "van"
       }
     },
     {
@@ -4114,38 +4114,38 @@
         "coordinates": [
           [
             [
-              25493172.689,
-              6683776.945
+              25493182.902,
+              6683777.947
             ],
             [
-              25493182.885,
-              6683777.864
+              25493160.972,
+              6683776.355
             ],
             [
-              25493182.599,
-              6683781.03
+              25493160.742,
+              6683779.526
             ],
             [
-              25493172.403,
-              6683780.11
+              25493182.671,
+              6683781.118
             ],
             [
-              25493172.689,
-              6683776.945
+              25493182.902,
+              6683777.947
             ]
           ]
         ]
       },
       "properties": {
         "confidence": 0.7764,
-        "length_m": 10.24,
+        "length_m": 21.99,
         "width_m": 3.18,
-        "heading_deg": 84.8,
+        "heading_deg": 85.8,
         "aoi": "kaivoksela",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
-        "status": "candidate",
-        "class": ""
+        "status": "confirmed",
+        "class": "truck"
       }
     },
     {
@@ -4185,8 +4185,8 @@
         "aoi": "kaivoksela",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
-        "status": "candidate",
-        "class": ""
+        "status": "confirmed",
+        "class": "van"
       }
     },
     {
@@ -4226,8 +4226,8 @@
         "aoi": "kaivoksela",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
-        "status": "candidate",
-        "class": ""
+        "status": "confirmed",
+        "class": "truck"
       }
     },
     {
@@ -4267,8 +4267,8 @@
         "aoi": "kaivoksela",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
-        "status": "candidate",
-        "class": ""
+        "status": "confirmed",
+        "class": "truck"
       }
     },
     {
@@ -4308,8 +4308,8 @@
         "aoi": "kaivoksela",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
-        "status": "candidate",
-        "class": ""
+        "status": "confirmed",
+        "class": "van"
       }
     },
     {
@@ -4349,8 +4349,8 @@
         "aoi": "kaivoksela",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
-        "status": "candidate",
-        "class": ""
+        "status": "confirmed",
+        "class": "truck"
       }
     },
     {
@@ -4390,8 +4390,8 @@
         "aoi": "kaivoksela",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
-        "status": "candidate",
-        "class": ""
+        "status": "confirmed",
+        "class": "van"
       }
     },
     {
@@ -4431,8 +4431,8 @@
         "aoi": "kaivoksela",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
-        "status": "candidate",
-        "class": ""
+        "status": "confirmed",
+        "class": "van"
       }
     },
     {
@@ -4442,38 +4442,38 @@
         "coordinates": [
           [
             [
-              25493170.373,
-              6683800.534
+              25493181.087,
+              6683801.667
             ],
             [
-              25493181.114,
+              25493155.188,
+              6683798.815
+            ],
+            [
+              25493154.868,
               6683801.717
             ],
             [
-              25493180.795,
-              6683804.619
+              25493180.768,
+              6683804.569
             ],
             [
-              25493170.054,
-              6683803.436
-            ],
-            [
-              25493170.373,
-              6683800.534
+              25493181.087,
+              6683801.667
             ]
           ]
         ]
       },
       "properties": {
         "confidence": 0.755,
-        "length_m": 10.81,
+        "length_m": 26.06,
         "width_m": 2.92,
         "heading_deg": 83.7,
         "aoi": "kaivoksela",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
-        "status": "candidate",
-        "class": ""
+        "status": "confirmed",
+        "class": "truck"
       }
     },
     {
@@ -4513,8 +4513,8 @@
         "aoi": "kaivoksela",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
-        "status": "candidate",
-        "class": ""
+        "status": "confirmed",
+        "class": "truck"
       }
     },
     {
@@ -4554,8 +4554,8 @@
         "aoi": "kaivoksela",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
-        "status": "candidate",
-        "class": ""
+        "status": "confirmed",
+        "class": "truck"
       }
     },
     {
@@ -4595,8 +4595,8 @@
         "aoi": "kaivoksela",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
-        "status": "candidate",
-        "class": ""
+        "status": "confirmed",
+        "class": "truck"
       }
     },
     {
@@ -4606,38 +4606,38 @@
         "coordinates": [
           [
             [
-              25493173.262,
-              6683792.762
+              25493183.872,
+              6683793.656
             ],
             [
-              25493184.176,
-              6683793.581
+              25493158,
+              6683791.714
             ],
             [
-              25493183.965,
-              6683796.388
+              25493157.79,
+              6683794.521
             ],
             [
-              25493173.052,
-              6683795.569
+              25493183.661,
+              6683796.463
             ],
             [
-              25493173.262,
-              6683792.762
+              25493183.872,
+              6683793.656
             ]
           ]
         ]
       },
       "properties": {
         "confidence": 0.7483,
-        "length_m": 10.94,
-        "width_m": 2.82,
+        "length_m": 25.94,
+        "width_m": 2.81,
         "heading_deg": 85.7,
         "aoi": "kaivoksela",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
-        "status": "candidate",
-        "class": ""
+        "status": "confirmed",
+        "class": "truck"
       }
     },
     {
@@ -4677,8 +4677,8 @@
         "aoi": "kaivoksela",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
-        "status": "candidate",
-        "class": ""
+        "status": "confirmed",
+        "class": "truck"
       }
     },
     {
@@ -4688,38 +4688,38 @@
         "coordinates": [
           [
             [
-              25493169.921,
-              6683759.58
+              25493178.997,
+              6683759.699
             ],
             [
-              25493179.073,
-              6683759.736
+              25493157.346,
+              6683759.33
             ],
             [
-              25493179.027,
-              6683762.451
+              25493157.3,
+              6683762.045
             ],
             [
-              25493169.874,
-              6683762.295
+              25493178.951,
+              6683762.414
             ],
             [
-              25493169.921,
-              6683759.58
+              25493178.997,
+              6683759.699
             ]
           ]
         ]
       },
       "properties": {
         "confidence": 0.7481,
-        "length_m": 9.15,
+        "length_m": 21.65,
         "width_m": 2.72,
         "heading_deg": 89,
         "aoi": "kaivoksela",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
-        "status": "candidate",
-        "class": ""
+        "status": "confirmed",
+        "class": "truck"
       }
     },
     {
@@ -4759,8 +4759,8 @@
         "aoi": "kaivoksela",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
-        "status": "candidate",
-        "class": ""
+        "status": "confirmed",
+        "class": "truck"
       }
     },
     {
@@ -4800,8 +4800,8 @@
         "aoi": "kaivoksela",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
-        "status": "candidate",
-        "class": ""
+        "status": "confirmed",
+        "class": "van"
       }
     },
     {
@@ -4841,8 +4841,8 @@
         "aoi": "kaivoksela",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
-        "status": "candidate",
-        "class": ""
+        "status": "confirmed",
+        "class": "van"
       }
     },
     {
@@ -4882,8 +4882,8 @@
         "aoi": "kaivoksela",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
-        "status": "candidate",
-        "class": ""
+        "status": "confirmed",
+        "class": "van"
       }
     },
     {
@@ -4923,8 +4923,8 @@
         "aoi": "kaivoksela",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
-        "status": "candidate",
-        "class": ""
+        "status": "confirmed",
+        "class": "truck"
       }
     },
     {
@@ -4934,38 +4934,38 @@
         "coordinates": [
           [
             [
-              25493169.341,
-              6683763.442
+              25493178.695,
+              6683763.473
             ],
             [
-              25493178.894,
-              6683763.546
+              25493156.893,
+              6683763.236
             ],
             [
-              25493178.859,
-              6683766.721
+              25493156.858,
+              6683766.411
             ],
             [
-              25493169.307,
-              6683766.617
+              25493178.66,
+              6683766.648
             ],
             [
-              25493169.341,
-              6683763.442
+              25493178.695,
+              6683763.473
             ]
           ]
         ]
       },
       "properties": {
         "confidence": 0.7225,
-        "length_m": 9.55,
+        "length_m": 21.8,
         "width_m": 3.18,
         "heading_deg": 89.4,
         "aoi": "kaivoksela",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
-        "status": "candidate",
-        "class": ""
+        "status": "confirmed",
+        "class": "truck"
       }
     },
     {
@@ -5005,8 +5005,8 @@
         "aoi": "kaivoksela",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
-        "status": "candidate",
-        "class": ""
+        "status": "confirmed",
+        "class": "van"
       }
     },
     {
@@ -5046,8 +5046,8 @@
         "aoi": "kaivoksela",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
-        "status": "candidate",
-        "class": ""
+        "status": "confirmed",
+        "class": "truck"
       }
     },
     {
@@ -5087,8 +5087,8 @@
         "aoi": "kaivoksela",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
-        "status": "candidate",
-        "class": ""
+        "status": "confirmed",
+        "class": "van"
       }
     },
     {
@@ -5128,8 +5128,8 @@
         "aoi": "kaivoksela",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
-        "status": "candidate",
-        "class": ""
+        "status": "confirmed",
+        "class": "truck"
       }
     },
     {
@@ -5169,8 +5169,8 @@
         "aoi": "kaivoksela",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
-        "status": "candidate",
-        "class": ""
+        "status": "confirmed",
+        "class": "van"
       }
     },
     {
@@ -5210,8 +5210,8 @@
         "aoi": "kaivoksela",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
-        "status": "candidate",
-        "class": ""
+        "status": "confirmed",
+        "class": "truck"
       }
     },
     {
@@ -5251,8 +5251,8 @@
         "aoi": "kaivoksela",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
-        "status": "candidate",
-        "class": ""
+        "status": "confirmed",
+        "class": "van"
       }
     },
     {
@@ -5292,8 +5292,8 @@
         "aoi": "kaivoksela",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
-        "status": "candidate",
-        "class": ""
+        "status": "confirmed",
+        "class": "truck"
       }
     },
     {
@@ -5333,8 +5333,8 @@
         "aoi": "kaivoksela",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
-        "status": "candidate",
-        "class": ""
+        "status": "confirmed",
+        "class": "van"
       }
     },
     {
@@ -5370,12 +5370,12 @@
         "confidence": 0.6753,
         "length_m": 5.68,
         "width_m": 2.54,
-        "heading_deg": 84.4,
+        "heading_deg": 84.3,
         "aoi": "kaivoksela",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
-        "status": "candidate",
-        "class": ""
+        "status": "confirmed",
+        "class": "van"
       }
     },
     {
@@ -5415,8 +5415,8 @@
         "aoi": "kaivoksela",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
-        "status": "candidate",
-        "class": ""
+        "status": "confirmed",
+        "class": "truck"
       }
     },
     {
@@ -5456,49 +5456,8 @@
         "aoi": "kaivoksela",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
-        "status": "candidate",
-        "class": ""
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Polygon",
-        "coordinates": [
-          [
-            [
-              25493160.618,
-              6683695.197
-            ],
-            [
-              25493171.758,
-              6683699.338
-            ],
-            [
-              25493170.803,
-              6683701.908
-            ],
-            [
-              25493159.662,
-              6683697.767
-            ],
-            [
-              25493160.618,
-              6683695.197
-            ]
-          ]
-        ]
-      },
-      "properties": {
-        "confidence": 0.6593,
-        "length_m": 11.89,
-        "width_m": 2.74,
-        "heading_deg": 69.6,
-        "aoi": "kaivoksela",
-        "source_layer": "Ortoilmakuva_2025_5cm",
-        "zoom": 16,
-        "status": "candidate",
-        "class": ""
+        "status": "confirmed",
+        "class": "truck"
       }
     },
     {
@@ -5538,8 +5497,8 @@
         "aoi": "kaivoksela",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
-        "status": "candidate",
-        "class": ""
+        "status": "confirmed",
+        "class": "van"
       }
     },
     {
@@ -5579,8 +5538,8 @@
         "aoi": "kaivoksela",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
-        "status": "candidate",
-        "class": ""
+        "status": "confirmed",
+        "class": "truck"
       }
     },
     {
@@ -5620,8 +5579,8 @@
         "aoi": "kaivoksela",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
-        "status": "candidate",
-        "class": ""
+        "status": "confirmed",
+        "class": "truck"
       }
     },
     {
@@ -5656,13 +5615,13 @@
       "properties": {
         "confidence": 0.5759,
         "length_m": 8.25,
-        "width_m": 2.87,
+        "width_m": 2.88,
         "heading_deg": 83.1,
         "aoi": "kaivoksela",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
-        "status": "candidate",
-        "class": ""
+        "status": "confirmed",
+        "class": "truck"
       }
     },
     {
@@ -5702,8 +5661,8 @@
         "aoi": "kaivoksela",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
-        "status": "candidate",
-        "class": ""
+        "status": "confirmed",
+        "class": "truck"
       }
     },
     {
@@ -5743,8 +5702,8 @@
         "aoi": "kaivoksela",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
-        "status": "candidate",
-        "class": ""
+        "status": "confirmed",
+        "class": "van"
       }
     },
     {
@@ -5784,49 +5743,8 @@
         "aoi": "kaivoksela",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
-        "status": "candidate",
-        "class": ""
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Polygon",
-        "coordinates": [
-          [
-            [
-              25493177.366,
-              6683599.335
-            ],
-            [
-              25493177.361,
-              6683600.879
-            ],
-            [
-              25493166.586,
-              6683600.843
-            ],
-            [
-              25493166.591,
-              6683599.299
-            ],
-            [
-              25493177.366,
-              6683599.335
-            ]
-          ]
-        ]
-      },
-      "properties": {
-        "confidence": 0.5424,
-        "length_m": 10.77,
-        "width_m": 1.54,
-        "heading_deg": 89.8,
-        "aoi": "kaivoksela",
-        "source_layer": "Ortoilmakuva_2025_5cm",
-        "zoom": 16,
-        "status": "candidate",
-        "class": ""
+        "status": "confirmed",
+        "class": "van"
       }
     },
     {
@@ -5866,8 +5784,8 @@
         "aoi": "kaivoksela",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
-        "status": "candidate",
-        "class": ""
+        "status": "confirmed",
+        "class": "van"
       }
     },
     {
@@ -5907,8 +5825,8 @@
         "aoi": "kaivoksela",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
-        "status": "candidate",
-        "class": ""
+        "status": "confirmed",
+        "class": "truck"
       }
     },
     {
@@ -5918,38 +5836,38 @@
         "coordinates": [
           [
             [
-              25493267.983,
-              6683691.946
+              25493281.968,
+              6683694.818
             ],
             [
-              25493281.954,
-              6683694.712
+              25493271.92,
+              6683692.829
             ],
             [
-              25493281.393,
-              6683697.547
+              25493271.359,
+              6683695.664
             ],
             [
-              25493267.422,
-              6683694.782
+              25493281.406,
+              6683697.652
             ],
             [
-              25493267.983,
-              6683691.946
+              25493281.968,
+              6683694.818
             ]
           ]
         ]
       },
       "properties": {
         "confidence": 0.4741,
-        "length_m": 14.24,
+        "length_m": 10.24,
         "width_m": 2.89,
         "heading_deg": 78.8,
         "aoi": "kaivoksela",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
-        "status": "candidate",
-        "class": ""
+        "status": "confirmed",
+        "class": "truck"
       }
     },
     {
@@ -5989,131 +5907,8 @@
         "aoi": "kaivoksela",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
-        "status": "candidate",
-        "class": ""
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Polygon",
-        "coordinates": [
-          [
-            [
-              25493156.98,
-              6683758.812
-            ],
-            [
-              25493169.257,
-              6683759.265
-            ],
-            [
-              25493169.153,
-              6683762.061
-            ],
-            [
-              25493156.876,
-              6683761.608
-            ],
-            [
-              25493156.98,
-              6683758.812
-            ]
-          ]
-        ]
-      },
-      "properties": {
-        "confidence": 0.4122,
-        "length_m": 12.29,
-        "width_m": 2.8,
-        "heading_deg": 87.9,
-        "aoi": "kaivoksela",
-        "source_layer": "Ortoilmakuva_2025_5cm",
-        "zoom": 16,
-        "status": "candidate",
-        "class": ""
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Polygon",
-        "coordinates": [
-          [
-            [
-              25493154.514,
-              6683803.224
-            ],
-            [
-              25493168.467,
-              6683804.237
-            ],
-            [
-              25493168.248,
-              6683807.263
-            ],
-            [
-              25493154.295,
-              6683806.25
-            ],
-            [
-              25493154.514,
-              6683803.224
-            ]
-          ]
-        ]
-      },
-      "properties": {
-        "confidence": 0.3799,
-        "length_m": 13.99,
-        "width_m": 3.03,
-        "heading_deg": 85.8,
-        "aoi": "kaivoksela",
-        "source_layer": "Ortoilmakuva_2025_5cm",
-        "zoom": 16,
-        "status": "candidate",
-        "class": ""
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Polygon",
-        "coordinates": [
-          [
-            [
-              25493251.794,
-              6683609.769
-            ],
-            [
-              25493257.891,
-              6683610.107
-            ],
-            [
-              25493257.789,
-              6683611.959
-            ],
-            [
-              25493251.692,
-              6683611.621
-            ],
-            [
-              25493251.794,
-              6683609.769
-            ]
-          ]
-        ]
-      },
-      "properties": {
-        "confidence": 0.3577,
-        "length_m": 6.11,
-        "width_m": 1.85,
-        "heading_deg": 86.8,
-        "aoi": "kaivoksela",
-        "source_layer": "Ortoilmakuva_2025_5cm",
-        "zoom": 16,
-        "status": "candidate",
-        "class": ""
+        "status": "confirmed",
+        "class": "van"
       }
     },
     {
@@ -6153,8 +5948,8 @@
         "aoi": "kaivoksela",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
-        "status": "candidate",
-        "class": ""
+        "status": "confirmed",
+        "class": "bus"
       }
     },
     {
@@ -6194,8 +5989,8 @@
         "aoi": "kaivoksela",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
-        "status": "candidate",
-        "class": ""
+        "status": "confirmed",
+        "class": "truck"
       }
     },
     {
@@ -6235,49 +6030,8 @@
         "aoi": "kaivoksela",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
-        "status": "candidate",
-        "class": ""
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Polygon",
-        "coordinates": [
-          [
-            [
-              25493161.201,
-              6683741.076
-            ],
-            [
-              25493172.696,
-              6683742.124
-            ],
-            [
-              25493172.488,
-              6683744.411
-            ],
-            [
-              25493160.993,
-              6683743.364
-            ],
-            [
-              25493161.201,
-              6683741.076
-            ]
-          ]
-        ]
-      },
-      "properties": {
-        "confidence": 0.3074,
-        "length_m": 11.54,
-        "width_m": 2.3,
-        "heading_deg": 84.8,
-        "aoi": "kaivoksela",
-        "source_layer": "Ortoilmakuva_2025_5cm",
-        "zoom": 16,
-        "status": "candidate",
-        "class": ""
+        "status": "confirmed",
+        "class": "truck"
       }
     },
     {
@@ -6328,161 +6082,38 @@
         "coordinates": [
           [
             [
-              25493159.422,
-              6683553.264
+              25493200.127,
+              6683746.455
             ],
             [
-              25493159.676,
-              6683555.828
+              25493194.783,
+              6683745.605
             ],
             [
-              25493152.929,
-              6683556.496
+              25493194.391,
+              6683748.069
             ],
             [
-              25493152.675,
-              6683553.932
+              25493199.735,
+              6683748.919
             ],
             [
-              25493159.422,
-              6683553.264
+              25493200.127,
+              6683746.455
             ]
           ]
         ]
       },
       "properties": {
-        "confidence": 0.2886,
-        "length_m": 6.78,
-        "width_m": 2.58,
-        "heading_deg": 95.7,
+        "class": "van",
+        "status": "added",
+        "confidence": null,
         "aoi": "kaivoksela",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
-        "status": "candidate",
-        "class": ""
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Polygon",
-        "coordinates": [
-          [
-            [
-              25493302.216,
-              6683659.836
-            ],
-            [
-              25493310.65,
-              6683660.847
-            ],
-            [
-              25493310.323,
-              6683663.57
-            ],
-            [
-              25493301.89,
-              6683662.559
-            ],
-            [
-              25493302.216,
-              6683659.836
-            ]
-          ]
-        ]
-      },
-      "properties": {
-        "confidence": 0.2827,
-        "length_m": 8.49,
-        "width_m": 2.74,
-        "heading_deg": 83.2,
-        "aoi": "kaivoksela",
-        "source_layer": "Ortoilmakuva_2025_5cm",
-        "zoom": 16,
-        "status": "candidate",
-        "class": ""
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Polygon",
-        "coordinates": [
-          [
-            [
-              25493160.501,
-              6683784.114
-            ],
-            [
-              25493174.098,
-              6683785.335
-            ],
-            [
-              25493173.842,
-              6683788.194
-            ],
-            [
-              25493160.244,
-              6683786.973
-            ],
-            [
-              25493160.501,
-              6683784.114
-            ]
-          ]
-        ]
-      },
-      "properties": {
-        "confidence": 0.2741,
-        "length_m": 13.65,
-        "width_m": 2.87,
-        "heading_deg": 84.9,
-        "aoi": "kaivoksela",
-        "source_layer": "Ortoilmakuva_2025_5cm",
-        "zoom": 16,
-        "status": "candidate",
-        "class": ""
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Polygon",
-        "coordinates": [
-          [
-            [
-              25493181.208,
-              6683695.993
-            ],
-            [
-              25493182.418,
-              6683699.556
-            ],
-            [
-              25493177.35,
-              6683701.277
-            ],
-            [
-              25493176.14,
-              6683697.713
-            ],
-            [
-              25493181.208,
-              6683695.993
-            ]
-          ]
-        ]
-      },
-      "properties": {
-        "confidence": 0.2519,
-        "length_m": 5.35,
-        "width_m": 3.76,
-        "heading_deg": 108.8,
-        "aoi": "kaivoksela",
-        "source_layer": "Ortoilmakuva_2025_5cm",
-        "zoom": 16,
-        "status": "candidate",
-        "class": ""
+        "length_m": 5.41,
+        "width_m": 2.49,
+        "heading_deg": 81
       }
     }
   ]

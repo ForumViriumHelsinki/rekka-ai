@@ -44,8 +44,8 @@
         "aoi": "kylasaari",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
-        "status": "candidate",
-        "class": ""
+        "status": "confirmed",
+        "class": "van"
       }
     },
     {
@@ -85,8 +85,8 @@
         "aoi": "kylasaari",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
-        "status": "candidate",
-        "class": ""
+        "status": "confirmed",
+        "class": "truck"
       }
     },
     {
@@ -126,8 +126,8 @@
         "aoi": "kylasaari",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
-        "status": "candidate",
-        "class": ""
+        "status": "confirmed",
+        "class": "truck"
       }
     },
     {
@@ -167,8 +167,8 @@
         "aoi": "kylasaari",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
-        "status": "candidate",
-        "class": ""
+        "status": "confirmed",
+        "class": "truck"
       }
     },
     {
@@ -208,8 +208,8 @@
         "aoi": "kylasaari",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
-        "status": "candidate",
-        "class": ""
+        "status": "confirmed",
+        "class": "truck"
       }
     },
     {
@@ -249,8 +249,8 @@
         "aoi": "kylasaari",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
-        "status": "candidate",
-        "class": ""
+        "status": "confirmed",
+        "class": "truck"
       }
     },
     {
@@ -285,13 +285,13 @@
       "properties": {
         "confidence": 0.7645,
         "length_m": 6.93,
-        "width_m": 2.39,
+        "width_m": 2.4,
         "heading_deg": 77.1,
         "aoi": "kylasaari",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
-        "status": "candidate",
-        "class": ""
+        "status": "confirmed",
+        "class": "truck"
       }
     },
     {
@@ -331,8 +331,8 @@
         "aoi": "kylasaari",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
-        "status": "candidate",
-        "class": ""
+        "status": "confirmed",
+        "class": "truck"
       }
     },
     {
@@ -372,8 +372,8 @@
         "aoi": "kylasaari",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
-        "status": "candidate",
-        "class": ""
+        "status": "confirmed",
+        "class": "truck"
       }
     },
     {
@@ -413,8 +413,8 @@
         "aoi": "kylasaari",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
-        "status": "candidate",
-        "class": ""
+        "status": "confirmed",
+        "class": "van"
       }
     },
     {
@@ -454,8 +454,8 @@
         "aoi": "kylasaari",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
-        "status": "candidate",
-        "class": ""
+        "status": "confirmed",
+        "class": "truck"
       }
     },
     {
@@ -495,8 +495,8 @@
         "aoi": "kylasaari",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
-        "status": "candidate",
-        "class": ""
+        "status": "confirmed",
+        "class": "truck"
       }
     },
     {
@@ -536,8 +536,8 @@
         "aoi": "kylasaari",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
-        "status": "candidate",
-        "class": ""
+        "status": "confirmed",
+        "class": "truck"
       }
     },
     {
@@ -577,8 +577,8 @@
         "aoi": "kylasaari",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
-        "status": "candidate",
-        "class": ""
+        "status": "confirmed",
+        "class": "van"
       }
     },
     {
@@ -588,79 +588,38 @@
         "coordinates": [
           [
             [
-              25498349.158,
-              6676205.62
+              25498342.487,
+              6676217.818
             ],
             [
-              25498351.431,
-              6676207.521
+              25498351.103,
+              6676207.52
             ],
             [
-              25498346.184,
-              6676213.793
+              25498348.83,
+              6676205.619
             ],
             [
-              25498343.911,
-              6676211.891
+              25498340.214,
+              6676215.917
             ],
             [
-              25498349.158,
-              6676205.62
+              25498342.487,
+              6676217.818
             ]
           ]
         ]
       },
       "properties": {
         "confidence": 0.6675,
-        "length_m": 8.18,
+        "length_m": 13.43,
         "width_m": 2.96,
         "heading_deg": 140.1,
         "aoi": "kylasaari",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
-        "status": "candidate",
-        "class": ""
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Polygon",
-        "coordinates": [
-          [
-            [
-              25498346.9,
-              6676202.914
-            ],
-            [
-              25498349.04,
-              6676204.815
-            ],
-            [
-              25498346.095,
-              6676208.129
-            ],
-            [
-              25498343.956,
-              6676206.229
-            ],
-            [
-              25498346.9,
-              6676202.914
-            ]
-          ]
-        ]
-      },
-      "properties": {
-        "confidence": 0.5769,
-        "length_m": 4.43,
-        "width_m": 2.86,
-        "heading_deg": 138.4,
-        "aoi": "kylasaari",
-        "source_layer": "Ortoilmakuva_2025_5cm",
-        "zoom": 16,
-        "status": "candidate",
-        "class": ""
+        "status": "confirmed",
+        "class": "truck"
       }
     },
     {
@@ -700,8 +659,8 @@
         "aoi": "kylasaari",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
-        "status": "candidate",
-        "class": ""
+        "status": "confirmed",
+        "class": "van"
       }
     },
     {
@@ -741,8 +700,8 @@
         "aoi": "kylasaari",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
-        "status": "candidate",
-        "class": ""
+        "status": "confirmed",
+        "class": "truck"
       }
     },
     {
@@ -782,8 +741,8 @@
         "aoi": "kylasaari",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
-        "status": "candidate",
-        "class": ""
+        "status": "confirmed",
+        "class": "van"
       }
     },
     {
@@ -823,8 +782,8 @@
         "aoi": "kylasaari",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
-        "status": "candidate",
-        "class": ""
+        "status": "confirmed",
+        "class": "van"
       }
     },
     {
@@ -864,8 +823,8 @@
         "aoi": "kylasaari",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
-        "status": "candidate",
-        "class": ""
+        "status": "confirmed",
+        "class": "van"
       }
     },
     {
@@ -905,8 +864,8 @@
         "aoi": "kylasaari",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
-        "status": "candidate",
-        "class": ""
+        "status": "confirmed",
+        "class": "van"
       }
     },
     {
@@ -942,12 +901,12 @@
         "confidence": 0.3356,
         "length_m": 16.94,
         "width_m": 2.73,
-        "heading_deg": 135.5,
+        "heading_deg": 135.4,
         "aoi": "kylasaari",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
-        "status": "candidate",
-        "class": ""
+        "status": "confirmed",
+        "class": "truck"
       }
     },
     {
@@ -987,8 +946,49 @@
         "aoi": "kylasaari",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
-        "status": "candidate",
-        "class": ""
+        "status": "confirmed",
+        "class": "van"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25498352.716,
+              6676208.429
+            ],
+            [
+              25498344.609,
+              6676216.94
+            ],
+            [
+              25498346.275,
+              6676218.526
+            ],
+            [
+              25498354.381,
+              6676210.015
+            ],
+            [
+              25498352.716,
+              6676208.429
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "class": "truck",
+        "status": "added",
+        "confidence": null,
+        "aoi": "kylasaari",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "length_m": 11.75,
+        "width_m": 2.3,
+        "heading_deg": 136.4
       }
     }
   ]

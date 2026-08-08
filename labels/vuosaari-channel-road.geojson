@@ -44,8 +44,8 @@
         "aoi": "vuosaari-channel-road",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
-        "status": "candidate",
-        "class": ""
+        "status": "confirmed",
+        "class": "truck"
       }
     },
     {
@@ -85,8 +85,8 @@
         "aoi": "vuosaari-channel-road",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
-        "status": "candidate",
-        "class": ""
+        "status": "confirmed",
+        "class": "truck"
       }
     },
     {
@@ -126,8 +126,8 @@
         "aoi": "vuosaari-channel-road",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
-        "status": "candidate",
-        "class": ""
+        "status": "confirmed",
+        "class": "truck"
       }
     },
     {
@@ -167,8 +167,8 @@
         "aoi": "vuosaari-channel-road",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
-        "status": "candidate",
-        "class": ""
+        "status": "confirmed",
+        "class": "truck"
       }
     },
     {
@@ -208,8 +208,8 @@
         "aoi": "vuosaari-channel-road",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
-        "status": "candidate",
-        "class": ""
+        "status": "confirmed",
+        "class": "truck"
       }
     },
     {
@@ -249,8 +249,8 @@
         "aoi": "vuosaari-channel-road",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
-        "status": "candidate",
-        "class": ""
+        "status": "confirmed",
+        "class": "truck"
       }
     },
     {
@@ -290,8 +290,8 @@
         "aoi": "vuosaari-channel-road",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
-        "status": "candidate",
-        "class": ""
+        "status": "confirmed",
+        "class": "truck"
       }
     },
     {
@@ -331,8 +331,8 @@
         "aoi": "vuosaari-channel-road",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
-        "status": "candidate",
-        "class": ""
+        "status": "confirmed",
+        "class": "truck"
       }
     },
     {
@@ -367,13 +367,13 @@
       "properties": {
         "confidence": 0.8512,
         "length_m": 17.13,
-        "width_m": 3.22,
+        "width_m": 3.23,
         "heading_deg": 156.8,
         "aoi": "vuosaari-channel-road",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
-        "status": "candidate",
-        "class": ""
+        "status": "confirmed",
+        "class": "truck"
       }
     },
     {
@@ -413,8 +413,8 @@
         "aoi": "vuosaari-channel-road",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
-        "status": "candidate",
-        "class": ""
+        "status": "confirmed",
+        "class": "truck"
       }
     },
     {
@@ -454,8 +454,8 @@
         "aoi": "vuosaari-channel-road",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
-        "status": "candidate",
-        "class": ""
+        "status": "confirmed",
+        "class": "truck"
       }
     },
     {
@@ -495,8 +495,8 @@
         "aoi": "vuosaari-channel-road",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
-        "status": "candidate",
-        "class": ""
+        "status": "confirmed",
+        "class": "truck"
       }
     },
     {
@@ -536,8 +536,8 @@
         "aoi": "vuosaari-channel-road",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
-        "status": "candidate",
-        "class": ""
+        "status": "confirmed",
+        "class": "truck"
       }
     },
     {
@@ -577,8 +577,8 @@
         "aoi": "vuosaari-channel-road",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
-        "status": "candidate",
-        "class": ""
+        "status": "confirmed",
+        "class": "truck"
       }
     },
     {
@@ -618,8 +618,8 @@
         "aoi": "vuosaari-channel-road",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
-        "status": "candidate",
-        "class": ""
+        "status": "confirmed",
+        "class": "truck"
       }
     },
     {
@@ -629,38 +629,38 @@
         "coordinates": [
           [
             [
-              25510675.971,
-              6677320.884
+              25510673.773,
+              6677332.556
             ],
             [
-              25510678.456,
-              6677321.943
+              25510679.391,
+              6677319.386
             ],
             [
-              25510674.015,
-              6677332.354
+              25510676.906,
+              6677318.326
             ],
             [
-              25510671.531,
-              6677331.294
+              25510671.289,
+              6677331.496
             ],
             [
-              25510675.971,
-              6677320.884
+              25510673.773,
+              6677332.556
             ]
           ]
         ]
       },
       "properties": {
         "confidence": 0.8427,
-        "length_m": 11.32,
+        "length_m": 14.32,
         "width_m": 2.7,
         "heading_deg": 156.9,
         "aoi": "vuosaari-channel-road",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
-        "status": "candidate",
-        "class": ""
+        "status": "confirmed",
+        "class": "truck"
       }
     },
     {
@@ -700,8 +700,8 @@
         "aoi": "vuosaari-channel-road",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
-        "status": "candidate",
-        "class": ""
+        "status": "confirmed",
+        "class": "truck"
       }
     },
     {
@@ -741,8 +741,8 @@
         "aoi": "vuosaari-channel-road",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
-        "status": "candidate",
-        "class": ""
+        "status": "confirmed",
+        "class": "truck"
       }
     },
     {
@@ -782,8 +782,8 @@
         "aoi": "vuosaari-channel-road",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
-        "status": "candidate",
-        "class": ""
+        "status": "confirmed",
+        "class": "truck"
       }
     },
     {
@@ -823,8 +823,8 @@
         "aoi": "vuosaari-channel-road",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
-        "status": "candidate",
-        "class": ""
+        "status": "confirmed",
+        "class": "truck"
       }
     },
     {
@@ -858,14 +858,14 @@
       },
       "properties": {
         "confidence": 0.8398,
-        "length_m": 17.33,
+        "length_m": 17.34,
         "width_m": 3.33,
         "heading_deg": 65.9,
         "aoi": "vuosaari-channel-road",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
-        "status": "candidate",
-        "class": ""
+        "status": "confirmed",
+        "class": "truck"
       }
     },
     {
@@ -875,38 +875,38 @@
         "coordinates": [
           [
             [
-              25510679.813,
-              6677320.756
+              25510677.394,
+              6677333.427
             ],
             [
-              25510682.595,
-              6677321.964
+              25510683.931,
+              6677318.373
             ],
             [
-              25510677.551,
-              6677333.578
+              25510681.149,
+              6677317.165
             ],
             [
-              25510674.77,
-              6677332.37
+              25510674.612,
+              6677332.219
             ],
             [
-              25510679.813,
-              6677320.756
+              25510677.394,
+              6677333.427
             ]
           ]
         ]
       },
       "properties": {
         "confidence": 0.8384,
-        "length_m": 12.66,
+        "length_m": 16.41,
         "width_m": 3.03,
         "heading_deg": 156.5,
         "aoi": "vuosaari-channel-road",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
-        "status": "candidate",
-        "class": ""
+        "status": "confirmed",
+        "class": "truck"
       }
     },
     {
@@ -946,8 +946,8 @@
         "aoi": "vuosaari-channel-road",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
-        "status": "candidate",
-        "class": ""
+        "status": "confirmed",
+        "class": "truck"
       }
     },
     {
@@ -987,8 +987,8 @@
         "aoi": "vuosaari-channel-road",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
-        "status": "candidate",
-        "class": ""
+        "status": "confirmed",
+        "class": "truck"
       }
     },
     {
@@ -1028,8 +1028,8 @@
         "aoi": "vuosaari-channel-road",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
-        "status": "candidate",
-        "class": ""
+        "status": "confirmed",
+        "class": "truck"
       }
     },
     {
@@ -1069,8 +1069,8 @@
         "aoi": "vuosaari-channel-road",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
-        "status": "candidate",
-        "class": ""
+        "status": "confirmed",
+        "class": "truck"
       }
     },
     {
@@ -1110,8 +1110,8 @@
         "aoi": "vuosaari-channel-road",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
-        "status": "candidate",
-        "class": ""
+        "status": "confirmed",
+        "class": "truck"
       }
     },
     {
@@ -1151,8 +1151,8 @@
         "aoi": "vuosaari-channel-road",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
-        "status": "candidate",
-        "class": ""
+        "status": "confirmed",
+        "class": "truck"
       }
     },
     {
@@ -1192,8 +1192,8 @@
         "aoi": "vuosaari-channel-road",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
-        "status": "candidate",
-        "class": ""
+        "status": "confirmed",
+        "class": "truck"
       }
     },
     {
@@ -1233,8 +1233,8 @@
         "aoi": "vuosaari-channel-road",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
-        "status": "candidate",
-        "class": ""
+        "status": "confirmed",
+        "class": "truck"
       }
     },
     {
@@ -1268,14 +1268,14 @@
       },
       "properties": {
         "confidence": 0.827,
-        "length_m": 12.6,
+        "length_m": 12.61,
         "width_m": 3.57,
         "heading_deg": 29.8,
         "aoi": "vuosaari-channel-road",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
-        "status": "candidate",
-        "class": ""
+        "status": "confirmed",
+        "class": "truck"
       }
     },
     {
@@ -1315,8 +1315,8 @@
         "aoi": "vuosaari-channel-road",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
-        "status": "candidate",
-        "class": ""
+        "status": "confirmed",
+        "class": "truck"
       }
     },
     {
@@ -1356,8 +1356,8 @@
         "aoi": "vuosaari-channel-road",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
-        "status": "candidate",
-        "class": ""
+        "status": "confirmed",
+        "class": "truck"
       }
     },
     {
@@ -1397,8 +1397,8 @@
         "aoi": "vuosaari-channel-road",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
-        "status": "candidate",
-        "class": ""
+        "status": "confirmed",
+        "class": "truck"
       }
     },
     {
@@ -1438,8 +1438,8 @@
         "aoi": "vuosaari-channel-road",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
-        "status": "candidate",
-        "class": ""
+        "status": "confirmed",
+        "class": "truck"
       }
     },
     {
@@ -1475,12 +1475,12 @@
         "confidence": 0.8099,
         "length_m": 12.08,
         "width_m": 3.43,
-        "heading_deg": 29.6,
+        "heading_deg": 29.5,
         "aoi": "vuosaari-channel-road",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
-        "status": "candidate",
-        "class": ""
+        "status": "confirmed",
+        "class": "truck"
       }
     },
     {
@@ -1520,49 +1520,8 @@
         "aoi": "vuosaari-channel-road",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
-        "status": "candidate",
-        "class": ""
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Polygon",
-        "coordinates": [
-          [
-            [
-              25510655.454,
-              6677378.266
-            ],
-            [
-              25510657.978,
-              6677379.274
-            ],
-            [
-              25510655.914,
-              6677384.441
-            ],
-            [
-              25510653.39,
-              6677383.433
-            ],
-            [
-              25510655.454,
-              6677378.266
-            ]
-          ]
-        ]
-      },
-      "properties": {
-        "confidence": 0.8028,
-        "length_m": 5.56,
-        "width_m": 2.72,
-        "heading_deg": 158.2,
-        "aoi": "vuosaari-channel-road",
-        "source_layer": "Ortoilmakuva_2025_5cm",
-        "zoom": 16,
-        "status": "candidate",
-        "class": ""
+        "status": "confirmed",
+        "class": "truck"
       }
     },
     {
@@ -1602,8 +1561,8 @@
         "aoi": "vuosaari-channel-road",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
-        "status": "candidate",
-        "class": ""
+        "status": "confirmed",
+        "class": "truck"
       }
     },
     {
@@ -1643,49 +1602,8 @@
         "aoi": "vuosaari-channel-road",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
-        "status": "candidate",
-        "class": ""
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Polygon",
-        "coordinates": [
-          [
-            [
-              25510652.027,
-              6677378.005
-            ],
-            [
-              25510654.68,
-              6677379.088
-            ],
-            [
-              25510652.432,
-              6677384.596
-            ],
-            [
-              25510649.778,
-              6677383.513
-            ],
-            [
-              25510652.027,
-              6677378.005
-            ]
-          ]
-        ]
-      },
-      "properties": {
-        "confidence": 0.7701,
-        "length_m": 5.95,
-        "width_m": 2.87,
-        "heading_deg": 157.8,
-        "aoi": "vuosaari-channel-road",
-        "source_layer": "Ortoilmakuva_2025_5cm",
-        "zoom": 16,
-        "status": "candidate",
-        "class": ""
+        "status": "confirmed",
+        "class": "truck"
       }
     },
     {
@@ -1725,8 +1643,8 @@
         "aoi": "vuosaari-channel-road",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
-        "status": "candidate",
-        "class": ""
+        "status": "confirmed",
+        "class": "truck"
       }
     },
     {
@@ -1736,38 +1654,38 @@
         "coordinates": [
           [
             [
-              25510632.033,
-              6677374.752
+              25510628.716,
+              6677390.264
             ],
             [
-              25510634.791,
-              6677375.915
+              25510634.801,
+              6677375.831
             ],
             [
-              25510631.328,
-              6677384.128
+              25510632.043,
+              6677374.668
             ],
             [
-              25510628.57,
-              6677382.966
+              25510625.958,
+              6677389.101
             ],
             [
-              25510632.033,
-              6677374.752
+              25510628.716,
+              6677390.264
             ]
           ]
         ]
       },
       "properties": {
         "confidence": 0.7399,
-        "length_m": 8.91,
+        "length_m": 15.66,
         "width_m": 2.99,
         "heading_deg": 157.1,
         "aoi": "vuosaari-channel-road",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
-        "status": "candidate",
-        "class": ""
+        "status": "confirmed",
+        "class": "truck"
       }
     },
     {
@@ -1807,131 +1725,8 @@
         "aoi": "vuosaari-channel-road",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
-        "status": "candidate",
-        "class": ""
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Polygon",
-        "coordinates": [
-          [
-            [
-              25510672.294,
-              6677320.658
-            ],
-            [
-              25510674.94,
-              6677321.872
-            ],
-            [
-              25510672.398,
-              6677327.413
-            ],
-            [
-              25510669.751,
-              6677326.199
-            ],
-            [
-              25510672.294,
-              6677320.658
-            ]
-          ]
-        ]
-      },
-      "properties": {
-        "confidence": 0.7326,
-        "length_m": 6.1,
-        "width_m": 2.91,
-        "heading_deg": 155.4,
-        "aoi": "vuosaari-channel-road",
-        "source_layer": "Ortoilmakuva_2025_5cm",
-        "zoom": 16,
-        "status": "candidate",
-        "class": ""
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Polygon",
-        "coordinates": [
-          [
-            [
-              25510667.306,
-              6677320.612
-            ],
-            [
-              25510670.08,
-              6677322.159
-            ],
-            [
-              25510667.925,
-              6677326.022
-            ],
-            [
-              25510665.151,
-              6677324.475
-            ],
-            [
-              25510667.306,
-              6677320.612
-            ]
-          ]
-        ]
-      },
-      "properties": {
-        "confidence": 0.5998,
-        "length_m": 4.42,
-        "width_m": 3.18,
-        "heading_deg": 150.8,
-        "aoi": "vuosaari-channel-road",
-        "source_layer": "Ortoilmakuva_2025_5cm",
-        "zoom": 16,
-        "status": "candidate",
-        "class": ""
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Polygon",
-        "coordinates": [
-          [
-            [
-              25510640.225,
-              6677412.522
-            ],
-            [
-              25510640.286,
-              6677417.809
-            ],
-            [
-              25510638.229,
-              6677417.832
-            ],
-            [
-              25510638.168,
-              6677412.546
-            ],
-            [
-              25510640.225,
-              6677412.522
-            ]
-          ]
-        ]
-      },
-      "properties": {
-        "confidence": 0.5307,
-        "length_m": 5.29,
-        "width_m": 2.06,
-        "heading_deg": 0.7,
-        "aoi": "vuosaari-channel-road",
-        "source_layer": "Ortoilmakuva_2025_5cm",
-        "zoom": 16,
-        "status": "candidate",
-        "class": ""
+        "status": "confirmed",
+        "class": "truck"
       }
     },
     {
@@ -1971,8 +1766,8 @@
         "aoi": "vuosaari-channel-road",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
-        "status": "candidate",
-        "class": ""
+        "status": "confirmed",
+        "class": "truck"
       }
     },
     {
@@ -1982,38 +1777,38 @@
         "coordinates": [
           [
             [
-              25510623.506,
-              6677443.558
+              25510616.995,
+              6677403.013
             ],
             [
-              25510626.479,
-              6677445.711
+              25510609.642,
+              6677419.957
             ],
             [
-              25510622.403,
-              6677451.338
+              25510611.752,
+              6677420.872
             ],
             [
-              25510619.43,
-              6677449.185
+              25510619.105,
+              6677403.928
             ],
             [
-              25510623.506,
-              6677443.558
+              25510616.995,
+              6677403.013
             ]
           ]
         ]
       },
       "properties": {
-        "confidence": 0.3538,
-        "length_m": 6.95,
-        "width_m": 3.67,
-        "heading_deg": 144.1,
+        "class": "truck",
+        "status": "added",
+        "confidence": null,
         "aoi": "vuosaari-channel-road",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
-        "status": "candidate",
-        "class": ""
+        "length_m": 18.47,
+        "width_m": 2.3,
+        "heading_deg": 156.5
       }
     }
   ]
