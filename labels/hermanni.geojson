@@ -621,6 +621,88 @@
         "width_m": 2.8,
         "heading_deg": 60.6
       }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25498732.2,
+              6675949.716
+            ],
+            [
+              25498728.415,
+              6675952.681
+            ],
+            [
+              25498729.771,
+              6675954.413
+            ],
+            [
+              25498733.556,
+              6675951.448
+            ],
+            [
+              25498732.2,
+              6675949.716
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "class": "van",
+        "status": "added",
+        "confidence": null,
+        "aoi": "hermanni",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "length_m": 4.81,
+        "width_m": 2.2,
+        "heading_deg": 128.1
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25498740.25,
+              6675743.909
+            ],
+            [
+              25498733.896,
+              6675751.434
+            ],
+            [
+              25498736.341,
+              6675753.498
+            ],
+            [
+              25498742.695,
+              6675745.973
+            ],
+            [
+              25498740.25,
+              6675743.909
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "class": "truck",
+        "status": "added",
+        "confidence": null,
+        "aoi": "hermanni",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "length_m": 9.85,
+        "width_m": 3.2,
+        "heading_deg": 139.8
+      }
     }
   ]
 }

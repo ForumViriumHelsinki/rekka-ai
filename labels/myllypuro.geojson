@@ -580,6 +580,47 @@
         "status": "confirmed",
         "class": "van"
       }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25503059.86,
+              6679747.386
+            ],
+            [
+              25503056.279,
+              6679739.079
+            ],
+            [
+              25503053.616,
+              6679740.227
+            ],
+            [
+              25503057.197,
+              6679748.534
+            ],
+            [
+              25503059.86,
+              6679747.386
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "class": "truck",
+        "status": "added",
+        "confidence": null,
+        "aoi": "myllypuro",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "length_m": 9.05,
+        "width_m": 2.9,
+        "heading_deg": 23.3
+      }
     }
   ]
 }

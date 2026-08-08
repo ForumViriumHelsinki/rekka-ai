@@ -1441,6 +1441,211 @@
         "status": "confirmed",
         "class": "van"
       }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25502731.122,
+              6681468.444
+            ],
+            [
+              25502735.58,
+              6681471.578
+            ],
+            [
+              25502736.731,
+              6681469.942
+            ],
+            [
+              25502732.272,
+              6681466.808
+            ],
+            [
+              25502731.122,
+              6681468.444
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "class": "van",
+        "status": "added",
+        "confidence": null,
+        "aoi": "tattariharjuntie",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "length_m": 5.45,
+        "width_m": 2,
+        "heading_deg": 54.9
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25502833.964,
+              6681398
+            ],
+            [
+              25502830.199,
+              6681392.813
+            ],
+            [
+              25502827.69,
+              6681394.634
+            ],
+            [
+              25502831.455,
+              6681399.821
+            ],
+            [
+              25502833.964,
+              6681398
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "class": "truck",
+        "status": "added",
+        "confidence": null,
+        "aoi": "tattariharjuntie",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "length_m": 6.41,
+        "width_m": 3.1,
+        "heading_deg": 36
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25502828.35,
+              6681401.917
+            ],
+            [
+              25502824.721,
+              6681397.457
+            ],
+            [
+              25502823.17,
+              6681398.719
+            ],
+            [
+              25502826.799,
+              6681403.179
+            ],
+            [
+              25502828.35,
+              6681401.917
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "class": "van",
+        "status": "added",
+        "confidence": null,
+        "aoi": "tattariharjuntie",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "length_m": 5.75,
+        "width_m": 2,
+        "heading_deg": 39.1
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25502805.745,
+              6681380.726
+            ],
+            [
+              25502809.39,
+              6681385.208
+            ],
+            [
+              25502810.941,
+              6681383.946
+            ],
+            [
+              25502807.297,
+              6681379.464
+            ],
+            [
+              25502805.745,
+              6681380.726
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "class": "van",
+        "status": "added",
+        "confidence": null,
+        "aoi": "tattariharjuntie",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "length_m": 5.78,
+        "width_m": 2,
+        "heading_deg": 39.1
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25502812.43,
+              6681383.853
+            ],
+            [
+              25502816.101,
+              6681388.047
+            ],
+            [
+              25502817.606,
+              6681386.73
+            ],
+            [
+              25502813.935,
+              6681382.536
+            ],
+            [
+              25502812.43,
+              6681383.853
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "class": "van",
+        "status": "added",
+        "confidence": null,
+        "aoi": "tattariharjuntie",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "length_m": 5.57,
+        "width_m": 2,
+        "heading_deg": 41.2
+      }
     }
   ]
 }

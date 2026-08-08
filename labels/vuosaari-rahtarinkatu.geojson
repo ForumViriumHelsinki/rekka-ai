@@ -2996,8 +2996,8 @@
         "aoi": "vuosaari-rahtarinkatu",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
-        "status": "confirmed",
-        "class": "truck"
+        "status": "rejected",
+        "class": ""
       }
     },
     {
@@ -3160,8 +3160,8 @@
         "aoi": "vuosaari-rahtarinkatu",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
-        "status": "confirmed",
-        "class": "truck"
+        "status": "rejected",
+        "class": ""
       }
     },
     {
@@ -3317,8 +3317,8 @@
         ]
       },
       "properties": {
-        "class": "truck",
-        "status": "added",
+        "class": "",
+        "status": "rejected",
         "confidence": null,
         "aoi": "vuosaari-rahtarinkatu",
         "source_layer": "Ortoilmakuva_2025_5cm",
@@ -3358,8 +3358,8 @@
         ]
       },
       "properties": {
-        "class": "truck",
-        "status": "added",
+        "class": "",
+        "status": "rejected",
         "confidence": null,
         "aoi": "vuosaari-rahtarinkatu",
         "source_layer": "Ortoilmakuva_2025_5cm",

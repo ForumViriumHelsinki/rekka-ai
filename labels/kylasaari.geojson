@@ -1072,6 +1072,129 @@
         "width_m": 2.8,
         "heading_deg": 155
       }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25498531.581,
+              6676168.24
+            ],
+            [
+              25498535.237,
+              6676163.8
+            ],
+            [
+              25498533.384,
+              6676162.274
+            ],
+            [
+              25498529.728,
+              6676166.714
+            ],
+            [
+              25498531.581,
+              6676168.24
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "class": "van",
+        "status": "added",
+        "confidence": null,
+        "aoi": "kylasaari",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "length_m": 5.75,
+        "width_m": 2.4,
+        "heading_deg": 140.5
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25498492.765,
+              6676259.947
+            ],
+            [
+              25498489.19,
+              6676253.444
+            ],
+            [
+              25498487.35,
+              6676254.455
+            ],
+            [
+              25498490.925,
+              6676260.958
+            ],
+            [
+              25498492.765,
+              6676259.947
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "class": "van",
+        "status": "added",
+        "confidence": null,
+        "aoi": "kylasaari",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "length_m": 7.42,
+        "width_m": 2.1,
+        "heading_deg": 28.8
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25498479.193,
+              6676295.358
+            ],
+            [
+              25498473.839,
+              6676293.922
+            ],
+            [
+              25498473.295,
+              6676295.95
+            ],
+            [
+              25498478.649,
+              6676297.386
+            ],
+            [
+              25498479.193,
+              6676295.358
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "class": "van",
+        "status": "added",
+        "confidence": null,
+        "aoi": "kylasaari",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "length_m": 5.54,
+        "width_m": 2.1,
+        "heading_deg": 75
+      }
     }
   ]
 }
