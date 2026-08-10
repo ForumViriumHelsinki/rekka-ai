@@ -44,6 +44,11 @@ Two parts, two licenses:
   `imagery/aoi.py`, `track.py`, `train.py`). If you add lazy imports of
   optional deps, extend that list — do not make the imports eager.
 - Dev tools (uv dependency group `dev`): pytest, pytest-cov, ruff, ty.
+- **MLflow.** Local tracking store is `runs/mlflow.db` (`track.py` is the
+  single place that configures it; `MLFLOW_TRACKING_URI` overrides). Agents
+  should use the **mlflow MCP server** to inspect it — list/search
+  experiments and runs, compare runs, read metrics/params — rather than
+  querying the sqlite file directly or shelling out to the `mlflow` CLI.
 
 ```
 src/rekka_ai/

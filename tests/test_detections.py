@@ -168,7 +168,7 @@ def test_bootstrap_georeferences_into_the_aoi(
     tmp_path: Path, monkeypatch: pytest.MonkeyPatch
 ) -> None:
     """A detection at window pixel (x, y) must land at that spot on the ground."""
-    area = load_aois("aois/helsinki.yaml", name="tattariharjuntie")[0]
+    area = load_aois("aois/helsinki.yaml", name="r1-tattariharjuntie")[0]
 
     # 64 px box at the window origin; no imagery needed, so stub the stitching.
     monkeypatch.setattr("rekka_ai.detect.sweep.load_window", lambda *a, **k: object())
@@ -197,7 +197,7 @@ def test_bootstrap_georeferences_into_the_aoi(
         assert (
             area.bounds.min_northing - 300 < northing < area.bounds.max_northing + 300
         )
-        assert detection.aoi == "tattariharjuntie"
+        assert detection.aoi == "r1-tattariharjuntie"
         # 64 px at z15 is 16 m.
         assert detection.length_m == pytest.approx(16.0, abs=0.01)
 

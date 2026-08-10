@@ -77,11 +77,16 @@ class Cell:
     bbox: tuple[float, float, float, float]  # min_x, min_y, max_x, max_y
     industrial_coverage: float
     municipality_ref: str
+    #: Labelling round this cell was proposed in, e.g. ``"r2"``. Prefixed onto
+    #: ``name`` so a round's AOIs and label files sort and group together —
+    #: empty for callers that don't track rounds.
+    round_label: str = ""
 
     @property
     def name(self) -> str:
         """Stable name from municipality code and grid indices, not rank."""
-        return f"mine-{self.municipality_ref}-{self.col}-{self.row}"
+        stem = f"mine-{self.municipality_ref}-{self.col}-{self.row}"
+        return f"{self.round_label}-{stem}" if self.round_label else stem
 
     @property
     def centre(self) -> tuple[float, float]:
@@ -163,6 +168,7 @@ def cells_covering(
     municipality_ref: str,
     cell_size_m: float = CELL_SIZE_M,
     min_coverage: float = MIN_INDUSTRIAL_COVERAGE,
+    round_label: str = "",
 ) -> list[Cell]:
     """Axis-aligned cells that cover enough industrial landuse.
 
@@ -196,6 +202,7 @@ def cells_covering(
                     bbox=(x0, y0, x0 + cell_size_m, y0 + cell_size_m),
                     industrial_coverage=coverage,
                     municipality_ref=municipality_ref,
+                    round_label=round_label,
                 )
             )
     return found

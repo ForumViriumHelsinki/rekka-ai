@@ -1,32 +1,31 @@
 crs: "EPSG:3067"
 
 aois:
-
   # ---------------------------------------------------------------------------
   #  validation — held out from training, never labelled into the train set
   # ---------------------------------------------------------------------------
-  - name: kamppi
+  - name: r1-kamppi
     bbox: [385722, 6672138, 386022, 6672438]
     role: positive
     split: validation
     notes: >-
       Next to main railway station — original ground-truth area. Held out as the bus
-      validation site, paired with the ruskeasuo depot in train; the two are
+      validation site, paired with the r1-ruskeasuo depot in train; the two are
       4.3 km apart, so neither leaks into the other.
 
-  - name: pohjois-haaga
+  - name: r1-pohjois-haaga
     bbox: [382988, 6679083, 383288, 6679383]
     role: positive
     split: validation
     notes: Bus corridor.
 
-  - name: kaivoksela
+  - name: r1-kaivoksela
     bbox: [382393, 6682731, 382693, 6683031]
     role: positive
     split: validation
     notes: Field spot — lots of different trucks (reported at EPSG:3879 25493186.9, 6683670.7).
 
-  - name: jatkasaari
+  - name: r1-jatkasaari
     bbox: [384523, 6671066, 384823, 6671366]
     role: positive
     split: validation
@@ -36,52 +35,57 @@ aois:
       validation set with a harbour/industrial character (reported at
       EPSG:3879 25495669.19, 6672072.87).
 
-  - name: rastila
+  - name: r1-rastila
     bbox: [395805, 6675894, 396105, 6676194]
-    role: hard-negative
-    split: validation
+    role: positive
+    split: train
     notes: >-
       Rastila camping — rows of RVs and motorhomes, the annotation guide's
       hardest confuser (van-fronted motorhomes are neither labelled nor
-      trucks). The first negative-role area in validation: eval's regression
-      check finally has something to measure. Will NOT be silent — the
-      detections here quantify RV confusion (reported at EPSG:3879
-      25506803.34, 6677241.87).
+      trucks). Moved from validation to train so the model can actually
+      learn from its ~60+ RV instances directly, rather than only having
+      it measured from a distance via the negative-area eval sweep. Costs
+      the project its one honest held-out RV-confusion measurement — a
+      deliberate tradeoff, made with that understood. Reviewed: 1 truck
+      and 7 vans confirmed real, 75 RVs/caravans rejected (including some
+      hand-drawn to cover detector misses). Role is `positive` rather than
+      `hard-negative` because real targets turned up — an RV site that's
+      also, incidentally, got actual vans parked in it.
 
   # ---------------------------------------------------------------------------
   #  round one aois
   # ---------------------------------------------------------------------------
-  - name: tattariharju
+  - name: r1-tattariharju
     bbox: [392400, 6680436, 392700, 6680736]
     role: positive
     notes: Logistics district — box-trucks with visible cab; clean.
 
-  - name: tattariharjuntie
+  - name: r1-tattariharjuntie
     bbox: [391857, 6680141, 392157, 6680441]
     role: positive
     notes: Transport yard, rows of parked trucks.
 
-  - name: kivikko
+  - name: r1-kivikko
     bbox: [392573, 6680187, 392873, 6680487]
     role: positive
     notes: Logistics + some buses.
 
-  - name: malmi-airport
+  - name: r1-malmi-airport
     bbox: [392196, 6680521, 392496, 6680821]
     role: positive
     notes: Truck parking adjacent to the logistics halls.
 
-  - name: myllypuro
+  - name: r1-myllypuro
     bbox: [392010, 6678590, 392310, 6678890]
     role: positive
     notes: Roadside/street-parked trucks near the district.
 
-  - name: valimo
+  - name: r1-valimo
     bbox: [381932, 6678232, 382232, 6678532]
     role: positive
     notes: Trucks, mostly 10-11.5 m straight trucks, plus a few vans. No buses.
 
-  - name: ruskeasuo
+  - name: r1-ruskeasuo
     bbox: [383654, 6676082, 384054, 6676482]
     role: positive
     notes: >-
@@ -90,44 +94,44 @@ aois:
       instances project-wide before this area. Buses are the target here,
       trucks and vans are labelled as usual.
 
-  - name: patola
+  - name: r1-patola
     bbox: [387983, 6679367, 388283, 6679667]
     role: positive
     notes: >-
       Isolated white cab-trucks — but in practice mostly vans/pickups and an
       uncertain read, so kept in train rather than held out as validation.
 
-  - name: puotinharju
+  - name: r1-puotinharju
     bbox: [393292, 6676591, 393592, 6676891]
     role: sparse
     notes: Mostly buildings + car parking; few outdoor trucks.
 
-  - name: hermanni
+  - name: r1-hermanni
     bbox: [387647, 6674708, 387947, 6675008]
     role: positive
     notes: Platforms/swap bodies (lavoja) — keep only units with a visible cab; bare platforms are negatives.
 
-  - name: kylasaari
+  - name: r1-kylasaari
     bbox: [387379, 6675108, 387679, 6675408]
     role: positive
     notes: Straight trucks (kuorma-autoja).
 
-  - name: siltamaki
+  - name: r1-siltamaki
     bbox: [390113, 6684169, 390413, 6684469]
     role: positive
     notes: Trucks + a tractor. The long vans here are vans, not trucks — label them `van`, do not skip them.
 
-  - name: vuosaari-channel-road
+  - name: r1-vuosaari-channel-road
     bbox: [399616, 6675947, 399916, 6676230]
     role: positive
     notes: Semi-trailer rigs (confirmed keep) + more semis, possibly timber loads.
 
-  - name: vuosaari-rahtarinkatu
+  - name: r1-vuosaari-rahtarinkatu
     bbox: [398470, 6677656, 398870, 6677956]
     role: positive
     notes: Mixed yard — keep concrete mixers and confirmed trucks; bare trailers with no tractor unit are negatives; a lone tractor unit (bobtail) may fall under the 6 m length gate; van-fronted lookalikes (motorhome category) are hardest — avoid.
 
-  - name: marjaniemi
+  - name: r1-marjaniemi
     bbox: [392628, 6674754, 392928, 6675054]
     role: hard-negative
     notes: >-

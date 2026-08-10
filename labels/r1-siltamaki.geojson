@@ -41,7 +41,7 @@
         "length_m": 6.15,
         "width_m": 2.44,
         "heading_deg": 28.3,
-        "aoi": "siltamaki",
+        "aoi": "r1-siltamaki",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
         "status": "confirmed",
@@ -82,7 +82,7 @@
         "length_m": 7.48,
         "width_m": 2.64,
         "heading_deg": 27.3,
-        "aoi": "siltamaki",
+        "aoi": "r1-siltamaki",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
         "status": "confirmed",
@@ -123,7 +123,7 @@
         "length_m": 7.06,
         "width_m": 2.35,
         "heading_deg": 112.9,
-        "aoi": "siltamaki",
+        "aoi": "r1-siltamaki",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
         "status": "confirmed",
@@ -164,7 +164,7 @@
         "length_m": 7.39,
         "width_m": 2.57,
         "heading_deg": 30.2,
-        "aoi": "siltamaki",
+        "aoi": "r1-siltamaki",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
         "status": "confirmed",
@@ -205,7 +205,7 @@
         "length_m": 10.95,
         "width_m": 2.93,
         "heading_deg": 118.9,
-        "aoi": "siltamaki",
+        "aoi": "r1-siltamaki",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
         "status": "confirmed",
@@ -246,7 +246,7 @@
         "length_m": 5.78,
         "width_m": 2.57,
         "heading_deg": 134.3,
-        "aoi": "siltamaki",
+        "aoi": "r1-siltamaki",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
         "status": "confirmed",
@@ -287,7 +287,7 @@
         "length_m": 5.71,
         "width_m": 2.33,
         "heading_deg": 118.8,
-        "aoi": "siltamaki",
+        "aoi": "r1-siltamaki",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
         "status": "confirmed",
@@ -328,7 +328,7 @@
         "length_m": 7.3,
         "width_m": 2.71,
         "heading_deg": 23,
-        "aoi": "siltamaki",
+        "aoi": "r1-siltamaki",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
         "status": "confirmed",
@@ -369,7 +369,7 @@
         "length_m": 5.82,
         "width_m": 2.3,
         "heading_deg": 122,
-        "aoi": "siltamaki",
+        "aoi": "r1-siltamaki",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
         "status": "confirmed",
@@ -410,7 +410,7 @@
         "length_m": 5.81,
         "width_m": 2.56,
         "heading_deg": 140.2,
-        "aoi": "siltamaki",
+        "aoi": "r1-siltamaki",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
         "status": "confirmed",
@@ -451,7 +451,7 @@
         "length_m": 6.96,
         "width_m": 2.31,
         "heading_deg": 117,
-        "aoi": "siltamaki",
+        "aoi": "r1-siltamaki",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
         "status": "confirmed",
@@ -492,7 +492,7 @@
         "length_m": 5.37,
         "width_m": 2.17,
         "heading_deg": 29,
-        "aoi": "siltamaki",
+        "aoi": "r1-siltamaki",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
         "status": "confirmed",
@@ -533,7 +533,7 @@
         "length_m": 5.5,
         "width_m": 2.25,
         "heading_deg": 120.9,
-        "aoi": "siltamaki",
+        "aoi": "r1-siltamaki",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
         "status": "confirmed",
@@ -574,7 +574,7 @@
         "length_m": 5.21,
         "width_m": 2.58,
         "heading_deg": 32,
-        "aoi": "siltamaki",
+        "aoi": "r1-siltamaki",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
         "status": "confirmed",
@@ -615,7 +615,7 @@
         "length_m": 5.12,
         "width_m": 2.45,
         "heading_deg": 26.5,
-        "aoi": "siltamaki",
+        "aoi": "r1-siltamaki",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
         "status": "confirmed",
@@ -656,7 +656,7 @@
         "length_m": 5.76,
         "width_m": 2.44,
         "heading_deg": 149.6,
-        "aoi": "siltamaki",
+        "aoi": "r1-siltamaki",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
         "status": "confirmed",
@@ -696,7 +696,7 @@
         "class": "truck",
         "status": "added",
         "confidence": null,
-        "aoi": "siltamaki",
+        "aoi": "r1-siltamaki",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
         "length_m": 5.39,
@@ -737,7 +737,7 @@
         "class": "van",
         "status": "added",
         "confidence": null,
-        "aoi": "siltamaki",
+        "aoi": "r1-siltamaki",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
         "length_m": 5.85,
@@ -778,7 +778,7 @@
         "class": "truck",
         "status": "added",
         "confidence": null,
-        "aoi": "siltamaki",
+        "aoi": "r1-siltamaki",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
         "length_m": 7.35,
@@ -819,7 +819,7 @@
         "class": "truck",
         "status": "added",
         "confidence": null,
-        "aoi": "siltamaki",
+        "aoi": "r1-siltamaki",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
         "length_m": 6.72,
@@ -860,7 +860,7 @@
         "class": "van",
         "status": "added",
         "confidence": null,
-        "aoi": "siltamaki",
+        "aoi": "r1-siltamaki",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
         "length_m": 5.24,
@@ -901,7 +901,7 @@
         "class": "van",
         "status": "added",
         "confidence": null,
-        "aoi": "siltamaki",
+        "aoi": "r1-siltamaki",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
         "length_m": 5.03,
@@ -942,7 +942,7 @@
         "class": "van",
         "status": "added",
         "confidence": null,
-        "aoi": "siltamaki",
+        "aoi": "r1-siltamaki",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
         "length_m": 5.42,
@@ -983,7 +983,7 @@
         "class": "van",
         "status": "added",
         "confidence": null,
-        "aoi": "siltamaki",
+        "aoi": "r1-siltamaki",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
         "length_m": 5.71,
@@ -1024,7 +1024,7 @@
         "class": "van",
         "status": "added",
         "confidence": null,
-        "aoi": "siltamaki",
+        "aoi": "r1-siltamaki",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
         "length_m": 5.84,
@@ -1065,7 +1065,7 @@
         "class": "van",
         "status": "added",
         "confidence": null,
-        "aoi": "siltamaki",
+        "aoi": "r1-siltamaki",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
         "length_m": 5.61,
@@ -1106,7 +1106,7 @@
         "class": "van",
         "status": "added",
         "confidence": null,
-        "aoi": "siltamaki",
+        "aoi": "r1-siltamaki",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
         "length_m": 5.59,
@@ -1147,7 +1147,7 @@
         "class": "van",
         "status": "added",
         "confidence": null,
-        "aoi": "siltamaki",
+        "aoi": "r1-siltamaki",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
         "length_m": 5.43,
@@ -1188,7 +1188,7 @@
         "class": "van",
         "status": "added",
         "confidence": null,
-        "aoi": "siltamaki",
+        "aoi": "r1-siltamaki",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
         "length_m": 5.01,
@@ -1229,7 +1229,7 @@
         "class": "van",
         "status": "added",
         "confidence": null,
-        "aoi": "siltamaki",
+        "aoi": "r1-siltamaki",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
         "length_m": 5.47,
@@ -1270,12 +1270,94 @@
         "class": "van",
         "status": "added",
         "confidence": null,
-        "aoi": "siltamaki",
+        "aoi": "r1-siltamaki",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
         "length_m": 5.21,
         "width_m": 2.3,
         "heading_deg": 19.2
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25500751.629,
+              6685394.492
+            ],
+            [
+              25500753.717,
+              6685399.265
+            ],
+            [
+              25500755.706,
+              6685398.396
+            ],
+            [
+              25500753.617,
+              6685393.622
+            ],
+            [
+              25500751.629,
+              6685394.492
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "class": "van",
+        "status": "added",
+        "confidence": null,
+        "aoi": "r1-siltamaki",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "length_m": 5.21,
+        "width_m": 2.17,
+        "heading_deg": 23.6
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25500763.723,
+              6685402.188
+            ],
+            [
+              25500765.444,
+              6685407.077
+            ],
+            [
+              25500767.491,
+              6685406.356
+            ],
+            [
+              25500765.77,
+              6685401.468
+            ],
+            [
+              25500763.723,
+              6685402.188
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "class": "van",
+        "status": "added",
+        "confidence": null,
+        "aoi": "r1-siltamaki",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "length_m": 5.18,
+        "width_m": 2.17,
+        "heading_deg": 19.4
       }
     }
   ]

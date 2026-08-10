@@ -73,7 +73,7 @@ app = typer.Typer(help="Truck detection from Helsinki aerial orthophotos.")
 #: z16 is 12.5 cm/px, where a semi-trailer is ~132 px. See docs/DESIGN.md.
 DEFAULT_ZOOM = 16
 #: Also z16. Matching DOTA's pretrain GSD at z15 was the obvious guess and it
-#: is wrong: measured on the `tattariharjuntie` area, z15 finds 7 candidates and z16 finds
+#: is wrong: measured on the `r1-tattariharjuntie` area, z15 finds 7 candidates and z16 finds
 #: 22 above the length gate. See docs/DESIGN.md section 4.
 BOOTSTRAP_ZOOM = 16
 DEFAULT_CACHE = Path("data/cache")
@@ -332,6 +332,14 @@ def mine(
     out: Annotated[
         Path, typer.Option(help="Proposal YAML to write (sibling .geojson report too).")
     ] = Path("data/mining/round2.yaml"),
+    round_: Annotated[
+        int | None,
+        typer.Option(
+            "--round",
+            help="Labelling round number; prefixes proposed names 'rN-mine-...' "
+            "so a round's AOIs and label files sort and group together.",
+        ),
+    ] = None,
     existing: Annotated[
         Path,
         typer.Option(help="Current AOI collection to exclude (overlap + buffer)."),
@@ -436,7 +444,11 @@ def mine(
         )
 
     eligible = exclude_existing(
-        cells_covering(industrial, municipality_ref=osm.ref),
+        cells_covering(
+            industrial,
+            municipality_ref=osm.ref,
+            round_label=f"r{round_}" if round_ is not None else "",
+        ),
         existing_aois,
     )
     if not eligible:

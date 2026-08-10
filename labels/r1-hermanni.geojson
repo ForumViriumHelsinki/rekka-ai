@@ -41,7 +41,7 @@
         "length_m": 11.35,
         "width_m": 3.16,
         "heading_deg": 143.8,
-        "aoi": "hermanni",
+        "aoi": "r1-hermanni",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
         "status": "confirmed",
@@ -82,7 +82,7 @@
         "length_m": 8.28,
         "width_m": 3.16,
         "heading_deg": 30.3,
-        "aoi": "hermanni",
+        "aoi": "r1-hermanni",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
         "status": "confirmed",
@@ -123,7 +123,7 @@
         "length_m": 10.49,
         "width_m": 3.09,
         "heading_deg": 140.2,
-        "aoi": "hermanni",
+        "aoi": "r1-hermanni",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
         "status": "confirmed",
@@ -164,7 +164,7 @@
         "length_m": 9.61,
         "width_m": 3.14,
         "heading_deg": 136.2,
-        "aoi": "hermanni",
+        "aoi": "r1-hermanni",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
         "status": "confirmed",
@@ -205,11 +205,11 @@
         "length_m": 9.99,
         "width_m": 3.33,
         "heading_deg": 31.7,
-        "aoi": "hermanni",
+        "aoi": "r1-hermanni",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
         "status": "confirmed",
-        "class": "van"
+        "class": "truck"
       }
     },
     {
@@ -246,7 +246,7 @@
         "length_m": 17.44,
         "width_m": 3.09,
         "heading_deg": 142.7,
-        "aoi": "hermanni",
+        "aoi": "r1-hermanni",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
         "status": "confirmed",
@@ -287,7 +287,7 @@
         "length_m": 9.54,
         "width_m": 3.13,
         "heading_deg": 31.3,
-        "aoi": "hermanni",
+        "aoi": "r1-hermanni",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
         "status": "confirmed",
@@ -328,7 +328,7 @@
         "length_m": 5.76,
         "width_m": 2.63,
         "heading_deg": 38.1,
-        "aoi": "hermanni",
+        "aoi": "r1-hermanni",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
         "status": "confirmed",
@@ -369,7 +369,7 @@
         "length_m": 7.29,
         "width_m": 2.93,
         "heading_deg": 32.1,
-        "aoi": "hermanni",
+        "aoi": "r1-hermanni",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
         "status": "confirmed",
@@ -410,7 +410,7 @@
         "length_m": 6.05,
         "width_m": 2.32,
         "heading_deg": 51.8,
-        "aoi": "hermanni",
+        "aoi": "r1-hermanni",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
         "status": "confirmed",
@@ -451,7 +451,7 @@
         "length_m": 6.08,
         "width_m": 2.9,
         "heading_deg": 43.6,
-        "aoi": "hermanni",
+        "aoi": "r1-hermanni",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
         "status": "confirmed",
@@ -492,7 +492,7 @@
         "length_m": 5.71,
         "width_m": 2.61,
         "heading_deg": 47.4,
-        "aoi": "hermanni",
+        "aoi": "r1-hermanni",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
         "status": "confirmed",
@@ -532,7 +532,7 @@
         "class": "truck",
         "status": "added",
         "confidence": null,
-        "aoi": "hermanni",
+        "aoi": "r1-hermanni",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
         "length_m": 7.18,
@@ -573,7 +573,7 @@
         "class": "van",
         "status": "added",
         "confidence": null,
-        "aoi": "hermanni",
+        "aoi": "r1-hermanni",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
         "length_m": 5.43,
@@ -614,7 +614,7 @@
         "class": "truck",
         "status": "added",
         "confidence": null,
-        "aoi": "hermanni",
+        "aoi": "r1-hermanni",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
         "length_m": 8.11,
@@ -655,7 +655,7 @@
         "class": "van",
         "status": "added",
         "confidence": null,
-        "aoi": "hermanni",
+        "aoi": "r1-hermanni",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
         "length_m": 4.81,
@@ -696,12 +696,53 @@
         "class": "truck",
         "status": "added",
         "confidence": null,
-        "aoi": "hermanni",
+        "aoi": "r1-hermanni",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
         "length_m": 9.85,
         "width_m": 3.2,
         "heading_deg": 139.8
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25498652.941,
+              6675910.793
+            ],
+            [
+              25498658.021,
+              6675913.781
+            ],
+            [
+              25498659.324,
+              6675911.566
+            ],
+            [
+              25498654.244,
+              6675908.578
+            ],
+            [
+              25498652.941,
+              6675910.793
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "class": "van",
+        "status": "added",
+        "confidence": null,
+        "aoi": "r1-hermanni",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "length_m": 5.89,
+        "width_m": 2.57,
+        "heading_deg": 59.5
       }
     }
   ]

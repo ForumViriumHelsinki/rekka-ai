@@ -41,7 +41,7 @@
         "length_m": 6.24,
         "width_m": 2.56,
         "heading_deg": 157.1,
-        "aoi": "pohjois-haaga",
+        "aoi": "r1-pohjois-haaga",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
         "status": "confirmed",
@@ -82,7 +82,7 @@
         "length_m": 5.8,
         "width_m": 2.44,
         "heading_deg": 166.7,
-        "aoi": "pohjois-haaga",
+        "aoi": "r1-pohjois-haaga",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
         "status": "confirmed",
@@ -123,7 +123,7 @@
         "length_m": 12.57,
         "width_m": 2.89,
         "heading_deg": 69.5,
-        "aoi": "pohjois-haaga",
+        "aoi": "r1-pohjois-haaga",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
         "status": "confirmed",
@@ -164,7 +164,7 @@
         "length_m": 6.07,
         "width_m": 2.61,
         "heading_deg": 164.9,
-        "aoi": "pohjois-haaga",
+        "aoi": "r1-pohjois-haaga",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
         "status": "confirmed",
@@ -205,7 +205,7 @@
         "length_m": 14.91,
         "width_m": 3.07,
         "heading_deg": 69,
-        "aoi": "pohjois-haaga",
+        "aoi": "r1-pohjois-haaga",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
         "status": "confirmed",
@@ -219,24 +219,24 @@
         "coordinates": [
           [
             [
-              25493889.728,
-              6680030.608
+              25493895.34,
+              6680033.018
             ],
             [
-              25493895.339,
-              6680033.076
+              25493889.687,
+              6680030.649
             ],
             [
-              25493894.343,
-              6680035.339
+              25493888.731,
+              6680032.929
             ],
             [
-              25493888.733,
-              6680032.871
+              25493894.384,
+              6680035.298
             ],
             [
-              25493889.728,
-              6680030.608
+              25493895.34,
+              6680033.018
             ]
           ]
         ]
@@ -245,8 +245,8 @@
         "confidence": 0.7205,
         "length_m": 6.13,
         "width_m": 2.47,
-        "heading_deg": 66.3,
-        "aoi": "pohjois-haaga",
+        "heading_deg": 67.3,
+        "aoi": "r1-pohjois-haaga",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
         "status": "confirmed",
@@ -287,7 +287,7 @@
         "length_m": 6.29,
         "width_m": 2.54,
         "heading_deg": 68.6,
-        "aoi": "pohjois-haaga",
+        "aoi": "r1-pohjois-haaga",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
         "status": "confirmed",
@@ -328,7 +328,7 @@
         "length_m": 5.24,
         "width_m": 2.26,
         "heading_deg": 72.2,
-        "aoi": "pohjois-haaga",
+        "aoi": "r1-pohjois-haaga",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
         "status": "confirmed",
@@ -368,12 +368,53 @@
         "class": "bus",
         "status": "added",
         "confidence": null,
-        "aoi": "pohjois-haaga",
+        "aoi": "r1-pohjois-haaga",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
         "length_m": 17.96,
         "width_m": 2.49,
         "heading_deg": 154.4
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25493926.689,
+              6680050.881
+            ],
+            [
+              25493921.493,
+              6680048.619
+            ],
+            [
+              25493920.587,
+              6680050.701
+            ],
+            [
+              25493925.783,
+              6680052.962
+            ],
+            [
+              25493926.689,
+              6680050.881
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "class": "van",
+        "status": "added",
+        "confidence": null,
+        "aoi": "r1-pohjois-haaga",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "length_m": 5.67,
+        "width_m": 2.27,
+        "heading_deg": 66.5
       }
     }
   ]

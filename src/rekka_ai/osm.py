@@ -46,10 +46,17 @@ MUNICIPALITIES: dict[str, str] = {
 SUPPORTED_MUNICIPALITIES = frozenset({"Helsinki"})
 
 #: Profile name -> Overpass tag filters (AND within a filter, OR across them).
-#: ``industrial`` is the first profile; warehouse / depot / marina / camping
+#: ``industrial`` is the first profile; warehouse / depot / marina
 #: can be added later without changing the query plumbing.
 PROFILES: dict[str, tuple[str, ...]] = {
     "industrial": ('["landuse"="industrial"]',),
+    #: RV/motorhome-shaped ground: camp and caravan sites, and caravan
+    #: dealers/storage. Rastila's train-side counterpart lives here.
+    "camping": (
+        '["tourism"="camp_site"]',
+        '["tourism"="caravan_site"]',
+        '["shop"="caravan"]',
+    ),
 }
 
 ATTRIBUTION = "© OpenStreetMap contributors"

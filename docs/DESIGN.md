@@ -176,7 +176,7 @@ The obvious guess was z15: Ultralytics OBB weights are pretrained on DOTAv1 at
 puts a semi-trailer at 66 px — apparently right on the pretrain distribution,
 for a quarter of z16's tiles.
 
-**That guess is wrong.** Zero-shot `yolo11x-obb` over the `tattariharjuntie` area:
+**That guess is wrong.** Zero-shot `yolo11x-obb` over the `r1-tattariharjuntie` area:
 
 | Zoom | conf 0.25 | conf 0.10 | After the 6 m gate |
 |---|---|---|---|
@@ -202,21 +202,21 @@ helps a human adjudicate a marginal case.
 
 | Area | n | median len | ≥12 m | median conf |
 |---|---|---|---|---|
-| vuosaari-rahtarinkatu | 64 | 12.4 m | 33 | 0.73 |
-| vuosaari-channel-road | 45 | 17.0 m | 41 | 0.84 |
-| tattariharju | 22 | 10.9 m | 5 | 0.73 |
-| tattariharjuntie | 22 | 7.6 m | 2 | 0.80 |
-| malmi-airport | 20 | 8.7 m | 0 | 0.78 |
-| kamppi | 18 | 12.3 m | 10 | 0.67 |
-| valimo, kylasaari | 17 | ~10 m | 1–4 | 0.59–0.76 |
-| kivikko | 16 | 8.2 m | 6 | 0.76 |
-| myllypuro | 13 | 9.3 m | 0 | 0.82 |
-| hermanni | 10 | 9.6 m | 1 | 0.75 |
-| patola | 8 | 7.2 m | 0 | 0.61 |
-| pohjois-haaga, siltamaki | 7 | ~7 m | 0–2 | 0.60–0.77 |
+| r1-vuosaari-rahtarinkatu | 64 | 12.4 m | 33 | 0.73 |
+| r1-vuosaari-channel-road | 45 | 17.0 m | 41 | 0.84 |
+| r1-tattariharju | 22 | 10.9 m | 5 | 0.73 |
+| r1-tattariharjuntie | 22 | 7.6 m | 2 | 0.80 |
+| r1-malmi-airport | 20 | 8.7 m | 0 | 0.78 |
+| r1-kamppi | 18 | 12.3 m | 10 | 0.67 |
+| r1-valimo, r1-kylasaari | 17 | ~10 m | 1–4 | 0.59–0.76 |
+| r1-kivikko | 16 | 8.2 m | 6 | 0.76 |
+| r1-myllypuro | 13 | 9.3 m | 0 | 0.82 |
+| r1-hermanni | 10 | 9.6 m | 1 | 0.75 |
+| r1-patola | 8 | 7.2 m | 0 | 0.61 |
+| r1-pohjois-haaga, r1-siltamaki | 7 | ~7 m | 0–2 | 0.60–0.77 |
 
 The two harbour areas hold 38% of all candidates. That looked like container
-false positives — a 40 ft container is 12.2 m, almost exactly `vuosaari-rahtarinkatu`'s
+false positives — a 40 ft container is 12.2 m, almost exactly `r1-vuosaari-rahtarinkatu`'s
 median — but inspecting the imagery shows otherwise: the boxes sit on real
 trailer rigs in the RoRo staging lanes and the harbour-gate yard, and the
 stacked containers alongside them were **not** detected. Those areas are simply
@@ -234,17 +234,17 @@ Same settings, over the non-positive areas:
 | Area | Role | Candidates | With the gate off |
 |---|---|---|---|
 | `vuosaari` | hard-negative | 1 | 1 |
-| `puotinharju` | sparse | 0 | 0 |
+| `r1-puotinharju` | sparse | 0 | 0 |
 
-Both zeros are real, not a silent failure: `puotinharju` yields 9 windows of
+Both zeros are real, not a silent failure: `r1-puotinharju` yields 9 windows of
 genuine imagery (luminance 20–255) and 0 detections even at confidence 0.05,
-while the same model on a `tattariharjuntie` window returns 9.
+while the same model on a `r1-tattariharjuntie` window returns 9.
 
 **The premise behind the hard negative does not hold.** `vuosaari` was chosen
 because containers "look identical to trailers from above". The AOI is packed
 with hundreds of containers in exactly that shape and alignment, and the
 zero-shot model found one 6.6 m vehicle by a crane. It does not make the
-mistake the area exists to correct. `puotinharju` likewise contains a car park
+mistake the area exists to correct. `r1-puotinharju` likewise contains a car park
 full of clearly visible cars and produced nothing.
 
 Consequences:
@@ -260,15 +260,15 @@ Consequences:
 **What happened next is in `docs/rounds.md`:** the prediction held — the
 fine-tuned model produced 11 detections across the negative areas, and
 `vuosaari` was retired. The `hard-negative` role has since been refilled on
-both sides of the split: `marjaniemi` (a marina — boat hulls on cradles are
-the most truck-like presentation in the collection) in train, and `rastila`
+both sides of the split: `r1-marjaniemi` (a marina — boat hulls on cradles are
+the most truck-like presentation in the collection) in train, and `r1-rastila`
 (van-fronted motorhomes) in validation, where the regression check finally
 has something to measure.
 
 ### The length gate does real work
 
-At z16, 19 of 41 raw candidates in `tattariharjuntie` are under 6 m. Given that the model
-ignores the car park in `puotinharju` entirely, these are **vans and small
+At z16, 19 of 41 raw candidates in `r1-tattariharjuntie` are under 6 m. Given that the model
+ignores the car park in `r1-puotinharju` entirely, these are **vans and small
 delivery vehicles, not passenger cars** — `large vehicle` is loose at the van
 end of the range, and vans only appear where vans are. The annotation guide's
 6 m rule is applied as a post-filter (`--min-length`, default 6.0), so a human
@@ -287,7 +287,7 @@ mostly asphalt, which hurts both NMS and any downstream length/heading estimate.
 include `large vehicle` and `small vehicle`, so the zero-shot pass maps onto
 this problem essentially out of the box. The newer `yolo26*-obb` weights follow
 the same DOTAv1/1024 recipe, and were measured as an alternative on 2026-08-04
-(`tattariharjuntie`, z16, conf 0.25, 6 m gate): 17 candidates against `yolo11x-obb`'s 22,
+(`r1-tattariharjuntie`, z16, conf 0.25, 6 m gate): 17 candidates against `yolo11x-obb`'s 22,
 and 16 of the 17 are boxes 11x also finds. The differences are one marginal
 26x-only box (conf 0.34) against six 11x-only boxes, three of them at conf
 0.77–0.81 — a quarter of the recall gone for nothing gained. Recall is the
@@ -357,7 +357,7 @@ truck confuser, rather than leaving buses as unlabelled background in
 `positive` areas — which would actively teach it that bus-shaped objects are
 negatives in some places and unmarked in others.
 
-The bus depots (`ruskeasuo` in train, `kamppi` in validation) therefore stay
+The bus depots (`r1-ruskeasuo` in train, `r1-kamppi` in validation) therefore stay
 `role: positive`: they hold targets, just of the `bus` class.
 
 ### Licensing
@@ -500,7 +500,7 @@ whatever is currently inconvenient. Two things were considered and left out:
 - **Candidate files** (`data/candidates/roundN.geojson`). Already in the repo,
   under another name: candidates *are* the label files before review, so the
   staging commit pins round one's proposals permanently as the initial state
-  of `labels/`. `git show <staging-sha>:labels/kamppi.geojson` is what the
+  of `labels/`. `git show <staging-sha>:labels/r1-kamppi.geojson` is what the
   detector proposed for Kamppi. Committing the candidates file would duplicate
   committed data, and it regenerates byte-identically anyway (§2). The
   labeller never touches it; `stage` has already split it for them.
@@ -540,7 +540,7 @@ different questions:
    - per-area truck **count error ≤ 10%**;
    - negative-role areas ≤ **2 detections** — the regression check that
      fine-tuning has not started pulling lookalikes in; it tolerates a couple
-     of blips, not a habit. `rastila` plays this role in validation now (the
+     of blips, not a habit. `r1-rastila` plays this role in validation now (the
      retired `vuosaari` area played it for round 1; see §4),
    - `bus` and `van` are reported but never gate: they are auxiliary classes,
      and the truck/van boundary is genuinely ambiguous at the short end.
@@ -631,7 +631,7 @@ AOIs live in a YAML collection under `aois/`, in EPSG:3067, as an ordered list:
 ```yaml
 crs: "EPSG:3067"
 aois:
-  - name: tattariharjuntie
+  - name: r1-tattariharjuntie
     bbox: [391857, 6680141, 392157, 6680441]
     role: positive          # positive | hard-negative | sparse
     split: validation       # optional, defaults to train
@@ -710,11 +710,11 @@ split, so they cost duplicate annotation rather than contradictory labels:
 
 | Areas | Shared | |
 |---|---|---|
-| `tattariharju` × `malmi-airport` | 20,640 m² | Duplicate annotation (23% of a 300 m area) |
-| `tattariharju` × `kivikko` | 6,477 m² | Duplicate annotation |
+| `r1-tattariharju` × `r1-malmi-airport` | 20,640 m² | Duplicate annotation (23% of a 300 m area) |
+| `r1-tattariharju` × `r1-kivikko` | 6,477 m² | Duplicate annotation |
 
-A third, `vuosaari` × `vuosaari-channel-road` at 2,278 m², was a **role conflict** — the same
-ground was both `hard-negative` and `positive`. Fixed by stopping the `vuosaari-channel-road`
+A third, `vuosaari` × `r1-vuosaari-channel-road` at 2,278 m², was a **role conflict** — the same
+ground was both `hard-negative` and `positive`. Fixed by stopping the `r1-vuosaari-channel-road`
 north edge exactly at the `vuosaari` south edge. A test asserts no role or
 split conflict remains, so this cannot come back unnoticed.
 
@@ -767,7 +767,7 @@ detection. The collection carries the `crs` member; each feature looks like:
     "length_m": 16.2,
     "width_m": 3.0,
     "heading_deg": 143.0,
-    "aoi": "vuosaari-channel-road",
+    "aoi": "r1-vuosaari-channel-road",
     "source_layer": "Ortoilmakuva_2025_5cm",
     "zoom": 16
   }
@@ -792,14 +792,14 @@ possible without separate bookkeeping.
   underestimate.
 - *Class ambiguity.* See §5.
 - *Spatial leakage.* A random split silently inflates metrics. See §2. The
-  current split is by area and geographically separated, but `pohjois-haaga`
-  (validation) sits only **935 m** from `valimo` (train), so that pair is
+  current split is by area and geographically separated, but `r1-pohjois-haaga`
+  (validation) sits only **935 m** from `r1-valimo` (train), so that pair is
   weaker than the rest.
 - *Validation used to be blind to negatives.* Resolved since the original
-  assessment: `rastila` (rows of van-fronted motorhomes, the annotation
+  assessment: `r1-rastila` (rows of van-fronted motorhomes, the annotation
   guide's hardest confuser) is a `hard-negative` area in validation, so the
   regression gate finally has something to measure — and it will not be
-  silent. `marjaniemi` gives training its first negative area.
+  silent. `r1-marjaniemi` gives training its first negative area.
 - *Service etiquette.* Access constraints are `NONE`, but a city-wide z16 sweep
   is a large number of requests. The fetcher caps concurrency, retries only
   transient failures, and sends an identifying `User-Agent`. Worth a note to
@@ -928,9 +928,9 @@ run only as far as staging. What remains is doing it well:
    kind* of data buys anything: new area types (marinas, rail yards), or
    another flight year. Use `rekka-ai mine` to propose the next industrial
    cells from the trained model rather than hand-picking yards.
-3. **Mind the validation set's honesty.** Half-answered: `rastila` gives
+3. **Mind the validation set's honesty.** Half-answered: `r1-rastila` gives
    validation a `hard-negative` area, so the regression gate finally has
-   something to measure, and `marjaniemi` gives training its first. What
+   something to measure, and `r1-marjaniemi` gives training its first. What
    `rekka-ai aois` still warns about is `sparse` ground in validation.
    Model-mined proposals stay in `split: train` on purpose — do not promote
    them into validation without a separate, untouched hold-out plan.

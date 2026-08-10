@@ -71,7 +71,7 @@
 		[
 			{
 				label: 'Train',
-				items: aois.filter((a) => a.staged && a.split === 'train' && a.role === 'positive'),
+				items: aois.filter((a) => a.staged && a.split === 'train'),
 			},
 			{ label: 'Validation', items: aois.filter((a) => a.staged && a.split === 'validation') },
 			{ label: 'Not staged', items: aois.filter((a) => !a.staged) },

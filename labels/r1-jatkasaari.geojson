@@ -41,7 +41,7 @@
         "length_m": 6.44,
         "width_m": 2.58,
         "heading_deg": 30.4,
-        "aoi": "jatkasaari",
+        "aoi": "r1-jatkasaari",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
         "status": "confirmed",
@@ -82,7 +82,7 @@
         "length_m": 10.15,
         "width_m": 3.15,
         "heading_deg": 172.1,
-        "aoi": "jatkasaari",
+        "aoi": "r1-jatkasaari",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
         "status": "confirmed",
@@ -96,24 +96,24 @@
         "coordinates": [
           [
             [
-              25495531.66,
-              6672007.407
+              25495530.406,
+              6672013.335
             ],
             [
-              25495533.728,
-              6672008.758
+              25495533.495,
+              6672008.604
             ],
             [
-              25495530.639,
-              6672013.489
+              25495531.594,
+              6672007.362
             ],
             [
-              25495528.57,
-              6672012.138
+              25495528.505,
+              6672012.093
             ],
             [
-              25495531.66,
-              6672007.407
+              25495530.406,
+              6672013.335
             ]
           ]
         ]
@@ -121,9 +121,9 @@
       "properties": {
         "confidence": 0.8302,
         "length_m": 5.65,
-        "width_m": 2.47,
+        "width_m": 2.27,
         "heading_deg": 146.9,
-        "aoi": "jatkasaari",
+        "aoi": "r1-jatkasaari",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
         "status": "confirmed",
@@ -164,7 +164,7 @@
         "length_m": 5.59,
         "width_m": 2.26,
         "heading_deg": 76.5,
-        "aoi": "jatkasaari",
+        "aoi": "r1-jatkasaari",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
         "status": "confirmed",
@@ -205,7 +205,7 @@
         "length_m": 10.11,
         "width_m": 3.15,
         "heading_deg": 174,
-        "aoi": "jatkasaari",
+        "aoi": "r1-jatkasaari",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
         "status": "confirmed",
@@ -246,7 +246,7 @@
         "length_m": 16.52,
         "width_m": 3.15,
         "heading_deg": 26.5,
-        "aoi": "jatkasaari",
+        "aoi": "r1-jatkasaari",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
         "status": "confirmed",
@@ -287,7 +287,7 @@
         "length_m": 5.83,
         "width_m": 2.37,
         "heading_deg": 8.8,
-        "aoi": "jatkasaari",
+        "aoi": "r1-jatkasaari",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
         "status": "confirmed",
@@ -328,7 +328,7 @@
         "length_m": 6.1,
         "width_m": 2.45,
         "heading_deg": 13.1,
-        "aoi": "jatkasaari",
+        "aoi": "r1-jatkasaari",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
         "status": "confirmed",
@@ -369,7 +369,7 @@
         "length_m": 5.63,
         "width_m": 2.39,
         "heading_deg": 78.3,
-        "aoi": "jatkasaari",
+        "aoi": "r1-jatkasaari",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
         "status": "confirmed",
@@ -410,7 +410,7 @@
         "length_m": 5.96,
         "width_m": 2.47,
         "heading_deg": 66.7,
-        "aoi": "jatkasaari",
+        "aoi": "r1-jatkasaari",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
         "status": "confirmed",
@@ -451,7 +451,7 @@
         "length_m": 16.71,
         "width_m": 3,
         "heading_deg": 174.2,
-        "aoi": "jatkasaari",
+        "aoi": "r1-jatkasaari",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
         "status": "confirmed",
@@ -492,7 +492,7 @@
         "length_m": 6.26,
         "width_m": 2.39,
         "heading_deg": 85.2,
-        "aoi": "jatkasaari",
+        "aoi": "r1-jatkasaari",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
         "status": "confirmed",
@@ -533,7 +533,7 @@
         "length_m": 6.17,
         "width_m": 2.58,
         "heading_deg": 177.3,
-        "aoi": "jatkasaari",
+        "aoi": "r1-jatkasaari",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
         "status": "confirmed",
@@ -574,7 +574,7 @@
         "length_m": 8.56,
         "width_m": 3.24,
         "heading_deg": 53.8,
-        "aoi": "jatkasaari",
+        "aoi": "r1-jatkasaari",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
         "status": "confirmed",
@@ -615,7 +615,7 @@
         "length_m": 5.66,
         "width_m": 2.43,
         "heading_deg": 6.1,
-        "aoi": "jatkasaari",
+        "aoi": "r1-jatkasaari",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
         "status": "confirmed",
@@ -656,7 +656,7 @@
         "length_m": 5.55,
         "width_m": 2.44,
         "heading_deg": 147.2,
-        "aoi": "jatkasaari",
+        "aoi": "r1-jatkasaari",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
         "status": "confirmed",
@@ -697,7 +697,7 @@
         "length_m": 5.6,
         "width_m": 2.32,
         "heading_deg": 79.2,
-        "aoi": "jatkasaari",
+        "aoi": "r1-jatkasaari",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
         "status": "confirmed",
@@ -738,7 +738,7 @@
         "length_m": 7.82,
         "width_m": 3.05,
         "heading_deg": 176.4,
-        "aoi": "jatkasaari",
+        "aoi": "r1-jatkasaari",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
         "status": "confirmed",
@@ -779,7 +779,7 @@
         "length_m": 7.38,
         "width_m": 2.74,
         "heading_deg": 53.1,
-        "aoi": "jatkasaari",
+        "aoi": "r1-jatkasaari",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
         "status": "confirmed",
@@ -820,7 +820,7 @@
         "length_m": 5.59,
         "width_m": 2.39,
         "heading_deg": 25.3,
-        "aoi": "jatkasaari",
+        "aoi": "r1-jatkasaari",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
         "status": "confirmed",
@@ -861,7 +861,7 @@
         "length_m": 5.43,
         "width_m": 2.3,
         "heading_deg": 88.7,
-        "aoi": "jatkasaari",
+        "aoi": "r1-jatkasaari",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
         "status": "confirmed",
@@ -902,11 +902,11 @@
         "length_m": 12.9,
         "width_m": 2.98,
         "heading_deg": 174.8,
-        "aoi": "jatkasaari",
+        "aoi": "r1-jatkasaari",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
         "status": "confirmed",
-        "class": "truck"
+        "class": "bus"
       }
     },
     {
@@ -943,7 +943,7 @@
         "length_m": 7.33,
         "width_m": 2.83,
         "heading_deg": 175.7,
-        "aoi": "jatkasaari",
+        "aoi": "r1-jatkasaari",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
         "status": "confirmed",
@@ -984,7 +984,7 @@
         "length_m": 8.91,
         "width_m": 2.72,
         "heading_deg": 174.2,
-        "aoi": "jatkasaari",
+        "aoi": "r1-jatkasaari",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
         "status": "confirmed",
@@ -1025,7 +1025,7 @@
         "length_m": 5.71,
         "width_m": 2.32,
         "heading_deg": 22.4,
-        "aoi": "jatkasaari",
+        "aoi": "r1-jatkasaari",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
         "status": "confirmed",
@@ -1066,7 +1066,7 @@
         "length_m": 5.46,
         "width_m": 2.41,
         "heading_deg": 86,
-        "aoi": "jatkasaari",
+        "aoi": "r1-jatkasaari",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
         "status": "confirmed",
@@ -1107,7 +1107,7 @@
         "length_m": 5.8,
         "width_m": 2.24,
         "heading_deg": 88.3,
-        "aoi": "jatkasaari",
+        "aoi": "r1-jatkasaari",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
         "status": "confirmed",
@@ -1148,7 +1148,7 @@
         "length_m": 6.29,
         "width_m": 2.67,
         "heading_deg": 4.2,
-        "aoi": "jatkasaari",
+        "aoi": "r1-jatkasaari",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
         "status": "confirmed",
@@ -1189,7 +1189,7 @@
         "length_m": 5.95,
         "width_m": 2.32,
         "heading_deg": 22.7,
-        "aoi": "jatkasaari",
+        "aoi": "r1-jatkasaari",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
         "status": "confirmed",
@@ -1230,7 +1230,7 @@
         "length_m": 5.34,
         "width_m": 2.42,
         "heading_deg": 174.6,
-        "aoi": "jatkasaari",
+        "aoi": "r1-jatkasaari",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
         "status": "confirmed",
@@ -1271,7 +1271,7 @@
         "length_m": 6.27,
         "width_m": 2.47,
         "heading_deg": 112.5,
-        "aoi": "jatkasaari",
+        "aoi": "r1-jatkasaari",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
         "status": "confirmed",
@@ -1312,7 +1312,7 @@
         "length_m": 17.39,
         "width_m": 3.78,
         "heading_deg": 27.6,
-        "aoi": "jatkasaari",
+        "aoi": "r1-jatkasaari",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
         "status": "confirmed",
@@ -1326,24 +1326,24 @@
         "coordinates": [
           [
             [
-              25495563.041,
-              6672135.327
+              25495568.57,
+              6672135.86
             ],
             [
-              25495568.602,
-              6672135.961
+              25495562.99,
+              6672135.42
             ],
             [
-              25495568.334,
-              6672138.313
+              25495562.804,
+              6672137.78
             ],
             [
-              25495562.772,
-              6672137.678
+              25495568.384,
+              6672138.22
             ],
             [
-              25495563.041,
-              6672135.327
+              25495568.57,
+              6672135.86
             ]
           ]
         ]
@@ -1352,8 +1352,8 @@
         "confidence": 0.3572,
         "length_m": 5.6,
         "width_m": 2.37,
-        "heading_deg": 83.5,
-        "aoi": "jatkasaari",
+        "heading_deg": 85.5,
+        "aoi": "r1-jatkasaari",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
         "status": "confirmed",
@@ -1394,7 +1394,7 @@
         "length_m": 22.72,
         "width_m": 3.16,
         "heading_deg": 54.6,
-        "aoi": "jatkasaari",
+        "aoi": "r1-jatkasaari",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
         "status": "confirmed",
@@ -1435,7 +1435,7 @@
         "length_m": 7.75,
         "width_m": 3.01,
         "heading_deg": 53.8,
-        "aoi": "jatkasaari",
+        "aoi": "r1-jatkasaari",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
         "status": "confirmed",
@@ -1475,12 +1475,94 @@
         "class": "truck",
         "status": "added",
         "confidence": null,
-        "aoi": "jatkasaari",
+        "aoi": "r1-jatkasaari",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
         "length_m": 9.91,
         "width_m": 2.49,
         "heading_deg": 178.6
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25495689.637,
+              6671938.512
+            ],
+            [
+              25495690.156,
+              6671931.288
+            ],
+            [
+              25495687.364,
+              6671931.087
+            ],
+            [
+              25495686.844,
+              6671938.311
+            ],
+            [
+              25495689.637,
+              6671938.512
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "class": "truck",
+        "status": "added",
+        "confidence": null,
+        "aoi": "r1-jatkasaari",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "length_m": 7.24,
+        "width_m": 2.8,
+        "heading_deg": 175.9
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25495597.219,
+              6671956.216
+            ],
+            [
+              25495597.947,
+              6671946.862
+            ],
+            [
+              25495594.956,
+              6671946.629
+            ],
+            [
+              25495594.228,
+              6671955.983
+            ],
+            [
+              25495597.219,
+              6671956.216
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "class": "truck",
+        "status": "added",
+        "confidence": null,
+        "aoi": "r1-jatkasaari",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "length_m": 9.38,
+        "width_m": 3,
+        "heading_deg": 175.6
       }
     }
   ]

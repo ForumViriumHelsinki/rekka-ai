@@ -7,6 +7,14 @@
 		"context7": {
 			"command": "npx",
 			"args": ["-y", "@upstash/context7-mcp@latest"]
+		},
+		"mlflow": {
+			"command": "npx",
+			"args": ["-y", "@us-all/mlflow-mcp"],
+			"env": {
+				"MLFLOW_TRACKING_URI": "http://localhost:5000",
+				"MLFLOW_TOOLS": "experiments,runs"
+			}
 		}
 	}
 }

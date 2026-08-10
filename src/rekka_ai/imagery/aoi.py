@@ -7,7 +7,7 @@ areas in order:
 
     crs: "EPSG:3067"
     aois:
-      - name: tattariharjuntie
+      - name: r1-tattariharjuntie
         bbox: [391857, 6680141, 392157, 6680441]
         role: positive
         split: validation        # optional, defaults to train

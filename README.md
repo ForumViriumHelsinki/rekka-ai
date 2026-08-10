@@ -46,7 +46,7 @@ Each area carries a `role` (`positive`, `hard-negative`, `sparse`) and a
 uv run rekka-ai aois --aoi aois/helsinki.yaml
 
 # Fetch one area (default: latest flight year, z16 = 12.5 cm/px)
-uv run rekka-ai fetch --aoi aois/helsinki.yaml --name tattariharjuntie
+uv run rekka-ai fetch --aoi aois/helsinki.yaml --name r1-tattariharjuntie
 
 # Or every area in the file. --dry-run reports the tile count and stops.
 uv run rekka-ai fetch --aoi aois/helsinki.yaml --dry-run
@@ -69,8 +69,8 @@ torch:
 uv sync --extra detect
 
 # One area
-uv run rekka-ai bootstrap --aoi aois/helsinki.yaml --name tattariharjuntie \
-    --out data/candidates/tattariharjuntie.geojson
+uv run rekka-ai bootstrap --aoi aois/helsinki.yaml --name r1-tattariharjuntie \
+    --out data/candidates/r1-tattariharjuntie.geojson
 
 # Every area with a given role — the labelling batch
 uv run rekka-ai bootstrap --aoi aois/helsinki.yaml --role positive \
@@ -143,7 +143,7 @@ The surrounding areas are drawn on the map too, in a quieter outline with their
 name. Clicking one opens it, so moving to the next area does not mean going back
 to the sidebar.
 
-Areas with `role: hard-negative` — `rastila`, `marjaniemi` — sit under **Not
+Areas with `role: hard-negative` — `r1-rastila`, `r1-marjaniemi` — sit under **Not
 staged** at 0/0, and that is correct rather than a job left undone: no candidates
 are staged for them and there is nothing to review. Their contribution is the
 imagery itself, exported as background, so the model learns that motorhomes and
@@ -194,11 +194,11 @@ stages into label files for the next correction round. The region can be real
 polygons (postcode areas, districts), not just bounding boxes:
 
 ```sh
-uv run rekka-ai detect --aoi aois/helsinki.yaml --name jatkasaari \
+uv run rekka-ai detect --aoi aois/helsinki.yaml --name r1-jatkasaari \
     --weights runs/train/round1/weights/best.pt \
-    --out data/detections/jatkasaari.geojson
+    --out data/detections/r1-jatkasaari.geojson
 
-uv run rekka-ai stage --candidates data/detections/jatkasaari.geojson
+uv run rekka-ai stage --candidates data/detections/r1-jatkasaari.geojson
 # review in web/, export, train — the loop repeats
 ```
 

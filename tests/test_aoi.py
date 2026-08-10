@@ -292,18 +292,17 @@ def test_real_collection_parses(tmp_path: Path) -> None:
     # so moving ground between train and validation should never be a quiet
     # diff. Update this list deliberately, never to make the test pass.
     assert [a.name for a in aois if a.split == "validation"] == [
-        "kamppi",
-        "pohjois-haaga",
-        "kaivoksela",
-        "jatkasaari",
-        "rastila",
+        "r1-kamppi",
+        "r1-pohjois-haaga",
+        "r1-kaivoksela",
+        "r1-jatkasaari",
     ]
 
 
 def test_real_collection_has_no_role_or_split_conflicts() -> None:
     """No ground may be both positive and negative, or both train and validation.
 
-    vuosaari-channel-road used to overlap the retired vuosaari hard-negative by 134x17 m; its
+    r1-vuosaari-channel-road used to overlap the retired vuosaari hard-negative by 134x17 m; its
     north edge now stops exactly at that boundary. This guards against
     reintroducing a conflict.
     """
