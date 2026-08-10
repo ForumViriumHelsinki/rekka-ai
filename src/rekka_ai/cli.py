@@ -330,8 +330,13 @@ def mine(
         ),
     ],
     out: Annotated[
-        Path, typer.Option(help="Proposal YAML to write (sibling .geojson report too).")
-    ] = Path("data/mining/round2.yaml"),
+        Path | None,
+        typer.Option(
+            help="Proposal YAML to write (sibling .geojson report too). "
+            "Default: data/mining/round<round>.yaml, or "
+            "data/mining/proposal.yaml without --round."
+        ),
+    ] = None,
     round_: Annotated[
         int | None,
         typer.Option(
@@ -408,6 +413,13 @@ def mine(
         raise typer.BadParameter("count must be at least 1")
     if pool_size < count:
         raise typer.BadParameter("pool-size must be at least count")
+
+    if out is None:
+        out = Path(
+            f"data/mining/round{round_}.yaml"
+            if round_ is not None
+            else "data/mining/proposal.yaml"
+        )
 
     try:
         require_supported_municipality(municipality)
