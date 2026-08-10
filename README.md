@@ -143,10 +143,10 @@ The surrounding areas are drawn on the map too, in a quieter outline with their
 name. Clicking one opens it, so moving to the next area does not mean going back
 to the sidebar.
 
-Areas with `role: hard-negative` — `r1-rastila`, `r1-marjaniemi` — sit under **Not
-staged** at 0/0, and that is correct rather than a job left undone: no candidates
-are staged for them and there is nothing to review. Their contribution is the
-imagery itself, exported as background, so the model learns that motorhomes and
+Areas with `role: hard-negative` — currently just `r1-marjaniemi` — sit under
+**Not staged** at 0/0, and that is correct rather than a job left undone: no
+candidates are staged for it and there is nothing to review. Its contribution
+is the imagery itself, exported as background, so the model learns that
 moored boats are not trucks. See docs/DESIGN.md §5.
 
 ### Training

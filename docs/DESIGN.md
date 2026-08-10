@@ -259,11 +259,12 @@ Consequences:
 
 **What happened next is in `docs/rounds.md`:** the prediction held — the
 fine-tuned model produced 11 detections across the negative areas, and
-`vuosaari` was retired. The `hard-negative` role has since been refilled on
-both sides of the split: `r1-marjaniemi` (a marina — boat hulls on cradles are
-the most truck-like presentation in the collection) in train, and `r1-rastila`
-(van-fronted motorhomes) in validation, where the regression check finally
-has something to measure.
+`vuosaari` was retired. The `hard-negative` role was refilled in train:
+`r1-marjaniemi` (a marina — boat hulls on cradles are the most truck-like
+presentation in the collection). `r1-rastila` (van-fronted motorhomes)
+briefly held the role in validation, but review turned up real trucks and
+vans among the RVs, so it moved to `positive`/train — validation currently
+has no `hard-negative` area for the regression check to measure against.
 
 ### The length gate does real work
 
@@ -544,8 +545,10 @@ different questions:
    - per-area truck **count error ≤ 10%**;
    - negative-role areas ≤ **2 detections** — the regression check that
      fine-tuning has not started pulling lookalikes in; it tolerates a couple
-     of blips, not a habit. `r1-rastila` plays this role in validation now (the
-     retired `vuosaari` area played it for round 1; see §4),
+     of blips, not a habit. `r1-marjaniemi` plays this role in train now (the
+     retired `vuosaari` area played it for round 1; `r1-rastila` played it in
+     validation until review turned up real trucks and vans and it moved to
+     `positive`; see §4),
    - `bus` and `van` are reported but never gate: they are auxiliary classes,
      and the truck/van boundary is genuinely ambiguous at the short end.
 
@@ -799,11 +802,13 @@ possible without separate bookkeeping.
   current split is by area and geographically separated, but `r1-pohjois-haaga`
   (validation) sits only **935 m** from `r1-valimo` (train), so that pair is
   weaker than the rest.
-- *Validation used to be blind to negatives.* Resolved since the original
-  assessment: `r1-rastila` (rows of van-fronted motorhomes, the annotation
-  guide's hardest confuser) is a `hard-negative` area in validation, so the
-  regression gate finally has something to measure — and it will not be
-  silent. `r1-marjaniemi` gives training its first negative area.
+- *Validation used to be blind to negatives.* Partly resolved since the
+  original assessment: `r1-marjaniemi` (a marina — boat hulls on cradles)
+  gives training its first negative area. `r1-rastila` (rows of van-fronted
+  motorhomes, the annotation guide's hardest confuser) held that role in
+  validation until review turned up real trucks and vans and it moved to
+  `positive`/train — so validation is currently blind to negatives again, a
+  deliberate tradeoff (see `aois/helsinki.yaml`).
 - *Service etiquette.* Access constraints are `NONE`, but a city-wide z16 sweep
   is a large number of requests. The fetcher caps concurrency, retries only
   transient failures, and sends an identifying `User-Agent`. Worth a note to
@@ -932,12 +937,14 @@ run only as far as staging. What remains is doing it well:
    kind* of data buys anything: new area types (marinas, rail yards), or
    another flight year. Use `rekka-ai mine` to propose the next industrial
    cells from the trained model rather than hand-picking yards.
-3. **Mind the validation set's honesty.** Half-answered: `r1-rastila` gives
-   validation a `hard-negative` area, so the regression gate finally has
-   something to measure, and `r1-marjaniemi` gives training its first. What
-   `rekka-ai aois` still warns about is `sparse` ground in validation.
-   Model-mined proposals stay in `split: train` on purpose — do not promote
-   them into validation without a separate, untouched hold-out plan.
+3. **Mind the validation set's honesty.** Unanswered again: `r1-marjaniemi`
+   gives training its first `hard-negative` area, but `r1-rastila` — which
+   briefly gave validation one — moved to `positive`/train once review
+   turned up real trucks and vans, so validation currently has no negative
+   area for the regression gate to measure against. What `rekka-ai aois`
+   still warns about is `sparse` ground in validation. Model-mined proposals
+   stay in `split: train` on purpose — do not promote them into validation
+   without a separate, untouched hold-out plan.
 4. ~~**Hold the toolchain bump for between batches.**~~ **Done** (2026-08-07,
    between batches as prescribed): `web/` now runs Vite 8 with
    `@sveltejs/vite-plugin-svelte` 7, SvelteKit 2.70 and Svelte 5.56; lint,
