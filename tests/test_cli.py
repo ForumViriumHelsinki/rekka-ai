@@ -291,6 +291,30 @@ def test_progress_reports_counts(tmp_path: Path) -> None:
     assert "truck=1" in result.stdout
 
 
+def test_progress_reports_rejection_rate_worst_first(tmp_path: Path) -> None:
+    """`added` boxes are hand-drawn misses, not model over-triggers -- excluded."""
+    _write_geojson(
+        tmp_path / "kivikko.geojson",
+        _feature("kivikko", status="confirmed", **{"class": "truck"}),
+        _feature("kivikko", status="rejected"),
+        _feature("kivikko", status="rejected"),
+        _feature("kivikko", status="added", **{"class": "van"}),
+    )
+    _write_geojson(
+        tmp_path / "vuosaari.geojson",
+        _feature("vuosaari", status="confirmed", **{"class": "truck"}),
+    )
+    _write_geojson(tmp_path / "quiet.geojson")
+    result = runner.invoke(app, ["progress", "--labels", str(tmp_path)])
+    assert result.exit_code == 0
+    lines = [line for line in result.stdout.splitlines() if "reject" in line]
+    assert lines[0].startswith("kivikko")
+    assert "reject  67%" in lines[0]
+    assert "reject   0%" in lines[1]
+    assert "reject  n/a" in lines[2]
+    assert "reject rate 50%" in result.stdout
+
+
 def test_progress_reports_schema_problems(tmp_path: Path) -> None:
     _write_geojson(
         tmp_path / "kivikko.geojson",

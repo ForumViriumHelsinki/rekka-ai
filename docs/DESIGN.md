@@ -459,9 +459,13 @@ GPU, pass `--batch 2` — autobatch sizes to free memory and can still OOM in
 the validation pass (`PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True` is set
 by the command, which helps but is not magic). Needs the `train` extra.
 
-`progress` reports reviewed/total per area, class tallies, and any schema
-problems that would block training — a confirmed feature with no class, a ring
-that is not a rectangle.
+`progress` reports reviewed/total per area, class tallies, a per-area
+rejection rate (`rejected / (confirmed + rejected)`, `added` excluded since a
+hand-drawn miss is a recall signal, not the model over-triggering; areas with
+nothing judged yet sort last as `n/a`), and any schema problems that would
+block training — a confirmed feature with no class, a ring that is not a
+rectangle. Sorted worst-rate first, so the areas most worth re-sweeping or
+deprioritising surface at a glance.
 
 `bootstrap` needs the optional `detect` extra (`uv sync --extra detect`), which
 pulls in torch. It is optional so that `fetch` and `aois` — and CI — stay usable

@@ -445,7 +445,7 @@ def proposal_yaml(proposals: Sequence[RankedCell]) -> str:
             for item in proposals
         ],
     }
-    return yaml.safe_dump(document, sort_keys=False)
+    return yaml.safe_dump(document, sort_keys=False, allow_unicode=True, width=100)
 
 
 def proposal_geojson(

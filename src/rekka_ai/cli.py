@@ -532,6 +532,7 @@ def progress(
 
     totals: Counter[str] = Counter()
     problems: list[str] = []
+    rows: list[tuple[float, str, str, str, str]] = []
     for path in files:
         collection = labels.read(path)
         counts = labels.summarise(collection)
@@ -542,11 +543,23 @@ def progress(
         totals["reviewed"] += done
         bar = f"{done}/{total}"
         detail = " ".join(f"{k}={v}" for k, v in sorted(counts.items()))
-        typer.echo(f"{path.stem:14} {bar:>9}  {detail}")
+        # Candidates only: "added" boxes are hand-drawn misses (a recall
+        # signal), not the model over-triggering, so they don't belong in a
+        # rejection rate. -1 sorts files with nothing reviewed yet last.
+        judged = counts.get("confirmed", 0) + counts.get("rejected", 0)
+        rate = counts.get("rejected", 0) / judged if judged else -1.0
+        reject = f"reject {rate:>4.0%}" if judged else "reject  n/a"
+        rows.append((rate, path.stem, bar, reject, detail))
         problems.extend(f"{path.name}: {p}" for p in labels.validate(collection))
+
+    for _, stem, bar, reject, detail in sorted(rows, reverse=True):
+        typer.echo(f"{stem:14} {bar:>9}  {reject}  {detail}")
 
     typer.echo(f"\nreviewed {totals['reviewed']}/{totals['total']}")
     typer.echo("  " + " ".join(f"{k}={totals[k]}" for k in labels.CLASSES if totals[k]))
+    judged_total = totals.get("confirmed", 0) + totals.get("rejected", 0)
+    if judged_total:
+        typer.echo(f"  reject rate {totals.get('rejected', 0) / judged_total:.0%}")
     if problems:
         typer.echo(f"\n{len(problems)} problem(s):")
         for problem in problems[:20]:
