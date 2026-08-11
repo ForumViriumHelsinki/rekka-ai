@@ -12,15 +12,17 @@ from rekka_ai.detect.sweep import (
     DEFAULT_WEIGHTS,
     LARGE_VEHICLE,
     MIN_LENGTH_M,
+    SMALL_VEHICLE,
     YoloObb,
     sweep,
 )
 from rekka_ai.evaluate import (
-    GATE_COUNT_ERROR,
     GATE_NEGATIVE_DETECTIONS,
     GATE_PRECISION,
     GATE_RECALL,
+    MIN_OPERATING_CONFIDENCE,
     count_detections,
+    count_gate,
     ground_truth_counts,
     load_detector,
     log_eval_run,
@@ -232,7 +234,9 @@ def bootstrap(
         f"{layer} z{zoom} ({resolution(zoom) * 100:.2f} cm/px), weights {weights}, "
         f"{len(areas)} area(s)"
     )
-    detector = YoloObb(weights, confidence=confidence, keep=frozenset({LARGE_VEHICLE}))
+    detector = YoloObb(
+        weights, confidence=confidence, keep=frozenset({LARGE_VEHICLE, SMALL_VEHICLE})
+    )
 
     found: list[Detection] = []
     with TileFetcher(cache, workers=workers) as fetcher:
@@ -373,7 +377,7 @@ def mine(
     ] = DEFAULT_ZOOM,
     min_length: Annotated[
         float, typer.Option(help="Drop detections shorter than this, in metres.")
-    ] = 4.0,
+    ] = MIN_LENGTH_M,
     confidence: Annotated[
         float | None,
         typer.Option(
@@ -750,6 +754,14 @@ def evaluate_cmd(
     min_recall: Annotated[
         float, typer.Option(help="Truck recall gate at the operating point.")
     ] = GATE_RECALL,
+    min_confidence: Annotated[
+        float,
+        typer.Option(
+            help="Floor below which a PR-curve point is never picked as the "
+            "operating confidence, even as a fallback: near conf=0 keeps every "
+            "raw proposal, which is not a usable operating point."
+        ),
+    ] = MIN_OPERATING_CONFIDENCE,
     year: Annotated[
         int, typer.Option(help="Flight year of the orthophoto layer.")
     ] = LATEST_YEAR,
@@ -805,7 +817,11 @@ def evaluate_cmd(
         raise typer.Exit(1)
     truck = names.index("truck")
     conf, op_p, op_r = pick_operating_point(
-        px, p_curve[truck], r_curve[truck], min_recall=min_recall
+        px,
+        p_curve[truck],
+        r_curve[truck],
+        min_recall=min_recall,
+        min_confidence=min_confidence,
     )
     typer.echo(
         f"\noperating point (truck): conf {conf:.3f} -> P {op_p:.3f}, R {op_r:.3f}"
@@ -864,16 +880,17 @@ def evaluate_cmd(
                     fetcher=fetcher,
                 )
                 if truth:
-                    error = (found["truck"] - truth) / truth
-                    ok = abs(error) <= GATE_COUNT_ERROR
-                    detail = f"{found['truck']} vs {truth} trucks ({error:+.0%})"
-                    metrics[f"count_error_{area.name}"] = error
+                    metrics[f"count_error_{area.name}"] = (
+                        found["truck"] - truth
+                    ) / truth
+                ok, detail = count_gate(found["truck"], truth)
+                if ok is None:
+                    # Too few trucks to gate on, but the number still belongs
+                    # in the report — a bus area's truck count is worth a
+                    # glance even when it cannot carry a verdict.
+                    typer.echo(f"  count {area.name}: {detail}")
                 else:
-                    # No trucks on the ground: every detection is a pure false
-                    # positive, and a ratio to zero would hide that.
-                    ok = found["truck"] == 0
-                    detail = f"{found['truck']} vs 0 trucks"
-                gates.append((f"count {area.name}", ok, detail))
+                    gates.append((f"count {area.name}", ok, detail))
             # The regression check: training on truck shapes must not start
             # pulling containers in.
             negatives = sum(
@@ -941,7 +958,7 @@ def detect(
     ] = DEFAULT_ZOOM,
     min_length: Annotated[
         float, typer.Option(help="Drop detections shorter than this, in metres.")
-    ] = 4.0,  # the labelling gate: vans stay visible, cars fall out
+    ] = MIN_LENGTH_M,
     cache: Annotated[Path, typer.Option(help="Tile cache directory.")] = DEFAULT_CACHE,
     workers: Annotated[
         int, typer.Option(help="Concurrent requests.")

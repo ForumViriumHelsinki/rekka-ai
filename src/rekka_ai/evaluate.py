@@ -26,6 +26,19 @@ GATE_PRECISION = 0.85
 GATE_COUNT_ERROR = 0.10
 #: The hard-negative regression check tolerates a couple of blips, not a habit.
 GATE_NEGATIVE_DETECTIONS = 2
+#: Fewest ground-truth trucks an area needs before its count check may gate.
+#: Derived from the tolerance rather than picked: at 10 trucks a 10% error is
+#: exactly one box, and below that the gate decides on a fraction of a box —
+#: it measures the imagery, not the model (docs/DESIGN.md §7). Skipping those
+#: areas leaves no blind spot: false positives anywhere in the split still
+#: land on the precision gate, which is measured over every validation window.
+GATE_COUNT_MIN_TRUCKS = round(1 / GATE_COUNT_ERROR)
+#: Below this, "operating point" stops meaning anything: a point near conf=0
+#: keeps every raw proposal the detector makes. A curve whose recall never
+#: clears the gate above this floor has picked "keep everything" rather than
+#: a point anyone would deploy at — the recall gate then fails by
+#: construction instead of silently reporting a pass at a useless confidence.
+MIN_OPERATING_CONFIDENCE = 0.05
 
 
 @dataclass(frozen=True, slots=True)
@@ -47,20 +60,49 @@ def ground_truth_counts(collection: dict[str, Any]) -> Counter[str]:
     )
 
 
+def count_gate(found: int, truth: int) -> tuple[bool | None, str]:
+    """One area's truck-count verdict, or ``None`` when it may not gate.
+
+    The product's question is "how many vehicles per site", so per-area count
+    error is a gate rather than box geometry — but only where the area holds
+    enough trucks for the tolerance to cover a whole box
+    (``GATE_COUNT_MIN_TRUCKS``). Below that, including the no-trucks case, the
+    count is reported and left out of the verdict: r1-kamppi failed its area
+    gate on 8 trucks because one seam-smeared box is 12% of 8, which said
+    nothing about the model (docs/DESIGN.md §7).
+    """
+    if truth < GATE_COUNT_MIN_TRUCKS:
+        return None, (
+            f"{found} vs {truth} trucks — not gated, under {GATE_COUNT_MIN_TRUCKS}"
+        )
+    error = (found - truth) / truth
+    return abs(error) <= GATE_COUNT_ERROR, f"{found} vs {truth} trucks ({error:+.0%})"
+
+
 def pick_operating_point(
-    px: list[float], p: list[float], r: list[float], *, min_recall: float = GATE_RECALL
+    px: list[float],
+    p: list[float],
+    r: list[float],
+    *,
+    min_recall: float = GATE_RECALL,
+    min_confidence: float = MIN_OPERATING_CONFIDENCE,
 ) -> tuple[float, float, float]:
     """The operating confidence from a class's PR curve.
 
-    The best precision among points still meeting the recall gate; if no point
-    meets it, the F1 maximum instead — the honest fallback, reported as such
-    by the caller since the gate then fails by construction.
+    The best precision among points at or above ``min_confidence`` that still
+    meet the recall gate; if none qualify, the F1 maximum among points at or
+    above the floor instead — the honest fallback, reported as such by the
+    caller since the gate then fails by construction. Points below the floor
+    are never candidates, even for the fallback: a "point" near conf=0 keeps
+    every raw proposal the detector makes, which is not an operating point at
+    all.
     """
-    meeting = [i for i in range(len(px)) if r[i] >= min_recall]
+    candidates = [i for i in range(len(px)) if px[i] >= min_confidence]
+    meeting = [i for i in candidates if r[i] >= min_recall]
     if meeting:
         i = max(meeting, key=lambda j: p[j])
     else:
-        i = max(range(len(px)), key=lambda j: _f1(p[j], r[j]))
+        i = max(candidates, key=lambda j: _f1(p[j], r[j]))
     return px[i], p[i], r[i]
 
 

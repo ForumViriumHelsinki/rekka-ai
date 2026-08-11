@@ -82,7 +82,7 @@ def test_class_index_follows_labels_classes() -> None:
         _feature(_box(10, 10, 20, 8), window, klass=name) for name in labels.CLASSES
     ]
     lines = window_label_lines(label_boxes(features), window)
-    assert [int(line.split()[0]) for line in lines] == [0, 1, 2]
+    assert [int(line.split()[0]) for line in lines] == list(range(len(labels.CLASSES)))
 
 
 def test_straddling_box_is_dropped_not_clamped() -> None:
@@ -182,4 +182,4 @@ def test_dataset_yaml_round_trips(tmp_path: Path) -> None:
     assert config["path"] == str(tmp_path.resolve())
     assert config["train"] == "images/train"
     assert config["val"] == "images/val"
-    assert config["names"] == {0: "truck", 1: "bus", 2: "van"}
+    assert config["names"] == {0: "truck", 1: "bus", 2: "van", 3: "car"}

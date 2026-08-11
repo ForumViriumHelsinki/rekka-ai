@@ -30,15 +30,17 @@ from rekka_ai.imagery.windows import (
 )
 from rekka_ai.imagery.wmts import TileSource, ensure_cached
 
-#: DOTAv1's vehicle classes. ``large vehicle`` is the one that maps onto trucks
-#: and buses; ``small vehicle`` is cars, and including it floods the output.
+#: DOTAv1's vehicle classes. ``large vehicle`` maps onto trucks, buses and
+#: vans; ``small vehicle`` maps onto cars. Both are kept at bootstrap now
+#: that cars are an annotated class (see docs/DESIGN.md §5).
 LARGE_VEHICLE = "large vehicle"
+SMALL_VEHICLE = "small vehicle"
 DEFAULT_WEIGHTS = "yolo11x-obb.pt"
 DEFAULT_CONFIDENCE = 0.25
 
-#: The annotation guide's length gate: a truck is at least this long, which
-#: separates it from the vans and cars "large vehicle" also fires on.
-MIN_LENGTH_M = 6.0
+#: A noise floor, not a class exclusion: measured candidates below this are
+#: noise, not small real vehicles (docs/DESIGN.md §5).
+MIN_LENGTH_M = 4.0
 
 
 @dataclass(frozen=True, slots=True)

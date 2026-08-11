@@ -2,16 +2,33 @@ crs: "EPSG:3067"
 
 aois:
   # ---------------------------------------------------------------------------
-  #  validation — held out from training, never labelled into the train set
+  #  the original ground-truth areas — the validation split lives here, but two
+  #  of them (r1-kamppi, r1-rastila) moved to train on review. `split` is the
+  #  authority on which side an area is on, never this heading.
+  #
+  #  `notes` is the annotation guide the web tool shows beside the map: what to
+  #  look for and how to call it, nothing else. Why an area exists, or moved
+  #  between splits, belongs in docs/rounds.md.
   # ---------------------------------------------------------------------------
   - name: r1-kamppi
     bbox: [385722, 6672138, 386022, 6672438]
     role: positive
+    split: train
+    notes: >-
+      By the main railway station — street buses, vans and cars in the worst
+      imagery in the collection: deep shadow, building lean, mosaic seams
+      across a busy street. If a box is clearly a vehicle but its class is
+      unreadable, guess the likeliest class rather than rejecting it.
+
+  - name: r1-veturitie
+    bbox: [385250, 6676490, 385550, 6676790]
+    role: positive
     split: validation
     notes: >-
-      Next to main railway station — original ground-truth area. Held out as the bus
-      validation site, paired with the r1-ruskeasuo depot in train; the two are
-      4.3 km apart, so neither leaks into the other.
+      Pohjolan Liikenne's bus yard, Veturitie 25 — ~70 coaches in rows on open
+      concrete. The long commuter rows down the west side are `car`; rail
+      rolling stock on the Pasila tracks to the east is not labelled at all;
+      service vehicles are `van` or `truck` as usual.
 
   - name: r1-pohjois-haaga
     bbox: [382988, 6679083, 383288, 6679383]
@@ -23,7 +40,11 @@ aois:
     bbox: [382393, 6682731, 382693, 6683031]
     role: positive
     split: validation
-    notes: Field spot — lots of different trucks (reported at EPSG:3879 25493186.9, 6683670.7).
+    notes: >-
+      Dealer and contractor yard — lots of different trucks, most with a
+      visible cab at 9–10 m. The bare-sand south-west corner is a
+      road-maintenance equipment store: plough blades, spreader and tipper
+      bodies on the ground, no cabs. All of it is negative.
 
   - name: r1-jatkasaari
     bbox: [384523, 6671066, 384823, 6671366]
@@ -40,17 +61,10 @@ aois:
     role: positive
     split: train
     notes: >-
-      Rastila camping — rows of RVs and motorhomes, the annotation guide's
-      hardest confuser (van-fronted motorhomes are neither labelled nor
-      trucks). Moved from validation to train so the model can actually
-      learn from its ~60+ RV instances directly, rather than only having
-      it measured from a distance via the negative-area eval sweep. Costs
-      the project its one honest held-out RV-confusion measurement — a
-      deliberate tradeoff, made with that understood. Reviewed: 1 truck
-      and 7 vans confirmed real, 75 RVs/caravans rejected (including some
-      hand-drawn to cover detector misses). Role is `positive` rather than
-      `hard-negative` because real targets turned up — an RV site that's
-      also, incidentally, got actual vans parked in it.
+      Rastila camping — rows of RVs and motorhomes, the guide's hardest
+      confuser: a van-fronted motorhome is neither a van nor a truck, reject
+      it. Real vans do park here among them, so the square is not all
+      negative.
 
   # ---------------------------------------------------------------------------
   #  round one aois
@@ -135,16 +149,7 @@ aois:
     bbox: [392628, 6674754, 392928, 6675054]
     role: hard-negative
     notes: >-
-      Marina — five packed piers of moored boats, plus a winter storage yard of
-      hulls on cradles. From above a boat is a truck-sized oriented rectangle,
-      and one on a cradle beside a road is the most truck-like presentation in
-      the collection. Worth having because fine-tuning rebuilds the head to
-      three classes on land-only imagery: DOTA's `ship` knowledge is discarded,
-      so the model ends up with no information about vessels at all. The first
-      negative in train — the training side's only other negative signal is
-      rejected candidates inside positive areas. Framed 100 m west of the
-      basin's centre on purpose: it trades open water, which teaches nothing,
-      for the yard. The access road holds cars only — no truck, bus or van in
-      the square, checked against the 2025 imagery, which is what lets the
-      whole area be declared empty (reported at EPSG:3879 25503760.5,
-      6676019.2).
+      Marina — moored boats and a winter yard of hulls on cradles. From above
+      a hull on a cradle beside the road is the most truck-like shape in the
+      collection; none of it is a target, reject every boat. The access road
+      holds cars, and review turned up two vans.

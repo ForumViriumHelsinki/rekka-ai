@@ -10,7 +10,7 @@ import Feature from 'ol/Feature';
 import Polygon from 'ol/geom/Polygon';
 
 import { GRID_CRS } from './grid';
-import { LabelStore, RETRY_DELAY_MS, SAVE_DEBOUNCE_MS } from './labelStore.svelte';
+import { LabelStore, ORDER, RETRY_DELAY_MS, SAVE_DEBOUNCE_MS } from './labelStore.svelte';
 import { boxFromCentreline } from './obb';
 
 function box(properties: Record<string, unknown> = {}): Feature {
@@ -43,14 +43,16 @@ describe('recount', () => {
 			box(),
 			box({ status: 'confirmed', class: 'truck' }),
 			box({ status: 'added', class: 'van' }),
+			box({ status: 'confirmed', class: 'car' }),
 			box({ status: 'rejected', class: '' }),
 		]);
 		store.recount();
 		expect(store.counts).toMatchObject({
-			total: 4,
-			reviewed: 3,
+			total: 5,
+			reviewed: 4,
 			truck: 1,
 			van: 1,
+			car: 1,
 			added: 1,
 			rejected: 1,
 		});
@@ -278,6 +280,20 @@ describe('round trip', () => {
 		const put = fetchMock.mock.calls.find((c) => c[1]?.method === 'PUT');
 		return JSON.parse(put![1]!.body as string);
 	}
+
+	test('every loaded feature carries its own file position', async () => {
+		// The trap: `VectorSource.getFeatures()` returns a spatial index's
+		// traversal, so its array order is not the file's. A "#123" built by
+		// indexing that array points at an unrelated box — which is exactly what
+		// the go-to control did before it was addressed through ORDER. Anything
+		// that shows or takes a box number must read it from the feature.
+		stubLoadAndCapturePut();
+		await store.load('kamppi');
+		for (const feature of store.source.getFeatures()) {
+			const order = feature.get(ORDER) as number;
+			expect(FIXTURE.features[order].properties.length_m).toBe(feature.get('length_m'));
+		}
+	});
 
 	test('loading and saving without an edit reproduces the file exactly', async () => {
 		// The regression this whole CRS choice exists for: an operator opens an

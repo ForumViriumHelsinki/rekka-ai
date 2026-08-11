@@ -39,7 +39,7 @@ describe('selection', () => {
 	test('keeps the class colour visible', () => {
 		// The bug this guards: selection used to replace the stroke, so every
 		// selected box looked identical whatever verdict it carried.
-		for (const klass of ['truck', 'bus', 'van'] as const) {
+		for (const klass of ['truck', 'bus', 'van', 'car'] as const) {
 			const colours = strokeColours(box({ status: 'confirmed', class: klass }));
 			expect(colours, klass).toContain(COLOURS[klass]);
 		}
@@ -50,7 +50,7 @@ describe('selection', () => {
 		// selected candidate read as amber-on-amber. Selection is carried by
 		// the width bump — the handles and edge labels only exist on a
 		// selection, and they do the rest of the marking.
-		for (const klass of ['truck', 'bus', 'van'] as const) {
+		for (const klass of ['truck', 'bus', 'van', 'car'] as const) {
 			const feature = box({ status: 'confirmed', class: klass });
 			const bumped = selectedStyleFor(feature)
 				.filter((s) => s.getStroke()?.getColor() === COLOURS[klass])

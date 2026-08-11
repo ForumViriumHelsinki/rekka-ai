@@ -94,8 +94,8 @@ when changing either side**: `grid.ts` ↔ `imagery/tiles.py` (tile grid),
   and always wins over `--crs`. The per-area `notes` *are* the annotation
   guide — the web tool displays them beside the map.
 - `labels/<aoi>.geojson` — one file per area, **EPSG:3879** declared via a
-  `crs` member. Feature properties: `class` (`""`/`truck`/`bus`/`van`) and
-  `status` (`candidate`/`confirmed`/`rejected`/`added`).
+  `crs` member. Feature properties: `class` (`""`/`truck`/`bus`/`van`/`car`)
+  and `status` (`candidate`/`confirmed`/`rejected`/`added`).
 - **Gitignored and reproducible:** `data/` (tile cache, candidates, dataset,
   OSM Overpass responses, mining proposals), `runs/` (training runs, MLflow
   store), `models/`, `*.pt`. The bootstrap weights (`yolo11x-obb.pt` etc.) sit
@@ -165,7 +165,10 @@ web three (bun run lint, check, test). Run all of them before pushing.
   record), *append* a dated entry there — do not add "Update after round N"
   blocks to DESIGN.md, and do not rewrite old log entries when the present
   moves on. Numbers that justify a rule stay in DESIGN.md with their date;
-  the story around them goes in the log.
+  the log gets the decision and its cost. **Log entries are short** — a
+  decision, the numbers behind it, what it cost. Not a narrative of how it
+  was reached, and never the labelling guidance, which belongs in the AOI
+  `notes`.
 
 ## Testing strategy
 

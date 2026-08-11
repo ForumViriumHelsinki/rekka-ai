@@ -115,13 +115,18 @@ orthophoto WMTS:
 cd web && bun install && bun run dev     # http://localhost:3000
 ```
 
+**What to label, and how to call it: [docs/LABELLING.md](docs/LABELLING.md)** —
+one page, the rules that decide the metrics. The reasoning behind them is
+docs/DESIGN.md §5.
+
 Click an area, then:
 
 | key | |
 |---|---|
-| `T` / `B` / `V` | classify as truck / bus / van |
+| `T` / `B` / `V` / `C` | classify as truck / bus / van / car |
 | `X` | reject (kept as a hard negative, not deleted) |
 | `N` / `P` | jump to next / previous unreviewed candidate |
+| `G` | go to a box by its number in the file (the `#n` in the footer) |
 | `D` | draw: click the nose, click the tail, scroll for width, click or `Enter` to place |
 | wheel | vehicle width once the tail is set, while drawing |
 | `Esc` | redo the in-progress sketch, or stop drawing |
@@ -143,11 +148,12 @@ The surrounding areas are drawn on the map too, in a quieter outline with their
 name. Clicking one opens it, so moving to the next area does not mean going back
 to the sidebar.
 
-Areas with `role: hard-negative` — currently just `r1-marjaniemi` — sit under
-**Not staged** at 0/0, and that is correct rather than a job left undone: no
-candidates are staged for it and there is nothing to review. Its contribution
-is the imagery itself, exported as background, so the model learns that
-moored boats are not trucks. See docs/DESIGN.md §5.
+An area with `role: hard-negative` — currently just `r1-marjaniemi`, a marina —
+is there for what it does *not* contain: its imagery exports as background, so
+the model learns that moored boats and hulls on cradles are not trucks. It is
+still reviewed like any other area, because a negative square usually turns out
+to hold a few real vehicles anyway (marjaniemi has two vans). See
+docs/DESIGN.md §5.
 
 ### Training
 

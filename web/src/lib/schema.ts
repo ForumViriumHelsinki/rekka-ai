@@ -18,7 +18,7 @@
  */
 
 /** Annotated classes, in the order that fixes their YOLO indices. */
-export const CLASSES = ['truck', 'bus', 'van'] as const;
+export const CLASSES = ['truck', 'bus', 'van', 'car'] as const;
 export type Klass = (typeof CLASSES)[number];
 
 /** The zoom labels are drawn against, and the one bootstrap runs at. */

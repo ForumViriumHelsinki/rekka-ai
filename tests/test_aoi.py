@@ -292,7 +292,7 @@ def test_real_collection_parses(tmp_path: Path) -> None:
     # so moving ground between train and validation should never be a quiet
     # diff. Update this list deliberately, never to make the test pass.
     assert [a.name for a in aois if a.split == "validation"] == [
-        "r1-kamppi",
+        "r1-veturitie",
         "r1-pohjois-haaga",
         "r1-kaivoksela",
         "r1-jatkasaari",

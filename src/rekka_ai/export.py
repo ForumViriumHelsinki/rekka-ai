@@ -35,7 +35,7 @@ from rekka_ai.imagery.windows import (
 )
 from rekka_ai.imagery.wmts import TileSource, ensure_cached
 
-#: YOLO class indices, fixed by ``labels.CLASSES`` order: truck 0, bus 1, van 2.
+#: YOLO class indices, fixed by ``labels.CLASSES`` order: truck 0, bus 1, van 2, car 3.
 CLASS_INDEX = {name: index for index, name in enumerate(labels.CLASSES)}
 
 #: Statuses that are real, human-verified objects. Candidates are unreviewed
