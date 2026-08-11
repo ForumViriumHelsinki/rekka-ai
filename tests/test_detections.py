@@ -6,6 +6,7 @@ checkable right answer are exercised without torch.
 
 import math
 from collections.abc import Iterable
+from itertools import pairwise
 from pathlib import Path
 
 import pytest
@@ -16,6 +17,7 @@ from rekka_ai.detect.detections import (
     merge,
     to_geojson,
     within_region,
+    write,
 )
 from rekka_ai.detect.sweep import LARGE_VEHICLE, RawDetection, sweep
 from rekka_ai.geo import crs_member
@@ -120,11 +122,21 @@ def test_merge_keeps_vehicles_parked_nose_to_tail() -> None:
     assert len(merge([first, second])) == 2
 
 
-def test_merge_keeps_different_labels_apart() -> None:
+def test_merge_drops_the_same_vehicle_read_as_two_classes() -> None:
+    """A car box and a van box on the same footprint are one vehicle."""
     corners = _box(25496000.0, 6673000.0)
-    a = Detection(label="large vehicle", confidence=0.9, corners=corners)
-    b = Detection(label="ship", confidence=0.8, corners=corners)
-    assert len(merge([a, b])) == 2
+    van = Detection(label="van", confidence=0.9, corners=corners)
+    car = Detection(label="car", confidence=0.8, corners=corners)
+    merged = merge([van, car])
+    assert len(merged) == 1
+    assert merged[0].label == "van"  # the more confident reading survives
+
+
+def test_merge_keeps_different_labels_on_different_ground() -> None:
+    """Class-agnostic must not mean position-agnostic: adjacent stays two."""
+    first = Detection(label="van", confidence=0.9, corners=_box(25496000.0, 6673000.0))
+    second = Detection(label="car", confidence=0.8, corners=_box(25496017.0, 6673000.0))
+    assert len(merge([first, second])) == 2
 
 
 def test_merge_of_nothing_is_nothing() -> None:
@@ -200,6 +212,36 @@ def test_bootstrap_georeferences_into_the_aoi(
         assert detection.aoi == "r1-tattariharjuntie"
         # 64 px at z15 is 16 m.
         assert detection.length_m == pytest.approx(16.0, abs=0.01)
+
+
+def test_sweep_reports_progress_per_window(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    """on_progress fires once per window, 1-based, ending at the total."""
+    area = load_aois("aois/helsinki.yaml", name="r1-tattariharjuntie")[0]
+    monkeypatch.setattr("rekka_ai.detect.sweep.load_window", lambda *a, **k: object())
+    detector = FakeDetector(((0.0, 0.0), (64.0, 0.0), (64.0, 10.0), (0.0, 10.0)))
+
+    class NullFetcher:
+        def fetch_all(self, layer: str, tiles: Iterable[Tile]) -> Iterable[object]:
+            return []
+
+    events: list[tuple[int, int, int]] = []
+    sweep(
+        area,
+        detector=detector,
+        layer="L",
+        zoom=ZOOM,
+        cache_root=tmp_path,
+        fetcher=NullFetcher(),
+        on_progress=lambda index, total, found: events.append((index, total, found)),
+    )
+
+    total = events[0][1]
+    assert [index for index, _, _ in events] == list(range(1, total + 1))
+    assert all(t == total for _, t, _ in events)
+    # Found count is monotone and never negative — it is "so far", not a delta.
+    assert all(b[2] >= a[2] for a, b in pairwise(events))
 
 
 def test_bootstrap_merges_duplicates_across_windows(
@@ -315,3 +357,32 @@ def test_within_region_keeps_only_detections_centred_inside() -> None:
     kept = within_region([inside, outside, straddling], region)
 
     assert kept == [inside]
+
+
+def test_write_rejects_an_unknown_suffix(tmp_path: Path) -> None:
+    with pytest.raises(ValueError, match="unknown output format"):
+        write([_detection(EAST_WEST)], tmp_path / "out.shp")
+
+
+def test_write_flatgeobuf_and_geopackage_round_trip(tmp_path: Path) -> None:
+    """Binary formats carry EPSG:3879 natively, no crs member involved."""
+    geopandas = pytest.importorskip("geopandas")  # optional 'detect' extra
+    detections = [
+        _detection(EAST_WEST),
+        _detection(_box(25496100.0, 6673100.0, length=8.0), confidence=0.4),
+    ]
+
+    for suffix in (".fgb", ".gpkg"):
+        path = tmp_path / f"out{suffix}"
+        write(detections, path, source_layer="L", zoom=ZOOM)
+        frame = geopandas.read_file(path)
+
+        assert str(frame.crs.to_epsg()) == "3879"
+        assert len(frame) == 2
+        # Spatial formats make no row-order promise; pick the row by content.
+        row = frame[frame["confidence"] > 0.5].iloc[0]
+        assert row["label"] == LARGE_VEHICLE
+        assert row["confidence"] == pytest.approx(0.9)
+        assert row["length_m"] == pytest.approx(16.0)
+        assert row["source_layer"] == "L"
+        assert row["zoom"] == ZOOM

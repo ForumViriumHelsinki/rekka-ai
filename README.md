@@ -102,6 +102,9 @@ Output is a GeoJSON of oriented polygons carrying `length_m`, `width_m`,
 metres, declared by a `crs` member rather than the WGS84 RFC 7946 assumes — see
 docs/DESIGN.md §2. GDAL-based tools (QGIS, `ogr2ogr`) honour it; for anything that
 does not, convert with `ogr2ogr -f GeoJSON out.geojson -t_srs EPSG:4326 in.geojson`.
+Or skip GeoJSON entirely: an `--out` ending in `.fgb` or `.gpkg` writes
+FlatGeobuf / GeoPackage instead (via geopandas, in the `detect` extra), which
+carry the CRS natively.
 
 ### Labelling
 
@@ -218,6 +221,55 @@ uv run rekka-ai stage --candidates data/detections/r1-jatkasaari.geojson
 
 Each round the model proposes and the human only corrects; the correction
 count per round measures how much the model still misses.
+
+### Reading the numbers
+
+What `eval`, `train` and MLflow report, in plain terms. The reasoning behind
+the thresholds is docs/DESIGN.md §7; this is just what each value tells you.
+
+| term | what it measures | how to read it |
+|---|---|---|
+| **precision** | of the boxes the model emitted, the share that were real vehicles | Low precision costs a *glance* — you scroll past junk in the labelling tool. |
+| **recall** | of the vehicles really there, the share the model found | Low recall costs *drawing* — a missed truck has to be hand-labelled from blank imagery. This is why the gates are recall-first. |
+| **IoU** | overlap ÷ union of two boxes | 1.0 identical, 0 disjoint. ~0.5 means "clearly the same vehicle", ~0.9 means "pixel-tight". For OBB the boxes are rotated, so heading errors cost IoU. |
+| **mAP50** | average precision across the whole confidence range, counting a box correct at IoU ≥ 0.50 | "Did it find the thing", forgiving about box fit. Independent of the threshold you ship at, so it is the fair number for comparing two runs. |
+| **mAP50‑95** | the same, averaged over IoU 0.50 → 0.95 in 0.05 steps | The *geometry* score. A large mAP50 → mAP50‑95 gap means right vehicles, loose boxes. |
+| **operating confidence** | the score threshold `eval` picks off the PR curve, which `detect` then uses | Not a quality score on its own — a *calibration* signal. Of two models at equal recall, the one holding it at a higher confidence separates trucks from background better. Round 2 needed conf 0.105 for recall 0.904; round 3 held the same recall at 0.776. |
+| **count error** | per-area `(found − truth) / truth`, trucks only | The product's actual question: how many vehicles at this site. Gated only where an area holds ≥ 60 trucks — below that one box is a double-digit percentage and the random seed decides the verdict, so the number is printed without a pass/fail. |
+| **unexplained detection** | a box in a negative-role area matching no vehicle the area really holds | The regression check: has fine-tuning started pulling lookalikes (containers, boat hulls) in? Reported, never gated — three seeds of one dataset gave 1, 7 and 3. |
+| **hard negative** | a candidate a human rejected, kept in the label file rather than deleted | Free training signal: it teaches the model what a truck-shaped non-truck looks like. Never "clean these up". |
+
+Training logs four losses per epoch, each as `train/*` and `val/*`:
+`box` (where the box is), `cls` (what it is called), `dfl` (how sharply the
+edges are localised) and `angle` (heading). Absolute values mean little; the
+*gap* is the signal — `val` drifting upward while `train` keeps falling is
+overfitting.
+
+#### The confusion matrix
+
+`runs/train/<name>/confusion_matrix_normalized.png` shows where the classes
+leak into each other. Two conventions trip people up:
+
+- **Predicted is the Y axis, True is the X axis** — the transpose of the
+  layout most tools use.
+- **It is normalized down each column**, so columns sum to 1. Every cell is
+  therefore a recall-flavoured number: *"of all real vans, what fraction did
+  the model call this?"* Read it column by column, never row by row.
+
+The `background` **column** is the exception to that reading: it is the
+*composition* of the false positives, not how many there are. "39% of what
+the model invented, it called a car" says nothing about whether that was five
+boxes or five hundred — for the magnitude, read `negative_detections` and the
+per-area counts. The `background` **row**, conversely, is the miss rate: how
+much of each true class got no box at all.
+
+Round 3 reads: trucks 0.93 correct with an empty background row (trucks are
+essentially never missed outright, only misnamed), buses 0.96, and vans 0.46
+with **0.32 of real vans predicted as truck**. That one cell is most of the
+truck/van confusion the rounds log keeps returning to — the model is not
+hallucinating trucks on empty asphalt, it is calling vans trucks. Note the
+matrix is drawn at a fixed conf ≈ 0.25, not at the operating confidence, so it
+describes a more permissive model than the one `detect` ships.
 
 ### Choosing round-2 areas (`mine`)
 

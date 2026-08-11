@@ -1,4 +1,5 @@
 import json
+import time
 from collections import Counter
 from pathlib import Path
 from typing import Annotated
@@ -6,7 +7,7 @@ from typing import Annotated
 import typer
 
 from rekka_ai import labels
-from rekka_ai.detect.detections import Detection, to_geojson, within_region
+from rekka_ai.detect.detections import Detection, within_region, write
 from rekka_ai.detect.sweep import (
     DEFAULT_CONFIDENCE,
     DEFAULT_WEIGHTS,
@@ -90,6 +91,25 @@ DEFAULT_CACHE = Path("data/cache")
 DEFAULT_LABELS = Path("labels")
 
 
+def _progress(index: int, total: int, found: int) -> None:
+    """Sweep progress for long runs: the first and last window, then every
+    hundredth. A 300 m AOI has ~10 windows and stays quiet; a polygon region
+    can have tens of thousands, and a multi-hour fetch with no output looks
+    dead."""
+    if index == 1 or index == total or index % 100 == 0:
+        typer.echo(f"  window {index}/{total}, {found} detections")
+
+
+def _elapsed(start: float) -> str:
+    """Wall-clock for a done line: '42s', '12m 5s', '1h 3m'."""
+    seconds = int(time.monotonic() - start)
+    if seconds >= 3600:
+        return f"{seconds // 3600}h {seconds % 3600 // 60}m"
+    if seconds >= 60:
+        return f"{seconds // 60}m {seconds % 60:02d}s"
+    return f"{seconds}s"
+
+
 @app.callback()
 def main() -> None:
     """Keep subcommand dispatch even with a single command registered."""
@@ -153,6 +173,7 @@ def fetch(
         return
 
     fetched = cached = 0
+    start = time.monotonic()
     with TileFetcher(cache, workers=workers) as fetcher:
         for area in aois:
             for result in fetcher.fetch_all(layer, tiles_covering(area.bounds, zoom)):
@@ -167,7 +188,10 @@ def fetch(
                     )
         failures = list(fetcher.failures)
 
-    typer.echo(f"done: {fetched} fetched, {cached} already cached -> {cache}")
+    typer.echo(
+        f"done: {fetched} fetched, {cached} already cached -> {cache} "
+        f"in {_elapsed(start)}"
+    )
     if failures:
         typer.echo(
             f"warning: {len(failures)} tile(s) failed after {MAX_ATTEMPTS} attempts; "
@@ -187,7 +211,10 @@ def bootstrap(
             help="YAML AOI collection, GeoJSON file, or bbox 'min_x,min_y,max_x,max_y'."
         ),
     ],
-    out: Annotated[Path, typer.Option(help="GeoJSON file to write candidates to.")],
+    out: Annotated[
+        Path,
+        typer.Option(help="Output file for candidates: .geojson, .fgb or .gpkg."),
+    ],
     name: Annotated[
         str | None, typer.Option(help="Select one AOI from a collection.")
     ] = None,
@@ -246,6 +273,7 @@ def bootstrap(
     )
 
     found: list[Detection] = []
+    start = time.monotonic()
     with TileFetcher(cache, workers=workers) as fetcher:
         for area in areas:
             candidates = sweep(
@@ -257,15 +285,17 @@ def bootstrap(
                 fetcher=fetcher,
                 min_length_m=min_length,
                 on_skip=typer.echo,
+                on_progress=_progress,
             )
             typer.echo(f"  {area.name} ({area.role}): {len(candidates)} candidates")
             found.extend(candidates)
 
     out.parent.mkdir(parents=True, exist_ok=True)
-    out.write_text(
-        json.dumps(to_geojson(found, source_layer=layer, zoom=zoom), indent=2)
-    )
-    typer.echo(f"done: {len(found)} candidates -> {out}")
+    try:
+        write(found, out, source_layer=layer, zoom=zoom)
+    except ValueError as exc:
+        raise typer.BadParameter(str(exc)) from exc
+    typer.echo(f"done: {len(found)} candidates -> {out} in {_elapsed(start)}")
 
 
 @app.command()
@@ -491,6 +521,7 @@ def mine(
 
     detector = YoloObb(str(weights), confidence=detection_floor)
     detections_by_name: dict[str, list[Detection]] = {}
+    start = time.monotonic()
     with TileFetcher(cache, workers=workers) as fetcher:
         for index, cell in enumerate(pool, start=1):
             area = cell.as_aoi()
@@ -534,7 +565,7 @@ def mine(
     typer.echo(
         f"done: {len(proposals)} proposals "
         f"({', '.join(f'{k}={v}' for k, v in sorted(by_stratum.items()))}) "
-        f"-> {out} and {report}"
+        f"-> {out} and {report} in {_elapsed(start)}"
     )
     typer.echo(
         "review the GeoJSON, copy accepted entries into the AOI collection, "
@@ -675,6 +706,7 @@ def export(
     typer.echo(f"{layer} z{zoom}, {len(areas)} area(s) -> {out}")
     totals: Counter[str] = Counter()
     skipped: list[str] = []
+    start = time.monotonic()
     with TileFetcher(cache, workers=workers) as fetcher:
         for area in areas:
             split_dir = "val" if area.split == "validation" else "train"
@@ -699,7 +731,7 @@ def export(
     typer.echo(
         f"done: {totals['train_windows']} train + {totals['val_windows']} val windows, "
         f"{totals['train_boxes']} train + {totals['val_boxes']} val labels "
-        f"-> {out / 'dataset.yaml'}"
+        f"-> {out / 'dataset.yaml'} in {_elapsed(start)}"
     )
     if skipped:
         typer.echo(
@@ -753,6 +785,7 @@ def train(
     """
     if not data.exists():
         raise typer.BadParameter(f"no dataset at {data}; run rekka-ai export first")
+    start = time.monotonic()
     try:
         best = run_train(
             data,
@@ -767,7 +800,7 @@ def train(
     except RuntimeError as exc:
         typer.echo(str(exc), err=True)
         raise typer.Exit(1) from exc
-    typer.echo(f"done: best weights -> {best}")
+    typer.echo(f"done: best weights -> {best} in {_elapsed(start)}")
 
 
 @app.command("eval")
@@ -824,6 +857,7 @@ def evaluate_cmd(
         raise typer.BadParameter(f"no dataset at {data}; run rekka-ai export first")
 
     run_name = name or f"eval-{weights.parent.parent.name}"
+    start = time.monotonic()
     try:
         per_class, (px, p_curve, r_curve), names = validation_metrics(
             weights, data, device=device, name=run_name
@@ -979,7 +1013,7 @@ def evaluate_cmd(
             typer.echo(f"  {label}: {detail}")
 
     log_eval_run(run_name, {"weights": str(weights), "data": str(data)}, metrics)
-    typer.echo(f"\nlogged to MLflow as {run_name!r}")
+    typer.echo(f"\nlogged to MLflow as {run_name!r} in {_elapsed(start)}")
 
 
 @app.command()
@@ -992,7 +1026,10 @@ def detect(
             "'min_x,min_y,max_x,max_y'."
         ),
     ],
-    out: Annotated[Path, typer.Option(help="GeoJSON file to write detections to.")],
+    out: Annotated[
+        Path,
+        typer.Option(help="Output file for detections: .geojson, .fgb or .gpkg."),
+    ],
     weights: Annotated[Path, typer.Option(help="Trained weights to detect with.")],
     confidence: Annotated[
         float,
@@ -1040,7 +1077,12 @@ def detect(
 
     # Trained weights: keep every class the model was trained on.
     detector = YoloObb(str(weights), confidence=confidence)
+    typer.echo(
+        f"{layer} z{zoom}, weights {weights.name}, "
+        f"conf {confidence}, min-length {min_length} m -> {out}"
+    )
     found: list[Detection] = []
+    start = time.monotonic()
     with TileFetcher(cache, workers=workers) as fetcher:
         # A file that is not a YAML collection is a polygon region: GeoJSON,
         # FlatGeobuf, GeoPackage, shapefile — load_region knows the formats.
@@ -1060,6 +1102,7 @@ def detect(
                     fetcher=fetcher,
                     min_length_m=min_length,
                     on_skip=typer.echo,
+                    on_progress=_progress,
                 ),
                 region,
             )
@@ -1087,15 +1130,17 @@ def detect(
                     fetcher=fetcher,
                     min_length_m=min_length,
                     on_skip=typer.echo,
+                    on_progress=_progress,
                 )
                 typer.echo(f"  {area.name} ({area.role}): {len(candidates)} detections")
                 found.extend(candidates)
 
     out.parent.mkdir(parents=True, exist_ok=True)
-    out.write_text(
-        json.dumps(to_geojson(found, source_layer=layer, zoom=zoom), indent=2)
-    )
-    typer.echo(f"done: {len(found)} detections -> {out}")
+    try:
+        write(found, out, source_layer=layer, zoom=zoom)
+    except ValueError as exc:
+        raise typer.BadParameter(str(exc)) from exc
+    typer.echo(f"done: {len(found)} detections -> {out} in {_elapsed(start)}")
 
 
 @app.command("aois")

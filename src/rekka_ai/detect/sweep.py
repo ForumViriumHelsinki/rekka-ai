@@ -127,18 +127,21 @@ def sweep(
     iou_threshold: float = DEFAULT_IOU,
     min_length_m: float = MIN_LENGTH_M,
     on_skip: Callable[[str], None] | None = None,
+    on_progress: Callable[[int, int, int], None] | None = None,
 ) -> list[Detection]:
     """Detect over one AOI and return merged, georeferenced detections.
 
-    ``on_skip`` is called for each window dropped for missing tiles. Reporting
+    ``on_skip`` is called for each window dropped for missing tiles, and
+    ``on_progress`` after every window as ``(index, total, found_so_far)`` —
+    a city-scale sweep runs for hours, so silence is not an option. Reporting
     belongs to the caller: a library that writes to stdout cannot be silenced,
     and cannot be tested for what it says.
     """
     report = on_skip or _silent
+    progress = on_progress or _no_progress
     found: list[Detection] = []
-    for index, window in enumerate(
-        _windows(aoi, zoom, window_size, overlap_m), start=1
-    ):
+    windows = list(_windows(aoi, zoom, window_size, overlap_m))
+    for index, window in enumerate(windows, start=1):
         # Cache-first, so this is free once the AOI has been fetched.
         ensure_cached(fetcher, layer, window.tiles())
         try:
@@ -148,13 +151,19 @@ def sweep(
             # a hole in this window. Skip it rather than kill the sweep; the
             # window's neighbours still cover most of its ground.
             report(f"  {aoi.name}: window {index} skipped ({exc})")
+            progress(index, len(windows), len(found))
             continue
         found.extend(_georeference(detector.detect(image), window, aoi.name))
+        progress(index, len(windows), len(found))
     return longer_than(merge(found, iou_threshold), min_length_m)
 
 
 def _silent(message: str) -> None:
     """Default reporter: a sweep says nothing unless the caller asks."""
+
+
+def _no_progress(index: int, total: int, found: int) -> None:
+    """Default progress callback, matching ``_silent`` for ``on_skip``."""
 
 
 def _windows(aoi: Aoi, zoom: int, size: int, overlap_m: float) -> Iterator[Window]:

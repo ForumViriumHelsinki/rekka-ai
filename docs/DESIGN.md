@@ -469,8 +469,11 @@ AOI (GeoJSON / bbox)
   window.
 - **Merge.** Overlap guarantees duplicates. Global NMS over the union of
   detections in *projected* coordinates — not per window — removes them.
-  Candidate pairs come from an STRtree rather than a full pairwise scan, so
-  the cost grows with actual neighbours, and a city-wide sweep stays feasible.
+  Class-agnostic: one vehicle read as two classes (the 7–8 m van/truck
+  boundary is the usual case) is still one vehicle; the more confident reading
+  wins. Candidate pairs come from an STRtree rather than a full pairwise scan,
+  so the cost grows with actual neighbours, and a city-wide sweep stays
+  feasible.
 - **Georeference.** Window pixel → EPSG:3879 is exact and analytic from §3; no
   warping, and no reprojection at output either — that is what §2 buys.
 

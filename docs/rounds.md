@@ -92,3 +92,9 @@ check was demoted to reported. Three gates remain: truck recall, truck
 precision, and the kaivoksela count. The cost, stated plainly: the ship
 decision rests on one area's count and two split-wide truck metrics — the fix
 is a wider validation split (DESIGN §11.3), not a lower bar.
+
+## First test run on industial areas
+
+```bash
+time uv run rekka-ai detect --aoi data/osm/091_helsinki_industrial.fgb --weights runs/train/round3/weights/best.pt --confidence 0.25 --out data/detections/industrial-conf25.geojson 
+```
