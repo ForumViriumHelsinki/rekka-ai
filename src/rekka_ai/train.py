@@ -20,6 +20,14 @@ from rekka_ai.imagery.windows import WINDOW_SIZE
 
 #: Long enough for a small dataset to converge, short enough to iterate.
 DEFAULT_EPOCHS = 100
+#: Epochs without a new best fitness before training stops. Ultralytics
+#: defaults to 100, which on a 100-epoch run never fires. Measured on round 1
+#: (2026-08-11): fitness last improved at epoch 46 and the longest plateau
+#: preceding a real improvement was 20 epochs, so 20 would have survived by a
+#: single epoch and 10 would have stopped in that plateau and kept worse
+#: weights. 30 clears the observed worst case with margin and still ends the
+#: run 24 epochs early. It can only ever save time — `epochs` remains the cap.
+DEFAULT_PATIENCE = 30
 #: Ultralytics autobatch: size the batch to ~60% of GPU memory.
 AUTOBATCH = -1
 
@@ -39,6 +47,7 @@ def train(
     *,
     weights: str = DEFAULT_WEIGHTS,
     epochs: int = DEFAULT_EPOCHS,
+    patience: int = DEFAULT_PATIENCE,
     batch: int = AUTOBATCH,
     device: str | None = None,
     imgsz: int = WINDOW_SIZE,
@@ -65,6 +74,7 @@ def train(
     model.train(
         data=str(data),
         epochs=epochs,
+        patience=patience,
         batch=batch,
         device=device,
         imgsz=imgsz,

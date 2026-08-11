@@ -1,0 +1,2594 @@
+{
+  "type": "FeatureCollection",
+  "crs": {
+    "type": "name",
+    "properties": {
+      "name": "urn:ogc:def:crs:EPSG::3879"
+    }
+  },
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25510939.368,
+              6678160.524
+            ],
+            [
+              25510942.334,
+              6678159.634
+            ],
+            [
+              25510946.376,
+              6678173.109
+            ],
+            [
+              25510943.411,
+              6678173.999
+            ],
+            [
+              25510939.368,
+              6678160.524
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.9192,
+        "length_m": 14.07,
+        "width_m": 3.1,
+        "heading_deg": 16.7,
+        "aoi": "r2-vuosaari-trailer-road",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "rejected",
+        "class": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25510829.89,
+              6678345.529
+            ],
+            [
+              25510830.932,
+              6678348.267
+            ],
+            [
+              25510819.353,
+              6678352.672
+            ],
+            [
+              25510818.311,
+              6678349.934
+            ],
+            [
+              25510829.89,
+              6678345.529
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.8706,
+        "length_m": 12.39,
+        "width_m": 2.93,
+        "heading_deg": 110.8,
+        "aoi": "r2-vuosaari-trailer-road",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "rejected",
+        "class": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25510876.986,
+              6678162.48
+            ],
+            [
+              25510880.128,
+              6678165.006
+            ],
+            [
+              25510871.986,
+              6678175.131
+            ],
+            [
+              25510868.844,
+              6678172.605
+            ],
+            [
+              25510876.986,
+              6678162.48
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.8684,
+        "length_m": 12.99,
+        "width_m": 4.03,
+        "heading_deg": 141.2,
+        "aoi": "r2-vuosaari-trailer-road",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "confirmed",
+        "class": "truck"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25511007.735,
+              6678120.422
+            ],
+            [
+              25511010.929,
+              6678119.359
+            ],
+            [
+              25511016.402,
+              6678135.805
+            ],
+            [
+              25511013.208,
+              6678136.868
+            ],
+            [
+              25511007.735,
+              6678120.422
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.8546,
+        "length_m": 17.33,
+        "width_m": 3.37,
+        "heading_deg": 18.4,
+        "aoi": "r2-vuosaari-trailer-road",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "confirmed",
+        "class": "truck"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25511002.627,
+              6678126.194
+            ],
+            [
+              25511005.897,
+              6678125.227
+            ],
+            [
+              25511010.776,
+              6678141.728
+            ],
+            [
+              25511007.506,
+              6678142.695
+            ],
+            [
+              25511002.627,
+              6678126.194
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.8346,
+        "length_m": 17.21,
+        "width_m": 3.41,
+        "heading_deg": 16.5,
+        "aoi": "r2-vuosaari-trailer-road",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "confirmed",
+        "class": "truck"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25510853.515,
+              6678362.628
+            ],
+            [
+              25510854.613,
+              6678365.607
+            ],
+            [
+              25510842.818,
+              6678369.956
+            ],
+            [
+              25510841.72,
+              6678366.977
+            ],
+            [
+              25510853.515,
+              6678362.628
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.757,
+        "length_m": 12.57,
+        "width_m": 3.17,
+        "heading_deg": 110.2,
+        "aoi": "r2-vuosaari-trailer-road",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "rejected",
+        "class": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25511017.409,
+              6678117.364
+            ],
+            [
+              25511020.376,
+              6678116.344
+            ],
+            [
+              25511024.253,
+              6678127.626
+            ],
+            [
+              25511021.286,
+              6678128.645
+            ],
+            [
+              25511017.409,
+              6678117.364
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.7206,
+        "length_m": 11.93,
+        "width_m": 3.14,
+        "heading_deg": 19,
+        "aoi": "r2-vuosaari-trailer-road",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "rejected",
+        "class": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25510856.098,
+              6678321.436
+            ],
+            [
+              25510857.118,
+              6678324.399
+            ],
+            [
+              25510842.613,
+              6678329.396
+            ],
+            [
+              25510841.593,
+              6678326.434
+            ],
+            [
+              25510856.098,
+              6678321.436
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.7097,
+        "length_m": 15.34,
+        "width_m": 3.13,
+        "heading_deg": 109,
+        "aoi": "r2-vuosaari-trailer-road",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "rejected",
+        "class": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25510941.74,
+              6678157.278
+            ],
+            [
+              25510944.701,
+              6678156.299
+            ],
+            [
+              25510949.241,
+              6678170.028
+            ],
+            [
+              25510946.28,
+              6678171.007
+            ],
+            [
+              25510941.74,
+              6678157.278
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.7055,
+        "length_m": 14.46,
+        "width_m": 3.12,
+        "heading_deg": 18.3,
+        "aoi": "r2-vuosaari-trailer-road",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "rejected",
+        "class": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25510885.902,
+              6678170.293
+            ],
+            [
+              25510888.818,
+              6678172.682
+            ],
+            [
+              25510878.956,
+              6678184.72
+            ],
+            [
+              25510876.04,
+              6678182.331
+            ],
+            [
+              25510885.902,
+              6678170.293
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.6919,
+        "length_m": 15.56,
+        "width_m": 3.77,
+        "heading_deg": 140.7,
+        "aoi": "r2-vuosaari-trailer-road",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "confirmed",
+        "class": "truck"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25510890.821,
+              6678300.692
+            ],
+            [
+              25510892.144,
+              6678304.039
+            ],
+            [
+              25510878.918,
+              6678309.27
+            ],
+            [
+              25510877.594,
+              6678305.922
+            ],
+            [
+              25510890.821,
+              6678300.692
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.6121,
+        "length_m": 14.22,
+        "width_m": 3.6,
+        "heading_deg": 111.6,
+        "aoi": "r2-vuosaari-trailer-road",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "rejected",
+        "class": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25510805.673,
+              6678419.828
+            ],
+            [
+              25510806.684,
+              6678422.724
+            ],
+            [
+              25510798.725,
+              6678425.503
+            ],
+            [
+              25510797.714,
+              6678422.607
+            ],
+            [
+              25510805.673,
+              6678419.828
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.5752,
+        "length_m": 8.43,
+        "width_m": 3.07,
+        "heading_deg": 109.2,
+        "aoi": "r2-vuosaari-trailer-road",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "rejected",
+        "class": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25510843.183,
+              6678325.665
+            ],
+            [
+              25510844.287,
+              6678328.736
+            ],
+            [
+              25510838.661,
+              6678330.759
+            ],
+            [
+              25510837.557,
+              6678327.688
+            ],
+            [
+              25510843.183,
+              6678325.665
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.5713,
+        "length_m": 5.98,
+        "width_m": 3.26,
+        "heading_deg": 109.8,
+        "aoi": "r2-vuosaari-trailer-road",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "rejected",
+        "class": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25510802.207,
+              6678237.513
+            ],
+            [
+              25510804.737,
+              6678239.603
+            ],
+            [
+              25510798.65,
+              6678246.974
+            ],
+            [
+              25510796.12,
+              6678244.884
+            ],
+            [
+              25510802.207,
+              6678237.513
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.5486,
+        "length_m": 9.56,
+        "width_m": 3.28,
+        "heading_deg": 140.4,
+        "aoi": "r2-vuosaari-trailer-road",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "rejected",
+        "class": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25510843.659,
+              6678376.107
+            ],
+            [
+              25510844.689,
+              6678378.911
+            ],
+            [
+              25510833.197,
+              6678383.129
+            ],
+            [
+              25510832.168,
+              6678380.324
+            ],
+            [
+              25510843.659,
+              6678376.107
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.5426,
+        "length_m": 12.24,
+        "width_m": 2.99,
+        "heading_deg": 110.2,
+        "aoi": "r2-vuosaari-trailer-road",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "rejected",
+        "class": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25510887.179,
+              6678297.428
+            ],
+            [
+              25510888.383,
+              6678300.928
+            ],
+            [
+              25510874.95,
+              6678305.549
+            ],
+            [
+              25510873.745,
+              6678302.049
+            ],
+            [
+              25510887.179,
+              6678297.428
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.5343,
+        "length_m": 14.21,
+        "width_m": 3.7,
+        "heading_deg": 109,
+        "aoi": "r2-vuosaari-trailer-road",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "rejected",
+        "class": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25510783.353,
+              6678272.159
+            ],
+            [
+              25510786.372,
+              6678274.443
+            ],
+            [
+              25510776.878,
+              6678286.99
+            ],
+            [
+              25510773.859,
+              6678284.706
+            ],
+            [
+              25510783.353,
+              6678272.159
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.5233,
+        "length_m": 15.73,
+        "width_m": 3.79,
+        "heading_deg": 142.9,
+        "aoi": "r2-vuosaari-trailer-road",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "confirmed",
+        "class": "truck"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25510901.712,
+              6678309.606
+            ],
+            [
+              25510902.937,
+              6678312.699
+            ],
+            [
+              25510896.358,
+              6678315.306
+            ],
+            [
+              25510895.132,
+              6678312.213
+            ],
+            [
+              25510901.712,
+              6678309.606
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.5111,
+        "length_m": 7.08,
+        "width_m": 3.33,
+        "heading_deg": 111.6,
+        "aoi": "r2-vuosaari-trailer-road",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "rejected",
+        "class": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25510848.384,
+              6678379.431
+            ],
+            [
+              25510849.413,
+              6678382.262
+            ],
+            [
+              25510836.889,
+              6678386.812
+            ],
+            [
+              25510835.86,
+              6678383.982
+            ],
+            [
+              25510848.384,
+              6678379.431
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.461,
+        "length_m": 13.32,
+        "width_m": 3.01,
+        "heading_deg": 110,
+        "aoi": "r2-vuosaari-trailer-road",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "rejected",
+        "class": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25511019.298,
+              6678202.574
+            ],
+            [
+              25511022.561,
+              6678201.687
+            ],
+            [
+              25511026.342,
+              6678215.598
+            ],
+            [
+              25511023.078,
+              6678216.485
+            ],
+            [
+              25511019.298,
+              6678202.574
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.4422,
+        "length_m": 14.42,
+        "width_m": 3.38,
+        "heading_deg": 15.2,
+        "aoi": "r2-vuosaari-trailer-road",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "rejected",
+        "class": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25511003.124,
+              6678220.184
+            ],
+            [
+              25511006.186,
+              6678219.133
+            ],
+            [
+              25511011.934,
+              6678235.872
+            ],
+            [
+              25511008.873,
+              6678236.924
+            ],
+            [
+              25511003.124,
+              6678220.184
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.4164,
+        "length_m": 17.7,
+        "width_m": 3.24,
+        "heading_deg": 19,
+        "aoi": "r2-vuosaari-trailer-road",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "confirmed",
+        "class": "truck"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25510960.79,
+              6678117.397
+            ],
+            [
+              25510963.74,
+              6678116.419
+            ],
+            [
+              25510966.932,
+              6678126.048
+            ],
+            [
+              25510963.981,
+              6678127.026
+            ],
+            [
+              25510960.79,
+              6678117.397
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.4044,
+        "length_m": 10.14,
+        "width_m": 3.11,
+        "heading_deg": 18.3,
+        "aoi": "r2-vuosaari-trailer-road",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "rejected",
+        "class": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25510968.923,
+              6678200.678
+            ],
+            [
+              25510972.088,
+              6678199.568
+            ],
+            [
+              25510974.931,
+              6678207.672
+            ],
+            [
+              25510971.765,
+              6678208.782
+            ],
+            [
+              25510968.923,
+              6678200.678
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.3904,
+        "length_m": 8.59,
+        "width_m": 3.35,
+        "heading_deg": 19.3,
+        "aoi": "r2-vuosaari-trailer-road",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "rejected",
+        "class": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25511014.127,
+              6678117.565
+            ],
+            [
+              25511016.925,
+              6678116.641
+            ],
+            [
+              25511021.422,
+              6678130.258
+            ],
+            [
+              25511018.624,
+              6678131.182
+            ],
+            [
+              25511014.127,
+              6678117.565
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.3843,
+        "length_m": 14.34,
+        "width_m": 2.95,
+        "heading_deg": 18.3,
+        "aoi": "r2-vuosaari-trailer-road",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "rejected",
+        "class": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25510917.118,
+              6678322.502
+            ],
+            [
+              25510918.419,
+              6678325.758
+            ],
+            [
+              25510904.798,
+              6678331.199
+            ],
+            [
+              25510903.497,
+              6678327.943
+            ],
+            [
+              25510917.118,
+              6678322.502
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.3772,
+        "length_m": 14.67,
+        "width_m": 3.51,
+        "heading_deg": 111.8,
+        "aoi": "r2-vuosaari-trailer-road",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "rejected",
+        "class": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25510816.02,
+              6678312.329
+            ],
+            [
+              25510818.893,
+              6678314.608
+            ],
+            [
+              25510813.567,
+              6678321.324
+            ],
+            [
+              25510810.694,
+              6678319.045
+            ],
+            [
+              25510816.02,
+              6678312.329
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.3359,
+        "length_m": 8.57,
+        "width_m": 3.67,
+        "heading_deg": 141.6,
+        "aoi": "r2-vuosaari-trailer-road",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "rejected",
+        "class": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25510827.077,
+              6678409.892
+            ],
+            [
+              25510828.069,
+              6678412.733
+            ],
+            [
+              25510820.159,
+              6678415.495
+            ],
+            [
+              25510819.167,
+              6678412.654
+            ],
+            [
+              25510827.077,
+              6678409.892
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.3075,
+        "length_m": 8.38,
+        "width_m": 3.01,
+        "heading_deg": 109.2,
+        "aoi": "r2-vuosaari-trailer-road",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "rejected",
+        "class": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25510972.7,
+              6678200.486
+            ],
+            [
+              25510975.6,
+              6678199.2
+            ],
+            [
+              25510977.982,
+              6678204.575
+            ],
+            [
+              25510975.082,
+              6678205.86
+            ],
+            [
+              25510972.7,
+              6678200.486
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.3065,
+        "length_m": 5.88,
+        "width_m": 3.17,
+        "heading_deg": 23.9,
+        "aoi": "r2-vuosaari-trailer-road",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "rejected",
+        "class": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25510952.86,
+              6678295.937
+            ],
+            [
+              25510955.781,
+              6678298.433
+            ],
+            [
+              25510945.513,
+              6678310.45
+            ],
+            [
+              25510942.592,
+              6678307.954
+            ],
+            [
+              25510952.86,
+              6678295.937
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.2715,
+        "length_m": 15.81,
+        "width_m": 3.84,
+        "heading_deg": 139.5,
+        "aoi": "r2-vuosaari-trailer-road",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "rejected",
+        "class": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25510819.735,
+              6678401.874
+            ],
+            [
+              25510820.866,
+              6678404.838
+            ],
+            [
+              25510811.904,
+              6678408.256
+            ],
+            [
+              25510810.773,
+              6678405.291
+            ],
+            [
+              25510819.735,
+              6678401.874
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.2657,
+        "length_m": 9.59,
+        "width_m": 3.17,
+        "heading_deg": 110.9,
+        "aoi": "r2-vuosaari-trailer-road",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "rejected",
+        "class": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25510900.991,
+              6678350.326
+            ],
+            [
+              25510902.286,
+              6678353.469
+            ],
+            [
+              25510896.405,
+              6678355.892
+            ],
+            [
+              25510895.11,
+              6678352.749
+            ],
+            [
+              25510900.991,
+              6678350.326
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.2549,
+        "length_m": 6.36,
+        "width_m": 3.4,
+        "heading_deg": 112.4,
+        "aoi": "r2-vuosaari-trailer-road",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "rejected",
+        "class": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25510752.337,
+              6678296.123
+            ],
+            [
+              25510754.777,
+              6678298.299
+            ],
+            [
+              25510750.081,
+              6678303.566
+            ],
+            [
+              25510747.64,
+              6678301.39
+            ],
+            [
+              25510752.337,
+              6678296.123
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.2516,
+        "length_m": 7.06,
+        "width_m": 3.27,
+        "heading_deg": 138.3,
+        "aoi": "r2-vuosaari-trailer-road",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "rejected",
+        "class": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25510764.039,
+              6678296.181
+            ],
+            [
+              25510766.554,
+              6678298.459
+            ],
+            [
+              25510754.809,
+              6678311.419
+            ],
+            [
+              25510752.295,
+              6678309.141
+            ],
+            [
+              25510764.039,
+              6678296.181
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.2402,
+        "length_m": 17.49,
+        "width_m": 3.39,
+        "heading_deg": 137.8,
+        "aoi": "r2-vuosaari-trailer-road",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "confirmed",
+        "class": "truck"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25510846.999,
+              6678321.153
+            ],
+            [
+              25510847.903,
+              6678323.698
+            ],
+            [
+              25510835.695,
+              6678328.035
+            ],
+            [
+              25510834.791,
+              6678325.49
+            ],
+            [
+              25510846.999,
+              6678321.153
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.2204,
+        "length_m": 12.96,
+        "width_m": 2.7,
+        "heading_deg": 109.6,
+        "aoi": "r2-vuosaari-trailer-road",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "rejected",
+        "class": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25510827.141,
+              6678409.916
+            ],
+            [
+              25510828.136,
+              6678412.813
+            ],
+            [
+              25510820.08,
+              6678415.58
+            ],
+            [
+              25510819.085,
+              6678412.683
+            ],
+            [
+              25510827.141,
+              6678409.916
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.2165,
+        "length_m": 8.52,
+        "width_m": 3.06,
+        "heading_deg": 109,
+        "aoi": "r2-vuosaari-trailer-road",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "rejected",
+        "class": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25510802.287,
+              6678335.248
+            ],
+            [
+              25510804.934,
+              6678337.501
+            ],
+            [
+              25510794.545,
+              6678349.706
+            ],
+            [
+              25510791.899,
+              6678347.453
+            ],
+            [
+              25510802.287,
+              6678335.248
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.2157,
+        "length_m": 16.03,
+        "width_m": 3.48,
+        "heading_deg": 139.6,
+        "aoi": "r2-vuosaari-trailer-road",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "confirmed",
+        "class": "truck"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25510782.41,
+              6678180.122
+            ],
+            [
+              25510784.973,
+              6678182.394
+            ],
+            [
+              25510771.993,
+              6678197.042
+            ],
+            [
+              25510769.43,
+              6678194.77
+            ],
+            [
+              25510782.41,
+              6678180.122
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.2075,
+        "length_m": 19.57,
+        "width_m": 3.43,
+        "heading_deg": 138.5,
+        "aoi": "r2-vuosaari-trailer-road",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "rejected",
+        "class": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25510921.006,
+              6678326.195
+            ],
+            [
+              25510922.262,
+              6678329.537
+            ],
+            [
+              25510909.096,
+              6678334.483
+            ],
+            [
+              25510907.84,
+              6678331.141
+            ],
+            [
+              25510921.006,
+              6678326.195
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.1974,
+        "length_m": 14.06,
+        "width_m": 3.57,
+        "heading_deg": 110.6,
+        "aoi": "r2-vuosaari-trailer-road",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "rejected",
+        "class": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25510718.512,
+              6678247.333
+            ],
+            [
+              25510721.268,
+              6678249.518
+            ],
+            [
+              25510715.34,
+              6678256.994
+            ],
+            [
+              25510712.584,
+              6678254.808
+            ],
+            [
+              25510718.512,
+              6678247.333
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.1823,
+        "length_m": 9.54,
+        "width_m": 3.52,
+        "heading_deg": 141.6,
+        "aoi": "r2-vuosaari-trailer-road",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "rejected",
+        "class": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25510898.191,
+              6678305.633
+            ],
+            [
+              25510899.334,
+              6678308.811
+            ],
+            [
+              25510885.722,
+              6678313.704
+            ],
+            [
+              25510884.579,
+              6678310.526
+            ],
+            [
+              25510898.191,
+              6678305.633
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.1676,
+        "length_m": 14.46,
+        "width_m": 3.38,
+        "heading_deg": 109.8,
+        "aoi": "r2-vuosaari-trailer-road",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "rejected",
+        "class": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25510755.643,
+              6678198.073
+            ],
+            [
+              25510758.097,
+              6678200.219
+            ],
+            [
+              25510753.2,
+              6678205.82
+            ],
+            [
+              25510750.746,
+              6678203.674
+            ],
+            [
+              25510755.643,
+              6678198.073
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.1662,
+        "length_m": 7.44,
+        "width_m": 3.26,
+        "heading_deg": 138.8,
+        "aoi": "r2-vuosaari-trailer-road",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "rejected",
+        "class": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25510898.517,
+              6678344.496
+            ],
+            [
+              25510900.277,
+              6678347.489
+            ],
+            [
+              25510896.716,
+              6678349.584
+            ],
+            [
+              25510894.956,
+              6678346.591
+            ],
+            [
+              25510898.517,
+              6678344.496
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.1636,
+        "length_m": 4.13,
+        "width_m": 3.47,
+        "heading_deg": 120.5,
+        "aoi": "r2-vuosaari-trailer-road",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "rejected",
+        "class": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25510843.182,
+              6678322.235
+            ],
+            [
+              25510844.23,
+              6678324.981
+            ],
+            [
+              25510835.649,
+              6678328.256
+            ],
+            [
+              25510834.601,
+              6678325.509
+            ],
+            [
+              25510843.182,
+              6678322.235
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.1387,
+        "length_m": 9.18,
+        "width_m": 2.94,
+        "heading_deg": 110.9,
+        "aoi": "r2-vuosaari-trailer-road",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "rejected",
+        "class": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25510878.052,
+              6678115.038
+            ],
+            [
+              25510880.548,
+              6678117.209
+            ],
+            [
+              25510876.87,
+              6678121.438
+            ],
+            [
+              25510874.374,
+              6678119.267
+            ],
+            [
+              25510878.052,
+              6678115.038
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.1329,
+        "length_m": 5.6,
+        "width_m": 3.31,
+        "heading_deg": 139,
+        "aoi": "r2-vuosaari-trailer-road",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "rejected",
+        "class": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25510717.508,
+              6678289.424
+            ],
+            [
+              25510720.214,
+              6678291.439
+            ],
+            [
+              25510715.466,
+              6678297.816
+            ],
+            [
+              25510712.759,
+              6678295.802
+            ],
+            [
+              25510717.508,
+              6678289.424
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.1315,
+        "length_m": 7.95,
+        "width_m": 3.37,
+        "heading_deg": 143.3,
+        "aoi": "r2-vuosaari-trailer-road",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "rejected",
+        "class": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25510907.019,
+              6678314.053
+            ],
+            [
+              25510908.229,
+              6678317.2
+            ],
+            [
+              25510894.879,
+              6678322.335
+            ],
+            [
+              25510893.669,
+              6678319.188
+            ],
+            [
+              25510907.019,
+              6678314.053
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.1226,
+        "length_m": 14.3,
+        "width_m": 3.37,
+        "heading_deg": 111,
+        "aoi": "r2-vuosaari-trailer-road",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "rejected",
+        "class": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25510876.689,
+              6678295.215
+            ],
+            [
+              25510877.831,
+              6678298.184
+            ],
+            [
+              25510869.594,
+              6678301.351
+            ],
+            [
+              25510868.453,
+              6678298.381
+            ],
+            [
+              25510876.689,
+              6678295.215
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.1108,
+        "length_m": 8.82,
+        "width_m": 3.18,
+        "heading_deg": 111,
+        "aoi": "r2-vuosaari-trailer-road",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "rejected",
+        "class": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25510718.071,
+              6678329.114
+            ],
+            [
+              25510720.782,
+              6678331.184
+            ],
+            [
+              25510715.365,
+              6678338.277
+            ],
+            [
+              25510712.654,
+              6678336.207
+            ],
+            [
+              25510718.071,
+              6678329.114
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.1106,
+        "length_m": 8.92,
+        "width_m": 3.41,
+        "heading_deg": 142.6,
+        "aoi": "r2-vuosaari-trailer-road",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "rejected",
+        "class": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25510805.39,
+              6678419.942
+            ],
+            [
+              25510806.38,
+              6678422.735
+            ],
+            [
+              25510798.842,
+              6678425.408
+            ],
+            [
+              25510797.852,
+              6678422.616
+            ],
+            [
+              25510805.39,
+              6678419.942
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.1054,
+        "length_m": 8,
+        "width_m": 2.96,
+        "heading_deg": 109.5,
+        "aoi": "r2-vuosaari-trailer-road",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "rejected",
+        "class": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25510755.697,
+              6678198.023
+            ],
+            [
+              25510758.169,
+              6678200.352
+            ],
+            [
+              25510753.051,
+              6678205.784
+            ],
+            [
+              25510750.579,
+              6678203.455
+            ],
+            [
+              25510755.697,
+              6678198.023
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.1023,
+        "length_m": 7.46,
+        "width_m": 3.4,
+        "heading_deg": 136.7,
+        "aoi": "r2-vuosaari-trailer-road",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "rejected",
+        "class": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25510885.472,
+              6678343.671
+            ],
+            [
+              25510886.825,
+              6678346.482
+            ],
+            [
+              25510873.016,
+              6678353.129
+            ],
+            [
+              25510871.663,
+              6678350.318
+            ],
+            [
+              25510885.472,
+              6678343.671
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.0952,
+        "length_m": 15.33,
+        "width_m": 3.12,
+        "heading_deg": 115.7,
+        "aoi": "r2-vuosaari-trailer-road",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "rejected",
+        "class": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25510921.322,
+              6678325.324
+            ],
+            [
+              25510921.753,
+              6678327.751
+            ],
+            [
+              25510916.49,
+              6678328.686
+            ],
+            [
+              25510916.059,
+              6678326.259
+            ],
+            [
+              25510921.322,
+              6678325.324
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.0893,
+        "length_m": 5.35,
+        "width_m": 2.46,
+        "heading_deg": 100.1,
+        "aoi": "r2-vuosaari-trailer-road",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "rejected",
+        "class": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25510840.822,
+              6678192.36
+            ],
+            [
+              25510843.364,
+              6678194.627
+            ],
+            [
+              25510837.888,
+              6678200.768
+            ],
+            [
+              25510835.346,
+              6678198.501
+            ],
+            [
+              25510840.822,
+              6678192.36
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.0873,
+        "length_m": 8.23,
+        "width_m": 3.41,
+        "heading_deg": 138.3,
+        "aoi": "r2-vuosaari-trailer-road",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "rejected",
+        "class": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25511021.875,
+              6678130.681
+            ],
+            [
+              25511024.15,
+              6678129.977
+            ],
+            [
+              25511026.207,
+              6678136.629
+            ],
+            [
+              25511023.932,
+              6678137.332
+            ],
+            [
+              25511021.875,
+              6678130.681
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.0873,
+        "length_m": 6.96,
+        "width_m": 2.38,
+        "heading_deg": 17.2,
+        "aoi": "r2-vuosaari-trailer-road",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "rejected",
+        "class": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25510715.7,
+              6678244.228
+            ],
+            [
+              25510718.462,
+              6678246.12
+            ],
+            [
+              25510715.581,
+              6678250.325
+            ],
+            [
+              25510712.819,
+              6678248.433
+            ],
+            [
+              25510715.7,
+              6678244.228
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.081,
+        "length_m": 5.1,
+        "width_m": 3.35,
+        "heading_deg": 145.6,
+        "aoi": "r2-vuosaari-trailer-road",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "rejected",
+        "class": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25510964.731,
+              6678282.344
+            ],
+            [
+              25510967.346,
+              6678284.399
+            ],
+            [
+              25510961.73,
+              6678291.548
+            ],
+            [
+              25510959.114,
+              6678289.493
+            ],
+            [
+              25510964.731,
+              6678282.344
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.0783,
+        "length_m": 9.09,
+        "width_m": 3.33,
+        "heading_deg": 141.8,
+        "aoi": "r2-vuosaari-trailer-road",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "rejected",
+        "class": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25510821.43,
+              6678215.186
+            ],
+            [
+              25510823.841,
+              6678217.221
+            ],
+            [
+              25510818.45,
+              6678223.606
+            ],
+            [
+              25510816.04,
+              6678221.57
+            ],
+            [
+              25510821.43,
+              6678215.186
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.0781,
+        "length_m": 8.36,
+        "width_m": 3.16,
+        "heading_deg": 139.8,
+        "aoi": "r2-vuosaari-trailer-road",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "rejected",
+        "class": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25510823.073,
+              6678358.165
+            ],
+            [
+              25510824.096,
+              6678360.985
+            ],
+            [
+              25510812.505,
+              6678365.189
+            ],
+            [
+              25510811.482,
+              6678362.369
+            ],
+            [
+              25510823.073,
+              6678358.165
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.0754,
+        "length_m": 12.33,
+        "width_m": 3,
+        "heading_deg": 109.9,
+        "aoi": "r2-vuosaari-trailer-road",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "rejected",
+        "class": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25510878.222,
+              6678115.192
+            ],
+            [
+              25510880.457,
+              6678117.249
+            ],
+            [
+              25510876.557,
+              6678121.486
+            ],
+            [
+              25510874.322,
+              6678119.428
+            ],
+            [
+              25510878.222,
+              6678115.192
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.0711,
+        "length_m": 5.76,
+        "width_m": 3.04,
+        "heading_deg": 137.4,
+        "aoi": "r2-vuosaari-trailer-road",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "rejected",
+        "class": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25510901.921,
+              6678309.59
+            ],
+            [
+              25510903.084,
+              6678313.021
+            ],
+            [
+              25510889.467,
+              6678317.637
+            ],
+            [
+              25510888.303,
+              6678314.205
+            ],
+            [
+              25510901.921,
+              6678309.59
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.0709,
+        "length_m": 14.38,
+        "width_m": 3.62,
+        "heading_deg": 108.7,
+        "aoi": "r2-vuosaari-trailer-road",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "rejected",
+        "class": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25511019.273,
+              6678133.824
+            ],
+            [
+              25511022.089,
+              6678132.933
+            ],
+            [
+              25511027.105,
+              6678148.778
+            ],
+            [
+              25511024.288,
+              6678149.67
+            ],
+            [
+              25511019.273,
+              6678133.824
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.0692,
+        "length_m": 16.62,
+        "width_m": 2.95,
+        "heading_deg": 17.6,
+        "aoi": "r2-vuosaari-trailer-road",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "rejected",
+        "class": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25511000.056,
+              6678221.769
+            ],
+            [
+              25511003.155,
+              6678220.742
+            ],
+            [
+              25511008.127,
+              6678235.751
+            ],
+            [
+              25511005.028,
+              6678236.778
+            ],
+            [
+              25511000.056,
+              6678221.769
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.0665,
+        "length_m": 15.81,
+        "width_m": 3.26,
+        "heading_deg": 18.3,
+        "aoi": "r2-vuosaari-trailer-road",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "rejected",
+        "class": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25510717.345,
+              6678228.863
+            ],
+            [
+              25510720.124,
+              6678231.091
+            ],
+            [
+              25510715.428,
+              6678236.946
+            ],
+            [
+              25510712.65,
+              6678234.718
+            ],
+            [
+              25510717.345,
+              6678228.863
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.0602,
+        "length_m": 7.51,
+        "width_m": 3.56,
+        "heading_deg": 141.3,
+        "aoi": "r2-vuosaari-trailer-road",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "rejected",
+        "class": ""
+      }
+    }
+  ]
+}

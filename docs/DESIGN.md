@@ -6,10 +6,10 @@ labelling tool. The loop was proven over two recorded rounds on an earlier,
 over-large collection — round 1 passed the recall gate and failed precision
 on truck/van confusion; round 2 proved the loop closes — told in
 `docs/rounds.md`. The collection has since been restructured into small
-plots (currently 21 areas, 17 train / 4 validation) and `labels/` wiped for
-a fresh start. The first labelling round over the current collection is
-**complete** — 3,092 candidates reviewed, 2,866 labelled — but no training
-run has been made on it yet, so the collection has no gate numbers.
+plots (currently 24 areas, 20 train / 4 validation) and `labels/` wiped for
+a fresh start. Two rounds have run on it: round 2 **passes truck recall,
+truck precision and the kaivoksela count gate**, and fails the jatkasaari
+count (+36%) and the negative check by one detection. See `docs/rounds.md`.
 
 ## 1. What this is
 
@@ -602,15 +602,30 @@ different questions:
      confidence — recall first, because a missed truck costs hand-labelling,
      a false box costs a glance;
    - per-area truck **count error ≤ 10%**;
-   - negative-role areas ≤ **2 detections** — the regression check that
-     fine-tuning has not started pulling lookalikes in; it tolerates a couple
-     of blips, not a habit. `r1-marjaniemi` plays this role in train now (the
-     retired `vuosaari` area played it for round 1; `r1-rastila` played it in
-     validation until review turned up real trucks and vans and it moved to
-     `positive`; see §4),
+   - negative-role areas ≤ **2 unexplained detections** — the regression check
+     that fine-tuning has not started pulling lookalikes in; it tolerates a
+     couple of blips, not a habit. *Unexplained* is load-bearing: a detection
+     matching a vehicle the area really holds is forgiven, because a negative
+     area is negative about **targets**, not empty. `r1-puotinharju` holds 93
+     confirmed cars and `r1-marjaniemi` two vans; counting raw detections
+     failed a model by an order of magnitude for being right about them
+     (2026-08-11). Class is ignored in the match — the question is whether the
+     model invented a vehicle, not whether it named it correctly. Rejected
+     boxes forgive nothing: a reject is the human saying "not a vehicle", so a
+     detection landing on one is exactly the error being counted. In train:
+     `r1-marjaniemi` (marina) and `r2-vuosaari-harbour-road` (container
+     terminal, 53 candidates and no trucks); `r1-puotinharju` is `sparse` and
+     counts too. Nothing negative sits in validation, so this gate measures
+     ground the model trained on and reads optimistically (§11),
    - `bus`, `van` and `car` are reported but never gate: they are auxiliary
      classes, and the truck/van boundary is genuinely ambiguous at the short
      end.
+
+   Both operational gates sweep with the pipeline's `MIN_LENGTH_M` floor, so
+   they count what `detect` would emit rather than every raw proposal — the
+   standard metrics above keep the raw model. Without that, sixteen of round
+   2's twenty negative-area failures were 2–4 m slivers of parked cars that no
+   sweep would ever report (2026-08-11).
 
    The operating confidence is chosen from the PR curve, not left at the 0.25
    default. Whatever is chosen is logged to MLflow and becomes `detect`'s

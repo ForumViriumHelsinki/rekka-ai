@@ -112,7 +112,33 @@ combination had ever been boxed whole.
 Still open: ~26 vehicles sit in two label files because three plots physically
 overlap, and will export twice. Plot geometry, not labelling.
 
-### Open: negative-role areas now hold labelled cars, 2026-08-11
+### Negative gate fixed: count only unexplained detections, 2026-08-11
+
+**Was open, now closed.** The regression check counted *every* detection in a
+negative-role area and gated at 2 — written when negative meant empty. It no
+longer is: `r1-puotinharju` holds 93 confirmed cars and 5 vans,
+`r1-marjaniemi` 17 cars and 2 vans, and round 1's eval reported **152**, an
+order of magnitude past the gate, for a model that was right about them.
+
+`evaluate.unexplained` now forgives any detection matching a labelled vehicle
+(IoU > 0.3, class ignored — the question is whether the model invented a
+vehicle, not whether it named it right). Rejected boxes forgive nothing: a
+reject is the human saying "not a vehicle", so a detection on one is the
+error being counted. Threshold stays at 2 — a gate gets tuned after it has
+produced one honest measurement, not before.
+
+`r2-vuosaari-harbour-road` became `role: hard-negative` in the same change:
+53 candidates reviewed, no trucks kept, 2 vans and a car on the access road.
+It is the best regression probe the project has for the round-1 failure. Its
+three real vehicles stay labelled — they are what stops the gate counting
+them as false alarms.
+
+Known weakness, not fixed: all three negative areas are `split: train`, and
+the gate does not filter by split, so it measures whether the model
+hallucinates trucks on ground it trained on. A held-out negative area is
+still the outstanding ask in §11.3.
+
+### Superseded: negative-role areas now hold labelled cars, 2026-08-11
 
 The eval regression check counts *every* detection in a negative-role area and
 gates at 2 (DESIGN §7). Written when negative meant empty; `car` is a class
@@ -140,3 +166,135 @@ Two known-hard cases from DESIGN §5 settled on those examples:
   plausible van at a glance.
 - **Pickups → `car`**, not `truck` — they measure and behave like cars, and
   `truck` is the only gated class.
+
+## Round 1 Training and Eval
+
+```bash
+# export and train 
+uv run rekka-ai export --aoi aois/helsinki.yaml
+uv run rekka-ai train --name round1 --batch 4
+...
+100 epochs completed in 0.286 hours.
+
+# eval
+uv run rekka-ai eval --weights runs/train/round1/weights/best.pt --aoi aois/helsinki.yaml
+...
+validation split of data/dataset/dataset.yaml:
+  truck  P 0.897  R 0.830  mAP50 0.910  mAP50-95 0.822
+  bus    P 0.825  R 0.962  mAP50 0.976  mAP50-95 0.931
+  van    P 0.845  R 0.748  mAP50 0.855  mAP50-95 0.795
+  car    P 0.933  R 0.953  mAP50 0.968  mAP50-95 0.895
+
+operating point (truck): conf 0.058 -> P 0.757, R 0.908
+  count r1-veturitie: 6 vs 1 trucks — not gated, under 10
+  count r1-pohjois-haaga: 2 vs 0 trucks — not gated, under 10
+
+gates:
+  PASS  truck recall: 0.908 >= 0.9
+  FAIL  truck precision: 0.757 >= 0.85
+  FAIL  count r1-kaivoksela: 131 vs 106 trucks (+24%)
+  FAIL  count r1-jatkasaari: 23 vs 14 trucks (+64%)
+  FAIL  negative areas: 152 detections (<= 2)
+```
+
+### Round 1 trained and evaluated — precision fails again, 2026-08-11
+
+Fine-tune from `yolo11x-obb.pt` on the 4-class dataset, 100 epochs. Gates:
+
+| | | |
+|---|---|---|
+| truck recall ≥ 0.90 | 0.908 | pass, but only at conf **0.058** — just over the 0.05 floor |
+| truck precision ≥ 0.85 | 0.757 | **fail** |
+| count error ≤ 10% | +23.6% kaivoksela, +64% jatkasaari | **fail**, both over-counting |
+| negative areas ≤ 2 | 152 | the broken gate above, not a model result |
+
+**No operating point satisfies both gates.** At default confidence the model is
+precision 0.897 / recall 0.830; pushed to 0.058 to clear recall, precision
+collapses. The curve does not reach the target anywhere, so this is not
+threshold tuning.
+
+A `detect` pass over kaivoksela at the operating point says why. 124 truck
+detections against 106 real, 103 matched — 97% recall in-area — and of the 21
+extras, **12–15 sit on cab-less truck-shaped objects**: stored bodies, tipper
+skips, trailers, containers, four of them in the equipment corner. Six more are
+boxes labelled `van`. The equipment-corner errors are the model's *most
+confident* (0.90, 0.85, 0.73), so raising the threshold does not help: dropping
+everything under 0.30 removes half the false positives and costs recall that is
+already scraping its gate. DESIGN §4 predicted exactly this — training on
+truck-shaped objects pulls lookalikes in.
+
+Two consequences for round 2:
+
+- **Relabelling those bodies as rejects would change nothing.** `export` writes
+  only confirmed/added, so a reject and an omission are the same background —
+  the labour of rejecting a container buys exactly what leaving it alone
+  buys. What the areas contribute is their **windows**: imagery in which
+  containers and stored bodies appear as background. Training has had little
+  of it — r1-hermanni, r1-vuosaari-rahtarinkatu and r1-vuosaari-channel-road,
+  a few hundred boxes — and kaivoksela, where the failure shows, is
+  validation ground the model never trained on. So mine for equipment yards,
+  trailer parks and container ground; kaivoksela's 97% recall says more truck
+  yards buy nothing.
+- **The van/truck boundary at 7–8 m needs a rule**, the way car/van at 5–6 m
+  got one. `van` recall is the weakest class at 0.748, and this is round 1 on
+  the old collection repeating itself.
+
+Training plateaued by epoch 10; best mAP50 0.937 at epoch 44 of 100. Use
+`patience=30` next round — the last 55 epochs bought nothing.
+
+## Round 2 Training and eval
+
+```bash
+uv run rekka-ai export --aoi aois/helsinki.yaml
+uv run rekka-ai train --name round2 --batch 4
+...
+100 epochs completed in 0.324 hours.
+
+uv run rekka-ai eval --weights runs/train/round2/weights/best.pt --aoi aois/helsinki.yaml
+...
+gates:
+  PASS  truck recall: 0.909 >= 0.9
+  PASS  truck precision: 0.867 >= 0.85
+  PASS  count r1-kaivoksela: 114 vs 106 trucks (+8%)
+  FAIL  count r1-jatkasaari: 19 vs 14 trucks (+36%)
+  FAIL  negative areas: 20 unexplained detection(s) (<= 2)
+...
+
+```
+
+### Round 2 — precision passes, 2026-08-11
+
+Same recipe, three mined areas added (two Vuosaari container squares, one
+Kivikko estate), 189 candidates of which 137 were rejects.
+
+```
+PASS  truck recall     0.909 >= 0.90     (round 1: 0.908)
+PASS  truck precision  0.867 >= 0.85     (round 1: 0.757)
+PASS  count kaivoksela 111 vs 106  +5%   (round 1: +23.6%)
+FAIL  count jatkasaari  19 vs 14  +36%   (round 1: +64%)
+FAIL  negative areas    3 unexplained    (round 1: 87, recounted)
+```
+
+**Precision is the result.** Round 1 only reached the recall gate by dropping
+the operating point to 0.058 — keep-everything — where precision collapsed.
+Round 2 clears the same recall at **conf 0.114**, twice as high, and holds
+precision at 0.867. The curve moved, not the threshold.
+
+The negative comparison is 87 → 3, but re-measured: round-1 weights were
+re-run through the new counting to get a baseline, since the old 152 counted
+raw detections. Caveat on the biggest single win — `r2-vuosaari-harbour-road`
+went 55 → 0 and it is in round 2's *training* set, so that is not evidence of
+generalisation. The held-out evidence is the precision and kaivoksela numbers.
+
+Still failing: `r1-jatkasaari` at +36% (14 trucks, 19 found) — shipyard ground
+of cranes, hulls and containers that round 2 did not cover. And the negative
+check by one detection, all three in `r1-puotinharju`.
+
+`van` recall is unchanged at 0.731 and remains the weakest class. The
+van/truck boundary at 7–8 m still has no rule, unlike car/van at 5–6 m.
+
+**Gates now sweep with the pipeline's length floor.** They stand in for a city
+sweep, and a sweep runs `detect`, which drops everything under `MIN_LENGTH_M`.
+Counting raw proposals had the negative check failing on 2–4 m slivers of
+parked cars: 20 became 3 once the floor was applied, and kaivoksela's count
+error +7.6% became +5%. Standard metrics still see the raw model.

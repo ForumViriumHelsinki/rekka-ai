@@ -153,3 +153,38 @@ aois:
       a hull on a cradle beside the road is the most truck-like shape in the
       collection; none of it is a target, reject every boat. The access road
       holds cars, and review turned up two vans.
+
+  # ---------------------------------------------------------------------------
+  #  round two aois — model-mined from the round-1 weights (docs/rounds.md).
+  #  Aimed at the round-1 failure: cab-less truck-shaped objects detected as
+  #  trucks. These squares hold containers and detached trailers *among* real
+  #  rigs, so they teach the boundary rather than just "container = negative".
+  #  Mined areas stay `split: train`; validation ground is chosen deliberately.
+  # ---------------------------------------------------------------------------
+  - name: r2-vuosaari-harbour-road
+    bbox: [399300, 6676800, 399600, 6677100]
+    role: hard-negative
+    split: train
+    notes: >-
+      Vuosaari harbour container terminal — stacked containers by the hundred,
+      straddle carriers, and no trucks at all: review found 53 candidates and
+      kept none. Reject the containers and the detached trailers. A couple of
+      real vans and a car sit on the access road and are labelled; leave them.
+
+  - name: r2-vuosaari-trailer-road
+    bbox: [399900, 6676800, 400200, 6677100]
+    role: positive
+    split: train
+    notes: >-
+      Vuosaari harbour, Trailer Road — rows of parked semi-trailers beside more
+      container stacks. A trailer with no tractor is a negative; a coupled rig
+      is one box, tractor and trailer together.
+
+  - name: r2-kivikonlaita
+    bbox: [391800, 6679200, 392100, 6679500]
+    role: positive
+    split: train
+    notes: >-
+      Kivikko industrial estate off Kehä I — material yards and mixed truck
+      parking. Stored bodies, skips and bare platforms are negatives; keep the
+      units with a visible cab.

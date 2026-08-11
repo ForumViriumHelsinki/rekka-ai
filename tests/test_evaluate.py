@@ -1,12 +1,21 @@
 """The gates and the operating-point rule are the ship decision; they get a
 checkable right answer without touching torch."""
 
+from pathlib import Path
+
+import pytest
+
+from rekka_ai.detect.detections import Detection
+from rekka_ai.detect.sweep import LARGE_VEHICLE, RawDetection
 from rekka_ai.evaluate import (
     GATE_COUNT_MIN_TRUCKS,
     count_gate,
     ground_truth_counts,
     pick_operating_point,
+    sweep_area,
+    unexplained,
 )
+from rekka_ai.imagery.aoi import load_aois
 
 
 def _collection(*statuses_and_classes: tuple[str, str]) -> dict:
@@ -98,3 +107,111 @@ def test_operating_point_min_confidence_is_configurable() -> None:
         px, p, r, min_recall=0.90, min_confidence=0.01
     )
     assert (conf, precision, recall) == (0.02, 0.9, 0.92)
+
+
+def _box(x: float, y: float, length: float = 10.0, width: float = 3.0) -> Detection:
+    """An axis-aligned detection with its south-west corner at (x, y)."""
+    return Detection(
+        label="truck",
+        confidence=0.9,
+        corners=((x, y), (x + length, y), (x + length, y + width), (x, y + width)),
+    )
+
+
+def _labelled(x: float, y: float, length: float = 10.0, width: float = 3.0) -> dict:
+    return {
+        "type": "Feature",
+        "geometry": {
+            "type": "Polygon",
+            "coordinates": [
+                [
+                    [x, y],
+                    [x + length, y],
+                    [x + length, y + width],
+                    [x, y + width],
+                    [x, y],
+                ]
+            ],
+        },
+        "properties": {"status": "confirmed", "class": "van"},
+    }
+
+
+def test_a_negative_area_is_not_marked_down_for_vehicles_it_really_holds() -> None:
+    """r1-puotinharju holds 93 confirmed cars and r1-marjaniemi two vans. The
+    gate counted every detection, so a model that found them correctly failed
+    by an order of magnitude. Only what the labels cannot account for counts.
+    """
+    collection = {"type": "FeatureCollection", "features": [_labelled(0, 0)]}
+    found = [_box(0, 0), _box(500, 500)]
+    loose = unexplained(found, collection)
+    assert [d.centre for d in loose] == [_box(500, 500).centre]
+
+
+def test_class_is_ignored_when_forgiving_a_detection() -> None:
+    """The question is whether the model invented a vehicle, not whether it
+    named it right — naming is what the per-class metrics measure. The label
+    here is a van and the detection says truck; it is still the same object.
+    """
+    collection = {"type": "FeatureCollection", "features": [_labelled(0, 0)]}
+    assert unexplained([_box(0, 0)], collection) == []
+
+
+def test_an_unlabelled_negative_area_forgives_nothing() -> None:
+    """A hard-negative area needs no label file at all — then every detection
+    in it is unexplained by construction."""
+    empty = {"type": "FeatureCollection", "features": []}
+    assert len(unexplained([_box(0, 0), _box(50, 50)], empty)) == 2
+
+
+def test_a_rejected_box_does_not_forgive_a_detection() -> None:
+    """Rejects are the human saying "not a vehicle". Forgiving a detection
+    that lands on one would excuse exactly the error the gate exists for."""
+    rejected = {
+        "type": "FeatureCollection",
+        "features": [
+            {**_labelled(0, 0), "properties": {"status": "rejected", "class": ""}}
+        ],
+    }
+    assert len(unexplained([_box(0, 0)], rejected)) == 1
+
+
+def test_the_operational_gates_use_the_pipeline_s_length_floor(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    """A sweep emits nothing under MIN_LENGTH_M, so neither may the gates that
+    stand in for one. Counting raw proposals made the negative check fail on
+    2-4 m slivers of parked cars that `detect` would never report."""
+    area = load_aois("aois/helsinki.yaml", name="r1-tattariharjuntie")[0]
+    monkeypatch.setattr("rekka_ai.detect.sweep.load_window", lambda *a, **k: object())
+
+    class _Sliver:
+        """One box 2 m long — under the floor, over the confidence."""
+
+        def detect(self, image: object) -> list[RawDetection]:
+            return [
+                RawDetection(
+                    label=LARGE_VEHICLE,
+                    confidence=0.9,
+                    corners=((0.0, 0.0), (16.0, 0.0), (16.0, 8.0), (0.0, 8.0)),
+                )
+            ]
+
+    class _NullFetcher:
+        def fetch_all(self, layer: str, tiles: object) -> list[object]:
+            return []
+
+    def run(**extra: float) -> list:
+        return sweep_area(
+            area,
+            detector=_Sliver(),  # type: ignore[arg-type]
+            layer="L",
+            zoom=16,
+            cache_root=tmp_path,
+            fetcher=_NullFetcher(),  # type: ignore[arg-type]
+            **extra,
+        )
+
+    assert run() == []
+    # The raw model is still measurable when something asks for it.
+    assert run(min_length_m=0.0)

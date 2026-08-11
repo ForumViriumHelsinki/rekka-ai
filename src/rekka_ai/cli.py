@@ -27,6 +27,8 @@ from rekka_ai.evaluate import (
     load_detector,
     log_eval_run,
     pick_operating_point,
+    sweep_area,
+    unexplained,
     validation_metrics,
 )
 from rekka_ai.export import dataset_yaml, export_area
@@ -67,7 +69,7 @@ from rekka_ai.osm import (
     require_profile,
     require_supported_municipality,
 )
-from rekka_ai.train import AUTOBATCH, DEFAULT_EPOCHS
+from rekka_ai.train import AUTOBATCH, DEFAULT_EPOCHS, DEFAULT_PATIENCE
 from rekka_ai.train import train as run_train
 
 app = typer.Typer(help="Truck detection from Helsinki aerial orthophotos.")
@@ -711,6 +713,13 @@ def train(
         str, typer.Option(help="Starting weights to fine-tune from.")
     ] = DEFAULT_WEIGHTS,
     epochs: Annotated[int, typer.Option(help="Training epochs.")] = DEFAULT_EPOCHS,
+    patience: Annotated[
+        int,
+        typer.Option(
+            help="Stop after this many epochs with no new best fitness. Only "
+            "ever ends a run early; --epochs stays the cap."
+        ),
+    ] = DEFAULT_PATIENCE,
     batch: Annotated[
         int, typer.Option(help="Batch size; -1 sizes it to the GPU.")
     ] = AUTOBATCH,
@@ -730,7 +739,13 @@ def train(
         raise typer.BadParameter(f"no dataset at {data}; run rekka-ai export first")
     try:
         best = run_train(
-            data, weights=weights, epochs=epochs, batch=batch, device=device, name=name
+            data,
+            weights=weights,
+            epochs=epochs,
+            patience=patience,
+            batch=batch,
+            device=device,
+            name=name,
         )
     except RuntimeError as exc:
         typer.echo(str(exc), err=True)
@@ -892,26 +907,39 @@ def evaluate_cmd(
                 else:
                     gates.append((f"count {area.name}", ok, detail))
             # The regression check: training on truck shapes must not start
-            # pulling containers in.
-            negatives = sum(
-                sum(
-                    count_detections(
-                        area,
-                        detector=detector,
-                        layer=layer,
-                        zoom=zoom,
-                        cache_root=cache,
-                        fetcher=fetcher,
-                    ).values()
+            # pulling containers in. Only detections the area's own labels
+            # cannot account for count — a negative area is negative about
+            # targets, not empty, and marking the model down for finding the
+            # cars that really are there measured nothing (docs/rounds.md).
+            negatives = 0
+            for area in areas:
+                if not area.is_negative:
+                    continue
+                found = sweep_area(
+                    area,
+                    detector=detector,
+                    layer=layer,
+                    zoom=zoom,
+                    cache_root=cache,
+                    fetcher=fetcher,
                 )
-                for area in areas
-                if area.is_negative
-            )
+                path = labels_dir / f"{area.name}.geojson"
+                collection = (
+                    labels.read(path)
+                    if path.exists()
+                    else {"type": "FeatureCollection", "features": []}
+                )
+                loose = unexplained(found, collection)
+                negatives += len(loose)
+                typer.echo(
+                    f"  negative {area.name}: {len(loose)} unexplained "
+                    f"of {len(found)} detection(s)"
+                )
         gates.append(
             (
                 "negative areas",
                 negatives <= GATE_NEGATIVE_DETECTIONS,
-                f"{negatives} detections (<= {GATE_NEGATIVE_DETECTIONS})",
+                f"{negatives} unexplained detection(s) (<= {GATE_NEGATIVE_DETECTIONS})",
             )
         )
         metrics["negative_detections"] = negatives
