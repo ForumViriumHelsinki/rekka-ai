@@ -277,6 +277,57 @@ free.
 
 Imagery is © Helsingin kaupunki, Kaupunkimittauspalvelut.
 
+### Reproducing the recorded rounds
+
+A fresh clone already holds the two things that cannot be regenerated —
+`labels/` and `aois/helsinki.yaml` — so the three training rounds recorded in
+`docs/rounds.md` replay without any labelling. Everything else (`data/`,
+`runs/`, the weights) regenerates:
+
+```sh
+uv sync --extra train            # ultralytics + mlflow
+
+# 1. Imagery: 3,159 tiles at z16, cached under data/cache/ (one-off download)
+uv run rekka-ai fetch --aoi aois/helsinki.yaml
+
+# 2. Each round trains on its cumulative ground: round 1 on the r1-* areas,
+#    round 2 adds r2-*, round 3 adds r3-*. The per-round collections are just
+#    prefix filters of the committed collection — recreate them with:
+uv run python - <<'EOF'
+import yaml
+from pathlib import Path
+
+coll = yaml.safe_load(Path("aois/helsinki.yaml").read_text())
+for out, rounds in [("r1", "r1"), ("r1r2", "r1 r2"), ("r1r2r3", "r1 r2 r3")]:
+    keep = rounds.split()
+    sub = {**coll, "aois": [a for a in coll["aois"]
+                            if a["name"].split("-")[0] in keep]}
+    Path("data/ablation").mkdir(parents=True, exist_ok=True)
+    Path(f"data/ablation/{out}.yaml").write_text(
+        yaml.safe_dump(sub, sort_keys=False, allow_unicode=True))
+EOF
+
+# 3. Per round: export, train, eval. Validation is the identical four areas
+#    in every round, so the gate numbers are comparable across rounds.
+for r in 1 2 3; do
+  case $r in 1) aoi=r1;; 2) aoi=r1r2;; 3) aoi=r1r2r3;; esac
+  uv run rekka-ai export --aoi data/ablation/$aoi.yaml --out data/dataset-r$r &&
+  uv run rekka-ai train  --data data/dataset-r$r/dataset.yaml --name round$r &&
+  uv run rekka-ai eval   --weights runs/train/round$r/weights/best.pt \
+      --data data/dataset-r$r/dataset.yaml --aoi data/ablation/$aoi.yaml \
+      --name eval-round$r || break
+done
+```
+
+The bootstrap weights (`yolo11x-obb.pt`, gitignored) download automatically on
+the first `train`. Training is seeded and deterministic, so the same data
+reproduces a run exactly — expect the gate table in `docs/rounds.md`: rounds 1
+and 2 *fail* the precision and count gates and round 3 passes all three; that
+progression is the recorded result, not a problem with your run. Six MLflow
+runs land in `runs/mlflow.db` (`round1`, `eval-round1`, …), viewable with
+`uv run mlflow ui --backend-store-uri sqlite:///runs/mlflow.db`. Budget roughly
+an hour of GPU time for the three rounds on a 16 GB card.
+
 ## License
 
 Two licenses, split along the codebase's own boundary:
