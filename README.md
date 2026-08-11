@@ -27,6 +27,14 @@ that starts at `detect` with the weights the previous round produced.
 - Python 3.14+ — `uv` installs it for you if it is missing
 - [bun](https://bun.sh/) — for the `web/` labelling tool only
 
+`fetch`, `aois` and the labelling tool need no GPU. **Training wants a 16 GB
+card**: that is what the recorded rounds used, at `--batch 4` and `imgsz 1024`
+with `yolo11x-obb`, filling roughly 10 GB and taking ~20 minutes for 100
+epochs. Less memory means dropping `--batch`, which slows training and changes
+BatchNorm behaviour — `--batch 1` is measurably not the same experiment. CPU
+training is possible and impractical; `detect` and `eval` run on CPU fine for
+a single area.
+
 ## Quick start
 
 ```sh

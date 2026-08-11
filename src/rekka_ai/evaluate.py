@@ -29,20 +29,29 @@ from rekka_ai.imagery.wmts import TileSource
 GATE_RECALL = 0.90
 GATE_PRECISION = 0.85
 GATE_COUNT_ERROR = 0.10
-#: The hard-negative regression check tolerates a couple of blips, not a habit.
-#: Counted over *unexplained* detections — see ``unexplained``.
-GATE_NEGATIVE_DETECTIONS = 2
+#: The hard-negative regression check is **reported, not gated** (2026-08-11).
+#: It counts the right thing — see ``unexplained`` — but three runs of one
+#: dataset at seeds 0/1/2 produced 1, 7 and 3, against what used to be a
+#: threshold of 2. A quantity noisier than its own threshold cannot decide a
+#: ship question. Above this level the report says so, loudly, and a human
+#: looks; nothing fails on it. Restore it to a gate when validation holds a
+#: held-out negative area big enough to resolve it (docs/DESIGN.md §7, §11.3).
+NEGATIVE_DETECTIONS_WATCH = 2
 #: A detection this far onto a labelled vehicle is that vehicle, so a negative
 #: area is not marked down for finding it. Loose on purpose: the question is
 #: "did the model invent something", which a half-overlapping box answers no to.
 NEGATIVE_MATCH_IOU = 0.3
 #: Fewest ground-truth trucks an area needs before its count check may gate.
-#: Derived from the tolerance rather than picked: at 10 trucks a 10% error is
-#: exactly one box, and below that the gate decides on a fraction of a box —
-#: it measures the imagery, not the model (docs/DESIGN.md §7). Skipping those
-#: areas leaves no blind spot: false positives anywhere in the split still
-#: land on the precision gate, which is measured over every validation window.
-GATE_COUNT_MIN_TRUCKS = round(1 / GATE_COUNT_ERROR)
+#: Was 10, from box arithmetic: at 10 trucks a 10% error is exactly one box.
+#: Raised to 60 on 2026-08-11 from a *measurement* instead. Training the same
+#: dataset at three seeds moved r1-jatkasaari's count error by 20 points and
+#: r1-kaivoksela's by 6.5 — about ``0.77*sqrt(n)`` boxes of noise against
+#: ``0.1*n`` boxes of tolerance. Those curves cross at **n = 60**: below it the
+#: seed decides the verdict, above it the model does. (Tolerance would reach
+#: twice the noise only at n = 240, which no area in the collection has.)
+#: Today exactly one area clears this, and that is the honest state of the
+#: validation split rather than a reason to lower the bar.
+GATE_COUNT_MIN_TRUCKS = 60
 #: Below this, "operating point" stops meaning anything: a point near conf=0
 #: keeps every raw proposal the detector makes. A curve whose recall never
 #: clears the gate above this floor has picked "keep everything" rather than

@@ -2425,6 +2425,47 @@
         "width_m": 2.37,
         "heading_deg": 40.7
       }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25500720.644,
+              6685340.571
+            ],
+            [
+              25500719.594,
+              6685336.632
+            ],
+            [
+              25500717.553,
+              6685337.176
+            ],
+            [
+              25500718.603,
+              6685341.115
+            ],
+            [
+              25500720.644,
+              6685340.571
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.549,
+        "length_m": 4.08,
+        "width_m": 2.11,
+        "heading_deg": 14.9,
+        "aoi": "r1-siltamaki",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "confirmed",
+        "class": "car"
+      }
     }
   ]
 }

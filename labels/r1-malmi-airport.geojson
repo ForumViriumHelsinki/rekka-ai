@@ -5254,6 +5254,88 @@
         "width_m": 2.1,
         "heading_deg": 25.4
       }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25503078.906,
+              6681863.938
+            ],
+            [
+              25503080.87,
+              6681864.007
+            ],
+            [
+              25503080.729,
+              6681868.012
+            ],
+            [
+              25503078.765,
+              6681867.943
+            ],
+            [
+              25503078.906,
+              6681863.938
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.637,
+        "length_m": 4.01,
+        "width_m": 1.97,
+        "heading_deg": 178,
+        "aoi": "r1-malmi-airport",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "confirmed",
+        "class": "car"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25503026.665,
+              6681866.871
+            ],
+            [
+              25503028.763,
+              6681866.459
+            ],
+            [
+              25503029.65,
+              6681870.985
+            ],
+            [
+              25503027.552,
+              6681871.397
+            ],
+            [
+              25503026.665,
+              6681866.871
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.515,
+        "length_m": 4.61,
+        "width_m": 2.14,
+        "heading_deg": 11.1,
+        "aoi": "r1-malmi-airport",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "confirmed",
+        "class": "car"
+      }
     }
   ]
 }

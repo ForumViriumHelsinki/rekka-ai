@@ -6,10 +6,11 @@ labelling tool. The loop was proven over two recorded rounds on an earlier,
 over-large collection — round 1 passed the recall gate and failed precision
 on truck/van confusion; round 2 proved the loop closes — told in
 `docs/rounds.md`. The collection has since been restructured into small
-plots (currently 24 areas, 20 train / 4 validation) and `labels/` wiped for
-a fresh start. Two rounds have run on it: round 2 **passes truck recall,
-truck precision and the kaivoksela count gate**, and fails the jatkasaari
-count (+36%) and the negative check by one detection. See `docs/rounds.md`.
+plots (currently 27 areas, 23 train / 4 validation) and `labels/` wiped for
+a fresh start. Three rounds have run on it. Round 3 **passes four of the five
+gates** — truck recall 0.910, truck precision 0.956, the kaivoksela count and
+the negative check — and fails the jatkasaari count at −13%, under-counting.
+See `docs/rounds.md`.
 
 ## 1. What this is
 
@@ -314,12 +315,26 @@ This section is the *why*; `docs/LABELLING.md` is the one-page card a labeller
 actually works from, and per-area guidance lives in the AOI `notes`. Change a
 rule here and change it there in the same commit.
 
-Consolidated from the field-survey notes in `aois/helsinki.yaml`. Two gates
-decide almost every case:
+Consolidated from the field-survey notes in `aois/helsinki.yaml` and the
+client's specification. Two gates decide almost every case:
 
 1. **A visible cab.** The unit must be a road vehicle, not a detached load.
-2. **Length ≥ 6 m.** The truck/large-vehicle threshold — a real vehicle
-   shorter than this is `van` or `car`, not excluded.
+2. **A separated cab with a load body behind it.** This is the client's own
+   definition and it is what separates `truck` from `van`: a truck — including
+   the small ones — has a cab that *stops* and a load body that *starts*,
+   boxy at the rear, open or closed. A van is one continuous shell from
+   windscreen to rear doors. The break between cab and body is the thing to
+   look for from above.
+
+**Length is a sanity check, not the rule.** Recorded 2026-08-11 because the
+guide said "length ≥ 6 m" for three rounds and the labels never agreed with
+it: 88% of what was labelled between 6.0 and 6.5 m is a `van`. Measured over
+2,990 labels, length only decides at the ends — below 6.5 m a separated body
+is rare, and at 8 m and over it is 293 trucks against 1 van. **Between 6.5 and
+8.0 m length decides nothing** (48 van, 77 truck) and the shape is the whole
+answer. That band is 4% of the dataset, it is where `van` recall has been
+stuck at 0.73 for two rounds, and it is where the model's most confident
+class errors live — a model cannot learn a boundary the labels do not draw.
 
 | Keep (as `truck`) | Exclude |
 |---|---|
@@ -601,22 +616,23 @@ different questions:
    - truck recall ≥ **0.90** and precision ≥ **0.85** at the operating
      confidence — recall first, because a missed truck costs hand-labelling,
      a false box costs a glance;
-   - per-area truck **count error ≤ 10%**;
-   - negative-role areas ≤ **2 unexplained detections** — the regression check
-     that fine-tuning has not started pulling lookalikes in; it tolerates a
-     couple of blips, not a habit. *Unexplained* is load-bearing: a detection
-     matching a vehicle the area really holds is forgiven, because a negative
-     area is negative about **targets**, not empty. `r1-puotinharju` holds 93
-     confirmed cars and `r1-marjaniemi` two vans; counting raw detections
-     failed a model by an order of magnitude for being right about them
-     (2026-08-11). Class is ignored in the match — the question is whether the
-     model invented a vehicle, not whether it named it correctly. Rejected
-     boxes forgive nothing: a reject is the human saying "not a vehicle", so a
-     detection landing on one is exactly the error being counted. In train:
-     `r1-marjaniemi` (marina) and `r2-vuosaari-harbour-road` (container
-     terminal, 53 candidates and no trucks); `r1-puotinharju` is `sparse` and
-     counts too. Nothing negative sits in validation, so this gate measures
-     ground the model trained on and reads optimistically (§11),
+   - per-area truck **count error ≤ 10%**, for areas holding at least
+     `GATE_COUNT_MIN_TRUCKS` = **60** trucks. That floor is measured, not
+     derived: three seeds of one dataset moved `r1-jatkasaari`'s count error by
+     20 points (15 trucks) and `r1-kaivoksela`'s by 6.5 (107), so noise runs at
+     about `0.77*sqrt(n)` boxes against `0.1*n` of tolerance, and those cross at
+     n = 60. **One area in the collection clears it today**, which is a fact
+     about the validation split rather than about the rule;
+   - negative-role areas: **reported, not gated** since 2026-08-11. The check
+     counts *unexplained* detections — ones matching no vehicle the area really
+     holds, since a negative area is negative about **targets**, not empty
+     (`r1-puotinharju` has 93 confirmed cars). Class is ignored in the match:
+     the question is whether the model invented a vehicle, not whether it named
+     it right. Rejected boxes forgive nothing. It was a gate at ≤ 2 until three
+     seeds of one dataset produced **1, 7 and 3** — a quantity noisier than its
+     own threshold cannot decide a ship question. It now prints under "reported,
+     not gated", loudly above a watch level of 2. Restore it when validation has
+     a held-out negative area large enough to resolve it (§11.3),
    - `bus`, `van` and `car` are reported but never gate: they are auxiliary
      classes, and the truck/van boundary is genuinely ambiguous at the short
      end.

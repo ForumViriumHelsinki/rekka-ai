@@ -8165,6 +8165,129 @@
         "status": "confirmed",
         "class": "car"
       }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25492860.739,
+              6679218.718
+            ],
+            [
+              25492862.514,
+              6679220.434
+            ],
+            [
+              25492858.636,
+              6679224.445
+            ],
+            [
+              25492856.862,
+              6679222.729
+            ],
+            [
+              25492860.739,
+              6679218.718
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.707,
+        "length_m": 5.58,
+        "width_m": 2.47,
+        "heading_deg": 136,
+        "aoi": "r1-valimo",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "confirmed",
+        "class": "van"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25492920.003,
+              6679019.89
+            ],
+            [
+              25492921.718,
+              6679018.841
+            ],
+            [
+              25492923.834,
+              6679022.303
+            ],
+            [
+              25492922.119,
+              6679023.352
+            ],
+            [
+              25492920.003,
+              6679019.89
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.654,
+        "length_m": 4.06,
+        "width_m": 2.01,
+        "heading_deg": 31.4,
+        "aoi": "r1-valimo",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "confirmed",
+        "class": "car"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25492814.745,
+              6679090.335
+            ],
+            [
+              25492816.661,
+              6679088.944
+            ],
+            [
+              25492819.901,
+              6679093.404
+            ],
+            [
+              25492817.985,
+              6679094.795
+            ],
+            [
+              25492814.745,
+              6679090.335
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.489,
+        "length_m": 5.51,
+        "width_m": 2.37,
+        "heading_deg": 36,
+        "aoi": "r1-valimo",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "confirmed",
+        "class": "truck"
+      }
     }
   ]
 }

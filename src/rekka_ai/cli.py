@@ -17,10 +17,10 @@ from rekka_ai.detect.sweep import (
     sweep,
 )
 from rekka_ai.evaluate import (
-    GATE_NEGATIVE_DETECTIONS,
     GATE_PRECISION,
     GATE_RECALL,
     MIN_OPERATING_CONFIDENCE,
+    NEGATIVE_DETECTIONS_WATCH,
     count_detections,
     count_gate,
     ground_truth_counts,
@@ -69,7 +69,12 @@ from rekka_ai.osm import (
     require_profile,
     require_supported_municipality,
 )
-from rekka_ai.train import AUTOBATCH, DEFAULT_EPOCHS, DEFAULT_PATIENCE
+from rekka_ai.train import (
+    DEFAULT_BATCH,
+    DEFAULT_EPOCHS,
+    DEFAULT_PATIENCE,
+)
+from rekka_ai.train import DEFAULT_SEED as DEFAULT_TRAIN_SEED
 from rekka_ai.train import train as run_train
 
 app = typer.Typer(help="Truck detection from Helsinki aerial orthophotos.")
@@ -721,8 +726,19 @@ def train(
         ),
     ] = DEFAULT_PATIENCE,
     batch: Annotated[
-        int, typer.Option(help="Batch size; -1 sizes it to the GPU.")
-    ] = AUTOBATCH,
+        int,
+        typer.Option(
+            help="Images per optimizer step. -1 asks Ultralytics to autobatch, "
+            "which measured badly here — see train.DEFAULT_BATCH."
+        ),
+    ] = DEFAULT_BATCH,
+    seed: Annotated[
+        int,
+        typer.Option(
+            help="Training seed. Same seed and data reproduce a run exactly; "
+            "vary it to measure the run-to-run spread."
+        ),
+    ] = DEFAULT_TRAIN_SEED,
     device: Annotated[
         str | None, typer.Option(help="Torch device, e.g. 0 or cpu. Default: auto.")
     ] = None,
@@ -744,6 +760,7 @@ def train(
             epochs=epochs,
             patience=patience,
             batch=batch,
+            seed=seed,
             device=device,
             name=name,
         )
@@ -846,6 +863,8 @@ def evaluate_cmd(
         ("truck recall", op_r >= min_recall, f"{op_r:.3f} >= {min_recall}"),
         ("truck precision", op_p >= GATE_PRECISION, f"{op_p:.3f} >= {GATE_PRECISION}"),
     ]
+    #: Measured but never decisive — see NEGATIVE_DETECTIONS_WATCH.
+    observations: list[tuple[str, str]] = []
     metrics: dict[str, float] = {
         f"{k}_{f}": v
         for k, m in per_class.items()
@@ -935,11 +954,18 @@ def evaluate_cmd(
                     f"  negative {area.name}: {len(loose)} unexplained "
                     f"of {len(found)} detection(s)"
                 )
-        gates.append(
+        # Reported, never gated: the same dataset at three seeds gave 1, 7 and
+        # 3 against what used to be a threshold of 2 (docs/rounds.md).
+        observations.append(
             (
                 "negative areas",
-                negatives <= GATE_NEGATIVE_DETECTIONS,
-                f"{negatives} unexplained detection(s) (<= {GATE_NEGATIVE_DETECTIONS})",
+                f"{negatives} unexplained detection(s)"
+                + (
+                    f" — above the watch level of {NEGATIVE_DETECTIONS_WATCH}, "
+                    "worth a look"
+                    if negatives > NEGATIVE_DETECTIONS_WATCH
+                    else ""
+                ),
             )
         )
         metrics["negative_detections"] = negatives
@@ -947,6 +973,10 @@ def evaluate_cmd(
     typer.echo("\ngates:")
     for gate_name, passed, detail in gates:
         typer.echo(f"  {'PASS' if passed else 'FAIL'}  {gate_name}: {detail}")
+    if observations:
+        typer.echo("\nreported, not gated:")
+        for label, detail in observations:
+            typer.echo(f"  {label}: {detail}")
 
     log_eval_run(run_name, {"weights": str(weights), "data": str(data)}, metrics)
     typer.echo(f"\nlogged to MLflow as {run_name!r}")

@@ -3942,6 +3942,88 @@
         "width_m": 2.7,
         "heading_deg": 128.5
       }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25503292.663,
+              6681739.061
+            ],
+            [
+              25503295.293,
+              6681736.988
+            ],
+            [
+              25503304.185,
+              6681748.269
+            ],
+            [
+              25503301.555,
+              6681750.341
+            ],
+            [
+              25503292.663,
+              6681739.061
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.766,
+        "length_m": 14.36,
+        "width_m": 3.35,
+        "heading_deg": 38.2,
+        "aoi": "r1-tattariharju",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "rejected",
+        "class": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25503234.612,
+              6681688.672
+            ],
+            [
+              25503236.798,
+              6681691.002
+            ],
+            [
+              25503231.129,
+              6681696.321
+            ],
+            [
+              25503228.944,
+              6681693.991
+            ],
+            [
+              25503234.612,
+              6681688.672
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.614,
+        "length_m": 7.77,
+        "width_m": 3.19,
+        "heading_deg": 133.2,
+        "aoi": "r1-tattariharju",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "rejected",
+        "class": ""
+      }
     }
   ]
 }

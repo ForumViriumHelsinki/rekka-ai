@@ -28,8 +28,19 @@ DEFAULT_EPOCHS = 100
 #: weights. 30 clears the observed worst case with margin and still ends the
 #: run 24 epochs early. It can only ever save time — `epochs` remains the cap.
 DEFAULT_PATIENCE = 30
-#: Ultralytics autobatch: size the batch to ~60% of GPU memory.
-AUTOBATCH = -1
+#: Ultralytics reads -1 as autobatch, which is *not* the default here.
+#: Measured 2026-08-11 on a 16 GB card at imgsz 1024 with yolo11x-obb:
+#: autobatch chose **1**, using only 3.7 GB, four times more optimizer steps
+#: per epoch, and BatchNorm statistics taken from single images. Every round
+#: so far ran at 4 only because it was passed by hand. 4 fills ~10 GB and is
+#: what the recorded rounds used, so it is the default; pass -1 to let
+#: Ultralytics guess, or a smaller number on a smaller card.
+DEFAULT_BATCH = 4
+#: Ultralytics seeds torch, numpy and its own dataloader shuffling from this,
+#: with `deterministic=True`, so two runs at the same seed on the same data are
+#: identical. Varying it is the only way to see the run-to-run spread — which is
+#: the number that says whether a round-to-round difference means anything.
+DEFAULT_SEED = 0
 
 
 def configure_tracking() -> None:
@@ -48,7 +59,8 @@ def train(
     weights: str = DEFAULT_WEIGHTS,
     epochs: int = DEFAULT_EPOCHS,
     patience: int = DEFAULT_PATIENCE,
-    batch: int = AUTOBATCH,
+    batch: int = DEFAULT_BATCH,
+    seed: int = DEFAULT_SEED,
     device: str | None = None,
     imgsz: int = WINDOW_SIZE,
     project: str = "runs/train",
@@ -76,6 +88,7 @@ def train(
         epochs=epochs,
         patience=patience,
         batch=batch,
+        seed=seed,
         device=device,
         imgsz=imgsz,
         # Ultralytics joins `project` onto the user's global runs_dir setting,

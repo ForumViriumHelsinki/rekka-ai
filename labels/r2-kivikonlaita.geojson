@@ -2999,6 +2999,47 @@
         "status": "rejected",
         "class": ""
       }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25502769.851,
+              6680445.79
+            ],
+            [
+              25502772.338,
+              6680447.532
+            ],
+            [
+              25502767.296,
+              6680454.731
+            ],
+            [
+              25502764.809,
+              6680452.988
+            ],
+            [
+              25502769.851,
+              6680445.79
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.635,
+        "length_m": 8.79,
+        "width_m": 3.04,
+        "heading_deg": 145,
+        "aoi": "r2-kivikonlaita",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "rejected",
+        "class": ""
+      }
     }
   ]
 }

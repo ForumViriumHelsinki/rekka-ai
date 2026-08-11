@@ -31,9 +31,15 @@ even when the imagery is a smear. Measured over the 2,866 labels so far:
 | `truck` | 8.0–11.3 m | 9.84 m | 2.9–3.2 m | 370 |
 | `bus` | 12.8–14.8 m | 14.52 m | 2.9–3.1 m | 154 |
 
-A `truck` needs **a visible cab and ≥ 6 m**. Below 6 m it is a van or a car,
-not an exclusion. In the 5–6 m overlap this project calls it `car` three times
-in four — follow that unless the vehicle is obviously a delivery van.
+**Truck or van is decided by shape, not length.** A truck — including the
+small ones — has a **cab that stops and a load body that starts**: boxy at the
+rear, open or closed. A van is one continuous shell from windscreen to rear
+doors. Look for the break.
+
+Length only helps at the ends: under 6.5 m a separated body is rare, at 8 m
+and over it is a truck 293 times out of 294. **Between 6.5 and 8.0 m the
+length tells you nothing** — read the rear. In the 5–6 m car/van overlap this
+project calls it `car` three times in four.
 
 ## Keep or drop
 

@@ -3939,7 +3939,7 @@
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
         "length_m": 4.77,
-        "width_m": 1.92,
+        "width_m": 1.93,
         "heading_deg": 65.1
       }
     },
@@ -4023,6 +4023,580 @@
         "length_m": 4.2,
         "width_m": 1.92,
         "heading_deg": 62.9
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25504232.839,
+              6677808.248
+            ],
+            [
+              25504230.008,
+              6677805.342
+            ],
+            [
+              25504228.836,
+              6677806.485
+            ],
+            [
+              25504231.667,
+              6677809.39
+            ],
+            [
+              25504232.839,
+              6677808.248
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "class": "car",
+        "status": "added",
+        "confidence": null,
+        "aoi": "r1-puotinharju",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "length_m": 4.06,
+        "width_m": 1.64,
+        "heading_deg": 44.3
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25504230.912,
+              6677809.839
+            ],
+            [
+              25504227.774,
+              6677806.627
+            ],
+            [
+              25504226.603,
+              6677807.77
+            ],
+            [
+              25504229.741,
+              6677810.983
+            ],
+            [
+              25504230.912,
+              6677809.839
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "class": "car",
+        "status": "added",
+        "confidence": null,
+        "aoi": "r1-puotinharju",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "length_m": 4.49,
+        "width_m": 1.64,
+        "heading_deg": 44.3
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25504227.331,
+              6677813.148
+            ],
+            [
+              25504224.791,
+              6677810.636
+            ],
+            [
+              25504223.64,
+              6677811.8
+            ],
+            [
+              25504226.18,
+              6677814.311
+            ],
+            [
+              25504227.331,
+              6677813.148
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "class": "car",
+        "status": "added",
+        "confidence": null,
+        "aoi": "r1-puotinharju",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "length_m": 3.57,
+        "width_m": 1.64,
+        "heading_deg": 45.3
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25504225.649,
+              6677814.854
+            ],
+            [
+              25504222.862,
+              6677811.831
+            ],
+            [
+              25504221.659,
+              6677812.941
+            ],
+            [
+              25504224.446,
+              6677815.964
+            ],
+            [
+              25504225.649,
+              6677814.854
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "class": "car",
+        "status": "added",
+        "confidence": null,
+        "aoi": "r1-puotinharju",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "length_m": 4.11,
+        "width_m": 1.64,
+        "heading_deg": 42.7
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25504203.161,
+              6677836.249
+            ],
+            [
+              25504200.81,
+              6677833.134
+            ],
+            [
+              25504199.504,
+              6677834.12
+            ],
+            [
+              25504201.855,
+              6677837.235
+            ],
+            [
+              25504203.161,
+              6677836.249
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "class": "car",
+        "status": "added",
+        "confidence": null,
+        "aoi": "r1-puotinharju",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "length_m": 3.9,
+        "width_m": 1.64,
+        "heading_deg": 37
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25504208.165,
+              6677812.973
+            ],
+            [
+              25504205.451,
+              6677810.096
+            ],
+            [
+              25504204.042,
+              6677811.426
+            ],
+            [
+              25504206.757,
+              6677814.302
+            ],
+            [
+              25504208.165,
+              6677812.973
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "class": "car",
+        "status": "added",
+        "confidence": null,
+        "aoi": "r1-puotinharju",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "length_m": 3.96,
+        "width_m": 1.94,
+        "heading_deg": 43.3
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25504206.342,
+              6677809.759
+            ],
+            [
+              25504208.852,
+              6677812.475
+            ],
+            [
+              25504210.127,
+              6677811.296
+            ],
+            [
+              25504207.617,
+              6677808.58
+            ],
+            [
+              25504206.342,
+              6677809.759
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "class": "car",
+        "status": "added",
+        "confidence": null,
+        "aoi": "r1-puotinharju",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "length_m": 3.7,
+        "width_m": 1.74,
+        "heading_deg": 42.7
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25504208.663,
+              6677807.485
+            ],
+            [
+              25504211.83,
+              6677810.653
+            ],
+            [
+              25504212.987,
+              6677809.496
+            ],
+            [
+              25504209.82,
+              6677806.328
+            ],
+            [
+              25504208.663,
+              6677807.485
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "class": "car",
+        "status": "added",
+        "confidence": null,
+        "aoi": "r1-puotinharju",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "length_m": 4.48,
+        "width_m": 1.64,
+        "heading_deg": 45
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25504210.654,
+              6677806.104
+            ],
+            [
+              25504213.237,
+              6677808.63
+            ],
+            [
+              25504214.382,
+              6677807.46
+            ],
+            [
+              25504211.799,
+              6677804.934
+            ],
+            [
+              25504210.654,
+              6677806.104
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "class": "car",
+        "status": "added",
+        "confidence": null,
+        "aoi": "r1-puotinharju",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "length_m": 3.61,
+        "width_m": 1.64,
+        "heading_deg": 45.6
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25504252.675,
+              6677789.693
+            ],
+            [
+              25504249.554,
+              6677786.792
+            ],
+            [
+              25504248.303,
+              6677788.137
+            ],
+            [
+              25504251.425,
+              6677791.038
+            ],
+            [
+              25504252.675,
+              6677789.693
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "class": "car",
+        "status": "added",
+        "confidence": null,
+        "aoi": "r1-puotinharju",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "length_m": 4.26,
+        "width_m": 1.84,
+        "heading_deg": 47.1
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25504239.527,
+              6677856.506
+            ],
+            [
+              25504243.328,
+              6677858.642
+            ],
+            [
+              25504244.228,
+              6677857.04
+            ],
+            [
+              25504240.427,
+              6677854.905
+            ],
+            [
+              25504239.527,
+              6677856.506
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "class": "car",
+        "status": "added",
+        "confidence": null,
+        "aoi": "r1-puotinharju",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "length_m": 4.36,
+        "width_m": 1.84,
+        "heading_deg": 60.7
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25504245.273,
+              6677796.688
+            ],
+            [
+              25504242.341,
+              6677793.854
+            ],
+            [
+              25504241.064,
+              6677795.175
+            ],
+            [
+              25504243.997,
+              6677798.009
+            ],
+            [
+              25504245.273,
+              6677796.688
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "class": "car",
+        "status": "added",
+        "confidence": null,
+        "aoi": "r1-puotinharju",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "length_m": 4.08,
+        "width_m": 1.84,
+        "heading_deg": 46
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25504251.394,
+              6677798.91
+            ],
+            [
+              25504252.792,
+              6677800.451
+            ],
+            [
+              25504249.81,
+              6677803.156
+            ],
+            [
+              25504248.412,
+              6677801.615
+            ],
+            [
+              25504251.394,
+              6677798.91
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.831,
+        "length_m": 4.03,
+        "width_m": 2.08,
+        "heading_deg": 132.2,
+        "aoi": "r1-puotinharju",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "confirmed",
+        "class": "car"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25504134.204,
+              6677881.876
+            ],
+            [
+              25504136.009,
+              6677883.379
+            ],
+            [
+              25504132.749,
+              6677887.294
+            ],
+            [
+              25504130.944,
+              6677885.791
+            ],
+            [
+              25504134.204,
+              6677881.876
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.763,
+        "length_m": 5.09,
+        "width_m": 2.35,
+        "heading_deg": 140.2,
+        "aoi": "r1-puotinharju",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "confirmed",
+        "class": "car"
       }
     }
   ]

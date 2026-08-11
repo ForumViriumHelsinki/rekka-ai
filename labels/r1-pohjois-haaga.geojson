@@ -4434,6 +4434,47 @@
         "status": "confirmed",
         "class": "van"
       }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25493950.453,
+              6680068.974
+            ],
+            [
+              25493948.777,
+              6680070.752
+            ],
+            [
+              25493944.848,
+              6680067.05
+            ],
+            [
+              25493946.524,
+              6680065.272
+            ],
+            [
+              25493950.453,
+              6680068.974
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.928,
+        "length_m": 5.4,
+        "width_m": 2.44,
+        "heading_deg": 46.7,
+        "aoi": "r1-pohjois-haaga",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "confirmed",
+        "class": "car"
+      }
     }
   ]
 }

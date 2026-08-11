@@ -188,3 +188,37 @@ aois:
       Kivikko industrial estate off Kehä I — material yards and mixed truck
       parking. Stored bodies, skips and bare platforms are negatives; keep the
       units with a visible cab.
+
+  # ---------------------------------------------------------------------------
+  #  round three aois — model-mined from the round-2 weights (docs/rounds.md).
+  #  Aimed at what round 2 left failing: the r1-jatkasaari count gate (+36% in
+  #  harbour ground) and `van` recall, stuck at 0.73 across two rounds.
+  # ---------------------------------------------------------------------------
+  - name: r3-olympiaterminaali
+    bbox: [386400, 6671100, 386700, 6671400]
+    role: positive
+    split: train
+    notes: >-
+      Eteläsatama, the Olympia terminal quay — ferry trailers staged in rows
+      along the water, with working rigs among them. A trailer with no tractor
+      is a negative; a coupled rig is one box. Cranes and terminal clutter
+      shadow the ground here.
+
+  - name: r3-herttoniemi
+    bbox: [391500, 6674400, 391800, 6674700]
+    role: positive
+    split: train
+    notes: >-
+      Herttoniemen yritysalue — delivery yards and loading docks off
+      Sahaajankatu. Almost everything here sits in the 4–8 m band where van
+      and truck blur: read the length before choosing, and remember a truck
+      needs a visible cab and 6 m.
+
+  - name: r3-roihupelto-varikko
+    bbox: [392700, 6676800, 393000, 6677100]
+    role: positive
+    split: train
+    notes: >-
+      Roihupelto metro and tram depots — rolling stock on the tracks is not
+      labelled at all, however truck-shaped it looks from above. The service
+      vehicles and vans around the halls are labelled as usual.

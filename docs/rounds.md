@@ -298,3 +298,235 @@ sweep, and a sweep runs `detect`, which drops everything under `MIN_LENGTH_M`.
 Counting raw proposals had the negative check failing on 2–4 m slivers of
 parked cars: 20 became 3 once the floor was applied, and kaivoksela's count
 error +7.6% became +5%. Standard metrics still see the raw model.
+
+### Round 3 areas mined and added, 2026-08-11
+
+Mined from the round-2 weights at its operating confidence (0.114). Picked
+against what round 2 left failing rather than by rank:
+
+- **r3-olympiaterminaali** — Eteläsatama ferry quay, trailers staged in rows.
+  For the `r1-jatkasaari` count gate, still +36% in harbour ground round 2
+  never covered.
+- **r3-herttoniemi** — delivery yards off Sahaajankatu; 65 of its 68
+  detections sit in the 4–8 m band. For `van` recall, 0.73 across both rounds.
+- **r3-roihupelto-varikko** — metro and tram depots. Rolling stock is on the
+  confuser list, both harbour areas have track running through them, and the
+  model has never trained on any.
+
+Skipped: more Vuosaari container ground (round 2 solved containers — that
+square went to 0 unexplained), a motorway bridge with 2 detections, and a
+marina that duplicates r1-marjaniemi.
+
+**Caveat on record.** `r3-olympiaterminaali` sits 1,567 m from
+`r1-jatkasaari`, which is validation, and shares its harbour character. So
+jatkasaari's count gate improving in round 3 will partly be "we trained on its
+neighbourhood" — the same kind of dependence as the ruskeasuo/veturitie bus
+pairing. Taken knowingly: the alternative is never training on harbour ground,
+which guarantees that gate keeps failing.
+
+## Round 3 Train and Eval
+
+```bash
+uv run rekka-ai export --aoi aois/helsinki.yaml
+uv run rekka-ai train --name round3 --batch 4
+```
+
+### Round 3 — four gates pass, 2026-08-11
+
+```sh
+uv run rekka-ai export --aoi aois/helsinki.yaml --out data/dataset-r3
+uv run rekka-ai train  --data data/dataset-r3/dataset.yaml --name round3
+uv run rekka-ai eval   --weights runs/train/round3/weights/best.pt \
+    --data data/dataset-r3/dataset.yaml --aoi aois/helsinki.yaml --name eval-round3
+```
+
+| gate | round 1 | round 2 | round 3 |
+|---|---|---|---|
+| operating confidence | 0.058 | 0.114 | **0.474** |
+| truck recall ≥ 0.90 | 0.908 | 0.909 | **0.915** |
+| truck precision ≥ 0.85 | 0.757 | 0.867 | **0.950** |
+| count kaivoksela ≤ 10% | +23.6% | +4.7% | **−0.9%** |
+| count jatkasaari ≤ 10% | +64% | +36% | **−7.1%** |
+| negative areas ≤ 2 | 87 (recounted) | 3 | 5 |
+
+The operating point tripling is the story: round 1 could only reach the recall
+gate at conf 0.058 — keep-everything — and round 3 clears it at 0.474 with
+precision 0.950. Jatkasaari swung from +36% to −7%.
+
+**The round was picked badly and worked anyway.** Of its three mined areas,
+`r3-roihupelto-varikko` was a dud (a metro depot photographed mid-morning has
+its stock out in service, so the yard is empty) and `r3-olympiaterminaali`
+yielded no trucks. `r3-herttoniemi` carried it — chosen for the 4–8 m
+van/truck band, which the jatkasaari diagnostic then showed *was* jatkasaari's
+failure, not the shipyard confusers the other two were picked for.
+
+### Ground-truth pass, and the client's truck definition, 2026-08-11
+
+Round-3 weights are good enough to audit the labels: 82 detections across 27
+areas matched nothing labelled. Staged as candidates and reviewed — net +6
+truck, +7 van, +78 car, +34 rejects. Re-evaluated on the corrected data with
+**no retraining**:
+
+```sh
+uv run rekka-ai export --aoi aois/helsinki.yaml --out data/dataset-r3b
+uv run rekka-ai eval   --weights runs/train/round3/weights/best.pt \
+    --data data/dataset-r3b/dataset.yaml --aoi aois/helsinki.yaml \
+    --name eval-round3-fixed
+```
+
+```
+PASS  truck recall     0.910 >= 0.90
+PASS  truck precision  0.956 >= 0.85
+PASS  count kaivoksela 105 vs 107 trucks  -2%
+FAIL  count jatkasaari  13 vs  15 trucks -13%
+PASS  negative areas    2 unexplained (<= 2)
+```
+
+Two gates moved in opposite directions, and both moves were label error, not
+model change. The negative check **passed** because its two failing detections
+in `r1-puotinharju` were real cars nobody had labelled. Jatkasaari **failed**
+because review added two real trucks (7.7 m and 10.9 m) the model does not
+find — it had been passing partly on a ground truth that was missing them.
+The two remaining unexplained detections are container trailers in
+`r2-vuosaari-harbour-road`, genuine false positives, sitting exactly at the
+gate's tolerance.
+
+**The truck/van rule was written down for the first time**, from the client's
+spec: a truck — including the small ones — has a **cab that stops and a load
+body that starts**, boxy at the rear, open or closed; a van is one continuous
+shell. DESIGN §5 had said "length ≥ 6 m" for three rounds while 88% of what
+was labelled 6.0–6.5 m was a van. Length is now a sanity check: it decides
+below 6.5 m and above 8 m, and nothing in between, where 49 vans and 78 trucks
+share the same lengths.
+
+Also recorded: **check for a shadow before trying to read a smeared object.**
+These are morning flights over 3–4 m vehicles, so anything real throws a hard
+dark shape. `r1-vuosaari-rahtarinkatu` #211 was a 19.2 m streak the model
+found at conf 0.78 with no shadow at all — a mark on the apron, not a rig.
+
+### Ablation: what each round's ground actually bought, 2026-08-11
+
+Every round's numbers were confounded by label corrections landing at the same
+time, so all three configurations were re-trained on today's corrected labels,
+against the identical four validation areas. Only the training ground varies.
+
+```sh
+for t in r1 r1r2 r1r2r3; do
+  uv run rekka-ai export --aoi data/ablation/$t.yaml --out data/dataset-abl-$t &&
+  uv run rekka-ai train  --data data/dataset-abl-$t/dataset.yaml --name abl-$t --batch 4 &&
+  uv run rekka-ai eval   --weights runs/train/abl-$t/weights/best.pt \
+      --data data/dataset-abl-$t/dataset.yaml --aoi data/ablation/$t.yaml \
+      --name eval-abl-$t || break
+done
+```
+
+| training ground | truck P | truck R | kaivoksela | jatkasaari | negatives | gates |
+|---|---|---|---|---|---|---|
+| r1 only (17 areas) | 0.773 | 0.910 | +20.6% | +26.7% | 4 | 1/5 |
+| + r2 (20) | 0.822 | 0.904 | +15.0% | +33.3% | 3 | 1/5 |
+| + r3 (23) | **0.884** | 0.904 | **+4.7%** | **+6.7%** | **1** | **5/5** |
+
+`abl-r1r2r3` is the first model to pass every gate.
+
+**What the mined ground bought is out of proportion to its instances.** r2 adds
+52 labelled instances and r3 adds 125, nearly all cars — 8% more instances
+between them — but they add **54 windows** of container yards, trailer rows and
+car parks that export as background. The improvement tracks the windows, not
+the instance count.
+
+**Round 3 carried it, and it was the round judged a write-off at the time**
+(two of its three areas were duds — see the round-3 entry). The area that
+worked, `r3-herttoniemi`, was picked for the 4–8 m van/truck band, which the
+jatkasaari diagnostic later showed *was* jatkasaari's failure.
+
+**Caveat, and it limits what may be claimed.** These are single runs. The
+existing `round3` weights — same ground, *worse* labels — score truck precision
+0.956 against `abl-r1r2r3`'s 0.884. A 0.07 swing with no data cause means
+run-to-run variation is larger than the r1→r1r2 step (+0.049), so individual
+steps are not reliable evidence. The monotonic trend across four independent
+measures is; a single number is not.
+
+**Batch size was the trap.** The first attempt ran with the `AUTOBATCH = -1`
+default and Ultralytics chose **batch 1** — 3.7 GB of a 16 GB card, four times
+the optimizer steps, BatchNorm from single images, and not comparable to
+rounds 1–3, which all ran at 4 because it was passed by hand. Killed and
+restarted. `train.DEFAULT_BATCH` is now 4, and README records the 16 GB
+expectation.
+
+### Seed spread: which gates actually measure the model, 2026-08-11
+
+`--seed` was added to `train` and the `abl-r1r2r3` dataset trained three times
+at seeds 0, 1, 2 — identical data, hyperparameters and validation, only the
+shuffle differs.
+
+| metric | seed 0 | seed 1 | seed 2 | spread |
+|---|---|---|---|---|
+| truck recall | 0.904 | 0.905 | 0.904 | **0.001** |
+| truck mAP50 | 0.953 | 0.952 | 0.962 | 0.010 |
+| truck precision | 0.884 | 0.899 | 0.910 | 0.027 |
+| van recall | 0.713 | 0.776 | 0.796 | 0.083 |
+| count kaivoksela | +4.7% | +7.5% | +0.9% | 6.5 pts |
+| count jatkasaari | +6.7% | +6.7% | +26.7% | **20 pts** |
+| negative areas | 1 | 7 | 3 | **6** |
+| operating confidence | 0.776 | 0.189 | 0.299 | 0.59 |
+
+**Trustworthy at single-run resolution:** truck recall, truck mAP50, and truck
+precision — whose 2.7-point spread is smaller than the ablation's steps
+(+4.9 and +6.2), so **the ablation's precision trend survives**.
+
+**Not trustworthy:** everything else.
+
+- `r1-jatkasaari`'s count error moves **20 points on the seed alone**, against a
+  gate of ±10%. Two seeds pass, one fails badly. The floor
+  `GATE_COUNT_MIN_TRUCKS = 10` was derived from box arithmetic, not from noise:
+  at 15 trucks a 10% tolerance is 1.5 boxes and the seed moves it by 3.
+  `r1-kaivoksela` at 107 trucks has 10.7 boxes of tolerance against ~7 boxes of
+  spread, so even the good case is marginal.
+- The negative check reads 1, 7, 3 against a threshold of 2 — the fix work
+  (unexplained counting, the length floor) made it *correct*, but it is still
+  measuring a quantity noisier than its own threshold.
+- `van` recall spreads 8.3 points, which is larger than every round-to-round
+  change ever recorded for it.
+- The operating confidence — which DESIGN §7 promises becomes `detect`'s
+  confidence — lands anywhere from 0.19 to 0.78. The PR curve is flat near the
+  recall gate, so the argmax is close to arbitrary.
+
+**Earlier conclusions that do not survive**, corrected here rather than by
+editing the entries that made them:
+
+- "`abl-r1r2r3` is the first model to pass all five gates" is a **seed-0
+  property**. Seeds 1 and 2 fail the negative check, and seed 2 also fails
+  jatkasaari.
+- Round 3 taking the negative check from 5 to 2, and round 2 from 87 to 3, are
+  within seed noise. The *direction* is consistent across the ablation, the
+  magnitudes are not evidence.
+- `van` recall rising 0.731 → 0.778 was read as evidence against the
+  "resolution-limited" theory (the z17 discussion). It is not evidence of
+  anything; that question remains open.
+
+**What this asks for.** Two of the five gates have noise exceeding their
+thresholds, so they cannot decide a ship question as written. Either the
+thresholds widen, the floor rises so only large areas gate, or those two become
+reported numbers rather than gates. Not decided here — but no ship decision
+should rest on them until it is.
+
+### Gates rebuilt around the measured noise, 2026-08-11
+
+Acting on the seed spread above.
+
+- **Count-gate floor 10 → 60.** The old floor came from box arithmetic (at 10
+  trucks a 10% error is one box). The new one comes from the measurement: noise
+  runs at about `0.77*sqrt(n)` boxes against `0.1*n` of tolerance, and they
+  cross at n = 60. Tolerance would reach twice the noise only at n = 240, which
+  no area has. **`r1-kaivoksela` is now the only area that gates on count** —
+  `r1-jatkasaari`, at 15 trucks, is reported instead.
+- **The negative check is demoted to reported.** It counts the right thing, but
+  1/7/3 across three seeds against a threshold of 2 is not a measurement. It
+  prints under "reported, not gated" and says so above a watch level of 2.
+
+Three gates remain: truck recall, truck precision, and the kaivoksela count.
+`abl-r1r2r3` passes all three at every seed tried.
+
+The cost is stated plainly: the ship decision now rests on **one area's count**
+and two split-wide truck metrics. That is less coverage than it looks, and the
+fix is a wider validation split (§11.3), not a lower bar.

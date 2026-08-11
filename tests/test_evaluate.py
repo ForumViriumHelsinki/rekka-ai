@@ -58,13 +58,18 @@ def test_count_gate_does_not_gate_an_area_too_small_to_measure() -> None:
     passed or failed on one smeared vehicle. Reported, never gated — and the
     zero case goes the same way, since a bus yard holding no trucks cannot
     say anything about truck counting either.
+
+    The floor is 60 because that is where the *measured* seed noise stops
+    exceeding the gate's tolerance, not because of box arithmetic: at 15
+    trucks, three seeds of one dataset moved the count error by 20 points
+    against a +-10% gate (docs/rounds.md, 2026-08-11).
     """
-    for truth in range(GATE_COUNT_MIN_TRUCKS):
+    for truth in (0, 1, 8, 15, GATE_COUNT_MIN_TRUCKS - 1):
         verdict, detail = count_gate(truth + 3, truth)
         assert verdict is None
         assert "not gated" in detail
-    # One truck more and the tolerance covers a whole box, so it gates again.
-    assert count_gate(11, GATE_COUNT_MIN_TRUCKS)[0] is True
+    # At the floor the area gates again.
+    assert count_gate(GATE_COUNT_MIN_TRUCKS, GATE_COUNT_MIN_TRUCKS)[0] is True
 
 
 def test_operating_point_prefers_precision_inside_the_recall_gate() -> None:

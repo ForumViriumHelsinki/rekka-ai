@@ -8657,6 +8657,129 @@
         "width_m": 2.41,
         "heading_deg": 48.3
       }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25498484.528,
+              6676255.314
+            ],
+            [
+              25498486.495,
+              6676254.233
+            ],
+            [
+              25498489.008,
+              6676258.803
+            ],
+            [
+              25498487.042,
+              6676259.884
+            ],
+            [
+              25498484.528,
+              6676255.314
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.927,
+        "length_m": 5.22,
+        "width_m": 2.24,
+        "heading_deg": 28.8,
+        "aoi": "r1-kylasaari",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "confirmed",
+        "class": "car"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25498349.941,
+              6676072.672
+            ],
+            [
+              25498348.505,
+              6676074.205
+            ],
+            [
+              25498345.103,
+              6676071.019
+            ],
+            [
+              25498346.539,
+              6676069.485
+            ],
+            [
+              25498349.941,
+              6676072.672
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.668,
+        "length_m": 4.66,
+        "width_m": 2.1,
+        "heading_deg": 46.9,
+        "aoi": "r1-kylasaari",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "rejected",
+        "class": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25498349.931,
+              6676072.648
+            ],
+            [
+              25498348.509,
+              6676074.211
+            ],
+            [
+              25498345.106,
+              6676071.115
+            ],
+            [
+              25498346.529,
+              6676069.552
+            ],
+            [
+              25498349.931,
+              6676072.648
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.614,
+        "length_m": 4.6,
+        "width_m": 2.11,
+        "heading_deg": 47.7,
+        "aoi": "r1-kylasaari",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "confirmed",
+        "class": "car"
+      }
     }
   ]
 }
