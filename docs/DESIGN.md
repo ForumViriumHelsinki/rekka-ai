@@ -6,9 +6,11 @@ labelling tool. The loop was proven over two recorded rounds on an earlier,
 over-large collection — round 1 passed the recall gate and failed precision
 on truck/van confusion; round 2 proved the loop closes — told in
 `docs/rounds.md`. The collection has since been restructured into small
-plots (currently 20 areas, 15 train / 5 validation) and `labels/` wiped for
-a fresh start: the first labelling round over the current collection is in
-progress, and no training run has been made on proper labels yet.
+plots (currently 27 areas, 23 train / 4 validation) and `labels/` wiped for
+a fresh start. Three rounds have run on it. Round 3 **passes four of the five
+gates** — truck recall 0.910, truck precision 0.956, the kaivoksela count and
+the negative check — and fails the jatkasaari count at −13%, under-counting.
+See `docs/rounds.md`.
 
 ## 1. What this is
 
@@ -245,7 +247,9 @@ because containers "look identical to trailers from above". The AOI is packed
 with hundreds of containers in exactly that shape and alignment, and the
 zero-shot model found one 6.6 m vehicle by a crane. It does not make the
 mistake the area exists to correct. `r1-puotinharju` likewise contains a car park
-full of clearly visible cars and produced nothing.
+full of clearly visible cars and produced nothing — a measurement from before
+bootstrap kept DOTA's `small vehicle` class (§5); re-running it now would find
+those cars, which is the point of that change.
 
 Consequences:
 
@@ -266,17 +270,22 @@ briefly held the role in validation, but review turned up real trucks and
 vans among the RVs, so it moved to `positive`/train — validation currently
 has no `hard-negative` area for the regression check to measure against.
 
-### The length gate does real work
+### The length gate is a noise floor, not a class exclusion
 
-At z16, 19 of 41 raw candidates in `r1-tattariharjuntie` are under 6 m. Given that the model
-ignores the car park in `r1-puotinharju` entirely, these are **vans and small
-delivery vehicles, not passenger cars** — `large vehicle` is loose at the van
-end of the range, and vans only appear where vans are. The annotation guide's
-6 m rule is applied as a post-filter (`--min-length`, default 6.0), so a human
-is not asked to reject the same vans in every area.
+At z16, 19 of 41 raw candidates in `r1-tattariharjuntie` are under 6 m —
+**vans and small delivery vehicles**, not noise; `large vehicle` is loose at
+the van end of the range, and vans only appear where vans are. Cars used to
+be excluded here too, by never being detected at all: bootstrap kept only
+DOTA's `large vehicle` class, so `r1-puotinharju`'s car park produced nothing
+regardless of length. Now that `car` is an annotated class (§5), bootstrap
+also keeps DOTA's `small vehicle` class, and the length gate's only job is
+filtering raw noise below real-vehicle size — measured at 4 m
+(`--min-length`, default `MIN_LENGTH_M`), so a human is not asked to reject
+the same sub-4 m noise in every area.
 
-A bobtail tractor unit can fall under the gate; that is a known limit of the
-rule, not of the filter.
+A bobtail tractor unit can fall under the 6 m truck/van boundary described in
+the annotation guide below; that is a known limit of that judgement call, not
+of the filter.
 
 ## 5. Model
 
@@ -302,49 +311,102 @@ generate the first round of pre-annotations and to calibrate difficulty.
 
 ### Annotation guide
 
-Consolidated from the field-survey notes in `aois/helsinki.yaml`. Two gates
-decide almost every case:
+This section is the *why*; `docs/LABELLING.md` is the one-page card a labeller
+actually works from, and per-area guidance lives in the AOI `notes`. Change a
+rule here and change it there in the same commit.
+
+Consolidated from the field-survey notes in `aois/helsinki.yaml` and the
+client's specification. Two gates decide almost every case:
 
 1. **A visible cab.** The unit must be a road vehicle, not a detached load.
-2. **Length ≥ 6 m.** Separates trucks from cars, pickups, and short vans.
+2. **A separated cab with a load body behind it.** This is the client's own
+   definition and it is what separates `truck` from `van`: a truck — including
+   the small ones — has a cab that *stops* and a load body that *starts*,
+   boxy at the rear, open or closed. A van is one continuous shell from
+   windscreen to rear doors. The break between cab and body is the thing to
+   look for from above.
 
-| Keep | Exclude |
+**Length is a sanity check, not the rule.** Recorded 2026-08-11 because the
+guide said "length ≥ 6 m" for three rounds and the labels never agreed with
+it: 88% of what was labelled between 6.0 and 6.5 m is a `van`. Measured over
+2,990 labels, length only decides at the ends — below 6.5 m a separated body
+is rare, and at 8 m and over it is 293 trucks against 1 van. **Between 6.5 and
+8.0 m length decides nothing** (48 van, 77 truck) and the shape is the whole
+answer. That band is 4% of the dataset, it is where `van` recall has been
+stuck at 0.73 for two rounds, and it is where the model's most confident
+class errors live — a model cannot learn a boundary the labels do not draw.
+
+| Keep (as `truck`) | Exclude |
 |---|---|
 | Box trucks with a visible cab | Bare platforms / swap bodies (*lavat*) with no cab |
-| Straight trucks (*kuorma-autot*) | Trailers parked with no tractor unit |
+| Straight trucks (*kuorma-autot*) | Full trailers (*perävaunut*) — coupled or parked alone |
 | Semi-trailer rigs, incl. timber loads | Shipping containers |
-| Concrete mixers | Long vans |
-| Platforms **with** a cab attached | Pickups (fall out on the length gate) |
+| Concrete mixers | Long vans (their own class — see §5 Classes) |
+| Platforms **with** a cab attached | |
 
 **Known-hard cases**, recorded so they are decided once rather than per
 annotator:
 
-- *Van-fronted motorhomes* — flagged in the notes as the hardest confuser.
-  Current guidance is to avoid annotating them either way.
+- *Van-fronted motorhomes and caravans* — **decided 2026-08-11: reject them.**
+  Earlier guidance was to "avoid annotating them either way", which is not a
+  verdict a label file can hold: every candidate needs one before `export`
+  will run. They are the hardest confuser and they are not confined to
+  `r1-rastila` — the round-1 reject audit found white 6–8 m RVs parked in
+  ordinary industrial car parks in `r1-kivikko`, `r1-tattariharjuntie`,
+  `r1-kylasaari` and `r1-malmi-airport`, each one a plausible van at a
+  glance.
 - *Bobtail tractor units* (no trailer) — may fall under the 6 m gate, so the
   gate alone does not settle them.
+- *Truck + full trailer combinations* (the common Finnish rig, and most of
+  `r1-kaivoksela`) — **box the truck unit only; the trailer is a negative,
+  coupled or not.** The cab gate decides it, and this keeps a trailer's
+  verdict from depending on whether something is hitched to it. A
+  semi-trailer rig is the opposite case and stays one box: the trailer is
+  carried by the tractor and cannot stand alone. Confirmed from the labels
+  on 2026-08-11 — all 106 trucks in `r1-kaivoksela` measure 6.1–12.5 m,
+  so no combination has ever been boxed whole, while the harbour areas'
+  16–18 m boxes are single semi rigs. The cost is real and belongs in the
+  error budget: the model must separate a tipper body with a cab from an
+  identical body 3 m behind it without one.
 - *Containers from above* look identical to trailers. This is why the Vuosaari
   container terminal is a `hard-negative` area rather than simply unlabelled.
+- *Pickups* — used to simply fall out below the length gate; now that cars are
+  detected too, a pickup shows up as a candidate and needs a call.
+  **Decided 2026-08-11, on the real examples the first 4-class round
+  surfaced: `car`.** They sit in the car length band and are used like cars;
+  calling them trucks would put passenger vehicles inside the one class the
+  ship gates measure.
 
 ### Classes
 
-Three annotated classes:
+Four annotated classes:
 
 | Class | |
 |---|---|
 | `truck` | Everything in the Keep column above |
 | `bus` | Buses and coaches |
 | `van` | Vans and small delivery vehicles |
+| `car` | Sedans and other small passenger vehicles |
 
-`van` is a **class, not an exclusion**. The detector fires on vans, so labelling
-them explicitly beats leaving them as unlabelled background the model has to
-guess about — and it keeps the truck/large-vehicle boundary a reporting
-decision rather than one baked into the data.
+`van` and `car` are **classes, not exclusions**. The detector fires on both,
+so labelling them explicitly beats leaving them as unlabelled background the
+model has to guess about — and it keeps the truck/large-vehicle boundary a
+reporting decision rather than one baked into the data.
 
 This changes the length gate for labelling: the 6 m rule was cutting off a
 spike of 94 candidates in the 5–6 m band, which is exactly the van population.
 Bootstrap for labelling with `--min-length 4.0` (392 candidates, versus 286 at
-6 m); the 9 detections below 4 m are noise.
+6 m); the 9 detections below 4 m are noise. `car` reuses the same 4 m floor —
+real cars clear it naturally, and it was already the measured noise line, not
+a value chosen for this class specifically.
+
+`car` was initially scoped as a separate model, but DOTA's pretrain already
+carries a `small vehicle` class alongside `large vehicle` — bootstrap was
+filtering it out on purpose (see "length gate" above), not lacking the
+capability. One model with a 4th class reuses the existing pipeline end to
+end rather than standing up a second one, at the cost of a full retrain from
+round 1: a class-count change means a new model head, so weights from the
+3-class rounds cannot keep being fine-tuned.
 
 **Buses are annotated separately, not merged into `truck` and not skipped.**
 Drawing the box is the expensive part, and the box gets drawn either way — so
@@ -358,8 +420,19 @@ truck confuser, rather than leaving buses as unlabelled background in
 `positive` areas — which would actively teach it that bus-shaped objects are
 negatives in some places and unmarked in others.
 
-The bus depots (`r1-ruskeasuo` in train, `r1-kamppi` in validation) therefore stay
-`role: positive`: they hold targets, just of the `bus` class.
+The bus areas therefore stay `role: positive`: they hold targets, just of the
+`bus` class. `r1-ruskeasuo` (depot) and `r1-kamppi` (station kerb) are in
+train; `r1-veturitie` (Pohjolan Liikenne's yard in Pohjois-Pasila) is the
+held-out one, having taken that job from `r1-kamppi` on 2026-08-11 (§7).
+
+Its honest caveat: `r1-veturitie` sits 1,196 m from `r1-ruskeasuo` in train
+and shares its character — same operator, same fleet, same yard geometry —
+so held-out bus recall reads optimistically. Helsinki offers no bus ground
+of a *different* character (the alternatives were a kerb, whose imagery
+cannot be labelled reliably, and a corridor with three instances), so the
+choice was an optimistic measurement or none at all. Taken knowingly, and
+survivable only because `bus` never gates: it is reported, and no ship
+decision rests on it.
 
 ### Licensing
 
@@ -396,8 +469,11 @@ AOI (GeoJSON / bbox)
   window.
 - **Merge.** Overlap guarantees duplicates. Global NMS over the union of
   detections in *projected* coordinates — not per window — removes them.
-  Candidate pairs come from an STRtree rather than a full pairwise scan, so
-  the cost grows with actual neighbours, and a city-wide sweep stays feasible.
+  Class-agnostic: one vehicle read as two classes (the 7–8 m van/truck
+  boundary is the usual case) is still one vehicle; the more confident reading
+  wins. Candidate pairs come from an STRtree rather than a full pairwise scan,
+  so the cost grows with actual neighbours, and a city-wide sweep stays
+  feasible.
 - **Georeference.** Window pixel → EPSG:3879 is exact and analytic from §3; no
   warping, and no reprojection at output either — that is what §2 buys.
 
@@ -418,6 +494,7 @@ rekka-ai train      [--data data/dataset/dataset.yaml] [--weights] [--epochs]
                     [--batch] [--device] [--name]
 
 rekka-ai eval       --weights <path> [--data] [--aoi <file>] [--min-recall]
+                    [--min-confidence]
 rekka-ai detect     --aoi <file> --weights <path> --out detections.geojson
                     [--confidence] [--name] [--role] [--crs] [--min-length]
 rekka-ai mine       --weights <path> --operating-confidence <float>
@@ -542,23 +619,81 @@ different questions:
    - truck recall ≥ **0.90** and precision ≥ **0.85** at the operating
      confidence — recall first, because a missed truck costs hand-labelling,
      a false box costs a glance;
-   - per-area truck **count error ≤ 10%**;
-   - negative-role areas ≤ **2 detections** — the regression check that
-     fine-tuning has not started pulling lookalikes in; it tolerates a couple
-     of blips, not a habit. `r1-marjaniemi` plays this role in train now (the
-     retired `vuosaari` area played it for round 1; `r1-rastila` played it in
-     validation until review turned up real trucks and vans and it moved to
-     `positive`; see §4),
-   - `bus` and `van` are reported but never gate: they are auxiliary classes,
-     and the truck/van boundary is genuinely ambiguous at the short end.
+   - per-area truck **count error ≤ 10%**, for areas holding at least
+     `GATE_COUNT_MIN_TRUCKS` = **60** trucks. That floor is measured, not
+     derived: three seeds of one dataset moved `r1-jatkasaari`'s count error by
+     20 points (15 trucks) and `r1-kaivoksela`'s by 6.5 (107), so noise runs at
+     about `0.77*sqrt(n)` boxes against `0.1*n` of tolerance, and those cross at
+     n = 60. **One area in the collection clears it today**, which is a fact
+     about the validation split rather than about the rule;
+   - negative-role areas: **reported, not gated** since 2026-08-11. The check
+     counts *unexplained* detections — ones matching no vehicle the area really
+     holds, since a negative area is negative about **targets**, not empty
+     (`r1-puotinharju` has 93 confirmed cars). Class is ignored in the match:
+     the question is whether the model invented a vehicle, not whether it named
+     it right. Rejected boxes forgive nothing. It was a gate at ≤ 2 until three
+     seeds of one dataset produced **1, 7 and 3** — a quantity noisier than its
+     own threshold cannot decide a ship question. It now prints under "reported,
+     not gated", loudly above a watch level of 2. Restore it when validation has
+     a held-out negative area large enough to resolve it (§11.3),
+   - `bus`, `van` and `car` are reported but never gate: they are auxiliary
+     classes, and the truck/van boundary is genuinely ambiguous at the short
+     end.
+
+   Both operational gates sweep with the pipeline's `MIN_LENGTH_M` floor, so
+   they count what `detect` would emit rather than every raw proposal — the
+   standard metrics above keep the raw model. Without that, sixteen of round
+   2's twenty negative-area failures were 2–4 m slivers of parked cars that no
+   sweep would ever report (2026-08-11).
 
    The operating confidence is chosen from the PR curve, not left at the 0.25
    default. Whatever is chosen is logged to MLflow and becomes `detect`'s
    confidence, so the number eval reports is the number detect reproduces.
+   The search never picks below `--min-confidence` (default 0.05, even as
+   the F1 fallback): a curve whose recall only clears the gate at conf≈0 has
+   found "keep every raw proposal," not an operating point, so the recall
+   gate fails by construction instead of silently passing at a useless
+   confidence.
 
 Caveat from the round-1 export: 27 validation windows, ~330 instances — one
 box is several points of recall. The gates read trends, not decimals; widen
 the validation split before trusting them with a big decision.
+
+**An area too small to gate must not gate.** A 10% count error over an area
+holding 8 trucks is 0.8 of a truck: the area passes or fails on a single
+box, which measures the imagery rather than the model. `count_gate` therefore
+skips any area below `GATE_COUNT_MIN_TRUCKS` — derived rather than picked, as
+`1 / GATE_COUNT_ERROR` = 10 trucks, the point where the tolerance first
+covers a whole box — and reports its count without a verdict. The no-trucks
+case goes the same way: a bus yard holding no trucks says nothing about
+truck counting either. That leaves no blind spot, because a false positive
+anywhere in the split still lands on the precision gate, which is measured
+over every validation window.
+
+This rule is why `r1-kamppi` moved to train on 2026-08-11. It was the bus
+validation site, but downtown Helsinki is the collection's worst imagery —
+building shadow, building lean, and mosaic seams that smear moving vehicles
+— and it carried
+only 8 of validation's trucks against 16 of its buses. Two things followed
+from that mix: the truck gates barely saw it, and its unreadable-but-real
+vehicles, which a labeller can only reject, scored as false positives
+against a model that was right. Hard imagery belongs in validation; hard
+imagery whose *ground truth* is a guess does not — it belongs in train,
+where a wrong class is one noisy example among many rather than a verdict.
+
+`r1-veturitie` took over the held-out bus job the same day, on the opposite
+principle: it is the cleanest imagery in the collection, so its ground truth
+can be trusted, which is what a held-out area needs most. It holds ~70 buses
+and few trucks, so the floor above is what keeps it from distorting the
+count gate — the two changes are one decision.
+
+Validation is now four areas: `r1-kaivoksela`, `r1-jatkasaari`,
+`r1-pohjois-haaga`, `r1-veturitie`. It is thinner than that sounds — at the
+finished round `r1-kaivoksela` alone holds 106 of validation's 121 trucks
+and `r1-pohjois-haaga` holds none, so the truck gates rest almost
+entirely on one area. `r1-veturitie` widens the *bus* side, not the truck
+side; a second truck-dense, cleanly-imaged validation area is still the
+outstanding work here (§11).
 
 ### The detect round
 
@@ -581,7 +716,7 @@ sweep the union's bounds, and detections are kept only where the box
 *centre* falls inside a polygon. A vehicle straddling a boundary belongs to
 whichever side its centre sits on — a rule, so it is decided once. Trained
 models keep every class they know (`YoloObb(keep=None)`); only the zero-shot
-bootstrap filters to DOTA's `large vehicle`.
+bootstrap filters, to DOTA's `large vehicle` and `small vehicle`.
 
 ### Choosing the next AOIs (`mine`)
 
@@ -674,7 +809,7 @@ properties, each feature carries two editable fields:
 
 | Field | Values |
 |---|---|
-| `class` | `""` (unreviewed), `truck`, `bus`, `van` |
+| `class` | `""` (unreviewed), `truck`, `bus`, `van`, `car` |
 | `status` | `candidate`, `confirmed`, `rejected`, `added` |
 
 The state machine is small on purpose:
@@ -799,16 +934,23 @@ possible without separate bookkeeping.
   underestimate.
 - *Class ambiguity.* See §5.
 - *Spatial leakage.* A random split silently inflates metrics. See §2. The
-  current split is by area and geographically separated, but `r1-pohjois-haaga`
-  (validation) sits only **935 m** from `r1-valimo` (train), so that pair is
-  weaker than the rest.
+  current split is by area and geographically separated, but three pairs are
+  closer than the rest: `r1-pohjois-haaga` (validation) sits **935 m** from
+  `r1-valimo` (train), `r1-jatkasaari` (validation) **1,185 m** from
+  `r1-kamppi` (train, since 2026-08-11), and `r1-veturitie` (validation)
+  **1,196 m** from `r1-ruskeasuo` (train). All three gaps are nearest-edge
+  and far wider than a 128 m window, so no window straddles the split; the
+  risk is shared character, not shared pixels. The last pair is the one that
+  really carries that risk — two bus depots of the same operator (§5).
+- *A thin validation split.* Three areas, and one of them (`r1-kaivoksela`)
+  holds most of the trucks. See §7 — the gates read trends, not decimals.
 - *Validation used to be blind to negatives.* Partly resolved since the
   original assessment: `r1-marjaniemi` (a marina — boat hulls on cradles)
   gives training its first negative area. `r1-rastila` (rows of van-fronted
   motorhomes, the annotation guide's hardest confuser) held that role in
   validation until review turned up real trucks and vans and it moved to
   `positive`/train — so validation is currently blind to negatives again, a
-  deliberate tradeoff (see `aois/helsinki.yaml`).
+  deliberate tradeoff (see `docs/rounds.md`).
 - *Service etiquette.* Access constraints are `NONE`, but a city-wide z16 sweep
   is a large number of requests. The fetcher caps concurrency, retries only
   transient failures, and sends an identifying `User-Agent`. Worth a note to
@@ -893,7 +1035,7 @@ Details that make it usable rather than merely correct:
   `<aoi>.geojson`, with an inline progress pill and reviewed count per row and
   per folder.
 - The class switcher is a toolbar, not keys alone: a segmented
-  `truck / bus / van` control over the map, with the drawing width readout
+  `truck / bus / van / car` control over the map, with the drawing width readout
   inside it and the save state as a badge on the right. A failed save stays
   dirty, shows `SAVE FAILED`, and retries — corrections that never reach disk
   are the one failure this tool cannot afford to hide. (The autosave debounce
@@ -924,7 +1066,7 @@ The loop is closed and proven on the old collection; on the new one it has
 run only as far as staging. What remains is doing it well:
 
 1. **Finish the fresh-start labelling round.** In progress now — bootstrap,
-   stage, review over the current 20 areas (15 train / 5 validation), in
+   stage, review over the current 21 areas (17 train / 4 validation), in
    small chunks rather than 6 km² sweeps. The confirmed/rejected ratio per
    chunk is the signal for whether more ground of that character is worth
    sweeping at all. Review can run on a branch while other work continues on
@@ -941,7 +1083,12 @@ run only as far as staging. What remains is doing it well:
    gives training its first `hard-negative` area, but `r1-rastila` — which
    briefly gave validation one — moved to `positive`/train once review
    turned up real trucks and vans, so validation currently has no negative
-   area for the regression gate to measure against. What `rekka-ai aois`
+   area for the regression gate to measure against. `r1-kamppi` moved to
+   train and `r1-veturitie` replaced it (§7), which fixes the bus side but
+   not the truck side: `r1-kaivoksela` still holds nearly all of validation's
+   trucks, so the truck gates rest on one area. **Widen validation with a
+   second truck-dense, cleanly-imaged area** before the gates decide anything
+   big. What `rekka-ai aois`
    still warns about is `sparse` ground in validation. Model-mined proposals
    stay in `split: train` on purpose — do not promote them into validation
    without a separate, untouched hold-out plan.

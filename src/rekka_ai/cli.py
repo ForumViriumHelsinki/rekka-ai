@@ -1,4 +1,5 @@
 import json
+import time
 from collections import Counter
 from pathlib import Path
 from typing import Annotated
@@ -6,25 +7,29 @@ from typing import Annotated
 import typer
 
 from rekka_ai import labels
-from rekka_ai.detect.detections import Detection, to_geojson, within_region
+from rekka_ai.detect.detections import Detection, within_region, write
 from rekka_ai.detect.sweep import (
     DEFAULT_CONFIDENCE,
     DEFAULT_WEIGHTS,
     LARGE_VEHICLE,
     MIN_LENGTH_M,
+    SMALL_VEHICLE,
     YoloObb,
     sweep,
 )
 from rekka_ai.evaluate import (
-    GATE_COUNT_ERROR,
-    GATE_NEGATIVE_DETECTIONS,
     GATE_PRECISION,
     GATE_RECALL,
+    MIN_OPERATING_CONFIDENCE,
+    NEGATIVE_DETECTIONS_WATCH,
     count_detections,
+    count_gate,
     ground_truth_counts,
     load_detector,
     log_eval_run,
     pick_operating_point,
+    sweep_area,
+    unexplained,
     validation_metrics,
 )
 from rekka_ai.export import dataset_yaml, export_area
@@ -65,7 +70,12 @@ from rekka_ai.osm import (
     require_profile,
     require_supported_municipality,
 )
-from rekka_ai.train import AUTOBATCH, DEFAULT_EPOCHS
+from rekka_ai.train import (
+    DEFAULT_BATCH,
+    DEFAULT_EPOCHS,
+    DEFAULT_PATIENCE,
+)
+from rekka_ai.train import DEFAULT_SEED as DEFAULT_TRAIN_SEED
 from rekka_ai.train import train as run_train
 
 app = typer.Typer(help="Truck detection from Helsinki aerial orthophotos.")
@@ -79,6 +89,25 @@ BOOTSTRAP_ZOOM = 16
 DEFAULT_CACHE = Path("data/cache")
 #: Version-controlled: labels are the one artifact that cannot be regenerated.
 DEFAULT_LABELS = Path("labels")
+
+
+def _progress(index: int, total: int, found: int) -> None:
+    """Sweep progress for long runs: the first and last window, then every
+    hundredth. A 300 m AOI has ~10 windows and stays quiet; a polygon region
+    can have tens of thousands, and a multi-hour fetch with no output looks
+    dead."""
+    if index == 1 or index == total or index % 100 == 0:
+        typer.echo(f"  window {index}/{total}, {found} detections")
+
+
+def _elapsed(start: float) -> str:
+    """Wall-clock for a done line: '42s', '12m 5s', '1h 3m'."""
+    seconds = int(time.monotonic() - start)
+    if seconds >= 3600:
+        return f"{seconds // 3600}h {seconds % 3600 // 60}m"
+    if seconds >= 60:
+        return f"{seconds // 60}m {seconds % 60:02d}s"
+    return f"{seconds}s"
 
 
 @app.callback()
@@ -144,6 +173,7 @@ def fetch(
         return
 
     fetched = cached = 0
+    start = time.monotonic()
     with TileFetcher(cache, workers=workers) as fetcher:
         for area in aois:
             for result in fetcher.fetch_all(layer, tiles_covering(area.bounds, zoom)):
@@ -158,7 +188,10 @@ def fetch(
                     )
         failures = list(fetcher.failures)
 
-    typer.echo(f"done: {fetched} fetched, {cached} already cached -> {cache}")
+    typer.echo(
+        f"done: {fetched} fetched, {cached} already cached -> {cache} "
+        f"in {_elapsed(start)}"
+    )
     if failures:
         typer.echo(
             f"warning: {len(failures)} tile(s) failed after {MAX_ATTEMPTS} attempts; "
@@ -178,7 +211,10 @@ def bootstrap(
             help="YAML AOI collection, GeoJSON file, or bbox 'min_x,min_y,max_x,max_y'."
         ),
     ],
-    out: Annotated[Path, typer.Option(help="GeoJSON file to write candidates to.")],
+    out: Annotated[
+        Path,
+        typer.Option(help="Output file for candidates: .geojson, .fgb or .gpkg."),
+    ],
     name: Annotated[
         str | None, typer.Option(help="Select one AOI from a collection.")
     ] = None,
@@ -232,9 +268,12 @@ def bootstrap(
         f"{layer} z{zoom} ({resolution(zoom) * 100:.2f} cm/px), weights {weights}, "
         f"{len(areas)} area(s)"
     )
-    detector = YoloObb(weights, confidence=confidence, keep=frozenset({LARGE_VEHICLE}))
+    detector = YoloObb(
+        weights, confidence=confidence, keep=frozenset({LARGE_VEHICLE, SMALL_VEHICLE})
+    )
 
     found: list[Detection] = []
+    start = time.monotonic()
     with TileFetcher(cache, workers=workers) as fetcher:
         for area in areas:
             candidates = sweep(
@@ -246,15 +285,17 @@ def bootstrap(
                 fetcher=fetcher,
                 min_length_m=min_length,
                 on_skip=typer.echo,
+                on_progress=_progress,
             )
             typer.echo(f"  {area.name} ({area.role}): {len(candidates)} candidates")
             found.extend(candidates)
 
     out.parent.mkdir(parents=True, exist_ok=True)
-    out.write_text(
-        json.dumps(to_geojson(found, source_layer=layer, zoom=zoom), indent=2)
-    )
-    typer.echo(f"done: {len(found)} candidates -> {out}")
+    try:
+        write(found, out, source_layer=layer, zoom=zoom)
+    except ValueError as exc:
+        raise typer.BadParameter(str(exc)) from exc
+    typer.echo(f"done: {len(found)} candidates -> {out} in {_elapsed(start)}")
 
 
 @app.command()
@@ -330,8 +371,13 @@ def mine(
         ),
     ],
     out: Annotated[
-        Path, typer.Option(help="Proposal YAML to write (sibling .geojson report too).")
-    ] = Path("data/mining/round2.yaml"),
+        Path | None,
+        typer.Option(
+            help="Proposal YAML to write (sibling .geojson report too). "
+            "Default: data/mining/round<round>.yaml, or "
+            "data/mining/proposal.yaml without --round."
+        ),
+    ] = None,
     round_: Annotated[
         int | None,
         typer.Option(
@@ -368,7 +414,7 @@ def mine(
     ] = DEFAULT_ZOOM,
     min_length: Annotated[
         float, typer.Option(help="Drop detections shorter than this, in metres.")
-    ] = 4.0,
+    ] = MIN_LENGTH_M,
     confidence: Annotated[
         float | None,
         typer.Option(
@@ -408,6 +454,13 @@ def mine(
         raise typer.BadParameter("count must be at least 1")
     if pool_size < count:
         raise typer.BadParameter("pool-size must be at least count")
+
+    if out is None:
+        out = Path(
+            f"data/mining/round{round_}.yaml"
+            if round_ is not None
+            else "data/mining/proposal.yaml"
+        )
 
     try:
         require_supported_municipality(municipality)
@@ -468,6 +521,7 @@ def mine(
 
     detector = YoloObb(str(weights), confidence=detection_floor)
     detections_by_name: dict[str, list[Detection]] = {}
+    start = time.monotonic()
     with TileFetcher(cache, workers=workers) as fetcher:
         for index, cell in enumerate(pool, start=1):
             area = cell.as_aoi()
@@ -511,7 +565,7 @@ def mine(
     typer.echo(
         f"done: {len(proposals)} proposals "
         f"({', '.join(f'{k}={v}' for k, v in sorted(by_stratum.items()))}) "
-        f"-> {out} and {report}"
+        f"-> {out} and {report} in {_elapsed(start)}"
     )
     typer.echo(
         "review the GeoJSON, copy accepted entries into the AOI collection, "
@@ -652,6 +706,7 @@ def export(
     typer.echo(f"{layer} z{zoom}, {len(areas)} area(s) -> {out}")
     totals: Counter[str] = Counter()
     skipped: list[str] = []
+    start = time.monotonic()
     with TileFetcher(cache, workers=workers) as fetcher:
         for area in areas:
             split_dir = "val" if area.split == "validation" else "train"
@@ -676,7 +731,7 @@ def export(
     typer.echo(
         f"done: {totals['train_windows']} train + {totals['val_windows']} val windows, "
         f"{totals['train_boxes']} train + {totals['val_boxes']} val labels "
-        f"-> {out / 'dataset.yaml'}"
+        f"-> {out / 'dataset.yaml'} in {_elapsed(start)}"
     )
     if skipped:
         typer.echo(
@@ -695,9 +750,27 @@ def train(
         str, typer.Option(help="Starting weights to fine-tune from.")
     ] = DEFAULT_WEIGHTS,
     epochs: Annotated[int, typer.Option(help="Training epochs.")] = DEFAULT_EPOCHS,
+    patience: Annotated[
+        int,
+        typer.Option(
+            help="Stop after this many epochs with no new best fitness. Only "
+            "ever ends a run early; --epochs stays the cap."
+        ),
+    ] = DEFAULT_PATIENCE,
     batch: Annotated[
-        int, typer.Option(help="Batch size; -1 sizes it to the GPU.")
-    ] = AUTOBATCH,
+        int,
+        typer.Option(
+            help="Images per optimizer step. -1 asks Ultralytics to autobatch, "
+            "which measured badly here — see train.DEFAULT_BATCH."
+        ),
+    ] = DEFAULT_BATCH,
+    seed: Annotated[
+        int,
+        typer.Option(
+            help="Training seed. Same seed and data reproduce a run exactly; "
+            "vary it to measure the run-to-run spread."
+        ),
+    ] = DEFAULT_TRAIN_SEED,
     device: Annotated[
         str | None, typer.Option(help="Torch device, e.g. 0 or cpu. Default: auto.")
     ] = None,
@@ -712,14 +785,22 @@ def train(
     """
     if not data.exists():
         raise typer.BadParameter(f"no dataset at {data}; run rekka-ai export first")
+    start = time.monotonic()
     try:
         best = run_train(
-            data, weights=weights, epochs=epochs, batch=batch, device=device, name=name
+            data,
+            weights=weights,
+            epochs=epochs,
+            patience=patience,
+            batch=batch,
+            seed=seed,
+            device=device,
+            name=name,
         )
     except RuntimeError as exc:
         typer.echo(str(exc), err=True)
         raise typer.Exit(1) from exc
-    typer.echo(f"done: best weights -> {best}")
+    typer.echo(f"done: best weights -> {best} in {_elapsed(start)}")
 
 
 @app.command("eval")
@@ -738,6 +819,14 @@ def evaluate_cmd(
     min_recall: Annotated[
         float, typer.Option(help="Truck recall gate at the operating point.")
     ] = GATE_RECALL,
+    min_confidence: Annotated[
+        float,
+        typer.Option(
+            help="Floor below which a PR-curve point is never picked as the "
+            "operating confidence, even as a fallback: near conf=0 keeps every "
+            "raw proposal, which is not a usable operating point."
+        ),
+    ] = MIN_OPERATING_CONFIDENCE,
     year: Annotated[
         int, typer.Option(help="Flight year of the orthophoto layer.")
     ] = LATEST_YEAR,
@@ -768,6 +857,7 @@ def evaluate_cmd(
         raise typer.BadParameter(f"no dataset at {data}; run rekka-ai export first")
 
     run_name = name or f"eval-{weights.parent.parent.name}"
+    start = time.monotonic()
     try:
         per_class, (px, p_curve, r_curve), names = validation_metrics(
             weights, data, device=device, name=run_name
@@ -793,7 +883,11 @@ def evaluate_cmd(
         raise typer.Exit(1)
     truck = names.index("truck")
     conf, op_p, op_r = pick_operating_point(
-        px, p_curve[truck], r_curve[truck], min_recall=min_recall
+        px,
+        p_curve[truck],
+        r_curve[truck],
+        min_recall=min_recall,
+        min_confidence=min_confidence,
     )
     typer.echo(
         f"\noperating point (truck): conf {conf:.3f} -> P {op_p:.3f}, R {op_r:.3f}"
@@ -803,6 +897,8 @@ def evaluate_cmd(
         ("truck recall", op_r >= min_recall, f"{op_r:.3f} >= {min_recall}"),
         ("truck precision", op_p >= GATE_PRECISION, f"{op_p:.3f} >= {GATE_PRECISION}"),
     ]
+    #: Measured but never decisive — see NEGATIVE_DETECTIONS_WATCH.
+    observations: list[tuple[str, str]] = []
     metrics: dict[str, float] = {
         f"{k}_{f}": v
         for k, m in per_class.items()
@@ -852,37 +948,58 @@ def evaluate_cmd(
                     fetcher=fetcher,
                 )
                 if truth:
-                    error = (found["truck"] - truth) / truth
-                    ok = abs(error) <= GATE_COUNT_ERROR
-                    detail = f"{found['truck']} vs {truth} trucks ({error:+.0%})"
-                    metrics[f"count_error_{area.name}"] = error
+                    metrics[f"count_error_{area.name}"] = (
+                        found["truck"] - truth
+                    ) / truth
+                ok, detail = count_gate(found["truck"], truth)
+                if ok is None:
+                    # Too few trucks to gate on, but the number still belongs
+                    # in the report — a bus area's truck count is worth a
+                    # glance even when it cannot carry a verdict.
+                    typer.echo(f"  count {area.name}: {detail}")
                 else:
-                    # No trucks on the ground: every detection is a pure false
-                    # positive, and a ratio to zero would hide that.
-                    ok = found["truck"] == 0
-                    detail = f"{found['truck']} vs 0 trucks"
-                gates.append((f"count {area.name}", ok, detail))
+                    gates.append((f"count {area.name}", ok, detail))
             # The regression check: training on truck shapes must not start
-            # pulling containers in.
-            negatives = sum(
-                sum(
-                    count_detections(
-                        area,
-                        detector=detector,
-                        layer=layer,
-                        zoom=zoom,
-                        cache_root=cache,
-                        fetcher=fetcher,
-                    ).values()
+            # pulling containers in. Only detections the area's own labels
+            # cannot account for count — a negative area is negative about
+            # targets, not empty, and marking the model down for finding the
+            # cars that really are there measured nothing (docs/rounds.md).
+            negatives = 0
+            for area in areas:
+                if not area.is_negative:
+                    continue
+                found = sweep_area(
+                    area,
+                    detector=detector,
+                    layer=layer,
+                    zoom=zoom,
+                    cache_root=cache,
+                    fetcher=fetcher,
                 )
-                for area in areas
-                if area.is_negative
-            )
-        gates.append(
+                path = labels_dir / f"{area.name}.geojson"
+                collection = (
+                    labels.read(path)
+                    if path.exists()
+                    else {"type": "FeatureCollection", "features": []}
+                )
+                loose = unexplained(found, collection)
+                negatives += len(loose)
+                typer.echo(
+                    f"  negative {area.name}: {len(loose)} unexplained "
+                    f"of {len(found)} detection(s)"
+                )
+        # Reported, never gated: the same dataset at three seeds gave 1, 7 and
+        # 3 against what used to be a threshold of 2 (docs/rounds.md).
+        observations.append(
             (
                 "negative areas",
-                negatives <= GATE_NEGATIVE_DETECTIONS,
-                f"{negatives} detections (<= {GATE_NEGATIVE_DETECTIONS})",
+                f"{negatives} unexplained detection(s)"
+                + (
+                    f" — above the watch level of {NEGATIVE_DETECTIONS_WATCH}, "
+                    "worth a look"
+                    if negatives > NEGATIVE_DETECTIONS_WATCH
+                    else ""
+                ),
             )
         )
         metrics["negative_detections"] = negatives
@@ -890,9 +1007,13 @@ def evaluate_cmd(
     typer.echo("\ngates:")
     for gate_name, passed, detail in gates:
         typer.echo(f"  {'PASS' if passed else 'FAIL'}  {gate_name}: {detail}")
+    if observations:
+        typer.echo("\nreported, not gated:")
+        for label, detail in observations:
+            typer.echo(f"  {label}: {detail}")
 
     log_eval_run(run_name, {"weights": str(weights), "data": str(data)}, metrics)
-    typer.echo(f"\nlogged to MLflow as {run_name!r}")
+    typer.echo(f"\nlogged to MLflow as {run_name!r} in {_elapsed(start)}")
 
 
 @app.command()
@@ -905,7 +1026,10 @@ def detect(
             "'min_x,min_y,max_x,max_y'."
         ),
     ],
-    out: Annotated[Path, typer.Option(help="GeoJSON file to write detections to.")],
+    out: Annotated[
+        Path,
+        typer.Option(help="Output file for detections: .geojson, .fgb or .gpkg."),
+    ],
     weights: Annotated[Path, typer.Option(help="Trained weights to detect with.")],
     confidence: Annotated[
         float,
@@ -929,7 +1053,7 @@ def detect(
     ] = DEFAULT_ZOOM,
     min_length: Annotated[
         float, typer.Option(help="Drop detections shorter than this, in metres.")
-    ] = 4.0,  # the labelling gate: vans stay visible, cars fall out
+    ] = MIN_LENGTH_M,
     cache: Annotated[Path, typer.Option(help="Tile cache directory.")] = DEFAULT_CACHE,
     workers: Annotated[
         int, typer.Option(help="Concurrent requests.")
@@ -953,7 +1077,12 @@ def detect(
 
     # Trained weights: keep every class the model was trained on.
     detector = YoloObb(str(weights), confidence=confidence)
+    typer.echo(
+        f"{layer} z{zoom}, weights {weights.name}, "
+        f"conf {confidence}, min-length {min_length} m -> {out}"
+    )
     found: list[Detection] = []
+    start = time.monotonic()
     with TileFetcher(cache, workers=workers) as fetcher:
         # A file that is not a YAML collection is a polygon region: GeoJSON,
         # FlatGeobuf, GeoPackage, shapefile — load_region knows the formats.
@@ -973,6 +1102,7 @@ def detect(
                     fetcher=fetcher,
                     min_length_m=min_length,
                     on_skip=typer.echo,
+                    on_progress=_progress,
                 ),
                 region,
             )
@@ -1000,15 +1130,17 @@ def detect(
                     fetcher=fetcher,
                     min_length_m=min_length,
                     on_skip=typer.echo,
+                    on_progress=_progress,
                 )
                 typer.echo(f"  {area.name} ({area.role}): {len(candidates)} detections")
                 found.extend(candidates)
 
     out.parent.mkdir(parents=True, exist_ok=True)
-    out.write_text(
-        json.dumps(to_geojson(found, source_layer=layer, zoom=zoom), indent=2)
-    )
-    typer.echo(f"done: {len(found)} detections -> {out}")
+    try:
+        write(found, out, source_layer=layer, zoom=zoom)
+    except ValueError as exc:
+        raise typer.BadParameter(str(exc)) from exc
+    typer.echo(f"done: {len(found)} detections -> {out} in {_elapsed(start)}")
 
 
 @app.command("aois")

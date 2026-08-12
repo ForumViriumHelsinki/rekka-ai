@@ -677,6 +677,82 @@ def test_mine_writes_proposal_yaml_and_geojson(
     assert not (tmp_path / "labels").exists()
 
 
+def test_mine_default_out_is_round_scoped(
+    tmp_path: Path, collection: str, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    """Omitting --out must not silently collide across rounds (regression: it
+    used to default to the fixed path data/mining/round2.yaml regardless of
+    --round, so a round-3 run clobbered round 2's proposal file)."""
+    from rekka_ai.detect.detections import Detection
+
+    weights = tmp_path / "best.pt"
+    weights.touch()
+    osm_cache = tmp_path / "osm"
+    _seed_osm_cache(osm_cache)
+
+    class _FakeDetector:
+        def __init__(self, *args: object, **kwargs: object) -> None:
+            pass
+
+    def _fake_sweep(aoi, **kwargs: object) -> list[Detection]:
+        easting = (aoi.bounds.min_easting + aoi.bounds.max_easting) / 2
+        northing = (aoi.bounds.min_northing + aoi.bounds.max_northing) / 2
+        return [
+            Detection(
+                label="truck",
+                confidence=0.17,
+                corners=(
+                    (easting - 4, northing - 1.25),
+                    (easting + 4, northing - 1.25),
+                    (easting + 4, northing + 1.25),
+                    (easting - 4, northing + 1.25),
+                ),
+                aoi=aoi.name,
+            )
+        ]
+
+    class _FakeFetcher:
+        def __init__(self, *args: object, **kwargs: object) -> None:
+            self.failures: list = []
+
+        def __enter__(self):
+            return self
+
+        def __exit__(self, *exc: object) -> None:
+            return None
+
+    monkeypatch.setattr("rekka_ai.cli.YoloObb", _FakeDetector)
+    monkeypatch.setattr("rekka_ai.cli.sweep", _fake_sweep)
+    monkeypatch.setattr("rekka_ai.cli.TileFetcher", _FakeFetcher)
+    monkeypatch.chdir(tmp_path)
+
+    result = runner.invoke(
+        app,
+        [
+            "mine",
+            "--weights",
+            str(weights),
+            "--operating-confidence",
+            "0.17",
+            "--existing",
+            collection,
+            "--osm-cache",
+            str(osm_cache),
+            "--round",
+            "3",
+            "--count",
+            "2",
+            "--pool-size",
+            "4",
+        ],
+    )
+
+    assert result.exit_code == 0, result.output
+    assert (tmp_path / "data/mining/round3.yaml").exists()
+    assert (tmp_path / "data/mining/round3.geojson").exists()
+    assert not (tmp_path / "data/mining/round2.yaml").exists()
+
+
 def test_stage_aoi_still_refuses_overwrite_without_force(tmp_path: Path) -> None:
     labels_dir = tmp_path / "labels"
     labels_dir.mkdir()

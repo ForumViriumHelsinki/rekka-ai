@@ -37,7 +37,13 @@ import { measure, type Coord } from '$lib/obb';
 
 /** Internal feature properties, never written to disk. */
 const GEOM_DIRTY = 'rekka:geomDirty';
-const ORDER = 'rekka:order';
+/** A feature's zero-based position in the file it was loaded from. Stamped at
+ * load and stripped before write. Exported because it is the only stable way
+ * to address a box: `VectorSource.getFeatures()` iterates a spatial index, so
+ * its array order is neither the file's nor stable across edits — anything
+ * that shows or takes a box number must go through this, not through an
+ * index into that array. Undefined on a hand-drawn box until it is reloaded. */
+export const ORDER = 'rekka:order';
 
 /** Long enough to absorb a burst of keystrokes, short enough to feel saved. */
 export const SAVE_DEBOUNCE_MS = 800;
@@ -50,12 +56,13 @@ export type Counts = {
 	truck: number;
 	bus: number;
 	van: number;
+	car: number;
 	rejected: number;
 	added: number;
 };
 
 export function emptyCounts(): Counts {
-	return { total: 0, reviewed: 0, truck: 0, bus: 0, van: 0, rejected: 0, added: 0 };
+	return { total: 0, reviewed: 0, truck: 0, bus: 0, van: 0, car: 0, rejected: 0, added: 0 };
 }
 
 /** Recompute a box's measurements from its geometry.

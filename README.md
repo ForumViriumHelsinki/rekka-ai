@@ -27,6 +27,14 @@ that starts at `detect` with the weights the previous round produced.
 - Python 3.14+ — `uv` installs it for you if it is missing
 - [bun](https://bun.sh/) — for the `web/` labelling tool only
 
+`fetch`, `aois` and the labelling tool need no GPU. **Training wants a 16 GB
+card**: that is what the recorded rounds used, at `--batch 4` and `imgsz 1024`
+with `yolo11x-obb`, filling roughly 10 GB and taking ~20 minutes for 100
+epochs. Less memory means dropping `--batch`, which slows training and changes
+BatchNorm behaviour — `--batch 1` is measurably not the same experiment. CPU
+training is possible and impractical; `detect` and `eval` run on CPU fine for
+a single area.
+
 ## Quick start
 
 ```sh
@@ -94,6 +102,9 @@ Output is a GeoJSON of oriented polygons carrying `length_m`, `width_m`,
 metres, declared by a `crs` member rather than the WGS84 RFC 7946 assumes — see
 docs/DESIGN.md §2. GDAL-based tools (QGIS, `ogr2ogr`) honour it; for anything that
 does not, convert with `ogr2ogr -f GeoJSON out.geojson -t_srs EPSG:4326 in.geojson`.
+Or skip GeoJSON entirely: an `--out` ending in `.fgb` or `.gpkg` writes
+FlatGeobuf / GeoPackage instead (via geopandas, in the `detect` extra), which
+carry the CRS natively.
 
 ### Labelling
 
@@ -115,13 +126,18 @@ orthophoto WMTS:
 cd web && bun install && bun run dev     # http://localhost:3000
 ```
 
+**What to label, and how to call it: [docs/LABELLING.md](docs/LABELLING.md)** —
+one page, the rules that decide the metrics. The reasoning behind them is
+docs/DESIGN.md §5.
+
 Click an area, then:
 
 | key | |
 |---|---|
-| `T` / `B` / `V` | classify as truck / bus / van |
+| `T` / `B` / `V` / `C` | classify as truck / bus / van / car |
 | `X` | reject (kept as a hard negative, not deleted) |
 | `N` / `P` | jump to next / previous unreviewed candidate |
+| `G` | go to a box by its number in the file (the `#n` in the footer) |
 | `D` | draw: click the nose, click the tail, scroll for width, click or `Enter` to place |
 | wheel | vehicle width once the tail is set, while drawing |
 | `Esc` | redo the in-progress sketch, or stop drawing |
@@ -143,11 +159,12 @@ The surrounding areas are drawn on the map too, in a quieter outline with their
 name. Clicking one opens it, so moving to the next area does not mean going back
 to the sidebar.
 
-Areas with `role: hard-negative` — currently just `r1-marjaniemi` — sit under
-**Not staged** at 0/0, and that is correct rather than a job left undone: no
-candidates are staged for it and there is nothing to review. Its contribution
-is the imagery itself, exported as background, so the model learns that
-moored boats are not trucks. See docs/DESIGN.md §5.
+An area with `role: hard-negative` — currently just `r1-marjaniemi`, a marina —
+is there for what it does *not* contain: its imagery exports as background, so
+the model learns that moored boats and hulls on cradles are not trucks. It is
+still reviewed like any other area, because a negative square usually turns out
+to hold a few real vehicles anyway (marjaniemi has two vans). See
+docs/DESIGN.md §5.
 
 ### Training
 
@@ -204,6 +221,55 @@ uv run rekka-ai stage --candidates data/detections/r1-jatkasaari.geojson
 
 Each round the model proposes and the human only corrects; the correction
 count per round measures how much the model still misses.
+
+### Reading the numbers
+
+What `eval`, `train` and MLflow report, in plain terms. The reasoning behind
+the thresholds is docs/DESIGN.md §7; this is just what each value tells you.
+
+| term | what it measures | how to read it |
+|---|---|---|
+| **precision** | of the boxes the model emitted, the share that were real vehicles | Low precision costs a *glance* — you scroll past junk in the labelling tool. |
+| **recall** | of the vehicles really there, the share the model found | Low recall costs *drawing* — a missed truck has to be hand-labelled from blank imagery. This is why the gates are recall-first. |
+| **IoU** | overlap ÷ union of two boxes | 1.0 identical, 0 disjoint. ~0.5 means "clearly the same vehicle", ~0.9 means "pixel-tight". For OBB the boxes are rotated, so heading errors cost IoU. |
+| **mAP50** | average precision across the whole confidence range, counting a box correct at IoU ≥ 0.50 | "Did it find the thing", forgiving about box fit. Independent of the threshold you ship at, so it is the fair number for comparing two runs. |
+| **mAP50‑95** | the same, averaged over IoU 0.50 → 0.95 in 0.05 steps | The *geometry* score. A large mAP50 → mAP50‑95 gap means right vehicles, loose boxes. |
+| **operating confidence** | the score threshold `eval` picks off the PR curve, which `detect` then uses | Not a quality score on its own — a *calibration* signal. Of two models at equal recall, the one holding it at a higher confidence separates trucks from background better. Round 2 needed conf 0.105 for recall 0.904; round 3 held the same recall at 0.776. |
+| **count error** | per-area `(found − truth) / truth`, trucks only | The product's actual question: how many vehicles at this site. Gated only where an area holds ≥ 60 trucks — below that one box is a double-digit percentage and the random seed decides the verdict, so the number is printed without a pass/fail. |
+| **unexplained detection** | a box in a negative-role area matching no vehicle the area really holds | The regression check: has fine-tuning started pulling lookalikes (containers, boat hulls) in? Reported, never gated — three seeds of one dataset gave 1, 7 and 3. |
+| **hard negative** | a candidate a human rejected, kept in the label file rather than deleted | Free training signal: it teaches the model what a truck-shaped non-truck looks like. Never "clean these up". |
+
+Training logs four losses per epoch, each as `train/*` and `val/*`:
+`box` (where the box is), `cls` (what it is called), `dfl` (how sharply the
+edges are localised) and `angle` (heading). Absolute values mean little; the
+*gap* is the signal — `val` drifting upward while `train` keeps falling is
+overfitting.
+
+#### The confusion matrix
+
+`runs/train/<name>/confusion_matrix_normalized.png` shows where the classes
+leak into each other. Two conventions trip people up:
+
+- **Predicted is the Y axis, True is the X axis** — the transpose of the
+  layout most tools use.
+- **It is normalized down each column**, so columns sum to 1. Every cell is
+  therefore a recall-flavoured number: *"of all real vans, what fraction did
+  the model call this?"* Read it column by column, never row by row.
+
+The `background` **column** is the exception to that reading: it is the
+*composition* of the false positives, not how many there are. "39% of what
+the model invented, it called a car" says nothing about whether that was five
+boxes or five hundred — for the magnitude, read `negative_detections` and the
+per-area counts. The `background` **row**, conversely, is the miss rate: how
+much of each true class got no box at all.
+
+Round 3 reads: trucks 0.93 correct with an empty background row (trucks are
+essentially never missed outright, only misnamed), buses 0.96, and vans 0.46
+with **0.32 of real vans predicted as truck**. That one cell is most of the
+truck/van confusion the rounds log keeps returning to — the model is not
+hallucinating trucks on empty asphalt, it is calling vans trucks. Note the
+matrix is drawn at a fixed conf ≈ 0.25, not at the operating confidence, so it
+describes a more permissive model than the one `detect` ships.
 
 ### Choosing round-2 areas (`mine`)
 
@@ -262,6 +328,57 @@ flight year never changes, so the cache is never invalidated and re-runs are
 free.
 
 Imagery is © Helsingin kaupunki, Kaupunkimittauspalvelut.
+
+### Reproducing the recorded rounds
+
+A fresh clone already holds the two things that cannot be regenerated —
+`labels/` and `aois/helsinki.yaml` — so the three training rounds recorded in
+`docs/rounds.md` replay without any labelling. Everything else (`data/`,
+`runs/`, the weights) regenerates:
+
+```sh
+uv sync --extra train            # ultralytics + mlflow
+
+# 1. Imagery: 3,159 tiles at z16, cached under data/cache/ (one-off download)
+uv run rekka-ai fetch --aoi aois/helsinki.yaml
+
+# 2. Each round trains on its cumulative ground: round 1 on the r1-* areas,
+#    round 2 adds r2-*, round 3 adds r3-*. The per-round collections are just
+#    prefix filters of the committed collection — recreate them with:
+uv run python - <<'EOF'
+import yaml
+from pathlib import Path
+
+coll = yaml.safe_load(Path("aois/helsinki.yaml").read_text())
+for out, rounds in [("r1", "r1"), ("r1r2", "r1 r2"), ("r1r2r3", "r1 r2 r3")]:
+    keep = rounds.split()
+    sub = {**coll, "aois": [a for a in coll["aois"]
+                            if a["name"].split("-")[0] in keep]}
+    Path("data/ablation").mkdir(parents=True, exist_ok=True)
+    Path(f"data/ablation/{out}.yaml").write_text(
+        yaml.safe_dump(sub, sort_keys=False, allow_unicode=True))
+EOF
+
+# 3. Per round: export, train, eval. Validation is the identical four areas
+#    in every round, so the gate numbers are comparable across rounds.
+for r in 1 2 3; do
+  case $r in 1) aoi=r1;; 2) aoi=r1r2;; 3) aoi=r1r2r3;; esac
+  uv run rekka-ai export --aoi data/ablation/$aoi.yaml --out data/dataset-r$r &&
+  uv run rekka-ai train  --data data/dataset-r$r/dataset.yaml --name round$r &&
+  uv run rekka-ai eval   --weights runs/train/round$r/weights/best.pt \
+      --data data/dataset-r$r/dataset.yaml --aoi data/ablation/$aoi.yaml \
+      --name eval-round$r || break
+done
+```
+
+The bootstrap weights (`yolo11x-obb.pt`, gitignored) download automatically on
+the first `train`. Training is seeded and deterministic, so the same data
+reproduces a run exactly — expect the gate table in `docs/rounds.md`: rounds 1
+and 2 *fail* the precision and count gates and round 3 passes all three; that
+progression is the recorded result, not a problem with your run. Six MLflow
+runs land in `runs/mlflow.db` (`round1`, `eval-round1`, …), viewable with
+`uv run mlflow ui --backend-store-uri sqlite:///runs/mlflow.db`. Budget roughly
+an hour of GPU time for the three rounds on a 16 GB card.
 
 ## License
 

@@ -41,7 +41,7 @@
 	import AreaTree, { type AoiInfo } from '$lib/AreaTree.svelte';
 	import KeyHelp from '$lib/KeyHelp.svelte';
 	import ClassToolbar from '$lib/ClassToolbar.svelte';
-	import { LabelStore, refreshMeasurements } from '$lib/labelStore.svelte';
+	import { LabelStore, ORDER, refreshMeasurements } from '$lib/labelStore.svelte';
 	import { UndoStack } from '$lib/undo.svelte';
 	import { EndHandles } from '$lib/endHandles';
 	import { DrawMode } from '$lib/drawMode.svelte';
@@ -55,6 +55,13 @@
 		styleFor,
 	} from '$lib/mapStyles';
 
+	/** Notes longer than this get the clamp and the more/less control. The
+	 * sidebar fits roughly 55 characters a line, so this is about six lines —
+	 * past that a note stops being a caption and starts competing with the area
+	 * tree for the screen. No area reaches it today (the longest is ~270): the
+	 * clamp is a guard rail against a note growing back, not a daily click. */
+	const NOTES_CLAMP = 320;
+
 	let aois = $state<AoiInfo[]>([]);
 	let loading = $state(true);
 	let current = $state<AoiInfo | null>(null);
@@ -62,6 +69,14 @@
 	let activeClass = $state<Klass>('truck');
 	let selectedInfo = $state('');
 	let loadError = $state('');
+	/** The "go to #" box in the footer: what is typed, and the element itself so
+	 * G can put the cursor there without the mouse. */
+	let gotoOrdinal = $state('');
+	let gotoField = $state<HTMLInputElement | null>(null);
+	/** Whether the area's notes are shown in full. Deliberately *not* reset when
+	 * the area changes: the choice is about how much sidebar the operator wants
+	 * spent on prose, not about one area. */
+	let notesOpen = $state(false);
 	/** Set from /api/aois before the map is built; the initial value is only
 	 * a fallback for a failed fetch. */
 	let layerName = $state(LATEST_LAYER);
@@ -366,6 +381,53 @@
 		});
 	}
 
+	/** Select the box at a 1-based position **in the area's label file** — the
+	 * number the footer prints, and the number a script reading
+	 * `labels/<aoi>.geojson` can quote back to a human.
+	 *
+	 * Addressed through the store's ORDER stamp, never through an index into
+	 * `source.getFeatures()`: that array comes out of a spatial index in an
+	 * order unrelated to the file, so indexing it sends you to an unrelated
+	 * box. (It did — this jumped to a car when told to find #123.)
+	 *
+	 * A position, not an identity: the schema has no id, and deleting a box
+	 * renumbers everything after it on the next save. An id property would have
+	 * to be written into every label file, and `labels/` is the one artifact
+	 * that cannot be regenerated. */
+	function goToOrdinal(ordinal: number) {
+		const features = source.getFeatures();
+		if (!features.length) {
+			selectedInfo = 'no features here';
+			return;
+		}
+		const index = Math.round(ordinal) - 1;
+		const target = features.find((f) => f.get(ORDER) === index);
+		if (!target) {
+			const numbered = features.filter((f) => f.get(ORDER) !== undefined).length;
+			selectedInfo =
+				index >= 0 && index < features.length
+					? `#${ordinal} is not in the file yet — hand-drawn boxes get a number on reload`
+					: `#${ordinal} is outside 1–${numbered}`;
+			return;
+		}
+		select.getFeatures().clear();
+		select.getFeatures().push(target);
+		// Same as nextCandidate: OL only fires select events for pointer-driven
+		// selections, so the highlight has to be set here too.
+		setSelected(target);
+		map.getView().fit((target.getGeometry() as Polygon).getExtent(), {
+			maxZoom: MAX_ZOOM,
+			padding: [150, 150, 150, 150],
+		});
+	}
+
+	function submitGoto() {
+		const ordinal = Number(gotoOrdinal.trim().replace(/^#/, ''));
+		if (!gotoOrdinal.trim() || Number.isNaN(ordinal)) return;
+		goToOrdinal(ordinal);
+		gotoField?.blur(); // hand the keyboard back to X / T / N without a click
+	}
+
 	function describe(feature: Feature | undefined) {
 		if (!feature) {
 			selectedInfo = '';
@@ -375,8 +437,10 @@
 		const confidence = feature.get('confidence');
 		const klass = feature.get('class');
 		const features = source.getFeatures();
+		// The file position, not a position in this array — see goToOrdinal.
+		const order = feature.get(ORDER) as number | undefined;
 		selectedInfo =
-			`#${features.indexOf(feature) + 1}/${features.length}` +
+			`#${order === undefined ? 'new' : order + 1}/${features.length}` +
 			` · ${feature.get('status') ?? 'candidate'}` +
 			`${klass ? ' · ' + klass : ''}` +
 			` · ${feature.get('length_m')} × ${feature.get('width_m')} m` +
@@ -431,6 +495,15 @@
 			label: 'next / prev unreviewed',
 			on: ['n', 'p'],
 			run: (key) => nextCandidate(key === 'n' ? 1 : -1),
+		},
+		{
+			keys: 'G',
+			label: 'go to box by number',
+			on: ['g'],
+			run: () => {
+				gotoOrdinal = '';
+				gotoField?.focus();
+			},
 		},
 		{
 			keys: 'D',
@@ -722,8 +795,49 @@
 		{#if current}
 			<div class="border-t border-line px-3.5 py-3">
 				{#if current.notes}
-					<h3 class="text-xs font-semibold">{current.name}</h3>
-					<p class="mt-1 text-xs leading-relaxed text-muted">{current.notes}</p>
+					<!-- The notes are the annotation guide, so they stay on screen — but
+					     a long one (r1-veturitie's runs to a screenful) would push the
+					     area tree out of the sidebar. Short notes, which are most of
+					     them, render whole and get no control at all; only the ones
+					     that would cost real space are clamped. -->
+					{@const long = current.notes.length > NOTES_CLAMP}
+					<div class="flex items-center gap-1.5">
+						<h3 class="text-xs font-semibold">{current.name}</h3>
+						{#if long}
+							<button
+								type="button"
+								onclick={() => (notesOpen = !notesOpen)}
+								aria-expanded={notesOpen}
+								aria-label={notesOpen ? 'collapse area notes' : 'expand area notes'}
+								class="ml-auto flex items-center gap-1 rounded px-1 py-px font-mono text-[10px] text-dim transition-colors duration-150 hover:text-fg focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-accent"
+							>
+								{notesOpen ? 'less' : 'more'}
+								<svg
+									viewBox="0 0 24 24"
+									fill="none"
+									stroke="currentColor"
+									stroke-width="2"
+									stroke-linecap="round"
+									stroke-linejoin="round"
+									class="size-3 shrink-0 transition-transform duration-150 {notesOpen
+										? ''
+										: '-rotate-90'}"
+									aria-hidden="true"
+								>
+									<path d="m6 9 6 6 6-6" />
+								</svg>
+							</button>
+						{/if}
+					</div>
+					<p
+						class="mt-1 text-xs leading-relaxed text-muted {long
+							? notesOpen
+								? 'max-h-56 overflow-y-auto pr-1'
+								: 'line-clamp-3'
+							: ''}"
+					>
+						{current.notes}
+					</p>
 				{/if}
 
 				<ul class="mt-3 grid gap-[3px]">
@@ -783,7 +897,29 @@
 						? '⇧scroll: adjust width · drag: move · drag end: resize · Del: delete'
 						: 'select a box, or press D to draw'}
 			</span>
-			<span class="ml-auto font-mono text-[11px] text-muted">{selectedInfo}</span>
+			<label class="ml-auto flex items-center gap-1 font-mono text-[11px] text-dim">
+				<span aria-hidden="true">#</span>
+				<span class="sr-only">go to box number</span>
+				<input
+					bind:this={gotoField}
+					bind:value={gotoOrdinal}
+					inputmode="numeric"
+					placeholder="go to"
+					class="w-14 rounded border border-line bg-ink px-1.5 py-0.5 text-fg
+						placeholder:text-dim focus:border-accent focus:outline-none"
+					onkeydown={(event) => {
+						// Scoped to the field: isTyping() already keeps the review keys
+						// out of it, and Esc must give the keyboard back rather than
+						// reach the map's draw handling.
+						if (event.key === 'Enter') submitGoto();
+						else if (event.key === 'Escape') gotoField?.blur();
+						else return;
+						event.preventDefault();
+						event.stopPropagation();
+					}}
+				/>
+			</label>
+			<span class="font-mono text-[11px] text-muted">{selectedInfo}</span>
 		</footer>
 	</main>
 </div>

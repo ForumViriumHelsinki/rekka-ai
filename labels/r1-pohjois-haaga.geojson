@@ -14,6 +14,580 @@
         "coordinates": [
           [
             [
+              25493841.779,
+              6679983.673
+            ],
+            [
+              25493843.933,
+              6679984.367
+            ],
+            [
+              25493842.396,
+              6679989.133
+            ],
+            [
+              25493840.243,
+              6679988.439
+            ],
+            [
+              25493841.779,
+              6679983.673
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.8468,
+        "length_m": 5.01,
+        "width_m": 2.26,
+        "heading_deg": 162.1,
+        "aoi": "r1-pohjois-haaga",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "confirmed",
+        "class": "car"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25494001.851,
+              6680112.298
+            ],
+            [
+              25494004.023,
+              6680113.124
+            ],
+            [
+              25494002.227,
+              6680117.85
+            ],
+            [
+              25494000.055,
+              6680117.024
+            ],
+            [
+              25494001.851,
+              6680112.298
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.8447,
+        "length_m": 5.06,
+        "width_m": 2.32,
+        "heading_deg": 159.2,
+        "aoi": "r1-pohjois-haaga",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "confirmed",
+        "class": "car"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25493843.731,
+              6679978.502
+            ],
+            [
+              25493845.931,
+              6679979.232
+            ],
+            [
+              25493844.37,
+              6679983.937
+            ],
+            [
+              25493842.17,
+              6679983.207
+            ],
+            [
+              25493843.731,
+              6679978.502
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.8411,
+        "length_m": 4.96,
+        "width_m": 2.32,
+        "heading_deg": 161.6,
+        "aoi": "r1-pohjois-haaga",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "confirmed",
+        "class": "car"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25493846.349,
+              6679979.243
+            ],
+            [
+              25493848.594,
+              6679979.956
+            ],
+            [
+              25493847.035,
+              6679984.864
+            ],
+            [
+              25493844.79,
+              6679984.151
+            ],
+            [
+              25493846.349,
+              6679979.243
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.8375,
+        "length_m": 5.15,
+        "width_m": 2.36,
+        "heading_deg": 162.4,
+        "aoi": "r1-pohjois-haaga",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "confirmed",
+        "class": "car"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25494008.56,
+              6680102.106
+            ],
+            [
+              25494010.834,
+              6680102.933
+            ],
+            [
+              25494009.092,
+              6680107.724
+            ],
+            [
+              25494006.818,
+              6680106.897
+            ],
+            [
+              25494008.56,
+              6680102.106
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.8363,
+        "length_m": 5.1,
+        "width_m": 2.42,
+        "heading_deg": 160,
+        "aoi": "r1-pohjois-haaga",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "confirmed",
+        "class": "car"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25494018.18,
+              6680118.555
+            ],
+            [
+              25494020.2,
+              6680119.336
+            ],
+            [
+              25494018.514,
+              6680123.696
+            ],
+            [
+              25494016.493,
+              6680122.914
+            ],
+            [
+              25494018.18,
+              6680118.555
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.8332,
+        "length_m": 4.67,
+        "width_m": 2.17,
+        "heading_deg": 158.9,
+        "aoi": "r1-pohjois-haaga",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "confirmed",
+        "class": "car"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25493825.692,
+              6679978.414
+            ],
+            [
+              25493827.686,
+              6679978.98
+            ],
+            [
+              25493826.498,
+              6679983.164
+            ],
+            [
+              25493824.504,
+              6679982.597
+            ],
+            [
+              25493825.692,
+              6679978.414
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.8329,
+        "length_m": 4.35,
+        "width_m": 2.07,
+        "heading_deg": 164.1,
+        "aoi": "r1-pohjois-haaga",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "confirmed",
+        "class": "car"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25494038.144,
+              6679951.554
+            ],
+            [
+              25494038.922,
+              6679956.325
+            ],
+            [
+              25494036.981,
+              6679956.641
+            ],
+            [
+              25494036.204,
+              6679951.87
+            ],
+            [
+              25494038.144,
+              6679951.554
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.8315,
+        "length_m": 4.83,
+        "width_m": 1.97,
+        "heading_deg": 9.3,
+        "aoi": "r1-pohjois-haaga",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "confirmed",
+        "class": "car"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25493816.528,
+              6679976.083
+            ],
+            [
+              25493818.496,
+              6679976.605
+            ],
+            [
+              25493817.327,
+              6679981.008
+            ],
+            [
+              25493815.359,
+              6679980.486
+            ],
+            [
+              25493816.528,
+              6679976.083
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.8311,
+        "length_m": 4.56,
+        "width_m": 2.04,
+        "heading_deg": 165.1,
+        "aoi": "r1-pohjois-haaga",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "confirmed",
+        "class": "car"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25493836.802,
+              6679982.101
+            ],
+            [
+              25493839.018,
+              6679982.757
+            ],
+            [
+              25493837.572,
+              6679987.644
+            ],
+            [
+              25493835.355,
+              6679986.988
+            ],
+            [
+              25493836.802,
+              6679982.101
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.8305,
+        "length_m": 5.1,
+        "width_m": 2.31,
+        "heading_deg": 163.5,
+        "aoi": "r1-pohjois-haaga",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "confirmed",
+        "class": "car"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25493811.92,
+              6679974.495
+            ],
+            [
+              25493814.125,
+              6679975.249
+            ],
+            [
+              25493812.501,
+              6679979.997
+            ],
+            [
+              25493810.296,
+              6679979.243
+            ],
+            [
+              25493811.92,
+              6679974.495
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.83,
+        "length_m": 5.02,
+        "width_m": 2.33,
+        "heading_deg": 161.1,
+        "aoi": "r1-pohjois-haaga",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "confirmed",
+        "class": "car"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25493830.347,
+              6679962.584
+            ],
+            [
+              25493832.68,
+              6679963.188
+            ],
+            [
+              25493831.383,
+              6679968.202
+            ],
+            [
+              25493829.049,
+              6679967.598
+            ],
+            [
+              25493830.347,
+              6679962.584
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.8299,
+        "length_m": 5.18,
+        "width_m": 2.41,
+        "heading_deg": 165.5,
+        "aoi": "r1-pohjois-haaga",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "confirmed",
+        "class": "car"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25493788.273,
+              6679985.551
+            ],
+            [
+              25493792.916,
+              6679986.939
+            ],
+            [
+              25493792.224,
+              6679989.256
+            ],
+            [
+              25493787.581,
+              6679987.868
+            ],
+            [
+              25493788.273,
+              6679985.551
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.8298,
+        "length_m": 4.85,
+        "width_m": 2.42,
+        "heading_deg": 73.4,
+        "aoi": "r1-pohjois-haaga",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "confirmed",
+        "class": "car"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25493827.823,
+              6679979.297
+            ],
+            [
+              25493829.913,
+              6679979.869
+            ],
+            [
+              25493828.651,
+              6679984.486
+            ],
+            [
+              25493826.56,
+              6679983.914
+            ],
+            [
+              25493827.823,
+              6679979.297
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.829,
+        "length_m": 4.79,
+        "width_m": 2.17,
+        "heading_deg": 164.7,
+        "aoi": "r1-pohjois-haaga",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "confirmed",
+        "class": "car"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
               25493850.624,
               6679950.36
             ],
@@ -55,6 +629,990 @@
         "coordinates": [
           [
             [
+              25493839.423,
+              6679983.046
+            ],
+            [
+              25493841.428,
+              6679983.716
+            ],
+            [
+              25493840.103,
+              6679987.676
+            ],
+            [
+              25493838.099,
+              6679987.005
+            ],
+            [
+              25493839.423,
+              6679983.046
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.8282,
+        "length_m": 4.18,
+        "width_m": 2.11,
+        "heading_deg": 161.5,
+        "aoi": "r1-pohjois-haaga",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "confirmed",
+        "class": "car"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25493838.452,
+              6679977.06
+            ],
+            [
+              25493840.492,
+              6679977.622
+            ],
+            [
+              25493839.235,
+              6679982.186
+            ],
+            [
+              25493837.195,
+              6679981.624
+            ],
+            [
+              25493838.452,
+              6679977.06
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.8279,
+        "length_m": 4.73,
+        "width_m": 2.12,
+        "heading_deg": 164.6,
+        "aoi": "r1-pohjois-haaga",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "confirmed",
+        "class": "car"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25494006.105,
+              6680101.053
+            ],
+            [
+              25494008.36,
+              6680101.962
+            ],
+            [
+              25494006.362,
+              6680106.917
+            ],
+            [
+              25494004.107,
+              6680106.008
+            ],
+            [
+              25494006.105,
+              6680101.053
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.8278,
+        "length_m": 5.34,
+        "width_m": 2.43,
+        "heading_deg": 158,
+        "aoi": "r1-pohjois-haaga",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "confirmed",
+        "class": "car"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25494013.439,
+              6680116.637
+            ],
+            [
+              25494015.455,
+              6680117.338
+            ],
+            [
+              25494013.922,
+              6680121.747
+            ],
+            [
+              25494011.905,
+              6680121.045
+            ],
+            [
+              25494013.439,
+              6680116.637
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.8275,
+        "length_m": 4.67,
+        "width_m": 2.13,
+        "heading_deg": 160.8,
+        "aoi": "r1-pohjois-haaga",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "confirmed",
+        "class": "car"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25493809.477,
+              6679973.657
+            ],
+            [
+              25493811.551,
+              6679974.358
+            ],
+            [
+              25493810.086,
+              6679978.695
+            ],
+            [
+              25493808.012,
+              6679977.994
+            ],
+            [
+              25493809.477,
+              6679973.657
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.8266,
+        "length_m": 4.58,
+        "width_m": 2.19,
+        "heading_deg": 161.3,
+        "aoi": "r1-pohjois-haaga",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "confirmed",
+        "class": "car"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25493813.863,
+              6679969.946
+            ],
+            [
+              25493815.912,
+              6679970.696
+            ],
+            [
+              25493814.339,
+              6679974.996
+            ],
+            [
+              25493812.29,
+              6679974.247
+            ],
+            [
+              25493813.863,
+              6679969.946
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.825,
+        "length_m": 4.58,
+        "width_m": 2.18,
+        "heading_deg": 159.9,
+        "aoi": "r1-pohjois-haaga",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "confirmed",
+        "class": "car"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25494015.983,
+              6680117.433
+            ],
+            [
+              25494017.961,
+              6680118.166
+            ],
+            [
+              25494016.288,
+              6680122.684
+            ],
+            [
+              25494014.309,
+              6680121.951
+            ],
+            [
+              25494015.983,
+              6680117.433
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.8246,
+        "length_m": 4.82,
+        "width_m": 2.11,
+        "heading_deg": 159.7,
+        "aoi": "r1-pohjois-haaga",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "confirmed",
+        "class": "car"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25493999.486,
+              6680111.468
+            ],
+            [
+              25494001.638,
+              6680112.347
+            ],
+            [
+              25493999.866,
+              6680116.684
+            ],
+            [
+              25493997.713,
+              6680115.805
+            ],
+            [
+              25493999.486,
+              6680111.468
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.8244,
+        "length_m": 4.69,
+        "width_m": 2.32,
+        "heading_deg": 157.8,
+        "aoi": "r1-pohjois-haaga",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "confirmed",
+        "class": "car"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25493793.228,
+              6679967.7
+            ],
+            [
+              25493797.9,
+              6679969.048
+            ],
+            [
+              25493797.239,
+              6679971.342
+            ],
+            [
+              25493792.566,
+              6679969.994
+            ],
+            [
+              25493793.228,
+              6679967.7
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.8243,
+        "length_m": 4.86,
+        "width_m": 2.39,
+        "heading_deg": 73.9,
+        "aoi": "r1-pohjois-haaga",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "confirmed",
+        "class": "car"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25494010.978,
+              6680103.053
+            ],
+            [
+              25494013.124,
+              6680103.798
+            ],
+            [
+              25494011.573,
+              6680108.265
+            ],
+            [
+              25494009.427,
+              6680107.52
+            ],
+            [
+              25494010.978,
+              6680103.053
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.8232,
+        "length_m": 4.73,
+        "width_m": 2.27,
+        "heading_deg": 160.9,
+        "aoi": "r1-pohjois-haaga",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "confirmed",
+        "class": "car"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25493818.694,
+              6679976.848
+            ],
+            [
+              25493820.75,
+              6679977.433
+            ],
+            [
+              25493819.459,
+              6679981.97
+            ],
+            [
+              25493817.402,
+              6679981.384
+            ],
+            [
+              25493818.694,
+              6679976.848
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.8228,
+        "length_m": 4.72,
+        "width_m": 2.14,
+        "heading_deg": 164.1,
+        "aoi": "r1-pohjois-haaga",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "confirmed",
+        "class": "car"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25494006.912,
+              6680114.307
+            ],
+            [
+              25494008.925,
+              6680115.004
+            ],
+            [
+              25494007.467,
+              6680119.214
+            ],
+            [
+              25494005.455,
+              6680118.517
+            ],
+            [
+              25494006.912,
+              6680114.307
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.8212,
+        "length_m": 4.46,
+        "width_m": 2.13,
+        "heading_deg": 160.9,
+        "aoi": "r1-pohjois-haaga",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "confirmed",
+        "class": "car"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25493832.435,
+              6679980.709
+            ],
+            [
+              25493834.617,
+              6679981.276
+            ],
+            [
+              25493833.379,
+              6679986.041
+            ],
+            [
+              25493831.197,
+              6679985.475
+            ],
+            [
+              25493832.435,
+              6679980.709
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.8204,
+        "length_m": 4.92,
+        "width_m": 2.25,
+        "heading_deg": 165.4,
+        "aoi": "r1-pohjois-haaga",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "confirmed",
+        "class": "car"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25494045.364,
+              6679965.8
+            ],
+            [
+              25494046.333,
+              6679970.389
+            ],
+            [
+              25494044.433,
+              6679970.79
+            ],
+            [
+              25494043.465,
+              6679966.2
+            ],
+            [
+              25494045.364,
+              6679965.8
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.8201,
+        "length_m": 4.69,
+        "width_m": 1.94,
+        "heading_deg": 11.9,
+        "aoi": "r1-pohjois-haaga",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "confirmed",
+        "class": "car"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25493834.084,
+              6679975.1
+            ],
+            [
+              25493836.332,
+              6679975.721
+            ],
+            [
+              25493834.916,
+              6679980.854
+            ],
+            [
+              25493832.667,
+              6679980.233
+            ],
+            [
+              25493834.084,
+              6679975.1
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.8201,
+        "length_m": 5.32,
+        "width_m": 2.33,
+        "heading_deg": 164.6,
+        "aoi": "r1-pohjois-haaga",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "confirmed",
+        "class": "car"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25494017.793,
+              6680105.759
+            ],
+            [
+              25494019.835,
+              6680106.567
+            ],
+            [
+              25494018.13,
+              6680110.878
+            ],
+            [
+              25494016.087,
+              6680110.07
+            ],
+            [
+              25494017.793,
+              6680105.759
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.8198,
+        "length_m": 4.64,
+        "width_m": 2.2,
+        "heading_deg": 158.4,
+        "aoi": "r1-pohjois-haaga",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "confirmed",
+        "class": "car"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25494022.512,
+              6680107.357
+            ],
+            [
+              25494024.818,
+              6680108.271
+            ],
+            [
+              25494022.902,
+              6680113.105
+            ],
+            [
+              25494020.596,
+              6680112.191
+            ],
+            [
+              25494022.512,
+              6680107.357
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.8195,
+        "length_m": 5.2,
+        "width_m": 2.48,
+        "heading_deg": 158.4,
+        "aoi": "r1-pohjois-haaga",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "confirmed",
+        "class": "car"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25493996.77,
+              6680110.459
+            ],
+            [
+              25493999.02,
+              6680111.278
+            ],
+            [
+              25493997.305,
+              6680115.99
+            ],
+            [
+              25493995.055,
+              6680115.171
+            ],
+            [
+              25493996.77,
+              6680110.459
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.8193,
+        "length_m": 5.01,
+        "width_m": 2.39,
+        "heading_deg": 160,
+        "aoi": "r1-pohjois-haaga",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "confirmed",
+        "class": "car"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25493830.319,
+              6679979.778
+            ],
+            [
+              25493832.411,
+              6679980.382
+            ],
+            [
+              25493831.106,
+              6679984.897
+            ],
+            [
+              25493829.015,
+              6679984.293
+            ],
+            [
+              25493830.319,
+              6679979.778
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.8184,
+        "length_m": 4.7,
+        "width_m": 2.18,
+        "heading_deg": 163.9,
+        "aoi": "r1-pohjois-haaga",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "confirmed",
+        "class": "car"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25493841.032,
+              6679977.725
+            ],
+            [
+              25493843.157,
+              6679978.311
+            ],
+            [
+              25493841.851,
+              6679983.042
+            ],
+            [
+              25493839.726,
+              6679982.456
+            ],
+            [
+              25493841.032,
+              6679977.725
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.8172,
+        "length_m": 4.91,
+        "width_m": 2.2,
+        "heading_deg": 164.6,
+        "aoi": "r1-pohjois-haaga",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "confirmed",
+        "class": "car"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25494015.538,
+              6680104.185
+            ],
+            [
+              25494017.743,
+              6680104.961
+            ],
+            [
+              25494016.064,
+              6680109.735
+            ],
+            [
+              25494013.859,
+              6680108.96
+            ],
+            [
+              25494015.538,
+              6680104.185
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.8164,
+        "length_m": 5.06,
+        "width_m": 2.34,
+        "heading_deg": 160.6,
+        "aoi": "r1-pohjois-haaga",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "confirmed",
+        "class": "car"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25494004.365,
+              6680113.045
+            ],
+            [
+              25494006.377,
+              6680113.764
+            ],
+            [
+              25494004.888,
+              6680117.926
+            ],
+            [
+              25494002.876,
+              6680117.206
+            ],
+            [
+              25494004.365,
+              6680113.045
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.8156,
+        "length_m": 4.42,
+        "width_m": 2.14,
+        "heading_deg": 160.3,
+        "aoi": "r1-pohjois-haaga",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "confirmed",
+        "class": "car"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25494006.368,
+              6680160.597
+            ],
+            [
+              25494008.575,
+              6680160.919
+            ],
+            [
+              25494007.908,
+              6680165.491
+            ],
+            [
+              25494005.701,
+              6680165.169
+            ],
+            [
+              25494006.368,
+              6680160.597
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.8155,
+        "length_m": 4.62,
+        "width_m": 2.23,
+        "heading_deg": 171.7,
+        "aoi": "r1-pohjois-haaga",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "confirmed",
+        "class": "car"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25493814.122,
+              6679975.57
+            ],
+            [
+              25493816.211,
+              6679976.073
+            ],
+            [
+              25493815.164,
+              6679980.423
+            ],
+            [
+              25493813.075,
+              6679979.92
+            ],
+            [
+              25493814.122,
+              6679975.57
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.8154,
+        "length_m": 4.47,
+        "width_m": 2.15,
+        "heading_deg": 166.5,
+        "aoi": "r1-pohjois-haaga",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "confirmed",
+        "class": "car"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
               25493857.026,
               6679953.189
             ],
@@ -78,7 +1636,7 @@
         ]
       },
       "properties": {
-        "confidence": 0.8136,
+        "confidence": 0.8137,
         "length_m": 5.8,
         "width_m": 2.44,
         "heading_deg": 166.7,
@@ -87,6 +1645,375 @@
         "zoom": 16,
         "status": "confirmed",
         "class": "van"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25493844.084,
+              6679984.113
+            ],
+            [
+              25493846.261,
+              6679984.74
+            ],
+            [
+              25493844.852,
+              6679989.64
+            ],
+            [
+              25493842.674,
+              6679989.014
+            ],
+            [
+              25493844.084,
+              6679984.113
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.8124,
+        "length_m": 5.1,
+        "width_m": 2.27,
+        "heading_deg": 164,
+        "aoi": "r1-pohjois-haaga",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "confirmed",
+        "class": "car"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25493796.032,
+              6679961.136
+            ],
+            [
+              25493800.248,
+              6679962.217
+            ],
+            [
+              25493799.701,
+              6679964.35
+            ],
+            [
+              25493795.485,
+              6679963.269
+            ],
+            [
+              25493796.032,
+              6679961.136
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.8119,
+        "length_m": 4.35,
+        "width_m": 2.2,
+        "heading_deg": 75.6,
+        "aoi": "r1-pohjois-haaga",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "confirmed",
+        "class": "car"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25493844.15,
+              6679966.38
+            ],
+            [
+              25493846.237,
+              6679967.023
+            ],
+            [
+              25493844.897,
+              6679971.371
+            ],
+            [
+              25493842.811,
+              6679970.728
+            ],
+            [
+              25493844.15,
+              6679966.38
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.8112,
+        "length_m": 4.55,
+        "width_m": 2.18,
+        "heading_deg": 162.9,
+        "aoi": "r1-pohjois-haaga",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "confirmed",
+        "class": "car"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25493823.238,
+              6679978.248
+            ],
+            [
+              25493825.153,
+              6679978.856
+            ],
+            [
+              25493823.853,
+              6679982.954
+            ],
+            [
+              25493821.937,
+              6679982.347
+            ],
+            [
+              25493823.238,
+              6679978.248
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.8112,
+        "length_m": 4.3,
+        "width_m": 2.01,
+        "heading_deg": 162.4,
+        "aoi": "r1-pohjois-haaga",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "confirmed",
+        "class": "car"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25494025.009,
+              6680163.697
+            ],
+            [
+              25494027.169,
+              6680164.031
+            ],
+            [
+              25494026.484,
+              6680168.466
+            ],
+            [
+              25494024.323,
+              6680168.132
+            ],
+            [
+              25494025.009,
+              6680163.697
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.8105,
+        "length_m": 4.49,
+        "width_m": 2.19,
+        "heading_deg": 171.2,
+        "aoi": "r1-pohjois-haaga",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "confirmed",
+        "class": "car"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25493819.703,
+              6679959.282
+            ],
+            [
+              25493821.896,
+              6679959.895
+            ],
+            [
+              25493820.529,
+              6679964.786
+            ],
+            [
+              25493818.337,
+              6679964.173
+            ],
+            [
+              25493819.703,
+              6679959.282
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.8093,
+        "length_m": 5.08,
+        "width_m": 2.28,
+        "heading_deg": 164.4,
+        "aoi": "r1-pohjois-haaga",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "confirmed",
+        "class": "car"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25493831.734,
+              6679957.482
+            ],
+            [
+              25493833.921,
+              6679958.11
+            ],
+            [
+              25493832.556,
+              6679962.866
+            ],
+            [
+              25493830.369,
+              6679962.238
+            ],
+            [
+              25493831.734,
+              6679957.482
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.8084,
+        "length_m": 4.95,
+        "width_m": 2.28,
+        "heading_deg": 164,
+        "aoi": "r1-pohjois-haaga",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "confirmed",
+        "class": "car"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25494001.541,
+              6680099.112
+            ],
+            [
+              25494003.82,
+              6680099.996
+            ],
+            [
+              25494001.994,
+              6680104.696
+            ],
+            [
+              25493999.716,
+              6680103.811
+            ],
+            [
+              25494001.541,
+              6680099.112
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.8073,
+        "length_m": 5.04,
+        "width_m": 2.44,
+        "heading_deg": 158.8,
+        "aoi": "r1-pohjois-haaga",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "confirmed",
+        "class": "car"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25493808.859,
+              6679968.188
+            ],
+            [
+              25493811.118,
+              6679968.859
+            ],
+            [
+              25493809.728,
+              6679973.533
+            ],
+            [
+              25493807.469,
+              6679972.862
+            ],
+            [
+              25493808.859,
+              6679968.188
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.8042,
+        "length_m": 4.88,
+        "width_m": 2.36,
+        "heading_deg": 163.4,
+        "aoi": "r1-pohjois-haaga",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "confirmed",
+        "class": "car"
       }
     },
     {
@@ -137,6 +2064,375 @@
         "coordinates": [
           [
             [
+              25494021.719,
+              6680085.565
+            ],
+            [
+              25494026.539,
+              6680086.572
+            ],
+            [
+              25494026.049,
+              6680088.917
+            ],
+            [
+              25494021.229,
+              6680087.91
+            ],
+            [
+              25494021.719,
+              6680085.565
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.8028,
+        "length_m": 4.92,
+        "width_m": 2.4,
+        "heading_deg": 78.2,
+        "aoi": "r1-pohjois-haaga",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "confirmed",
+        "class": "car"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25494020.86,
+              6680119.221
+            ],
+            [
+              25494022.849,
+              6680120.038
+            ],
+            [
+              25494021.176,
+              6680124.11
+            ],
+            [
+              25494019.186,
+              6680123.292
+            ],
+            [
+              25494020.86,
+              6680119.221
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.8017,
+        "length_m": 4.4,
+        "width_m": 2.15,
+        "heading_deg": 157.7,
+        "aoi": "r1-pohjois-haaga",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "confirmed",
+        "class": "car"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25494015.114,
+              6680084.358
+            ],
+            [
+              25494019.747,
+              6680085.193
+            ],
+            [
+              25494019.322,
+              6680087.552
+            ],
+            [
+              25494014.688,
+              6680086.717
+            ],
+            [
+              25494015.114,
+              6680084.358
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.8013,
+        "length_m": 4.71,
+        "width_m": 2.4,
+        "heading_deg": 79.8,
+        "aoi": "r1-pohjois-haaga",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "confirmed",
+        "class": "car"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25494027.798,
+              6680164.276
+            ],
+            [
+              25494030.021,
+              6680164.51
+            ],
+            [
+              25494029.525,
+              6680169.227
+            ],
+            [
+              25494027.302,
+              6680168.994
+            ],
+            [
+              25494027.798,
+              6680164.276
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.7997,
+        "length_m": 4.74,
+        "width_m": 2.24,
+        "heading_deg": 174,
+        "aoi": "r1-pohjois-haaga",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "confirmed",
+        "class": "car"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25493816.588,
+              6679970.172
+            ],
+            [
+              25493818.756,
+              6679970.935
+            ],
+            [
+              25493817.015,
+              6679975.88
+            ],
+            [
+              25493814.847,
+              6679975.117
+            ],
+            [
+              25493816.588,
+              6679970.172
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.7986,
+        "length_m": 5.24,
+        "width_m": 2.3,
+        "heading_deg": 160.6,
+        "aoi": "r1-pohjois-haaga",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "confirmed",
+        "class": "car"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25493798.684,
+              6679952.012
+            ],
+            [
+              25493803.176,
+              6679953.338
+            ],
+            [
+              25493802.512,
+              6679955.589
+            ],
+            [
+              25493798.02,
+              6679954.263
+            ],
+            [
+              25493798.684,
+              6679952.012
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.7975,
+        "length_m": 4.68,
+        "width_m": 2.35,
+        "heading_deg": 73.6,
+        "aoi": "r1-pohjois-haaga",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "confirmed",
+        "class": "car"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25494043.428,
+              6679943.981
+            ],
+            [
+              25494044.25,
+              6679947.913
+            ],
+            [
+              25494042.391,
+              6679948.301
+            ],
+            [
+              25494041.569,
+              6679944.37
+            ],
+            [
+              25494043.428,
+              6679943.981
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.7958,
+        "length_m": 4.02,
+        "width_m": 1.9,
+        "heading_deg": 11.8,
+        "aoi": "r1-pohjois-haaga",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "confirmed",
+        "class": "car"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25494022.293,
+              6680163.07
+            ],
+            [
+              25494024.624,
+              6680163.364
+            ],
+            [
+              25494023.982,
+              6680168.447
+            ],
+            [
+              25494021.651,
+              6680168.153
+            ],
+            [
+              25494022.293,
+              6680163.07
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.7954,
+        "length_m": 5.12,
+        "width_m": 2.35,
+        "heading_deg": 172.8,
+        "aoi": "r1-pohjois-haaga",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "confirmed",
+        "class": "car"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25493816.651,
+              6679958.905
+            ],
+            [
+              25493818.767,
+              6679959.532
+            ],
+            [
+              25493817.414,
+              6679964.102
+            ],
+            [
+              25493815.298,
+              6679963.475
+            ],
+            [
+              25493816.651,
+              6679958.905
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.7934,
+        "length_m": 4.77,
+        "width_m": 2.21,
+        "heading_deg": 163.5,
+        "aoi": "r1-pohjois-haaga",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "confirmed",
+        "class": "car"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
               25493865.255,
               6679954.892
             ],
@@ -149,7 +2445,7 @@
               6679961.434
             ],
             [
-              25493863.676,
+              25493863.677,
               6679960.756
             ],
             [
@@ -169,6 +2465,375 @@
         "zoom": 16,
         "status": "confirmed",
         "class": "van"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25494031.023,
+              6680164.488
+            ],
+            [
+              25494033.309,
+              6680164.746
+            ],
+            [
+              25494032.776,
+              6680169.472
+            ],
+            [
+              25494030.49,
+              6680169.215
+            ],
+            [
+              25494031.023,
+              6680164.488
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.7913,
+        "length_m": 4.76,
+        "width_m": 2.3,
+        "heading_deg": 173.6,
+        "aoi": "r1-pohjois-haaga",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "confirmed",
+        "class": "car"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25493841.157,
+              6679960.129
+            ],
+            [
+              25493843.236,
+              6679960.843
+            ],
+            [
+              25493841.67,
+              6679965.4
+            ],
+            [
+              25493839.591,
+              6679964.685
+            ],
+            [
+              25493841.157,
+              6679960.129
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.7901,
+        "length_m": 4.82,
+        "width_m": 2.2,
+        "heading_deg": 161,
+        "aoi": "r1-pohjois-haaga",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "confirmed",
+        "class": "car"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25493818.206,
+              6679953.412
+            ],
+            [
+              25493820.33,
+              6679953.968
+            ],
+            [
+              25493819.097,
+              6679958.676
+            ],
+            [
+              25493816.972,
+              6679958.12
+            ],
+            [
+              25493818.206,
+              6679953.412
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.7895,
+        "length_m": 4.87,
+        "width_m": 2.2,
+        "heading_deg": 165.3,
+        "aoi": "r1-pohjois-haaga",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "confirmed",
+        "class": "car"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25493838.792,
+              6679959.358
+            ],
+            [
+              25493840.857,
+              6679959.941
+            ],
+            [
+              25493839.585,
+              6679964.444
+            ],
+            [
+              25493837.521,
+              6679963.86
+            ],
+            [
+              25493838.792,
+              6679959.358
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.7891,
+        "length_m": 4.68,
+        "width_m": 2.15,
+        "heading_deg": 164.2,
+        "aoi": "r1-pohjois-haaga",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "confirmed",
+        "class": "car"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25493786.394,
+              6679990.5
+            ],
+            [
+              25493791.068,
+              6679992.034
+            ],
+            [
+              25493790.312,
+              6679994.34
+            ],
+            [
+              25493785.638,
+              6679992.806
+            ],
+            [
+              25493786.394,
+              6679990.5
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.7827,
+        "length_m": 4.92,
+        "width_m": 2.43,
+        "heading_deg": 71.8,
+        "aoi": "r1-pohjois-haaga",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "confirmed",
+        "class": "car"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25494044.885,
+              6679949.875
+            ],
+            [
+              25494045.732,
+              6679954.246
+            ],
+            [
+              25494043.955,
+              6679954.59
+            ],
+            [
+              25494043.107,
+              6679950.22
+            ],
+            [
+              25494044.885,
+              6679949.875
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.7809,
+        "length_m": 4.45,
+        "width_m": 1.81,
+        "heading_deg": 11,
+        "aoi": "r1-pohjois-haaga",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "confirmed",
+        "class": "car"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25494029.214,
+              6680087.505
+            ],
+            [
+              25494033.388,
+              6680088.183
+            ],
+            [
+              25494033.034,
+              6680090.36
+            ],
+            [
+              25494028.861,
+              6680089.682
+            ],
+            [
+              25494029.214,
+              6680087.505
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.7809,
+        "length_m": 4.23,
+        "width_m": 2.21,
+        "heading_deg": 80.8,
+        "aoi": "r1-pohjois-haaga",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "confirmed",
+        "class": "car"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25494009.794,
+              6680083.526
+            ],
+            [
+              25494014.433,
+              6680084.298
+            ],
+            [
+              25494014.065,
+              6680086.507
+            ],
+            [
+              25494009.426,
+              6680085.735
+            ],
+            [
+              25494009.794,
+              6680083.526
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.7779,
+        "length_m": 4.7,
+        "width_m": 2.24,
+        "heading_deg": 80.6,
+        "aoi": "r1-pohjois-haaga",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "confirmed",
+        "class": "car"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25494016.853,
+              6680162.015
+            ],
+            [
+              25494018.966,
+              6680162.302
+            ],
+            [
+              25494018.289,
+              6680167.278
+            ],
+            [
+              25494016.176,
+              6680166.99
+            ],
+            [
+              25494016.853,
+              6680162.015
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.7746,
+        "length_m": 5.02,
+        "width_m": 2.13,
+        "heading_deg": 172.3,
+        "aoi": "r1-pohjois-haaga",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "confirmed",
+        "class": "car"
       }
     },
     {
@@ -219,33 +2884,1181 @@
         "coordinates": [
           [
             [
-              25493895.34,
-              6680033.018
+              25494004.651,
+              6680082.484
             ],
             [
-              25493889.687,
-              6680030.649
+              25494009.574,
+              6680083.302
             ],
             [
-              25493888.731,
-              6680032.929
+              25494009.209,
+              6680085.502
             ],
             [
-              25493894.384,
-              6680035.298
+              25494004.286,
+              6680084.684
             ],
             [
-              25493895.34,
-              6680033.018
+              25494004.651,
+              6680082.484
             ]
           ]
         ]
       },
       "properties": {
-        "confidence": 0.7205,
+        "confidence": 0.7729,
+        "length_m": 4.99,
+        "width_m": 2.23,
+        "heading_deg": 80.6,
+        "aoi": "r1-pohjois-haaga",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "confirmed",
+        "class": "car"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25493843.448,
+              6679960.811
+            ],
+            [
+              25493845.568,
+              6679961.525
+            ],
+            [
+              25493844.008,
+              6679966.156
+            ],
+            [
+              25493841.888,
+              6679965.442
+            ],
+            [
+              25493843.448,
+              6679960.811
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.7728,
+        "length_m": 4.89,
+        "width_m": 2.24,
+        "heading_deg": 161.4,
+        "aoi": "r1-pohjois-haaga",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "confirmed",
+        "class": "car"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25493834.312,
+              6679957.718
+            ],
+            [
+              25493836.411,
+              6679958.321
+            ],
+            [
+              25493835.059,
+              6679963.03
+            ],
+            [
+              25493832.961,
+              6679962.428
+            ],
+            [
+              25493834.312,
+              6679957.718
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.7715,
+        "length_m": 4.9,
+        "width_m": 2.18,
+        "heading_deg": 164,
+        "aoi": "r1-pohjois-haaga",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "confirmed",
+        "class": "car"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25494014.307,
+              6680162.131
+            ],
+            [
+              25494016.292,
+              6680162.449
+            ],
+            [
+              25494015.623,
+              6680166.632
+            ],
+            [
+              25494013.638,
+              6680166.315
+            ],
+            [
+              25494014.307,
+              6680162.131
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.762,
+        "length_m": 4.24,
+        "width_m": 2.01,
+        "heading_deg": 170.9,
+        "aoi": "r1-pohjois-haaga",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "confirmed",
+        "class": "car"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25493793.228,
+              6679970.631
+            ],
+            [
+              25493797.354,
+              6679971.636
+            ],
+            [
+              25493796.828,
+              6679973.797
+            ],
+            [
+              25493792.702,
+              6679972.792
+            ],
+            [
+              25493793.228,
+              6679970.631
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.761,
+        "length_m": 4.25,
+        "width_m": 2.22,
+        "heading_deg": 76.3,
+        "aoi": "r1-pohjois-haaga",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "confirmed",
+        "class": "car"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25493913.013,
+              6680060.548
+            ],
+            [
+              25493917.661,
+              6680062.212
+            ],
+            [
+              25493916.844,
+              6680064.491
+            ],
+            [
+              25493912.197,
+              6680062.826
+            ],
+            [
+              25493913.013,
+              6680060.548
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.758,
+        "length_m": 4.94,
+        "width_m": 2.42,
+        "heading_deg": 70.3,
+        "aoi": "r1-pohjois-haaga",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "confirmed",
+        "class": "car"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25493821.02,
+              6679942.29
+            ],
+            [
+              25493823.301,
+              6679942.768
+            ],
+            [
+              25493822.263,
+              6679947.72
+            ],
+            [
+              25493819.982,
+              6679947.242
+            ],
+            [
+              25493821.02,
+              6679942.29
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.7578,
+        "length_m": 5.06,
+        "width_m": 2.33,
+        "heading_deg": 168.2,
+        "aoi": "r1-pohjois-haaga",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "confirmed",
+        "class": "car"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25494011.643,
+              6680161.633
+            ],
+            [
+              25494013.802,
+              6680161.804
+            ],
+            [
+              25494013.449,
+              6680166.243
+            ],
+            [
+              25494011.291,
+              6680166.071
+            ],
+            [
+              25494011.643,
+              6680161.633
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.7568,
+        "length_m": 4.45,
+        "width_m": 2.17,
+        "heading_deg": 175.5,
+        "aoi": "r1-pohjois-haaga",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "confirmed",
+        "class": "car"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25493818.443,
+              6679940.887
+            ],
+            [
+              25493820.76,
+              6679941.426
+            ],
+            [
+              25493819.637,
+              6679946.249
+            ],
+            [
+              25493817.32,
+              6679945.71
+            ],
+            [
+              25493818.443,
+              6679940.887
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.7565,
+        "length_m": 4.95,
+        "width_m": 2.38,
+        "heading_deg": 166.9,
+        "aoi": "r1-pohjois-haaga",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "confirmed",
+        "class": "car"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25494016.778,
+              6679887.608
+            ],
+            [
+              25494017.058,
+              6679889.764
+            ],
+            [
+              25494012.786,
+              6679890.318
+            ],
+            [
+              25494012.507,
+              6679888.162
+            ],
+            [
+              25494016.778,
+              6679887.608
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.7543,
+        "length_m": 4.31,
+        "width_m": 2.17,
+        "heading_deg": 97.4,
+        "aoi": "r1-pohjois-haaga",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "confirmed",
+        "class": "car"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25494034.022,
+              6680165.83
+            ],
+            [
+              25494036.335,
+              6680166.086
+            ],
+            [
+              25494035.797,
+              6680170.936
+            ],
+            [
+              25494033.484,
+              6680170.679
+            ],
+            [
+              25494034.022,
+              6680165.83
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.7538,
+        "length_m": 4.88,
+        "width_m": 2.33,
+        "heading_deg": 173.7,
+        "aoi": "r1-pohjois-haaga",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "confirmed",
+        "class": "car"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25493921.57,
+              6680064.199
+            ],
+            [
+              25493925.969,
+              6680065.945
+            ],
+            [
+              25493925.13,
+              6680068.06
+            ],
+            [
+              25493920.73,
+              6680066.314
+            ],
+            [
+              25493921.57,
+              6680064.199
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.7504,
+        "length_m": 4.73,
+        "width_m": 2.28,
+        "heading_deg": 68.4,
+        "aoi": "r1-pohjois-haaga",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "confirmed",
+        "class": "car"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25493813.614,
+              6679952.101
+            ],
+            [
+              25493815.766,
+              6679952.67
+            ],
+            [
+              25493814.481,
+              6679957.528
+            ],
+            [
+              25493812.329,
+              6679956.958
+            ],
+            [
+              25493813.614,
+              6679952.101
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.7451,
+        "length_m": 5.03,
+        "width_m": 2.23,
+        "heading_deg": 165.2,
+        "aoi": "r1-pohjois-haaga",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "confirmed",
+        "class": "car"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25494042.76,
+              6680167.34
+            ],
+            [
+              25494044.832,
+              6680167.713
+            ],
+            [
+              25494044.054,
+              6680172.042
+            ],
+            [
+              25494041.982,
+              6680171.67
+            ],
+            [
+              25494042.76,
+              6680167.34
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.7397,
+        "length_m": 4.4,
+        "width_m": 2.11,
+        "heading_deg": 169.8,
+        "aoi": "r1-pohjois-haaga",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "confirmed",
+        "class": "car"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25494019.526,
+              6680163.163
+            ],
+            [
+              25494021.712,
+              6680163.497
+            ],
+            [
+              25494021.016,
+              6680168.049
+            ],
+            [
+              25494018.83,
+              6680167.715
+            ],
+            [
+              25494019.526,
+              6680163.163
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.7305,
+        "length_m": 4.6,
+        "width_m": 2.21,
+        "heading_deg": 171.3,
+        "aoi": "r1-pohjois-haaga",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "confirmed",
+        "class": "car"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25493889.728,
+              6680030.608
+            ],
+            [
+              25493895.339,
+              6680033.076
+            ],
+            [
+              25493894.343,
+              6680035.339
+            ],
+            [
+              25493888.732,
+              6680032.871
+            ],
+            [
+              25493889.728,
+              6680030.608
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.7206,
         "length_m": 6.13,
         "width_m": 2.47,
-        "heading_deg": 67.3,
+        "heading_deg": 66.3,
+        "aoi": "r1-pohjois-haaga",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "confirmed",
+        "class": "van"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25494045.291,
+              6680168.303
+            ],
+            [
+              25494047.176,
+              6680168.572
+            ],
+            [
+              25494046.56,
+              6680172.888
+            ],
+            [
+              25494044.675,
+              6680172.619
+            ],
+            [
+              25494045.291,
+              6680168.303
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.7183,
+        "length_m": 4.36,
+        "width_m": 1.9,
+        "heading_deg": 171.9,
+        "aoi": "r1-pohjois-haaga",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "confirmed",
+        "class": "car"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25493846.106,
+              6679949.252
+            ],
+            [
+              25493848.263,
+              6679949.99
+            ],
+            [
+              25493846.694,
+              6679954.58
+            ],
+            [
+              25493844.536,
+              6679953.842
+            ],
+            [
+              25493846.106,
+              6679949.252
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.7094,
+        "length_m": 4.85,
+        "width_m": 2.28,
+        "heading_deg": 161.1,
+        "aoi": "r1-pohjois-haaga",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "confirmed",
+        "class": "car"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25493906.787,
+              6680058.202
+            ],
+            [
+              25493911.356,
+              6680059.969
+            ],
+            [
+              25493910.484,
+              6680062.224
+            ],
+            [
+              25493905.915,
+              6680060.458
+            ],
+            [
+              25493906.787,
+              6680058.202
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.7042,
+        "length_m": 4.9,
+        "width_m": 2.42,
+        "heading_deg": 68.9,
+        "aoi": "r1-pohjois-haaga",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "confirmed",
+        "class": "car"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25493878.366,
+              6680048.389
+            ],
+            [
+              25493883.137,
+              6680050.106
+            ],
+            [
+              25493882.362,
+              6680052.259
+            ],
+            [
+              25493877.591,
+              6680050.542
+            ],
+            [
+              25493878.366,
+              6680048.389
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.6972,
+        "length_m": 5.07,
+        "width_m": 2.29,
+        "heading_deg": 70.2,
+        "aoi": "r1-pohjois-haaga",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "confirmed",
+        "class": "car"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25493800.465,
+              6679947.096
+            ],
+            [
+              25493805.025,
+              6679948.443
+            ],
+            [
+              25493804.345,
+              6679950.742
+            ],
+            [
+              25493799.785,
+              6679949.395
+            ],
+            [
+              25493800.465,
+              6679947.096
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.6959,
+        "length_m": 4.75,
+        "width_m": 2.4,
+        "heading_deg": 73.5,
+        "aoi": "r1-pohjois-haaga",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "confirmed",
+        "class": "car"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25494036.683,
+              6680165.427
+            ],
+            [
+              25494038.885,
+              6680165.65
+            ],
+            [
+              25494038.358,
+              6680170.84
+            ],
+            [
+              25494036.156,
+              6680170.617
+            ],
+            [
+              25494036.683,
+              6680165.427
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.6754,
+        "length_m": 5.22,
+        "width_m": 2.21,
+        "heading_deg": 174.2,
+        "aoi": "r1-pohjois-haaga",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "confirmed",
+        "class": "car"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25493929.67,
+              6679896.544
+            ],
+            [
+              25493931.495,
+              6679898.016
+            ],
+            [
+              25493928.293,
+              6679901.983
+            ],
+            [
+              25493926.469,
+              6679900.51
+            ],
+            [
+              25493929.67,
+              6679896.544
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.6639,
+        "length_m": 5.1,
+        "width_m": 2.34,
+        "heading_deg": 141.1,
+        "aoi": "r1-pohjois-haaga",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "confirmed",
+        "class": "car"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25493825.55,
+              6679943.725
+            ],
+            [
+              25493827.599,
+              6679944.316
+            ],
+            [
+              25493826.423,
+              6679948.39
+            ],
+            [
+              25493824.373,
+              6679947.799
+            ],
+            [
+              25493825.55,
+              6679943.725
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.6571,
+        "length_m": 4.24,
+        "width_m": 2.13,
+        "heading_deg": 163.9,
+        "aoi": "r1-pohjois-haaga",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "confirmed",
+        "class": "car"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25493845.605,
+              6679962.013
+            ],
+            [
+              25493847.503,
+              6679962.567
+            ],
+            [
+              25493846.338,
+              6679966.563
+            ],
+            [
+              25493844.44,
+              6679966.01
+            ],
+            [
+              25493845.605,
+              6679962.013
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.6243,
+        "length_m": 4.16,
+        "width_m": 1.98,
+        "heading_deg": 163.7,
+        "aoi": "r1-pohjois-haaga",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "confirmed",
+        "class": "car"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25493903.502,
+              6680053.85
+            ],
+            [
+              25493908.052,
+              6680055.546
+            ],
+            [
+              25493907.242,
+              6680057.718
+            ],
+            [
+              25493902.692,
+              6680056.022
+            ],
+            [
+              25493903.502,
+              6680053.85
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.6183,
+        "length_m": 4.86,
+        "width_m": 2.32,
+        "heading_deg": 69.6,
+        "aoi": "r1-pohjois-haaga",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "confirmed",
+        "class": "car"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25493928.048,
+              6679895.108
+            ],
+            [
+              25493929.751,
+              6679896.928
+            ],
+            [
+              25493926.036,
+              6679900.405
+            ],
+            [
+              25493924.333,
+              6679898.585
+            ],
+            [
+              25493928.048,
+              6679895.108
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.6158,
+        "length_m": 5.09,
+        "width_m": 2.49,
+        "heading_deg": 133.1,
+        "aoi": "r1-pohjois-haaga",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "confirmed",
+        "class": "car"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25494036.813,
+              6679945.084
+            ],
+            [
+              25494037.711,
+              6679950.034
+            ],
+            [
+              25494035.711,
+              6679950.397
+            ],
+            [
+              25494034.812,
+              6679945.448
+            ],
+            [
+              25494036.813,
+              6679945.084
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.5996,
+        "length_m": 5.03,
+        "width_m": 2.03,
+        "heading_deg": 10.3,
+        "aoi": "r1-pohjois-haaga",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "confirmed",
+        "class": "car"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25493921.55,
+              6680048.524
+            ],
+            [
+              25493926.911,
+              6680050.88
+            ],
+            [
+              25493925.88,
+              6680053.227
+            ],
+            [
+              25493920.518,
+              6680050.872
+            ],
+            [
+              25493921.55,
+              6680048.524
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.5899,
+        "length_m": 5.86,
+        "width_m": 2.56,
+        "heading_deg": 66.3,
         "aoi": "r1-pohjois-haaga",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
@@ -283,7 +4096,7 @@
         ]
       },
       "properties": {
-        "confidence": 0.5883,
+        "confidence": 0.5886,
         "length_m": 6.29,
         "width_m": 2.54,
         "heading_deg": 68.6,
@@ -292,6 +4105,293 @@
         "zoom": 16,
         "status": "confirmed",
         "class": "van"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25493865.729,
+              6679955.169
+            ],
+            [
+              25493865.598,
+              6679961.315
+            ],
+            [
+              25493863.779,
+              6679961.276
+            ],
+            [
+              25493863.91,
+              6679955.13
+            ],
+            [
+              25493865.729,
+              6679955.169
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.5638,
+        "length_m": 6.15,
+        "width_m": 1.82,
+        "heading_deg": 178.8,
+        "aoi": "r1-pohjois-haaga",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "rejected",
+        "class": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25493852.843,
+              6679951.317
+            ],
+            [
+              25493855.089,
+              6679952.283
+            ],
+            [
+              25493853.148,
+              6679956.792
+            ],
+            [
+              25493850.903,
+              6679955.825
+            ],
+            [
+              25493852.843,
+              6679951.317
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.5246,
+        "length_m": 4.91,
+        "width_m": 2.44,
+        "heading_deg": 156.7,
+        "aoi": "r1-pohjois-haaga",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "confirmed",
+        "class": "van"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25493786.39,
+              6679993.476
+            ],
+            [
+              25493790.296,
+              6679994.988
+            ],
+            [
+              25493789.476,
+              6679997.105
+            ],
+            [
+              25493785.571,
+              6679995.594
+            ],
+            [
+              25493786.39,
+              6679993.476
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.4888,
+        "length_m": 4.19,
+        "width_m": 2.27,
+        "heading_deg": 68.8,
+        "aoi": "r1-pohjois-haaga",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "confirmed",
+        "class": "car"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25493957.985,
+              6680084.285
+            ],
+            [
+              25493958.537,
+              6680089.41
+            ],
+            [
+              25493956.051,
+              6680089.678
+            ],
+            [
+              25493955.498,
+              6680084.553
+            ],
+            [
+              25493957.985,
+              6680084.285
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.4785,
+        "length_m": 5.15,
+        "width_m": 2.5,
+        "heading_deg": 6.1,
+        "aoi": "r1-pohjois-haaga",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "confirmed",
+        "class": "car"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25493880.041,
+              6680044.816
+            ],
+            [
+              25493884.417,
+              6680046.479
+            ],
+            [
+              25493883.624,
+              6680048.566
+            ],
+            [
+              25493879.248,
+              6680046.903
+            ],
+            [
+              25493880.041,
+              6680044.816
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.4668,
+        "length_m": 4.68,
+        "width_m": 2.23,
+        "heading_deg": 69.2,
+        "aoi": "r1-pohjois-haaga",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "confirmed",
+        "class": "car"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25493782.668,
+              6680001.797
+            ],
+            [
+              25493788.028,
+              6680003.231
+            ],
+            [
+              25493787.408,
+              6680005.547
+            ],
+            [
+              25493782.049,
+              6680004.112
+            ],
+            [
+              25493782.668,
+              6680001.797
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.4347,
+        "length_m": 5.55,
+        "width_m": 2.4,
+        "heading_deg": 75,
+        "aoi": "r1-pohjois-haaga",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "rejected",
+        "class": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25493762.311,
+              6680027.101
+            ],
+            [
+              25493767.325,
+              6680028.747
+            ],
+            [
+              25493766.6,
+              6680030.957
+            ],
+            [
+              25493761.585,
+              6680029.31
+            ],
+            [
+              25493762.311,
+              6680027.101
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.2979,
+        "length_m": 5.28,
+        "width_m": 2.33,
+        "heading_deg": 71.8,
+        "aoi": "r1-pohjois-haaga",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "rejected",
+        "class": ""
       }
     },
     {
@@ -324,7 +4424,7 @@
         ]
       },
       "properties": {
-        "confidence": 0.27,
+        "confidence": 0.2702,
         "length_m": 5.24,
         "width_m": 2.26,
         "heading_deg": 72.2,
@@ -342,79 +4442,38 @@
         "coordinates": [
           [
             [
-              25493887.624,
-              6679990.677
+              25493950.453,
+              6680068.974
             ],
             [
-              25493895.375,
-              6679974.48
+              25493948.777,
+              6680070.752
             ],
             [
-              25493893.125,
-              6679973.403
+              25493944.848,
+              6680067.05
             ],
             [
-              25493885.373,
-              6679989.6
+              25493946.524,
+              6680065.272
             ],
             [
-              25493887.624,
-              6679990.677
+              25493950.453,
+              6680068.974
             ]
           ]
         ]
       },
       "properties": {
-        "class": "bus",
-        "status": "added",
-        "confidence": null,
+        "confidence": 0.928,
+        "length_m": 5.4,
+        "width_m": 2.44,
+        "heading_deg": 46.7,
         "aoi": "r1-pohjois-haaga",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
-        "length_m": 17.96,
-        "width_m": 2.49,
-        "heading_deg": 154.4
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Polygon",
-        "coordinates": [
-          [
-            [
-              25493926.689,
-              6680050.881
-            ],
-            [
-              25493921.493,
-              6680048.619
-            ],
-            [
-              25493920.587,
-              6680050.701
-            ],
-            [
-              25493925.783,
-              6680052.962
-            ],
-            [
-              25493926.689,
-              6680050.881
-            ]
-          ]
-        ]
-      },
-      "properties": {
-        "class": "van",
-        "status": "added",
-        "confidence": null,
-        "aoi": "r1-pohjois-haaga",
-        "source_layer": "Ortoilmakuva_2025_5cm",
-        "zoom": 16,
-        "length_m": 5.67,
-        "width_m": 2.27,
-        "heading_deg": 66.5
+        "status": "confirmed",
+        "class": "car"
       }
     }
   ]

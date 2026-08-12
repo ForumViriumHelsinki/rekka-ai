@@ -1,7 +1,9 @@
-"""Oriented detections on the ground, their deduplication, and GeoJSON output."""
+"""Oriented detections on the ground, their deduplication, and file output."""
 
+import json
 import math
 from dataclasses import dataclass
+from pathlib import Path
 from typing import Any
 
 from shapely import STRtree
@@ -9,7 +11,7 @@ from shapely.geometry import Point, Polygon
 from shapely.geometry.base import BaseGeometry
 from shapely.prepared import prep
 
-from rekka_ai.geo import COORD_DECIMALS, crs_member
+from rekka_ai.geo import COORD_DECIMALS, GRID, crs_member
 
 #: Two boxes overlapping more than this are taken to be the same vehicle seen
 #: from two windows.
@@ -77,6 +79,12 @@ def merge(
     is global rather than per-window: comparing only within a window would
     leave exactly the duplicates that overlap creates.
 
+    Class-agnostic on purpose: a vehicle read as `car` from one window and
+    `van` from another is one vehicle, and the more confident reading wins.
+    Measured on the full-city industrial sweep (2026-08-11): 1,117 cross-class
+    duplicate pairs — 6.7% of 16,756 detections — mostly car/van (733) and
+    truck/van (302), the known 7–8 m class boundary.
+
     Candidates for each comparison come from an STRtree, so the cost grows
     with the number of actual neighbours rather than with every pair of
     detections -- which is what makes a city-wide sweep feasible.
@@ -91,10 +99,8 @@ def merge(
         range(len(detections)), key=lambda i: detections[i].confidence, reverse=True
     )
     for index in by_confidence:
-        detection = detections[index]
         if any(
-            detections[other].label == detection.label
-            and _iou(polygons[index], polygons[other]) > iou_threshold
+            _iou(polygons[index], polygons[other]) > iou_threshold
             for other in tree.query(polygons[index])
             if other in kept_set
         ):
@@ -163,13 +169,48 @@ def _feature(detection: Detection, properties: dict[str, Any]) -> dict[str, Any]
     return {
         "type": "Feature",
         "geometry": {"type": "Polygon", "coordinates": [ring]},
-        "properties": {
-            "label": detection.label,
-            "confidence": round(detection.confidence, 4),
-            "length_m": round(detection.length_m, 2),
-            "width_m": round(detection.width_m, 2),
-            "heading_deg": round(detection.heading_deg, 1),
-            "aoi": detection.aoi,
-            **properties,
-        },
+        "properties": _properties(detection, properties),
     }
+
+
+def _properties(detection: Detection, properties: dict[str, Any]) -> dict[str, Any]:
+    return {
+        "label": detection.label,
+        "confidence": round(detection.confidence, 4),
+        "length_m": round(detection.length_m, 2),
+        "width_m": round(detection.width_m, 2),
+        "heading_deg": round(detection.heading_deg, 1),
+        "aoi": detection.aoi,
+        **properties,
+    }
+
+
+def write(detections: list[Detection], path: Path, **properties: Any) -> None:
+    """Write detections to ``path``; the suffix picks the format.
+
+    GeoJSON (``.geojson``/``.json``) is written directly, with EPSG:3879
+    declared by the ``crs`` member. FlatGeobuf (``.fgb``) and GeoPackage
+    (``.gpkg``) go through geopandas — an optional dependency, imported lazily
+    like the region readers — and carry the CRS natively, which is what QGIS
+    and friends expect to open without questions.
+    """
+    suffix = path.suffix.lower()
+    if suffix in {".geojson", ".json"}:
+        path.write_text(json.dumps(to_geojson(detections, **properties), indent=2))
+        return
+    if suffix not in {".fgb", ".gpkg"}:
+        raise ValueError(
+            f"unknown output format {suffix!r}; use .geojson, .fgb or .gpkg"
+        )
+    try:
+        import geopandas
+    except ImportError as exc:  # pragma: no cover - depends on install extras
+        raise ValueError(
+            f"{suffix} output needs geopandas: uv sync --extra detect"
+        ) from exc
+    frame = geopandas.GeoDataFrame(
+        [_properties(d, properties) for d in detections],
+        geometry=[d.polygon() for d in detections],
+        crs=GRID,
+    )
+    frame.to_file(path, driver="FlatGeobuf" if suffix == ".fgb" else "GPKG")

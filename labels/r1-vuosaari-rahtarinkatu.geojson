@@ -26,7 +26,7 @@
               6679011.754
             ],
             [
-              25509556.329,
+              25509556.33,
               6679010.761
             ],
             [
@@ -78,7 +78,7 @@
         ]
       },
       "properties": {
-        "confidence": 0.8639,
+        "confidence": 0.864,
         "length_m": 16.92,
         "width_m": 3.34,
         "heading_deg": 8,
@@ -104,12 +104,12 @@
               6679189.211
             ],
             [
-              25509575.842,
-              6679205.795
+              25509575.843,
+              6679205.794
             ],
             [
               25509572.459,
-              6679204.642
+              6679204.641
             ],
             [
               25509578.11,
@@ -137,12 +137,12 @@
         "coordinates": [
           [
             [
-              25509588.612,
-              6679050.134
+              25509588.613,
+              6679050.133
             ],
             [
               25509591.938,
-              6679051.068
+              6679051.067
             ],
             [
               25509587.358,
@@ -153,14 +153,14 @@
               6679066.445
             ],
             [
-              25509588.612,
-              6679050.134
+              25509588.613,
+              6679050.133
             ]
           ]
         ]
       },
       "properties": {
-        "confidence": 0.8566,
+        "confidence": 0.8567,
         "length_m": 16.94,
         "width_m": 3.45,
         "heading_deg": 164.3,
@@ -182,12 +182,12 @@
               6679007.573
             ],
             [
-              25509538.368,
+              25509538.367,
               6679008.429
             ],
             [
-              25509533.806,
-              6679025.099
+              25509533.807,
+              6679025.098
             ],
             [
               25509530.68,
@@ -219,52 +219,11 @@
         "coordinates": [
           [
             [
-              25509403.135,
-              6678972.688
-            ],
-            [
-              25509407.834,
-              6678981.199
-            ],
-            [
-              25509404.821,
-              6678982.863
-            ],
-            [
-              25509400.122,
-              6678974.351
-            ],
-            [
-              25509403.135,
-              6678972.688
-            ]
-          ]
-        ]
-      },
-      "properties": {
-        "confidence": 0.8524,
-        "length_m": 9.72,
-        "width_m": 3.44,
-        "heading_deg": 28.9,
-        "aoi": "r1-vuosaari-rahtarinkatu",
-        "source_layer": "Ortoilmakuva_2025_5cm",
-        "zoom": 16,
-        "status": "confirmed",
-        "class": "truck"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Polygon",
-        "coordinates": [
-          [
-            [
               25509540.903,
               6679077.278
             ],
             [
-              25509544.355,
+              25509544.354,
               6679078.286
             ],
             [
@@ -301,7 +260,48 @@
         "coordinates": [
           [
             [
-              25509467.542,
+              25509403.135,
+              6678972.688
+            ],
+            [
+              25509407.833,
+              6678981.199
+            ],
+            [
+              25509404.821,
+              6678982.863
+            ],
+            [
+              25509400.122,
+              6678974.352
+            ],
+            [
+              25509403.135,
+              6678972.688
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.8524,
+        "length_m": 9.72,
+        "width_m": 3.44,
+        "heading_deg": 28.9,
+        "aoi": "r1-vuosaari-rahtarinkatu",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "confirmed",
+        "class": "truck"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25509467.541,
               6679197.201
             ],
             [
@@ -317,15 +317,15 @@
               6679198.82
             ],
             [
-              25509467.542,
+              25509467.541,
               6679197.201
             ]
           ]
         ]
       },
       "properties": {
-        "confidence": 0.8519,
-        "length_m": 17.56,
+        "confidence": 0.852,
+        "length_m": 17.57,
         "width_m": 3.57,
         "heading_deg": 27,
         "aoi": "r1-vuosaari-rahtarinkatu",
@@ -350,12 +350,12 @@
               6679071.558
             ],
             [
-              25509550.631,
+              25509550.63,
               6679087.84
             ],
             [
               25509547.418,
-              6679086.84
+              6679086.841
             ],
             [
               25509552.484,
@@ -383,15 +383,56 @@
         "coordinates": [
           [
             [
+              25509399.256,
+              6679000.993
+            ],
+            [
+              25509400.454,
+              6679003.292
+            ],
+            [
+              25509395.634,
+              6679005.805
+            ],
+            [
+              25509394.435,
+              6679003.506
+            ],
+            [
+              25509399.256,
+              6679000.993
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.8496,
+        "length_m": 5.44,
+        "width_m": 2.59,
+        "heading_deg": 117.5,
+        "aoi": "r1-vuosaari-rahtarinkatu",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "confirmed",
+        "class": "car"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
               25509569.095,
               6679062.728
             ],
             [
-              25509572.489,
+              25509572.488,
               6679063.702
             ],
             [
-              25509567.831,
+              25509567.83,
               6679079.927
             ],
             [
@@ -428,11 +469,11 @@
               6679067.538
             ],
             [
-              25509377.946,
+              25509377.945,
               6679072.183
             ],
             [
-              25509376.362,
+              25509376.361,
               6679075.628
             ],
             [
@@ -469,16 +510,16 @@
               6679143.258
             ],
             [
-              25509667.894,
+              25509667.893,
               6679144.173
             ],
             [
-              25509662.949,
-              6679161.275
+              25509662.95,
+              6679161.274
             ],
             [
               25509659.784,
-              6679160.36
+              6679160.359
             ],
             [
               25509664.728,
@@ -488,15 +529,56 @@
         ]
       },
       "properties": {
-        "confidence": 0.8432,
+        "confidence": 0.8431,
         "length_m": 17.8,
-        "width_m": 3.3,
+        "width_m": 3.29,
         "heading_deg": 163.9,
         "aoi": "r1-vuosaari-rahtarinkatu",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
         "status": "confirmed",
         "class": "truck"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25509442.472,
+              6679003.985
+            ],
+            [
+              25509445.011,
+              6679008.62
+            ],
+            [
+              25509442.758,
+              6679009.855
+            ],
+            [
+              25509440.218,
+              6679005.219
+            ],
+            [
+              25509442.472,
+              6679003.985
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.8393,
+        "length_m": 5.28,
+        "width_m": 2.57,
+        "heading_deg": 28.7,
+        "aoi": "r1-vuosaari-rahtarinkatu",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "confirmed",
+        "class": "car"
       }
     },
     {
@@ -519,7 +601,7 @@
             ],
             [
               25509633.405,
-              6679173.464
+              6679173.465
             ],
             [
               25509638.688,
@@ -547,12 +629,176 @@
         "coordinates": [
           [
             [
+              25509516.094,
+              6678951.774
+            ],
+            [
+              25509517.411,
+              6678953.738
+            ],
+            [
+              25509513.411,
+              6678956.419
+            ],
+            [
+              25509512.094,
+              6678954.456
+            ],
+            [
+              25509516.094,
+              6678951.774
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.8372,
+        "length_m": 4.82,
+        "width_m": 2.36,
+        "heading_deg": 123.8,
+        "aoi": "r1-vuosaari-rahtarinkatu",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "confirmed",
+        "class": "car"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25509606.269,
+              6678932.826
+            ],
+            [
+              25509606.733,
+              6678935.149
+            ],
+            [
+              25509601.957,
+              6678936.103
+            ],
+            [
+              25509601.494,
+              6678933.779
+            ],
+            [
+              25509606.269,
+              6678932.826
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.8359,
+        "length_m": 4.87,
+        "width_m": 2.37,
+        "heading_deg": 101.3,
+        "aoi": "r1-vuosaari-rahtarinkatu",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "confirmed",
+        "class": "car"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25509426.477,
+              6679041.685
+            ],
+            [
+              25509427.572,
+              6679043.81
+            ],
+            [
+              25509423.277,
+              6679046.022
+            ],
+            [
+              25509422.182,
+              6679043.897
+            ],
+            [
+              25509426.477,
+              6679041.685
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.8358,
+        "length_m": 4.83,
+        "width_m": 2.39,
+        "heading_deg": 117.2,
+        "aoi": "r1-vuosaari-rahtarinkatu",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "confirmed",
+        "class": "car"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25509413.001,
+              6679021.592
+            ],
+            [
+              25509414.161,
+              6679023.765
+            ],
+            [
+              25509409.526,
+              6679026.24
+            ],
+            [
+              25509408.366,
+              6679024.067
+            ],
+            [
+              25509413.001,
+              6679021.592
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.8351,
+        "length_m": 5.25,
+        "width_m": 2.46,
+        "heading_deg": 118.1,
+        "aoi": "r1-vuosaari-rahtarinkatu",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "confirmed",
+        "class": "car"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
               25509513.529,
-              6679018.95
+              6679018.951
             ],
             [
               25509516.959,
-              6679019.687
+              6679019.688
             ],
             [
               25509513.231,
@@ -564,7 +810,7 @@
             ],
             [
               25509513.529,
-              6679018.95
+              6679018.951
             ]
           ]
         ]
@@ -588,31 +834,31 @@
         "coordinates": [
           [
             [
-              25509529.323,
-              6679026.328
+              25509529.394,
+              6679026.259
             ],
             [
-              25509533.382,
-              6679009.464
+              25509533.463,
+              6679009.349
             ],
             [
-              25509530.161,
-              6679008.689
+              25509530.242,
+              6679008.574
             ],
             [
-              25509526.102,
-              6679025.553
+              25509526.173,
+              6679025.484
             ],
             [
-              25509529.323,
-              6679026.328
+              25509529.394,
+              6679026.259
             ]
           ]
         ]
       },
       "properties": {
         "confidence": 0.8344,
-        "length_m": 17.35,
+        "length_m": 17.39,
         "width_m": 3.31,
         "heading_deg": 166.5,
         "aoi": "r1-vuosaari-rahtarinkatu",
@@ -629,7 +875,89 @@
         "coordinates": [
           [
             [
-              25509527.191,
+              25509523.542,
+              6678973.28
+            ],
+            [
+              25509526.388,
+              6678977.002
+            ],
+            [
+              25509524.381,
+              6678978.537
+            ],
+            [
+              25509521.535,
+              6678974.815
+            ],
+            [
+              25509523.542,
+              6678973.28
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.8343,
+        "length_m": 4.69,
+        "width_m": 2.53,
+        "heading_deg": 37.4,
+        "aoi": "r1-vuosaari-rahtarinkatu",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "confirmed",
+        "class": "car"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25509376.864,
+              6678985.551
+            ],
+            [
+              25509379.226,
+              6678990.056
+            ],
+            [
+              25509377.237,
+              6678991.099
+            ],
+            [
+              25509374.875,
+              6678986.594
+            ],
+            [
+              25509376.864,
+              6678985.551
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.8335,
+        "length_m": 5.09,
+        "width_m": 2.25,
+        "heading_deg": 27.7,
+        "aoi": "r1-vuosaari-rahtarinkatu",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "confirmed",
+        "class": "car"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25509527.192,
               6679175.986
             ],
             [
@@ -645,7 +973,7 @@
               6679179.502
             ],
             [
-              25509527.191,
+              25509527.192,
               6679175.986
             ]
           ]
@@ -679,10 +1007,10 @@
             ],
             [
               25509349.875,
-              6679035.448
+              6679035.449
             ],
             [
-              25509338.737,
+              25509338.736,
               6679033.727
             ],
             [
@@ -693,7 +1021,7 @@
         ]
       },
       "properties": {
-        "confidence": 0.8329,
+        "confidence": 0.833,
         "length_m": 11.27,
         "width_m": 3.52,
         "heading_deg": 81.2,
@@ -720,11 +1048,11 @@
             ],
             [
               25509430.618,
-              6679137.721
+              6679137.72
             ],
             [
               25509423.469,
-              6679129.789
+              6679129.79
             ],
             [
               25509425.977,
@@ -734,7 +1062,7 @@
         ]
       },
       "properties": {
-        "confidence": 0.8323,
+        "confidence": 0.8324,
         "length_m": 10.68,
         "width_m": 3.38,
         "heading_deg": 42,
@@ -752,23 +1080,105 @@
         "coordinates": [
           [
             [
-              25509519.642,
+              25509372.74,
+              6678988.624
+            ],
+            [
+              25509374.882,
+              6678992.63
+            ],
+            [
+              25509372.883,
+              6678993.698
+            ],
+            [
+              25509370.742,
+              6678989.693
+            ],
+            [
+              25509372.74,
+              6678988.624
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.8317,
+        "length_m": 4.54,
+        "width_m": 2.27,
+        "heading_deg": 28.1,
+        "aoi": "r1-vuosaari-rahtarinkatu",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "confirmed",
+        "class": "car"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25509515.061,
+              6678949.21
+            ],
+            [
+              25509516.4,
+              6678951.326
+            ],
+            [
+              25509511.912,
+              6678954.165
+            ],
+            [
+              25509510.574,
+              6678952.049
+            ],
+            [
+              25509515.061,
+              6678949.21
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.8304,
+        "length_m": 5.31,
+        "width_m": 2.5,
+        "heading_deg": 122.3,
+        "aoi": "r1-vuosaari-rahtarinkatu",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "confirmed",
+        "class": "car"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25509519.641,
               6679014.141
             ],
             [
-              25509522.997,
+              25509522.998,
               6679014.895
             ],
             [
-              25509519.125,
-              6679032.124
+              25509519.126,
+              6679032.123
             ],
             [
               25509515.77,
-              6679031.37
+              6679031.369
             ],
             [
-              25509519.642,
+              25509519.641,
               6679014.141
             ]
           ]
@@ -793,12 +1203,53 @@
         "coordinates": [
           [
             [
+              25509382.474,
+              6679006.134
+            ],
+            [
+              25509384.646,
+              6679009.976
+            ],
+            [
+              25509382.725,
+              6679011.063
+            ],
+            [
+              25509380.552,
+              6679007.22
+            ],
+            [
+              25509382.474,
+              6679006.134
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.8295,
+        "length_m": 4.41,
+        "width_m": 2.21,
+        "heading_deg": 29.5,
+        "aoi": "r1-vuosaari-rahtarinkatu",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "confirmed",
+        "class": "car"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
               25509408.644,
               6679079.492
             ],
             [
               25509412.036,
-              6679079.561
+              6679079.56
             ],
             [
               25509411.692,
@@ -834,6 +1285,170 @@
         "coordinates": [
           [
             [
+              25509512.855,
+              6678944.719
+            ],
+            [
+              25509514.136,
+              6678946.845
+            ],
+            [
+              25509509.484,
+              6678949.647
+            ],
+            [
+              25509508.204,
+              6678947.521
+            ],
+            [
+              25509512.855,
+              6678944.719
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.8286,
+        "length_m": 5.43,
+        "width_m": 2.48,
+        "heading_deg": 121.1,
+        "aoi": "r1-vuosaari-rahtarinkatu",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "confirmed",
+        "class": "car"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25509374.855,
+              6678986.955
+            ],
+            [
+              25509376.937,
+              6678991.129
+            ],
+            [
+              25509374.895,
+              6678992.148
+            ],
+            [
+              25509372.812,
+              6678987.974
+            ],
+            [
+              25509374.855,
+              6678986.955
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.8282,
+        "length_m": 4.66,
+        "width_m": 2.28,
+        "heading_deg": 26.5,
+        "aoi": "r1-vuosaari-rahtarinkatu",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "confirmed",
+        "class": "car"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25509425.082,
+              6679039.52
+            ],
+            [
+              25509426.203,
+              6679041.607
+            ],
+            [
+              25509421.85,
+              6679043.945
+            ],
+            [
+              25509420.729,
+              6679041.859
+            ],
+            [
+              25509425.082,
+              6679039.52
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.8272,
+        "length_m": 4.94,
+        "width_m": 2.37,
+        "heading_deg": 118.2,
+        "aoi": "r1-vuosaari-rahtarinkatu",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "confirmed",
+        "class": "car"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25509513.946,
+              6678946.86
+            ],
+            [
+              25509515.252,
+              6678948.97
+            ],
+            [
+              25509510.767,
+              6678951.746
+            ],
+            [
+              25509509.461,
+              6678949.637
+            ],
+            [
+              25509513.946,
+              6678946.86
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.8248,
+        "length_m": 5.27,
+        "width_m": 2.48,
+        "heading_deg": 121.8,
+        "aoi": "r1-vuosaari-rahtarinkatu",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "confirmed",
+        "class": "car"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
               25509391.48,
               6679022.186
             ],
@@ -857,7 +1472,7 @@
         ]
       },
       "properties": {
-        "confidence": 0.8247,
+        "confidence": 0.8246,
         "length_m": 5.63,
         "width_m": 2.37,
         "heading_deg": 30.8,
@@ -865,7 +1480,89 @@
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
         "status": "confirmed",
-        "class": "van"
+        "class": "car"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25509396.204,
+              6679042.593
+            ],
+            [
+              25509398.58,
+              6679046.845
+            ],
+            [
+              25509396.465,
+              6679048.028
+            ],
+            [
+              25509394.088,
+              6679043.775
+            ],
+            [
+              25509396.204,
+              6679042.593
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.8241,
+        "length_m": 4.87,
+        "width_m": 2.42,
+        "heading_deg": 29.2,
+        "aoi": "r1-vuosaari-rahtarinkatu",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "confirmed",
+        "class": "car"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25509309.22,
+              6679100.386
+            ],
+            [
+              25509311.815,
+              6679104.79
+            ],
+            [
+              25509309.791,
+              6679105.983
+            ],
+            [
+              25509307.196,
+              6679101.578
+            ],
+            [
+              25509309.22,
+              6679100.386
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.8237,
+        "length_m": 5.11,
+        "width_m": 2.35,
+        "heading_deg": 30.5,
+        "aoi": "r1-vuosaari-rahtarinkatu",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "confirmed",
+        "class": "car"
       }
     },
     {
@@ -916,7 +1613,171 @@
         "coordinates": [
           [
             [
-              25509543.649,
+              25509460.202,
+              6679013.548
+            ],
+            [
+              25509462.524,
+              6679017.588
+            ],
+            [
+              25509460.544,
+              6679018.726
+            ],
+            [
+              25509458.222,
+              6679014.686
+            ],
+            [
+              25509460.202,
+              6679013.548
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.8222,
+        "length_m": 4.66,
+        "width_m": 2.28,
+        "heading_deg": 29.9,
+        "aoi": "r1-vuosaari-rahtarinkatu",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "confirmed",
+        "class": "car"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25509406.249,
+              6679037.691
+            ],
+            [
+              25509408.268,
+              6679041.635
+            ],
+            [
+              25509406.254,
+              6679042.666
+            ],
+            [
+              25509404.235,
+              6679038.721
+            ],
+            [
+              25509406.249,
+              6679037.691
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.8219,
+        "length_m": 4.43,
+        "width_m": 2.26,
+        "heading_deg": 27.1,
+        "aoi": "r1-vuosaari-rahtarinkatu",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "confirmed",
+        "class": "car"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25509507.727,
+              6678936.159
+            ],
+            [
+              25509508.983,
+              6678938.25
+            ],
+            [
+              25509504.465,
+              6678940.962
+            ],
+            [
+              25509503.21,
+              6678938.87
+            ],
+            [
+              25509507.727,
+              6678936.159
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.8217,
+        "length_m": 5.27,
+        "width_m": 2.44,
+        "heading_deg": 121,
+        "aoi": "r1-vuosaari-rahtarinkatu",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "confirmed",
+        "class": "car"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25509517.647,
+              6678953.459
+            ],
+            [
+              25509519.042,
+              6678955.598
+            ],
+            [
+              25509514.836,
+              6678958.339
+            ],
+            [
+              25509513.442,
+              6678956.2
+            ],
+            [
+              25509517.647,
+              6678953.459
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.8214,
+        "length_m": 5.02,
+        "width_m": 2.55,
+        "heading_deg": 123.1,
+        "aoi": "r1-vuosaari-rahtarinkatu",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "confirmed",
+        "class": "car"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25509543.648,
               6679046.236
             ],
             [
@@ -928,18 +1789,18 @@
               6679052.541
             ],
             [
-              25509542.72,
+              25509542.719,
               6679049.392
             ],
             [
-              25509543.649,
+              25509543.648,
               6679046.236
             ]
           ]
         ]
       },
       "properties": {
-        "confidence": 0.8194,
+        "confidence": 0.8195,
         "length_m": 11.15,
         "width_m": 3.29,
         "heading_deg": 73.6,
@@ -948,6 +1809,47 @@
         "zoom": 16,
         "status": "confirmed",
         "class": "truck"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25509398.963,
+              6679040.908
+            ],
+            [
+              25509401.406,
+              6679045.079
+            ],
+            [
+              25509399.28,
+              6679046.325
+            ],
+            [
+              25509396.836,
+              6679042.154
+            ],
+            [
+              25509398.963,
+              6679040.908
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.8188,
+        "length_m": 4.83,
+        "width_m": 2.46,
+        "heading_deg": 30.4,
+        "aoi": "r1-vuosaari-rahtarinkatu",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "confirmed",
+        "class": "car"
       }
     },
     {
@@ -980,7 +1882,7 @@
         ]
       },
       "properties": {
-        "confidence": 0.8186,
+        "confidence": 0.8185,
         "length_m": 5.56,
         "width_m": 2.4,
         "heading_deg": 29.5,
@@ -998,31 +1900,113 @@
         "coordinates": [
           [
             [
-              25509578.128,
-              6679125.287
+              25509482.574,
+              6679000.16
             ],
             [
-              25509583.415,
-              6679109.067
+              25509485.171,
+              6679004.432
             ],
             [
-              25509580.092,
-              6679107.984
+              25509483.108,
+              6679005.686
             ],
             [
-              25509574.805,
-              6679124.204
+              25509480.511,
+              6679001.414
             ],
             [
-              25509578.128,
-              6679125.287
+              25509482.574,
+              6679000.16
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.818,
+        "length_m": 5,
+        "width_m": 2.41,
+        "heading_deg": 31.3,
+        "aoi": "r1-vuosaari-rahtarinkatu",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "confirmed",
+        "class": "car"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25509440.348,
+              6679008.122
+            ],
+            [
+              25509441.665,
+              6679010.236
+            ],
+            [
+              25509437.59,
+              6679012.775
+            ],
+            [
+              25509436.272,
+              6679010.66
+            ],
+            [
+              25509440.348,
+              6679008.122
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.8176,
+        "length_m": 4.8,
+        "width_m": 2.49,
+        "heading_deg": 121.9,
+        "aoi": "r1-vuosaari-rahtarinkatu",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "confirmed",
+        "class": "car"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25509577.943,
+              6679125.454
+            ],
+            [
+              25509583.252,
+              6679109.166
+            ],
+            [
+              25509579.929,
+              6679108.083
+            ],
+            [
+              25509574.62,
+              6679124.371
+            ],
+            [
+              25509577.943,
+              6679125.454
             ]
           ]
         ]
       },
       "properties": {
         "confidence": 0.8169,
-        "length_m": 17.06,
+        "length_m": 17.13,
         "width_m": 3.5,
         "heading_deg": 161.9,
         "aoi": "r1-vuosaari-rahtarinkatu",
@@ -1039,7 +2023,7 @@
         "coordinates": [
           [
             [
-              25509503.013,
+              25509503.014,
               6679055.997
             ],
             [
@@ -1055,7 +2039,7 @@
               6679059.396
             ],
             [
-              25509503.013,
+              25509503.014,
               6679055.997
             ]
           ]
@@ -1080,19 +2064,60 @@
         "coordinates": [
           [
             [
+              25509496.298,
+              6678993.151
+            ],
+            [
+              25509498.566,
+              6678997.614
+            ],
+            [
+              25509496.466,
+              6678998.681
+            ],
+            [
+              25509494.198,
+              6678994.218
+            ],
+            [
+              25509496.298,
+              6678993.151
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.8143,
+        "length_m": 5.01,
+        "width_m": 2.36,
+        "heading_deg": 26.9,
+        "aoi": "r1-vuosaari-rahtarinkatu",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "confirmed",
+        "class": "car"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
               25509633.037,
               6678992.907
             ],
             [
               25509635.643,
-              6678994.587
+              6678994.586
             ],
             [
               25509626.316,
               6679009.058
             ],
             [
-              25509623.71,
+              25509623.711,
               6679007.379
             ],
             [
@@ -1121,12 +2146,381 @@
         "coordinates": [
           [
             [
+              25509463.175,
+              6679011.594
+            ],
+            [
+              25509465.761,
+              6679016.022
+            ],
+            [
+              25509463.582,
+              6679017.294
+            ],
+            [
+              25509460.997,
+              6679012.866
+            ],
+            [
+              25509463.175,
+              6679011.594
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.8106,
+        "length_m": 5.13,
+        "width_m": 2.52,
+        "heading_deg": 30.3,
+        "aoi": "r1-vuosaari-rahtarinkatu",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "confirmed",
+        "class": "car"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25509506.632,
+              6678933.832
+            ],
+            [
+              25509507.974,
+              6678936.038
+            ],
+            [
+              25509503.329,
+              6678938.866
+            ],
+            [
+              25509501.986,
+              6678936.66
+            ],
+            [
+              25509506.632,
+              6678933.832
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.8095,
+        "length_m": 5.44,
+        "width_m": 2.58,
+        "heading_deg": 121.3,
+        "aoi": "r1-vuosaari-rahtarinkatu",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "confirmed",
+        "class": "car"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25509438.801,
+              6679024.749
+            ],
+            [
+              25509441.457,
+              6679029.124
+            ],
+            [
+              25509439.375,
+              6679030.389
+            ],
+            [
+              25509436.718,
+              6679026.013
+            ],
+            [
+              25509438.801,
+              6679024.749
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.8091,
+        "length_m": 5.12,
+        "width_m": 2.44,
+        "heading_deg": 31.3,
+        "aoi": "r1-vuosaari-rahtarinkatu",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "confirmed",
+        "class": "car"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25509375.929,
+              6678947.541
+            ],
+            [
+              25509380.777,
+              6678948.975
+            ],
+            [
+              25509380.092,
+              6678951.293
+            ],
+            [
+              25509375.243,
+              6678949.859
+            ],
+            [
+              25509375.929,
+              6678947.541
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.809,
+        "length_m": 5.06,
+        "width_m": 2.42,
+        "heading_deg": 73.5,
+        "aoi": "r1-vuosaari-rahtarinkatu",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "confirmed",
+        "class": "car"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25509408.548,
+              6679036.542
+            ],
+            [
+              25509410.676,
+              6679040.671
+            ],
+            [
+              25509408.675,
+              6679041.702
+            ],
+            [
+              25509406.547,
+              6679037.573
+            ],
+            [
+              25509408.548,
+              6679036.542
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.8081,
+        "length_m": 4.65,
+        "width_m": 2.25,
+        "heading_deg": 27.3,
+        "aoi": "r1-vuosaari-rahtarinkatu",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "confirmed",
+        "class": "car"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25509423.54,
+              6679037.529
+            ],
+            [
+              25509424.665,
+              6679039.582
+            ],
+            [
+              25509420.571,
+              6679041.826
+            ],
+            [
+              25509419.446,
+              6679039.772
+            ],
+            [
+              25509423.54,
+              6679037.529
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.8079,
+        "length_m": 4.67,
+        "width_m": 2.34,
+        "heading_deg": 118.7,
+        "aoi": "r1-vuosaari-rahtarinkatu",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "confirmed",
+        "class": "car"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25509519.632,
+              6678976.444
+            ],
+            [
+              25509522.565,
+              6678980.501
+            ],
+            [
+              25509520.644,
+              6678981.89
+            ],
+            [
+              25509517.711,
+              6678977.834
+            ],
+            [
+              25509519.632,
+              6678976.444
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.8064,
+        "length_m": 5.01,
+        "width_m": 2.37,
+        "heading_deg": 35.9,
+        "aoi": "r1-vuosaari-rahtarinkatu",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "confirmed",
+        "class": "car"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25509485.481,
+              6678999.091
+            ],
+            [
+              25509487.405,
+              6679002.968
+            ],
+            [
+              25509485.398,
+              6679003.964
+            ],
+            [
+              25509483.474,
+              6679000.087
+            ],
+            [
+              25509485.481,
+              6678999.091
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.8062,
+        "length_m": 4.33,
+        "width_m": 2.24,
+        "heading_deg": 26.4,
+        "aoi": "r1-vuosaari-rahtarinkatu",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "confirmed",
+        "class": "car"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25509399.147,
+              6679025.393
+            ],
+            [
+              25509401.448,
+              6679029.689
+            ],
+            [
+              25509399.329,
+              6679030.824
+            ],
+            [
+              25509397.028,
+              6679026.529
+            ],
+            [
+              25509399.147,
+              6679025.393
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.8061,
+        "length_m": 4.87,
+        "width_m": 2.4,
+        "heading_deg": 28.2,
+        "aoi": "r1-vuosaari-rahtarinkatu",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "confirmed",
+        "class": "car"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
               25509543.444,
               6679035.656
             ],
             [
-              25509560.003,
-              6679040.579
+              25509560.002,
+              6679040.578
             ],
             [
               25509558.892,
@@ -1144,8 +2538,8 @@
         ]
       },
       "properties": {
-        "confidence": 0.8046,
-        "length_m": 17.28,
+        "confidence": 0.8047,
+        "length_m": 17.27,
         "width_m": 3.9,
         "heading_deg": 73.4,
         "aoi": "r1-vuosaari-rahtarinkatu",
@@ -1162,12 +2556,12 @@
         "coordinates": [
           [
             [
-              25509544.957,
+              25509544.956,
               6679041.296
             ],
             [
-              25509560.439,
-              6679045.882
+              25509560.438,
+              6679045.881
             ],
             [
               25509559.414,
@@ -1178,7 +2572,7 @@
               6679044.754
             ],
             [
-              25509544.957,
+              25509544.956,
               6679041.296
             ]
           ]
@@ -1203,12 +2597,586 @@
         "coordinates": [
           [
             [
+              25509398.487,
+              6679018.748
+            ],
+            [
+              25509401.067,
+              6679023.393
+            ],
+            [
+              25509398.886,
+              6679024.604
+            ],
+            [
+              25509396.307,
+              6679019.958
+            ],
+            [
+              25509398.487,
+              6679018.748
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.8043,
+        "length_m": 5.31,
+        "width_m": 2.49,
+        "heading_deg": 29,
+        "aoi": "r1-vuosaari-rahtarinkatu",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "confirmed",
+        "class": "car"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25509393.897,
+              6679021.025
+            ],
+            [
+              25509396.271,
+              6679025.334
+            ],
+            [
+              25509394.22,
+              6679026.464
+            ],
+            [
+              25509391.847,
+              6679022.155
+            ],
+            [
+              25509393.897,
+              6679021.025
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.8042,
+        "length_m": 4.92,
+        "width_m": 2.34,
+        "heading_deg": 28.9,
+        "aoi": "r1-vuosaari-rahtarinkatu",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "confirmed",
+        "class": "car"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25509421.114,
+              6679029.547
+            ],
+            [
+              25509422.316,
+              6679031.637
+            ],
+            [
+              25509417.936,
+              6679034.153
+            ],
+            [
+              25509416.735,
+              6679032.063
+            ],
+            [
+              25509421.114,
+              6679029.547
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.8037,
+        "length_m": 5.05,
+        "width_m": 2.41,
+        "heading_deg": 119.9,
+        "aoi": "r1-vuosaari-rahtarinkatu",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "confirmed",
+        "class": "car"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25509421.729,
+              6679032.26
+            ],
+            [
+              25509422.906,
+              6679034.444
+            ],
+            [
+              25509418.269,
+              6679036.944
+            ],
+            [
+              25509417.092,
+              6679034.761
+            ],
+            [
+              25509421.729,
+              6679032.26
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.8034,
+        "length_m": 5.27,
+        "width_m": 2.48,
+        "heading_deg": 118.3,
+        "aoi": "r1-vuosaari-rahtarinkatu",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "confirmed",
+        "class": "car"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25509628.805,
+              6678938.758
+            ],
+            [
+              25509629.936,
+              6678943.537
+            ],
+            [
+              25509627.664,
+              6678944.074
+            ],
+            [
+              25509626.534,
+              6678939.296
+            ],
+            [
+              25509628.805,
+              6678938.758
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.8016,
+        "length_m": 4.91,
+        "width_m": 2.33,
+        "heading_deg": 13.3,
+        "aoi": "r1-vuosaari-rahtarinkatu",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "confirmed",
+        "class": "car"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25509427.975,
+              6679035.144
+            ],
+            [
+              25509429.217,
+              6679037.28
+            ],
+            [
+              25509424.794,
+              6679039.851
+            ],
+            [
+              25509423.552,
+              6679037.715
+            ],
+            [
+              25509427.975,
+              6679035.144
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.801,
+        "length_m": 5.12,
+        "width_m": 2.47,
+        "heading_deg": 120.2,
+        "aoi": "r1-vuosaari-rahtarinkatu",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "confirmed",
+        "class": "car"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25509289.829,
+              6679082.174
+            ],
+            [
+              25509292.061,
+              6679083.238
+            ],
+            [
+              25509289.643,
+              6679088.315
+            ],
+            [
+              25509287.411,
+              6679087.251
+            ],
+            [
+              25509289.829,
+              6679082.174
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.7991,
+        "length_m": 5.62,
+        "width_m": 2.47,
+        "heading_deg": 154.5,
+        "aoi": "r1-vuosaari-rahtarinkatu",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "confirmed",
+        "class": "car"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25509327.916,
+              6679009.828
+            ],
+            [
+              25509331.929,
+              6679012.17
+            ],
+            [
+              25509330.8,
+              6679014.104
+            ],
+            [
+              25509326.787,
+              6679011.762
+            ],
+            [
+              25509327.916,
+              6679009.828
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.7981,
+        "length_m": 4.65,
+        "width_m": 2.24,
+        "heading_deg": 59.7,
+        "aoi": "r1-vuosaari-rahtarinkatu",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "confirmed",
+        "class": "car"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25509305.753,
+              6679078.377
+            ],
+            [
+              25509308.033,
+              6679078.554
+            ],
+            [
+              25509307.625,
+              6679083.807
+            ],
+            [
+              25509305.345,
+              6679083.63
+            ],
+            [
+              25509305.753,
+              6679078.377
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.7975,
+        "length_m": 5.27,
+        "width_m": 2.29,
+        "heading_deg": 175.6,
+        "aoi": "r1-vuosaari-rahtarinkatu",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "confirmed",
+        "class": "car"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25509396.17,
+              6679019.762
+            ],
+            [
+              25509398.586,
+              6679024.327
+            ],
+            [
+              25509396.408,
+              6679025.48
+            ],
+            [
+              25509393.993,
+              6679020.915
+            ],
+            [
+              25509396.17,
+              6679019.762
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.7975,
+        "length_m": 5.16,
+        "width_m": 2.46,
+        "heading_deg": 27.9,
+        "aoi": "r1-vuosaari-rahtarinkatu",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "confirmed",
+        "class": "car"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25509424.192,
+              6679034.156
+            ],
+            [
+              25509425.332,
+              6679036.156
+            ],
+            [
+              25509421.061,
+              6679038.59
+            ],
+            [
+              25509419.921,
+              6679036.591
+            ],
+            [
+              25509424.192,
+              6679034.156
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.7965,
+        "length_m": 4.92,
+        "width_m": 2.3,
+        "heading_deg": 119.7,
+        "aoi": "r1-vuosaari-rahtarinkatu",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "confirmed",
+        "class": "car"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25509382.236,
+              6678990.796
+            ],
+            [
+              25509384.297,
+              6678994.536
+            ],
+            [
+              25509382.364,
+              6678995.602
+            ],
+            [
+              25509380.303,
+              6678991.862
+            ],
+            [
+              25509382.236,
+              6678990.796
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.7961,
+        "length_m": 4.27,
+        "width_m": 2.21,
+        "heading_deg": 28.9,
+        "aoi": "r1-vuosaari-rahtarinkatu",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "confirmed",
+        "class": "car"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25509454.808,
+              6679016.622
+            ],
+            [
+              25509457.266,
+              6679021.097
+            ],
+            [
+              25509455.101,
+              6679022.286
+            ],
+            [
+              25509452.643,
+              6679017.811
+            ],
+            [
+              25509454.808,
+              6679016.622
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.7961,
+        "length_m": 5.11,
+        "width_m": 2.47,
+        "heading_deg": 28.8,
+        "aoi": "r1-vuosaari-rahtarinkatu",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "confirmed",
+        "class": "car"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25509335.476,
+              6679147.148
+            ],
+            [
+              25509337.946,
+              6679151.425
+            ],
+            [
+              25509335.91,
+              6679152.601
+            ],
+            [
+              25509333.44,
+              6679148.324
+            ],
+            [
+              25509335.476,
+              6679147.148
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.7957,
+        "length_m": 4.94,
+        "width_m": 2.35,
+        "heading_deg": 30,
+        "aoi": "r1-vuosaari-rahtarinkatu",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "confirmed",
+        "class": "car"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
               25509500.306,
               6679229.967
             ],
             [
               25509503.758,
-              6679231.031
+              6679231.03
             ],
             [
               25509500.616,
@@ -1216,7 +3184,7 @@
             ],
             [
               25509497.164,
-              6679240.163
+              6679240.164
             ],
             [
               25509500.306,
@@ -1226,7 +3194,7 @@
         ]
       },
       "properties": {
-        "confidence": 0.795,
+        "confidence": 0.7951,
         "length_m": 10.67,
         "width_m": 3.61,
         "heading_deg": 162.9,
@@ -1244,15 +3212,97 @@
         "coordinates": [
           [
             [
-              25509407.527,
-              6679082.277
+              25509389.88,
+              6679008.715
             ],
             [
-              25509407.353,
-              6679099.576
+              25509392.418,
+              6679013.211
             ],
             [
-              25509403.083,
+              25509390.264,
+              6679014.427
+            ],
+            [
+              25509387.725,
+              6679009.932
+            ],
+            [
+              25509389.88,
+              6679008.715
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.794,
+        "length_m": 5.16,
+        "width_m": 2.47,
+        "heading_deg": 29.4,
+        "aoi": "r1-vuosaari-rahtarinkatu",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "confirmed",
+        "class": "car"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25509331.105,
+              6679004.783
+            ],
+            [
+              25509335.709,
+              6679007.264
+            ],
+            [
+              25509334.524,
+              6679009.463
+            ],
+            [
+              25509329.92,
+              6679006.983
+            ],
+            [
+              25509331.105,
+              6679004.783
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.7902,
+        "length_m": 5.23,
+        "width_m": 2.5,
+        "heading_deg": 61.7,
+        "aoi": "r1-vuosaari-rahtarinkatu",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "confirmed",
+        "class": "car"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25509407.528,
+              6679082.276
+            ],
+            [
+              25509407.355,
+              6679099.575
+            ],
+            [
+              25509403.084,
               6679099.533
             ],
             [
@@ -1260,14 +3310,14 @@
               6679082.234
             ],
             [
-              25509407.527,
-              6679082.277
+              25509407.528,
+              6679082.276
             ]
           ]
         ]
       },
       "properties": {
-        "confidence": 0.7889,
+        "confidence": 0.789,
         "length_m": 17.3,
         "width_m": 4.27,
         "heading_deg": 179.4,
@@ -1308,7 +3358,7 @@
         ]
       },
       "properties": {
-        "confidence": 0.7884,
+        "confidence": 0.7886,
         "length_m": 10.2,
         "width_m": 3.41,
         "heading_deg": 120.6,
@@ -1317,6 +3367,580 @@
         "zoom": 16,
         "status": "confirmed",
         "class": "truck"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25509312.049,
+              6679099.61
+            ],
+            [
+              25509314.7,
+              6679104.34
+            ],
+            [
+              25509312.495,
+              6679105.575
+            ],
+            [
+              25509309.844,
+              6679100.846
+            ],
+            [
+              25509312.049,
+              6679099.61
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.7884,
+        "length_m": 5.42,
+        "width_m": 2.53,
+        "heading_deg": 29.3,
+        "aoi": "r1-vuosaari-rahtarinkatu",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "confirmed",
+        "class": "car"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25509388.667,
+              6679031.646
+            ],
+            [
+              25509390.876,
+              6679036.01
+            ],
+            [
+              25509388.838,
+              6679037.041
+            ],
+            [
+              25509386.629,
+              6679032.678
+            ],
+            [
+              25509388.667,
+              6679031.646
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.787,
+        "length_m": 4.89,
+        "width_m": 2.28,
+        "heading_deg": 26.8,
+        "aoi": "r1-vuosaari-rahtarinkatu",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "confirmed",
+        "class": "car"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25509340.709,
+              6679144.72
+            ],
+            [
+              25509343.215,
+              6679148.675
+            ],
+            [
+              25509341.365,
+              6679149.847
+            ],
+            [
+              25509338.86,
+              6679145.891
+            ],
+            [
+              25509340.709,
+              6679144.72
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.7865,
+        "length_m": 4.68,
+        "width_m": 2.19,
+        "heading_deg": 32.4,
+        "aoi": "r1-vuosaari-rahtarinkatu",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "confirmed",
+        "class": "car"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25509435.256,
+              6678998.247
+            ],
+            [
+              25509436.396,
+              6679000.332
+            ],
+            [
+              25509431.881,
+              6679002.802
+            ],
+            [
+              25509430.74,
+              6679000.718
+            ],
+            [
+              25509435.256,
+              6678998.247
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.7852,
+        "length_m": 5.15,
+        "width_m": 2.38,
+        "heading_deg": 118.7,
+        "aoi": "r1-vuosaari-rahtarinkatu",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "confirmed",
+        "class": "car"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25509385.198,
+              6679010.635
+            ],
+            [
+              25509387.605,
+              6679015.141
+            ],
+            [
+              25509385.432,
+              6679016.301
+            ],
+            [
+              25509383.025,
+              6679011.796
+            ],
+            [
+              25509385.198,
+              6679010.635
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.7846,
+        "length_m": 5.11,
+        "width_m": 2.46,
+        "heading_deg": 28.1,
+        "aoi": "r1-vuosaari-rahtarinkatu",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "confirmed",
+        "class": "car"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25509329.571,
+              6679007.284
+            ],
+            [
+              25509333.962,
+              6679009.891
+            ],
+            [
+              25509332.652,
+              6679012.099
+            ],
+            [
+              25509328.261,
+              6679009.492
+            ],
+            [
+              25509329.571,
+              6679007.284
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.7836,
+        "length_m": 5.11,
+        "width_m": 2.57,
+        "heading_deg": 59.3,
+        "aoi": "r1-vuosaari-rahtarinkatu",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "confirmed",
+        "class": "car"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25509429.743,
+              6679036.965
+            ],
+            [
+              25509430.952,
+              6679038.965
+            ],
+            [
+              25509426.943,
+              6679041.387
+            ],
+            [
+              25509425.735,
+              6679039.387
+            ],
+            [
+              25509429.743,
+              6679036.965
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.7822,
+        "length_m": 4.68,
+        "width_m": 2.34,
+        "heading_deg": 121.1,
+        "aoi": "r1-vuosaari-rahtarinkatu",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "confirmed",
+        "class": "car"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25509359.751,
+              6679190.733
+            ],
+            [
+              25509362.32,
+              6679195.319
+            ],
+            [
+              25509360.135,
+              6679196.544
+            ],
+            [
+              25509357.565,
+              6679191.958
+            ],
+            [
+              25509359.751,
+              6679190.733
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.7813,
+        "length_m": 5.26,
+        "width_m": 2.5,
+        "heading_deg": 29.3,
+        "aoi": "r1-vuosaari-rahtarinkatu",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "confirmed",
+        "class": "car"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25509511.351,
+              6678942.71
+            ],
+            [
+              25509512.616,
+              6678944.881
+            ],
+            [
+              25509508.203,
+              6678947.451
+            ],
+            [
+              25509506.938,
+              6678945.281
+            ],
+            [
+              25509511.351,
+              6678942.71
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.7809,
+        "length_m": 5.11,
+        "width_m": 2.51,
+        "heading_deg": 120.2,
+        "aoi": "r1-vuosaari-rahtarinkatu",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "confirmed",
+        "class": "car"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25509419.178,
+              6679027.746
+            ],
+            [
+              25509420.318,
+              6679029.799
+            ],
+            [
+              25509415.76,
+              6679032.33
+            ],
+            [
+              25509414.62,
+              6679030.276
+            ],
+            [
+              25509419.178,
+              6679027.746
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.7805,
+        "length_m": 5.21,
+        "width_m": 2.35,
+        "heading_deg": 119,
+        "aoi": "r1-vuosaari-rahtarinkatu",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "confirmed",
+        "class": "car"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25509395.261,
+              6679028.483
+            ],
+            [
+              25509397.322,
+              6679032.351
+            ],
+            [
+              25509395.347,
+              6679033.403
+            ],
+            [
+              25509393.286,
+              6679029.535
+            ],
+            [
+              25509395.261,
+              6679028.483
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.7792,
+        "length_m": 4.38,
+        "width_m": 2.24,
+        "heading_deg": 28.1,
+        "aoi": "r1-vuosaari-rahtarinkatu",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "confirmed",
+        "class": "car"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25509374.681,
+              6678977.088
+            ],
+            [
+              25509372.446,
+              6678972.931
+            ],
+            [
+              25509370.187,
+              6678974.146
+            ],
+            [
+              25509372.422,
+              6678978.303
+            ],
+            [
+              25509374.681,
+              6678977.088
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.778,
+        "length_m": 4.72,
+        "width_m": 2.57,
+        "heading_deg": 28.3,
+        "aoi": "r1-vuosaari-rahtarinkatu",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "confirmed",
+        "class": "car"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25509335.719,
+              6679141.238
+            ],
+            [
+              25509337.729,
+              6679145.451
+            ],
+            [
+              25509335.769,
+              6679146.387
+            ],
+            [
+              25509333.758,
+              6679142.173
+            ],
+            [
+              25509335.719,
+              6679141.238
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.7756,
+        "length_m": 4.67,
+        "width_m": 2.17,
+        "heading_deg": 25.5,
+        "aoi": "r1-vuosaari-rahtarinkatu",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "confirmed",
+        "class": "car"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25509372.329,
+              6678978.562
+            ],
+            [
+              25509370.303,
+              6678974.556
+            ],
+            [
+              25509368.184,
+              6678975.628
+            ],
+            [
+              25509370.21,
+              6678979.634
+            ],
+            [
+              25509372.329,
+              6678978.562
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.775,
+        "length_m": 4.49,
+        "width_m": 2.37,
+        "heading_deg": 26.8,
+        "aoi": "r1-vuosaari-rahtarinkatu",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "confirmed",
+        "class": "car"
       }
     },
     {
@@ -1367,6 +3991,334 @@
         "coordinates": [
           [
             [
+              25509447.13,
+              6679002.199
+            ],
+            [
+              25509449.801,
+              6679007.076
+            ],
+            [
+              25509447.528,
+              6679008.321
+            ],
+            [
+              25509444.857,
+              6679003.444
+            ],
+            [
+              25509447.13,
+              6679002.199
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.7736,
+        "length_m": 5.56,
+        "width_m": 2.59,
+        "heading_deg": 28.7,
+        "aoi": "r1-vuosaari-rahtarinkatu",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "confirmed",
+        "class": "car"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25509425.918,
+              6679030.283
+            ],
+            [
+              25509427.014,
+              6679032.53
+            ],
+            [
+              25509422.833,
+              6679034.569
+            ],
+            [
+              25509421.737,
+              6679032.322
+            ],
+            [
+              25509425.918,
+              6679030.283
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.7721,
+        "length_m": 4.65,
+        "width_m": 2.5,
+        "heading_deg": 116,
+        "aoi": "r1-vuosaari-rahtarinkatu",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "confirmed",
+        "class": "car"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25509517.75,
+              6678977.979
+            ],
+            [
+              25509520.756,
+              6678982.274
+            ],
+            [
+              25509518.835,
+              6678983.618
+            ],
+            [
+              25509515.83,
+              6678979.323
+            ],
+            [
+              25509517.75,
+              6678977.979
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.771,
+        "length_m": 5.24,
+        "width_m": 2.34,
+        "heading_deg": 35,
+        "aoi": "r1-vuosaari-rahtarinkatu",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "confirmed",
+        "class": "van"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25509312.881,
+              6679082.483
+            ],
+            [
+              25509312.774,
+              6679087.624
+            ],
+            [
+              25509310.339,
+              6679087.573
+            ],
+            [
+              25509310.447,
+              6679082.432
+            ],
+            [
+              25509312.881,
+              6679082.483
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.7704,
+        "length_m": 5.14,
+        "width_m": 2.44,
+        "heading_deg": 178.8,
+        "aoi": "r1-vuosaari-rahtarinkatu",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "confirmed",
+        "class": "car"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25509508.697,
+              6678938.48
+            ],
+            [
+              25509509.941,
+              6678940.569
+            ],
+            [
+              25509505.626,
+              6678943.137
+            ],
+            [
+              25509504.382,
+              6678941.047
+            ],
+            [
+              25509508.697,
+              6678938.48
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.7696,
+        "length_m": 5.02,
+        "width_m": 2.43,
+        "heading_deg": 120.8,
+        "aoi": "r1-vuosaari-rahtarinkatu",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "confirmed",
+        "class": "car"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25509437.791,
+              6679002.873
+            ],
+            [
+              25509438.825,
+              6679004.797
+            ],
+            [
+              25509434.767,
+              6679006.976
+            ],
+            [
+              25509433.733,
+              6679005.051
+            ],
+            [
+              25509437.791,
+              6679002.873
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.7684,
+        "length_m": 4.61,
+        "width_m": 2.18,
+        "heading_deg": 118.2,
+        "aoi": "r1-vuosaari-rahtarinkatu",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "confirmed",
+        "class": "car"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25509307.82,
+              6679082.78
+            ],
+            [
+              25509310.086,
+              6679082.851
+            ],
+            [
+              25509309.953,
+              6679087.144
+            ],
+            [
+              25509307.686,
+              6679087.073
+            ],
+            [
+              25509307.82,
+              6679082.78
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.7673,
+        "length_m": 4.3,
+        "width_m": 2.27,
+        "heading_deg": 178.2,
+        "aoi": "r1-vuosaari-rahtarinkatu",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "confirmed",
+        "class": "car"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25509461.646,
+              6678992.828
+            ],
+            [
+              25509464.085,
+              6678997.539
+            ],
+            [
+              25509461.748,
+              6678998.748
+            ],
+            [
+              25509459.31,
+              6678994.037
+            ],
+            [
+              25509461.646,
+              6678992.828
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.7647,
+        "length_m": 5.3,
+        "width_m": 2.63,
+        "heading_deg": 27.4,
+        "aoi": "r1-vuosaari-rahtarinkatu",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "confirmed",
+        "class": "car"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
               25509336.546,
               6679126.44
             ],
@@ -1390,7 +4342,7 @@
         ]
       },
       "properties": {
-        "confidence": 0.7634,
+        "confidence": 0.7632,
         "length_m": 5.86,
         "width_m": 2.34,
         "heading_deg": 29,
@@ -1399,6 +4351,129 @@
         "zoom": 16,
         "status": "confirmed",
         "class": "van"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25509354.706,
+              6679194.034
+            ],
+            [
+              25509357.627,
+              6679198.135
+            ],
+            [
+              25509355.747,
+              6679199.474
+            ],
+            [
+              25509352.826,
+              6679195.373
+            ],
+            [
+              25509354.706,
+              6679194.034
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.7627,
+        "length_m": 5.03,
+        "width_m": 2.31,
+        "heading_deg": 35.5,
+        "aoi": "r1-vuosaari-rahtarinkatu",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "confirmed",
+        "class": "car"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25509315.716,
+              6679081.5
+            ],
+            [
+              25509315.758,
+              6679086.408
+            ],
+            [
+              25509313.34,
+              6679086.428
+            ],
+            [
+              25509313.298,
+              6679081.52
+            ],
+            [
+              25509315.716,
+              6679081.5
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.7626,
+        "length_m": 4.91,
+        "width_m": 2.42,
+        "heading_deg": 0.5,
+        "aoi": "r1-vuosaari-rahtarinkatu",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "confirmed",
+        "class": "car"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25509436.709,
+              6679000.757
+            ],
+            [
+              25509437.779,
+              6679002.674
+            ],
+            [
+              25509433.491,
+              6679005.067
+            ],
+            [
+              25509432.421,
+              6679003.15
+            ],
+            [
+              25509436.709,
+              6679000.757
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.7594,
+        "length_m": 4.91,
+        "width_m": 2.2,
+        "heading_deg": 119.2,
+        "aoi": "r1-vuosaari-rahtarinkatu",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "confirmed",
+        "class": "car"
       }
     },
     {
@@ -1431,7 +4506,7 @@
         ]
       },
       "properties": {
-        "confidence": 0.7593,
+        "confidence": 0.7594,
         "length_m": 8.35,
         "width_m": 3.15,
         "heading_deg": 178.7,
@@ -1440,6 +4515,293 @@
         "zoom": 16,
         "status": "confirmed",
         "class": "truck"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25509536.983,
+              6678966.325
+            ],
+            [
+              25509541.189,
+              6678969.207
+            ],
+            [
+              25509539.816,
+              6678971.21
+            ],
+            [
+              25509535.611,
+              6678968.328
+            ],
+            [
+              25509536.983,
+              6678966.325
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.7569,
+        "length_m": 5.1,
+        "width_m": 2.43,
+        "heading_deg": 55.6,
+        "aoi": "r1-vuosaari-rahtarinkatu",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "confirmed",
+        "class": "car"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25509337.445,
+              6679179.599
+            ],
+            [
+              25509338.592,
+              6679181.673
+            ],
+            [
+              25509334.197,
+              6679184.103
+            ],
+            [
+              25509333.05,
+              6679182.029
+            ],
+            [
+              25509337.445,
+              6679179.599
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.7552,
+        "length_m": 5.02,
+        "width_m": 2.37,
+        "heading_deg": 118.9,
+        "aoi": "r1-vuosaari-rahtarinkatu",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "confirmed",
+        "class": "car"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25509378.97,
+              6678942.633
+            ],
+            [
+              25509383.395,
+              6678944.102
+            ],
+            [
+              25509382.616,
+              6678946.449
+            ],
+            [
+              25509378.191,
+              6678944.981
+            ],
+            [
+              25509378.97,
+              6678942.633
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.7537,
+        "length_m": 4.66,
+        "width_m": 2.47,
+        "heading_deg": 71.6,
+        "aoi": "r1-vuosaari-rahtarinkatu",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "confirmed",
+        "class": "car"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25509458.947,
+              6678941.305
+            ],
+            [
+              25509461.396,
+              6678945.23
+            ],
+            [
+              25509459.431,
+              6678946.455
+            ],
+            [
+              25509456.983,
+              6678942.531
+            ],
+            [
+              25509458.947,
+              6678941.305
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.7468,
+        "length_m": 4.63,
+        "width_m": 2.32,
+        "heading_deg": 32,
+        "aoi": "r1-vuosaari-rahtarinkatu",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "confirmed",
+        "class": "car"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25509502.974,
+              6678989.734
+            ],
+            [
+              25509505.082,
+              6678993.701
+            ],
+            [
+              25509503.099,
+              6678994.755
+            ],
+            [
+              25509500.991,
+              6678990.788
+            ],
+            [
+              25509502.974,
+              6678989.734
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.7465,
+        "length_m": 4.49,
+        "width_m": 2.25,
+        "heading_deg": 28,
+        "aoi": "r1-vuosaari-rahtarinkatu",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "confirmed",
+        "class": "car"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25509404.01,
+              6679023.313
+            ],
+            [
+              25509405.984,
+              6679027.091
+            ],
+            [
+              25509404.108,
+              6679028.071
+            ],
+            [
+              25509402.135,
+              6679024.292
+            ],
+            [
+              25509404.01,
+              6679023.313
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.7464,
+        "length_m": 4.26,
+        "width_m": 2.12,
+        "heading_deg": 27.6,
+        "aoi": "r1-vuosaari-rahtarinkatu",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "confirmed",
+        "class": "car"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25509314.388,
+              6679098.255
+            ],
+            [
+              25509317.053,
+              6679103.087
+            ],
+            [
+              25509314.828,
+              6679104.314
+            ],
+            [
+              25509312.163,
+              6679099.483
+            ],
+            [
+              25509314.388,
+              6679098.255
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.7459,
+        "length_m": 5.52,
+        "width_m": 2.54,
+        "heading_deg": 28.9,
+        "aoi": "r1-vuosaari-rahtarinkatu",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "confirmed",
+        "class": "car"
       }
     },
     {
@@ -1472,7 +4834,7 @@
         ]
       },
       "properties": {
-        "confidence": 0.7416,
+        "confidence": 0.7417,
         "length_m": 7.3,
         "width_m": 2.63,
         "heading_deg": 108.7,
@@ -1491,11 +4853,11 @@
           [
             [
               25509591.057,
-              6679187.164
+              6679187.163
             ],
             [
               25509594.385,
-              6679188.037
+              6679188.036
             ],
             [
               25509591.506,
@@ -1507,7 +4869,7 @@
             ],
             [
               25509591.057,
-              6679187.164
+              6679187.163
             ]
           ]
         ]
@@ -1532,29 +4894,29 @@
           [
             [
               25509421.575,
-              6679129.388
+              6679129.387
             ],
             [
-              25509433.261,
+              25509433.262,
               6679143.122
             ],
             [
               25509430.606,
-              6679145.381
+              6679145.382
             ],
             [
-              25509418.92,
-              6679131.647
+              25509418.919,
+              6679131.648
             ],
             [
               25509421.575,
-              6679129.388
+              6679129.387
             ]
           ]
         ]
       },
       "properties": {
-        "confidence": 0.7319,
+        "confidence": 0.7321,
         "length_m": 18.03,
         "width_m": 3.49,
         "heading_deg": 40.4,
@@ -1563,6 +4925,252 @@
         "zoom": 16,
         "status": "confirmed",
         "class": "truck"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25509410.577,
+              6679034.51
+            ],
+            [
+              25509413.271,
+              6679039.461
+            ],
+            [
+              25509411.07,
+              6679040.658
+            ],
+            [
+              25509408.376,
+              6679035.708
+            ],
+            [
+              25509410.577,
+              6679034.51
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.7273,
+        "length_m": 5.64,
+        "width_m": 2.51,
+        "heading_deg": 28.6,
+        "aoi": "r1-vuosaari-rahtarinkatu",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "confirmed",
+        "class": "van"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25509515.701,
+              6678979.231
+            ],
+            [
+              25509518.696,
+              6678983.55
+            ],
+            [
+              25509516.586,
+              6678985.014
+            ],
+            [
+              25509513.591,
+              6678980.695
+            ],
+            [
+              25509515.701,
+              6678979.231
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.7224,
+        "length_m": 5.26,
+        "width_m": 2.57,
+        "heading_deg": 34.7,
+        "aoi": "r1-vuosaari-rahtarinkatu",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "confirmed",
+        "class": "car"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25509401.334,
+              6679039.13
+            ],
+            [
+              25509404.068,
+              6679043.982
+            ],
+            [
+              25509401.827,
+              6679045.245
+            ],
+            [
+              25509399.093,
+              6679040.393
+            ],
+            [
+              25509401.334,
+              6679039.13
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.7206,
+        "length_m": 5.57,
+        "width_m": 2.57,
+        "heading_deg": 29.4,
+        "aoi": "r1-vuosaari-rahtarinkatu",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "confirmed",
+        "class": "van"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25509337.909,
+              6679145.844
+            ],
+            [
+              25509340.175,
+              6679149.893
+            ],
+            [
+              25509338.203,
+              6679150.997
+            ],
+            [
+              25509335.936,
+              6679146.948
+            ],
+            [
+              25509337.909,
+              6679145.844
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.7155,
+        "length_m": 4.64,
+        "width_m": 2.26,
+        "heading_deg": 29.2,
+        "aoi": "r1-vuosaari-rahtarinkatu",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "confirmed",
+        "class": "car"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25509375.607,
+              6679177.687
+            ],
+            [
+              25509378.14,
+              6679181.163
+            ],
+            [
+              25509376.384,
+              6679182.442
+            ],
+            [
+              25509373.852,
+              6679178.967
+            ],
+            [
+              25509375.607,
+              6679177.687
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.7132,
+        "length_m": 4.3,
+        "width_m": 2.17,
+        "heading_deg": 36.1,
+        "aoi": "r1-vuosaari-rahtarinkatu",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "confirmed",
+        "class": "car"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25509638.276,
+              6678935.789
+            ],
+            [
+              25509639.372,
+              6678940.362
+            ],
+            [
+              25509637.213,
+              6678940.88
+            ],
+            [
+              25509636.117,
+              6678936.307
+            ],
+            [
+              25509638.276,
+              6678935.789
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.713,
+        "length_m": 4.7,
+        "width_m": 2.22,
+        "heading_deg": 13.5,
+        "aoi": "r1-vuosaari-rahtarinkatu",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "confirmed",
+        "class": "car"
       }
     },
     {
@@ -1617,7 +5225,7 @@
               6679216.265
             ],
             [
-              25509521.217,
+              25509521.216,
               6679217.424
             ],
             [
@@ -1636,7 +5244,7 @@
         ]
       },
       "properties": {
-        "confidence": 0.7099,
+        "confidence": 0.7098,
         "length_m": 19.96,
         "width_m": 3.65,
         "heading_deg": 161.5,
@@ -1654,6 +5262,88 @@
         "coordinates": [
           [
             [
+              25509308.252,
+              6679076.891
+            ],
+            [
+              25509310.579,
+              6679077.007
+            ],
+            [
+              25509310.315,
+              6679082.316
+            ],
+            [
+              25509307.987,
+              6679082.2
+            ],
+            [
+              25509308.252,
+              6679076.891
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.7097,
+        "length_m": 5.32,
+        "width_m": 2.33,
+        "heading_deg": 177.2,
+        "aoi": "r1-vuosaari-rahtarinkatu",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "confirmed",
+        "class": "car"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25509535.403,
+              6678968.192
+            ],
+            [
+              25509539.755,
+              6678971.218
+            ],
+            [
+              25509538.164,
+              6678973.506
+            ],
+            [
+              25509533.812,
+              6678970.48
+            ],
+            [
+              25509535.403,
+              6678968.192
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.7092,
+        "length_m": 5.3,
+        "width_m": 2.79,
+        "heading_deg": 55.2,
+        "aoi": "r1-vuosaari-rahtarinkatu",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "confirmed",
+        "class": "van"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
               25509630.689,
               6678990.925
             ],
@@ -1662,12 +5352,12 @@
               6678992.146
             ],
             [
-              25509625.282,
-              6679004.453
+              25509625.281,
+              6679004.454
             ],
             [
               25509623.259,
-              6679003.232
+              6679003.233
             ],
             [
               25509630.689,
@@ -1684,8 +5374,254 @@
         "aoi": "r1-vuosaari-rahtarinkatu",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
+        "status": "rejected",
+        "class": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25509538.668,
+              6678963.694
+            ],
+            [
+              25509543.356,
+              6678966.999
+            ],
+            [
+              25509541.7,
+              6678969.349
+            ],
+            [
+              25509537.012,
+              6678966.043
+            ],
+            [
+              25509538.668,
+              6678963.694
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.7035,
+        "length_m": 5.74,
+        "width_m": 2.87,
+        "heading_deg": 54.8,
+        "aoi": "r1-vuosaari-rahtarinkatu",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
         "status": "confirmed",
-        "class": "truck"
+        "class": "car"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25509312.121,
+              6679104.916
+            ],
+            [
+              25509314.924,
+              6679109.43
+            ],
+            [
+              25509312.843,
+              6679110.721
+            ],
+            [
+              25509310.04,
+              6679106.208
+            ],
+            [
+              25509312.121,
+              6679104.916
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.6992,
+        "length_m": 5.31,
+        "width_m": 2.45,
+        "heading_deg": 31.8,
+        "aoi": "r1-vuosaari-rahtarinkatu",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "confirmed",
+        "class": "car"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25509504.893,
+              6678987.631
+            ],
+            [
+              25509507.248,
+              6678991.627
+            ],
+            [
+              25509505.257,
+              6678992.801
+            ],
+            [
+              25509502.901,
+              6678988.806
+            ],
+            [
+              25509504.893,
+              6678987.631
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.6973,
+        "length_m": 4.64,
+        "width_m": 2.31,
+        "heading_deg": 30.5,
+        "aoi": "r1-vuosaari-rahtarinkatu",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "confirmed",
+        "class": "car"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25509326.971,
+              6679012.091
+            ],
+            [
+              25509330.413,
+              6679014.274
+            ],
+            [
+              25509329.215,
+              6679016.163
+            ],
+            [
+              25509325.774,
+              6679013.98
+            ],
+            [
+              25509326.971,
+              6679012.091
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.6948,
+        "length_m": 4.08,
+        "width_m": 2.24,
+        "heading_deg": 57.6,
+        "aoi": "r1-vuosaari-rahtarinkatu",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "confirmed",
+        "class": "car"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25509353.571,
+              6679053.179
+            ],
+            [
+              25509355.823,
+              6679053.354
+            ],
+            [
+              25509355.493,
+              6679057.609
+            ],
+            [
+              25509353.241,
+              6679057.434
+            ],
+            [
+              25509353.571,
+              6679053.179
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.6879,
+        "length_m": 4.27,
+        "width_m": 2.26,
+        "heading_deg": 175.6,
+        "aoi": "r1-vuosaari-rahtarinkatu",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "confirmed",
+        "class": "car"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25509433.97,
+              6678995.973
+            ],
+            [
+              25509434.983,
+              6678998.007
+            ],
+            [
+              25509430.437,
+              6679000.272
+            ],
+            [
+              25509429.423,
+              6678998.239
+            ],
+            [
+              25509433.97,
+              6678995.973
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.6763,
+        "length_m": 5.08,
+        "width_m": 2.27,
+        "heading_deg": 116.5,
+        "aoi": "r1-vuosaari-rahtarinkatu",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "confirmed",
+        "class": "car"
       }
     },
     {
@@ -1704,10 +5640,10 @@
             ],
             [
               25509414.248,
-              6679031.038
+              6679031.037
             ],
             [
-              25509412.49,
+              25509412.491,
               6679029.432
             ],
             [
@@ -1727,6 +5663,129 @@
         "zoom": 16,
         "status": "confirmed",
         "class": "van"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25509529.503,
+              6679085.426
+            ],
+            [
+              25509531.804,
+              6679086.157
+            ],
+            [
+              25509530.21,
+              6679091.177
+            ],
+            [
+              25509527.909,
+              6679090.446
+            ],
+            [
+              25509529.503,
+              6679085.426
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.67,
+        "length_m": 5.27,
+        "width_m": 2.41,
+        "heading_deg": 162.4,
+        "aoi": "r1-vuosaari-rahtarinkatu",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "confirmed",
+        "class": "car"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25509641.429,
+              6679117.375
+            ],
+            [
+              25509643.095,
+              6679112.876
+            ],
+            [
+              25509641.067,
+              6679112.125
+            ],
+            [
+              25509639.401,
+              6679116.624
+            ],
+            [
+              25509641.429,
+              6679117.375
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.6686,
+        "length_m": 4.8,
+        "width_m": 2.16,
+        "heading_deg": 159.7,
+        "aoi": "r1-vuosaari-rahtarinkatu",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "confirmed",
+        "class": "car"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25509369.374,
+              6678945.772
+            ],
+            [
+              25509369.351,
+              6678948.431
+            ],
+            [
+              25509363.978,
+              6678948.386
+            ],
+            [
+              25509364.001,
+              6678945.727
+            ],
+            [
+              25509369.374,
+              6678945.772
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.6683,
+        "length_m": 5.37,
+        "width_m": 2.66,
+        "heading_deg": 89.5,
+        "aoi": "r1-vuosaari-rahtarinkatu",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "confirmed",
+        "class": "car"
       }
     },
     {
@@ -1759,7 +5818,7 @@
         ]
       },
       "properties": {
-        "confidence": 0.6664,
+        "confidence": 0.6663,
         "length_m": 9.87,
         "width_m": 3.1,
         "heading_deg": 0.9,
@@ -1768,6 +5827,129 @@
         "zoom": 16,
         "status": "confirmed",
         "class": "truck"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25509453.4,
+              6678937.11
+            ],
+            [
+              25509456.733,
+              6678942.664
+            ],
+            [
+              25509454.136,
+              6678944.222
+            ],
+            [
+              25509450.803,
+              6678938.668
+            ],
+            [
+              25509453.4,
+              6678937.11
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.6633,
+        "length_m": 6.48,
+        "width_m": 3.03,
+        "heading_deg": 31,
+        "aoi": "r1-vuosaari-rahtarinkatu",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "confirmed",
+        "class": "car"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25509438.717,
+              6679005.422
+            ],
+            [
+              25509439.832,
+              6679007.637
+            ],
+            [
+              25509435.158,
+              6679009.988
+            ],
+            [
+              25509434.044,
+              6679007.773
+            ],
+            [
+              25509438.717,
+              6679005.422
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.6629,
+        "length_m": 5.23,
+        "width_m": 2.48,
+        "heading_deg": 116.7,
+        "aoi": "r1-vuosaari-rahtarinkatu",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "confirmed",
+        "class": "car"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25509318.439,
+              6679079.694
+            ],
+            [
+              25509318.208,
+              6679085.103
+            ],
+            [
+              25509315.893,
+              6679085.004
+            ],
+            [
+              25509316.125,
+              6679079.595
+            ],
+            [
+              25509318.439,
+              6679079.694
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.6577,
+        "length_m": 5.41,
+        "width_m": 2.32,
+        "heading_deg": 177.6,
+        "aoi": "r1-vuosaari-rahtarinkatu",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "confirmed",
+        "class": "car"
       }
     },
     {
@@ -1800,7 +5982,7 @@
         ]
       },
       "properties": {
-        "confidence": 0.647,
+        "confidence": 0.6468,
         "length_m": 4.38,
         "width_m": 2.28,
         "heading_deg": 28.5,
@@ -1808,7 +5990,48 @@
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
         "status": "confirmed",
-        "class": "van"
+        "class": "car"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25509310.267,
+              6679106.965
+            ],
+            [
+              25509312.956,
+              6679111.158
+            ],
+            [
+              25509310.879,
+              6679112.49
+            ],
+            [
+              25509308.19,
+              6679108.297
+            ],
+            [
+              25509310.267,
+              6679106.965
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.6444,
+        "length_m": 4.98,
+        "width_m": 2.47,
+        "heading_deg": 32.7,
+        "aoi": "r1-vuosaari-rahtarinkatu",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "confirmed",
+        "class": "car"
       }
     },
     {
@@ -1841,7 +6064,7 @@
         ]
       },
       "properties": {
-        "confidence": 0.6417,
+        "confidence": 0.6416,
         "length_m": 5.87,
         "width_m": 2.49,
         "heading_deg": 26.4,
@@ -1859,8 +6082,49 @@
         "coordinates": [
           [
             [
+              25509633.585,
+              6678937.448
+            ],
+            [
+              25509634.651,
+              6678941.711
+            ],
+            [
+              25509632.456,
+              6678942.26
+            ],
+            [
+              25509631.389,
+              6678937.998
+            ],
+            [
+              25509633.585,
+              6678937.448
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.6329,
+        "length_m": 4.39,
+        "width_m": 2.26,
+        "heading_deg": 14,
+        "aoi": "r1-vuosaari-rahtarinkatu",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "confirmed",
+        "class": "car"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
               25509425.201,
-              6679005.431
+              6679005.43
             ],
             [
               25509429.469,
@@ -1876,14 +6140,14 @@
             ],
             [
               25509425.201,
-              6679005.431
+              6679005.43
             ]
           ]
         ]
       },
       "properties": {
-        "confidence": 0.6259,
-        "length_m": 9.35,
+        "confidence": 0.6256,
+        "length_m": 9.36,
         "width_m": 3.3,
         "heading_deg": 27.1,
         "aoi": "r1-vuosaari-rahtarinkatu",
@@ -1891,6 +6155,47 @@
         "zoom": 16,
         "status": "confirmed",
         "class": "truck"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25509426.496,
+              6678982.367
+            ],
+            [
+              25509427.853,
+              6678984.707
+            ],
+            [
+              25509423.279,
+              6678987.36
+            ],
+            [
+              25509421.922,
+              6678985.02
+            ],
+            [
+              25509426.496,
+              6678982.367
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.6241,
+        "length_m": 5.29,
+        "width_m": 2.71,
+        "heading_deg": 120.1,
+        "aoi": "r1-vuosaari-rahtarinkatu",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "confirmed",
+        "class": "car"
       }
     },
     {
@@ -1908,7 +6213,7 @@
               6679009.958
             ],
             [
-              25509394.191,
+              25509394.19,
               6679011.119
             ],
             [
@@ -1923,15 +6228,15 @@
         ]
       },
       "properties": {
-        "confidence": 0.6169,
+        "confidence": 0.6168,
         "length_m": 5.48,
-        "width_m": 2.41,
+        "width_m": 2.42,
         "heading_deg": 28.7,
         "aoi": "r1-vuosaari-rahtarinkatu",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
-        "status": "confirmed",
-        "class": "van"
+        "status": "rejected",
+        "class": ""
       }
     },
     {
@@ -1941,7 +6246,7 @@
         "coordinates": [
           [
             [
-              25509325.156,
+              25509325.155,
               6679014.462
             ],
             [
@@ -1949,30 +6254,71 @@
               6679017.057
             ],
             [
-              25509328.822,
+              25509328.823,
               6679019.453
             ],
             [
-              25509323.894,
+              25509323.893,
               6679016.858
             ],
             [
-              25509325.156,
+              25509325.155,
               6679014.462
             ]
           ]
         ]
       },
       "properties": {
-        "confidence": 0.6086,
+        "confidence": 0.6087,
         "length_m": 5.57,
         "width_m": 2.71,
         "heading_deg": 62.2,
         "aoi": "r1-vuosaari-rahtarinkatu",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
+        "status": "rejected",
+        "class": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25509626.312,
+              6679158.472
+            ],
+            [
+              25509629.184,
+              6679159.39
+            ],
+            [
+              25509626.19,
+              6679168.752
+            ],
+            [
+              25509623.318,
+              6679167.833
+            ],
+            [
+              25509626.312,
+              6679158.472
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.6056,
+        "length_m": 9.83,
+        "width_m": 3.02,
+        "heading_deg": 162.3,
+        "aoi": "r1-vuosaari-rahtarinkatu",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
         "status": "confirmed",
-        "class": "van"
+        "class": "truck"
       }
     },
     {
@@ -1983,7 +6329,7 @@
           [
             [
               25509553.563,
-              6678954.708
+              6678954.707
             ],
             [
               25509559.699,
@@ -1991,21 +6337,21 @@
             ],
             [
               25509557.976,
-              6678961.302
+              6678961.301
             ],
             [
               25509551.84,
-              6678957.459
+              6678957.458
             ],
             [
               25509553.563,
-              6678954.708
+              6678954.707
             ]
           ]
         ]
       },
       "properties": {
-        "confidence": 0.6028,
+        "confidence": 0.6029,
         "length_m": 7.24,
         "width_m": 3.25,
         "heading_deg": 57.9,
@@ -2064,38 +6410,38 @@
         "coordinates": [
           [
             [
-              25509626.003,
-              6679158.416
+              25509322.905,
+              6679019.719
             ],
             [
-              25509629.097,
-              6679159.349
+              25509326.707,
+              6679021.691
             ],
             [
-              25509622.135,
-              6679182.443
+              25509325.718,
+              6679023.598
             ],
             [
-              25509619.041,
-              6679181.51
+              25509321.916,
+              6679021.627
             ],
             [
-              25509626.003,
-              6679158.416
+              25509322.905,
+              6679019.719
             ]
           ]
         ]
       },
       "properties": {
-        "confidence": 0.5983,
-        "length_m": 24.12,
-        "width_m": 3.23,
-        "heading_deg": 163.2,
+        "confidence": 0.5985,
+        "length_m": 4.28,
+        "width_m": 2.15,
+        "heading_deg": 62.6,
         "aoi": "r1-vuosaari-rahtarinkatu",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
         "status": "confirmed",
-        "class": "truck"
+        "class": "car"
       }
     },
     {
@@ -2105,31 +6451,72 @@
         "coordinates": [
           [
             [
-              25509548.183,
-              6679178.872
+              25509626.166,
+              6679158.252
             ],
             [
-              25509534.967,
-              6679174.397
+              25509629.26,
+              6679159.185
             ],
             [
-              25509533.887,
-              6679177.589
+              25509622.298,
+              6679182.279
             ],
             [
-              25509547.103,
-              6679182.063
+              25509619.204,
+              6679181.347
             ],
             [
-              25509548.183,
-              6679178.872
+              25509626.166,
+              6679158.252
             ]
           ]
         ]
       },
       "properties": {
-        "confidence": 0.5934,
-        "length_m": 13.95,
+        "confidence": 0.5981,
+        "length_m": 24.12,
+        "width_m": 3.23,
+        "heading_deg": 163.2,
+        "aoi": "r1-vuosaari-rahtarinkatu",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "rejected",
+        "class": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25509540.74,
+              6679176.278
+            ],
+            [
+              25509548.51,
+              6679178.909
+            ],
+            [
+              25509547.429,
+              6679182.1
+            ],
+            [
+              25509539.66,
+              6679179.47
+            ],
+            [
+              25509540.74,
+              6679176.278
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.5933,
+        "length_m": 8.2,
         "width_m": 3.37,
         "heading_deg": 71.3,
         "aoi": "r1-vuosaari-rahtarinkatu",
@@ -2146,38 +6533,38 @@
         "coordinates": [
           [
             [
-              25509462.608,
-              6679110.953
+              25509462.031,
+              6679111.31
             ],
             [
-              25509451.828,
-              6679116.852
+              25509463.435,
+              6679113.876
             ],
             [
-              25509453.232,
-              6679119.418
+              25509455.725,
+              6679118.095
             ],
             [
-              25509464.012,
-              6679113.519
+              25509454.321,
+              6679115.529
             ],
             [
-              25509462.608,
-              6679110.953
+              25509462.031,
+              6679111.31
             ]
           ]
         ]
       },
       "properties": {
         "confidence": 0.5914,
-        "length_m": 12.29,
+        "length_m": 8.79,
         "width_m": 2.92,
         "heading_deg": 118.7,
         "aoi": "r1-vuosaari-rahtarinkatu",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
-        "status": "confirmed",
-        "class": "truck"
+        "status": "rejected",
+        "class": ""
       }
     },
     {
@@ -2192,7 +6579,7 @@
             ],
             [
               25509337.872,
-              6679031.035
+              6679031.036
             ],
             [
               25509337.471,
@@ -2200,7 +6587,7 @@
             ],
             [
               25509331.417,
-              6679032.943
+              6679032.944
             ],
             [
               25509331.819,
@@ -2210,7 +6597,7 @@
         ]
       },
       "properties": {
-        "confidence": 0.5907,
+        "confidence": 0.5909,
         "length_m": 6.12,
         "width_m": 2.81,
         "heading_deg": 81.8,
@@ -2228,32 +6615,32 @@
         "coordinates": [
           [
             [
-              25509362.019,
-              6679074.351
+              25509362.104,
+              6679074.295
             ],
             [
-              25509355.445,
-              6679071.163
+              25509355.514,
+              6679071.098
             ],
             [
-              25509354.383,
-              6679073.353
+              25509354.364,
+              6679073.469
             ],
             [
-              25509360.956,
-              6679076.542
+              25509360.954,
+              6679076.666
             ],
             [
-              25509362.019,
-              6679074.351
+              25509362.104,
+              6679074.295
             ]
           ]
         ]
       },
       "properties": {
-        "confidence": 0.5904,
-        "length_m": 7.31,
-        "width_m": 2.43,
+        "confidence": 0.5907,
+        "length_m": 7.32,
+        "width_m": 2.63,
         "heading_deg": 64.1,
         "aoi": "r1-vuosaari-rahtarinkatu",
         "source_layer": "Ortoilmakuva_2025_5cm",
@@ -2273,7 +6660,7 @@
               6679022.95
             ],
             [
-              25509347.811,
+              25509347.812,
               6679023.887
             ],
             [
@@ -2310,15 +6697,97 @@
         "coordinates": [
           [
             [
+              25509333.081,
+              6679148.091
+            ],
+            [
+              25509335.432,
+              6679152.509
+            ],
+            [
+              25509333.507,
+              6679153.533
+            ],
+            [
+              25509331.157,
+              6679149.115
+            ],
+            [
+              25509333.081,
+              6679148.091
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.5764,
+        "length_m": 5,
+        "width_m": 2.18,
+        "heading_deg": 28,
+        "aoi": "r1-vuosaari-rahtarinkatu",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "confirmed",
+        "class": "car"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25509348.29,
+              6679119.979
+            ],
+            [
+              25509350.003,
+              6679123.662
+            ],
+            [
+              25509348.093,
+              6679124.55
+            ],
+            [
+              25509346.381,
+              6679120.867
+            ],
+            [
+              25509348.29,
+              6679119.979
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.5757,
+        "length_m": 4.06,
+        "width_m": 2.11,
+        "heading_deg": 24.9,
+        "aoi": "r1-vuosaari-rahtarinkatu",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "confirmed",
+        "class": "car"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
               25509419.195,
               6679132.915
             ],
             [
-              25509426.387,
+              25509426.386,
               6679143.504
             ],
             [
-              25509422.61,
+              25509422.609,
               6679146.069
             ],
             [
@@ -2333,7 +6802,7 @@
         ]
       },
       "properties": {
-        "confidence": 0.5637,
+        "confidence": 0.5639,
         "length_m": 12.8,
         "width_m": 4.57,
         "heading_deg": 34.2,
@@ -2351,24 +6820,65 @@
         "coordinates": [
           [
             [
-              25509484.214,
-              6679067.832
+              25509382.073,
+              6678984.02
             ],
             [
-              25509510.021,
-              6679075.992
+              25509384.137,
+              6678987.952
             ],
             [
-              25509508.705,
-              6679080.156
+              25509382.16,
+              6678988.99
             ],
             [
-              25509482.898,
-              6679071.996
+              25509380.095,
+              6678985.058
             ],
             [
-              25509484.214,
-              6679067.832
+              25509382.073,
+              6678984.02
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.5633,
+        "length_m": 4.44,
+        "width_m": 2.23,
+        "heading_deg": 27.7,
+        "aoi": "r1-vuosaari-rahtarinkatu",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "confirmed",
+        "class": "car"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25509484.387,
+              6679068.247
+            ],
+            [
+              25509510.193,
+              6679076.407
+            ],
+            [
+              25509508.876,
+              6679080.571
+            ],
+            [
+              25509483.071,
+              6679072.411
+            ],
+            [
+              25509484.387,
+              6679068.247
             ]
           ]
         ]
@@ -2383,6 +6893,88 @@
         "zoom": 16,
         "status": "confirmed",
         "class": "truck"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25509323.855,
+              6679017.255
+            ],
+            [
+              25509327.914,
+              6679019.414
+            ],
+            [
+              25509326.853,
+              6679021.407
+            ],
+            [
+              25509322.794,
+              6679019.248
+            ],
+            [
+              25509323.855,
+              6679017.255
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.5507,
+        "length_m": 4.6,
+        "width_m": 2.26,
+        "heading_deg": 62,
+        "aoi": "r1-vuosaari-rahtarinkatu",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "confirmed",
+        "class": "car"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25509321.049,
+              6679056.343
+            ],
+            [
+              25509326.225,
+              6679056.739
+            ],
+            [
+              25509326.028,
+              6679059.318
+            ],
+            [
+              25509320.852,
+              6679058.922
+            ],
+            [
+              25509321.049,
+              6679056.343
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.5467,
+        "length_m": 5.19,
+        "width_m": 2.59,
+        "heading_deg": 85.6,
+        "aoi": "r1-vuosaari-rahtarinkatu",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "confirmed",
+        "class": "car"
       }
     },
     {
@@ -2415,10 +7007,92 @@
         ]
       },
       "properties": {
-        "confidence": 0.5462,
+        "confidence": 0.5464,
         "length_m": 9.54,
         "width_m": 2.84,
         "heading_deg": 120,
+        "aoi": "r1-vuosaari-rahtarinkatu",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "rejected",
+        "class": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25509348.488,
+              6679198.926
+            ],
+            [
+              25509351.389,
+              6679203.224
+            ],
+            [
+              25509349.424,
+              6679204.55
+            ],
+            [
+              25509346.523,
+              6679200.252
+            ],
+            [
+              25509348.488,
+              6679198.926
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.5431,
+        "length_m": 5.19,
+        "width_m": 2.37,
+        "heading_deg": 34,
+        "aoi": "r1-vuosaari-rahtarinkatu",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "confirmed",
+        "class": "car"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25509410.15,
+              6678993.849
+            ],
+            [
+              25509403.187,
+              6678980.902
+            ],
+            [
+              25509399.451,
+              6678982.911
+            ],
+            [
+              25509406.414,
+              6678995.858
+            ],
+            [
+              25509410.15,
+              6678993.849
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.4639,
+        "length_m": 14.7,
+        "width_m": 4.24,
+        "heading_deg": 28.3,
         "aoi": "r1-vuosaari-rahtarinkatu",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
@@ -2433,38 +7107,38 @@
         "coordinates": [
           [
             [
-              25509403.187,
-              6678980.901
+              25509317.548,
+              6679053.878
             ],
             [
-              25509415.461,
-              6679003.725
+              25509322.05,
+              6679054.414
             ],
             [
-              25509411.724,
-              6679005.734
+              25509321.798,
+              6679056.527
             ],
             [
-              25509399.451,
-              6678982.91
+              25509317.296,
+              6679055.99
             ],
             [
-              25509403.187,
-              6678980.901
+              25509317.548,
+              6679053.878
             ]
           ]
         ]
       },
       "properties": {
-        "confidence": 0.4639,
-        "length_m": 25.91,
-        "width_m": 4.24,
-        "heading_deg": 28.3,
+        "confidence": 0.4457,
+        "length_m": 4.53,
+        "width_m": 2.13,
+        "heading_deg": 83.2,
         "aoi": "r1-vuosaari-rahtarinkatu",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
         "status": "confirmed",
-        "class": "truck"
+        "class": "car"
       }
     },
     {
@@ -2487,7 +7161,7 @@
             ],
             [
               25509333.432,
-              6679209.905
+              6679209.904
             ],
             [
               25509335.508,
@@ -2497,7 +7171,7 @@
         ]
       },
       "properties": {
-        "confidence": 0.429,
+        "confidence": 0.4287,
         "length_m": 5.78,
         "width_m": 2.5,
         "heading_deg": 34.1,
@@ -2515,7 +7189,48 @@
         "coordinates": [
           [
             [
-              25509545.215,
+              25509325.236,
+              6679014.552
+            ],
+            [
+              25509329.954,
+              6679017.082
+            ],
+            [
+              25509328.825,
+              6679019.187
+            ],
+            [
+              25509324.107,
+              6679016.658
+            ],
+            [
+              25509325.236,
+              6679014.552
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.4151,
+        "length_m": 5.35,
+        "width_m": 2.39,
+        "heading_deg": 61.8,
+        "aoi": "r1-vuosaari-rahtarinkatu",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "confirmed",
+        "class": "van"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25509545.214,
               6678963.745
             ],
             [
@@ -2531,14 +7246,14 @@
               6678967.197
             ],
             [
-              25509545.215,
+              25509545.214,
               6678963.745
             ]
           ]
         ]
       },
       "properties": {
-        "confidence": 0.4055,
+        "confidence": 0.4056,
         "length_m": 7.45,
         "width_m": 3.73,
         "heading_deg": 67.7,
@@ -2579,7 +7294,7 @@
         ]
       },
       "properties": {
-        "confidence": 0.4016,
+        "confidence": 0.4017,
         "length_m": 5.35,
         "width_m": 2.55,
         "heading_deg": 0.6,
@@ -2601,12 +7316,12 @@
               6678957.833
             ],
             [
-              25509557.26,
-              6678961.578
+              25509557.259,
+              6678961.577
             ],
             [
               25509555.529,
-              6678964.413
+              6678964.412
             ],
             [
               25509549.394,
@@ -2620,7 +7335,7 @@
         ]
       },
       "properties": {
-        "confidence": 0.3968,
+        "confidence": 0.3972,
         "length_m": 7.19,
         "width_m": 3.32,
         "heading_deg": 58.6,
@@ -2638,32 +7353,73 @@
         "coordinates": [
           [
             [
-              25509317.411,
-              6679060.212
+              25509471.123,
+              6678927.133
             ],
             [
-              25509319.15,
-              6679063.226
+              25509472.757,
+              6678930.253
             ],
             [
-              25509312.28,
-              6679067.19
+              25509465.753,
+              6678933.921
             ],
             [
-              25509310.541,
-              6679064.176
+              25509464.119,
+              6678930.802
             ],
             [
-              25509317.411,
-              6679060.212
+              25509471.123,
+              6678927.133
             ]
           ]
         ]
       },
       "properties": {
-        "confidence": 0.3704,
+        "confidence": 0.3792,
+        "length_m": 7.91,
+        "width_m": 3.52,
+        "heading_deg": 117.6,
+        "aoi": "r1-vuosaari-rahtarinkatu",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "rejected",
+        "class": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25509317.462,
+              6679060.299
+            ],
+            [
+              25509310.591,
+              6679064.263
+            ],
+            [
+              25509312.23,
+              6679067.103
+            ],
+            [
+              25509319.1,
+              6679063.139
+            ],
+            [
+              25509317.462,
+              6679060.299
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.3703,
         "length_m": 7.93,
-        "width_m": 3.48,
+        "width_m": 3.28,
         "heading_deg": 120,
         "aoi": "r1-vuosaari-rahtarinkatu",
         "source_layer": "Ortoilmakuva_2025_5cm",
@@ -2679,7 +7435,48 @@
         "coordinates": [
           [
             [
-              25509327.679,
+              25509393.741,
+              6679005.122
+            ],
+            [
+              25509396.34,
+              6679010.117
+            ],
+            [
+              25509394.177,
+              6679011.242
+            ],
+            [
+              25509391.578,
+              6679006.248
+            ],
+            [
+              25509393.741,
+              6679005.122
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.3635,
+        "length_m": 5.63,
+        "width_m": 2.44,
+        "heading_deg": 27.5,
+        "aoi": "r1-vuosaari-rahtarinkatu",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "confirmed",
+        "class": "van"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25509327.678,
               6679069.099
             ],
             [
@@ -2687,22 +7484,22 @@
               6679069.198
             ],
             [
-              25509330.414,
-              6679076.975
+              25509330.415,
+              6679076.976
             ],
             [
               25509327.422,
               6679076.877
             ],
             [
-              25509327.679,
+              25509327.678,
               6679069.099
             ]
           ]
         ]
       },
       "properties": {
-        "confidence": 0.3517,
+        "confidence": 0.3514,
         "length_m": 7.78,
         "width_m": 2.99,
         "heading_deg": 178.1,
@@ -2724,11 +7521,11 @@
               6679048.667
             ],
             [
-              25509327.008,
+              25509327.009,
               6679049.328
             ],
             [
-              25509326.708,
+              25509326.709,
               6679052.648
             ],
             [
@@ -2743,7 +7540,7 @@
         ]
       },
       "properties": {
-        "confidence": 0.3372,
+        "confidence": 0.3378,
         "length_m": 7.35,
         "width_m": 3.33,
         "heading_deg": 84.8,
@@ -2825,7 +7622,7 @@
         ]
       },
       "properties": {
-        "confidence": 0.3246,
+        "confidence": 0.3244,
         "length_m": 5.63,
         "width_m": 2.47,
         "heading_deg": 64.3,
@@ -2834,6 +7631,47 @@
         "zoom": 16,
         "status": "confirmed",
         "class": "van"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25509506.69,
+              6679056.251
+            ],
+            [
+              25509506.676,
+              6679057.675
+            ],
+            [
+              25509502.64,
+              6679057.636
+            ],
+            [
+              25509502.654,
+              6679056.212
+            ],
+            [
+              25509506.69,
+              6679056.251
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.3223,
+        "length_m": 4.04,
+        "width_m": 1.42,
+        "heading_deg": 89.4,
+        "aoi": "r1-vuosaari-rahtarinkatu",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "rejected",
+        "class": ""
       }
     },
     {
@@ -2866,7 +7704,7 @@
         ]
       },
       "properties": {
-        "confidence": 0.3134,
+        "confidence": 0.3132,
         "length_m": 5.73,
         "width_m": 2.6,
         "heading_deg": 60.3,
@@ -2874,7 +7712,7 @@
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
         "status": "confirmed",
-        "class": "van"
+        "class": "car"
       }
     },
     {
@@ -2888,7 +7726,7 @@
               6679082.836
             ],
             [
-              25509351.653,
+              25509351.654,
               6679087.43
             ],
             [
@@ -2907,15 +7745,15 @@
         ]
       },
       "properties": {
-        "confidence": 0.3109,
-        "length_m": 10.14,
+        "confidence": 0.3108,
+        "length_m": 10.15,
         "width_m": 3.01,
         "heading_deg": 63.1,
         "aoi": "r1-vuosaari-rahtarinkatu",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
-        "status": "confirmed",
-        "class": "truck"
+        "status": "rejected",
+        "class": ""
       }
     },
     {
@@ -2926,37 +7764,37 @@
           [
             [
               25509585.763,
-              6678929.249
+              6678929.25
             ],
             [
               25509589.344,
-              6678929.962
+              6678929.963
             ],
             [
-              25509584.791,
+              25509584.79,
               6678952.827
             ],
             [
-              25509581.209,
-              6678952.113
+              25509581.21,
+              6678952.114
             ],
             [
               25509585.763,
-              6678929.249
+              6678929.25
             ]
           ]
         ]
       },
       "properties": {
-        "confidence": 0.3042,
+        "confidence": 0.3041,
         "length_m": 23.31,
         "width_m": 3.65,
         "heading_deg": 168.7,
         "aoi": "r1-vuosaari-rahtarinkatu",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
-        "status": "confirmed",
-        "class": "truck"
+        "status": "rejected",
+        "class": ""
       }
     },
     {
@@ -2989,7 +7827,7 @@
         ]
       },
       "properties": {
-        "confidence": 0.3015,
+        "confidence": 0.3016,
         "length_m": 14.76,
         "width_m": 3.16,
         "heading_deg": 161.6,
@@ -3007,7 +7845,7 @@
         "coordinates": [
           [
             [
-              25509525.966,
+              25509525.965,
               6679218.53
             ],
             [
@@ -3023,14 +7861,14 @@
               6679226.871
             ],
             [
-              25509525.966,
+              25509525.965,
               6679218.53
             ]
           ]
         ]
       },
       "properties": {
-        "confidence": 0.2998,
+        "confidence": 0.2999,
         "length_m": 8.79,
         "width_m": 3.1,
         "heading_deg": 161.7,
@@ -3071,7 +7909,7 @@
         ]
       },
       "properties": {
-        "confidence": 0.2979,
+        "confidence": 0.2978,
         "length_m": 6.22,
         "width_m": 2.78,
         "heading_deg": 52.9,
@@ -3097,7 +7935,7 @@
               6679120.897
             ],
             [
-              25509446.061,
+              25509446.06,
               6679127.241
             ],
             [
@@ -3112,8 +7950,8 @@
         ]
       },
       "properties": {
-        "confidence": 0.2929,
-        "length_m": 16.01,
+        "confidence": 0.2932,
+        "length_m": 16.02,
         "width_m": 3.69,
         "heading_deg": 113.3,
         "aoi": "r1-vuosaari-rahtarinkatu",
@@ -3130,31 +7968,31 @@
         "coordinates": [
           [
             [
-              25509584.197,
-              6679119.413
+              25509582.763,
+              6679112.936
             ],
             [
-              25509588.69,
-              6679105.58
+              25509585.988,
+              6679113.984
             ],
             [
-              25509585.465,
-              6679104.532
+              25509584.198,
+              6679119.495
             ],
             [
-              25509580.972,
-              6679118.365
+              25509580.973,
+              6679118.447
             ],
             [
-              25509584.197,
-              6679119.413
+              25509582.763,
+              6679112.936
             ]
           ]
         ]
       },
       "properties": {
-        "confidence": 0.2837,
-        "length_m": 14.54,
+        "confidence": 0.2836,
+        "length_m": 5.79,
         "width_m": 3.39,
         "heading_deg": 162,
         "aoi": "r1-vuosaari-rahtarinkatu",
@@ -3162,6 +8000,88 @@
         "zoom": 16,
         "status": "rejected",
         "class": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25509375.658,
+              6679067.721
+            ],
+            [
+              25509380.41,
+              6679069.807
+            ],
+            [
+              25509379.444,
+              6679072.008
+            ],
+            [
+              25509374.692,
+              6679069.922
+            ],
+            [
+              25509375.658,
+              6679067.721
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.2707,
+        "length_m": 5.19,
+        "width_m": 2.4,
+        "heading_deg": 66.3,
+        "aoi": "r1-vuosaari-rahtarinkatu",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "confirmed",
+        "class": "van"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25509465.611,
+              6678989.902
+            ],
+            [
+              25509468.399,
+              6678994.727
+            ],
+            [
+              25509466.059,
+              6678996.079
+            ],
+            [
+              25509463.27,
+              6678991.255
+            ],
+            [
+              25509465.611,
+              6678989.902
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.2688,
+        "length_m": 5.57,
+        "width_m": 2.7,
+        "heading_deg": 30,
+        "aoi": "r1-vuosaari-rahtarinkatu",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "confirmed",
+        "class": "van"
       }
     },
     {
@@ -3194,7 +8114,7 @@
         ]
       },
       "properties": {
-        "confidence": 0.2684,
+        "confidence": 0.2682,
         "length_m": 14.44,
         "width_m": 3.24,
         "heading_deg": 28.2,
@@ -3212,38 +8132,489 @@
         "coordinates": [
           [
             [
-              25509586.195,
-              6679162.93
+              25509451.306,
+              6679116.485
             ],
             [
-              25509572.856,
-              6679158.381
+              25509460.599,
+              6679111.407
             ],
             [
-              25509572.113,
-              6679160.558
+              25509459.001,
+              6679108.481
             ],
             [
-              25509585.453,
-              6679165.107
+              25509449.707,
+              6679113.559
             ],
             [
-              25509586.195,
-              6679162.93
+              25509451.306,
+              6679116.485
             ]
           ]
         ]
       },
       "properties": {
-        "class": "",
+        "class": "truck",
+        "status": "added",
+        "confidence": null,
+        "aoi": "r1-vuosaari-rahtarinkatu",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "length_m": 10.59,
+        "width_m": 3.33,
+        "heading_deg": 118.6
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25509354.517,
+              6679079.756
+            ],
+            [
+              25509348.624,
+              6679076.745
+            ],
+            [
+              25509347.198,
+              6679079.536
+            ],
+            [
+              25509353.091,
+              6679082.547
+            ],
+            [
+              25509354.517,
+              6679079.756
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "class": "truck",
+        "status": "added",
+        "confidence": null,
+        "aoi": "r1-vuosaari-rahtarinkatu",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "length_m": 6.62,
+        "width_m": 3.13,
+        "heading_deg": 62.9
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25509354.364,
+              6679082.644
+            ],
+            [
+              25509360.399,
+              6679085.755
+            ],
+            [
+              25509361.835,
+              6679082.969
+            ],
+            [
+              25509355.8,
+              6679079.858
+            ],
+            [
+              25509354.364,
+              6679082.644
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "class": "truck",
+        "status": "added",
+        "confidence": null,
+        "aoi": "r1-vuosaari-rahtarinkatu",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "length_m": 6.79,
+        "width_m": 3.13,
+        "heading_deg": 62.7
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25509356.446,
+              6679084.953
+            ],
+            [
+              25509350.51,
+              6679082.084
+            ],
+            [
+              25509349.146,
+              6679084.906
+            ],
+            [
+              25509355.082,
+              6679087.776
+            ],
+            [
+              25509356.446,
+              6679084.953
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "class": "truck",
+        "status": "added",
+        "confidence": null,
+        "aoi": "r1-vuosaari-rahtarinkatu",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "length_m": 6.59,
+        "width_m": 3.13,
+        "heading_deg": 64.2
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25509323.5,
+              6679056.07
+            ],
+            [
+              25509330.316,
+              6679056.866
+            ],
+            [
+              25509330.703,
+              6679053.554
+            ],
+            [
+              25509323.886,
+              6679052.758
+            ],
+            [
+              25509323.5,
+              6679056.07
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "class": "truck",
+        "status": "added",
+        "confidence": null,
+        "aoi": "r1-vuosaari-rahtarinkatu",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "length_m": 6.86,
+        "width_m": 3.33,
+        "heading_deg": 83.3
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25509340.573,
+              6679060.518
+            ],
+            [
+              25509340.325,
+              6679068.571
+            ],
+            [
+              25509343.691,
+              6679068.675
+            ],
+            [
+              25509343.94,
+              6679060.621
+            ],
+            [
+              25509340.573,
+              6679060.518
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "class": "truck",
+        "status": "added",
+        "confidence": null,
+        "aoi": "r1-vuosaari-rahtarinkatu",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "length_m": 8.06,
+        "width_m": 3.37,
+        "heading_deg": 178.2
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25509320.66,
+              6679056.722
+            ],
+            [
+              25509313.995,
+              6679057.046
+            ],
+            [
+              25509314.149,
+              6679060.21
+            ],
+            [
+              25509320.813,
+              6679059.886
+            ],
+            [
+              25509320.66,
+              6679056.722
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "class": "truck",
+        "status": "added",
+        "confidence": null,
+        "aoi": "r1-vuosaari-rahtarinkatu",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "length_m": 6.67,
+        "width_m": 3.17,
+        "heading_deg": 92.8
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25509500.82,
+              6678976.294
+            ],
+            [
+              25509498.465,
+              6678972.407
+            ],
+            [
+              25509496.552,
+              6678973.565
+            ],
+            [
+              25509498.906,
+              6678977.452
+            ],
+            [
+              25509500.82,
+              6678976.294
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "class": "car",
+        "status": "added",
+        "confidence": null,
+        "aoi": "r1-vuosaari-rahtarinkatu",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "length_m": 4.54,
+        "width_m": 2.24,
+        "heading_deg": 31.2
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25509407.883,
+              6679134.441
+            ],
+            [
+              25509404.653,
+              6679130.818
+            ],
+            [
+              25509403.132,
+              6679132.173
+            ],
+            [
+              25509406.363,
+              6679135.797
+            ],
+            [
+              25509407.883,
+              6679134.441
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "class": "car",
+        "status": "added",
+        "confidence": null,
+        "aoi": "r1-vuosaari-rahtarinkatu",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "length_m": 4.85,
+        "width_m": 2.04,
+        "heading_deg": 41.7
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25509345.488,
+              6679058.532
+            ],
+            [
+              25509345.564,
+              6679061.969
+            ],
+            [
+              25509347.6,
+              6679061.924
+            ],
+            [
+              25509347.525,
+              6679058.487
+            ],
+            [
+              25509345.488,
+              6679058.532
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "class": "car",
+        "status": "added",
+        "confidence": null,
+        "aoi": "r1-vuosaari-rahtarinkatu",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "length_m": 3.44,
+        "width_m": 2.04,
+        "heading_deg": 1.3
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25509428.998,
+              6678998.074
+            ],
+            [
+              25509433.62,
+              6678995.782
+            ],
+            [
+              25509432.626,
+              6678993.778
+            ],
+            [
+              25509428.004,
+              6678996.07
+            ],
+            [
+              25509428.998,
+              6678998.074
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "class": "car",
+        "status": "added",
+        "confidence": null,
+        "aoi": "r1-vuosaari-rahtarinkatu",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "length_m": 5.16,
+        "width_m": 2.24,
+        "heading_deg": 116.4
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25509548.442,
+              6679179.009
+            ],
+            [
+              25509547.382,
+              6679182.07
+            ],
+            [
+              25509539.586,
+              6679179.37
+            ],
+            [
+              25509540.646,
+              6679176.309
+            ],
+            [
+              25509548.442,
+              6679179.009
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.819,
+        "length_m": 8.25,
+        "width_m": 3.24,
+        "heading_deg": 70.9,
+        "aoi": "r1-vuosaari-rahtarinkatu",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
         "status": "rejected",
-        "confidence": null,
-        "aoi": "r1-vuosaari-rahtarinkatu",
-        "source_layer": "Ortoilmakuva_2025_5cm",
-        "zoom": 16,
-        "length_m": 14.09,
-        "width_m": 2.3,
-        "heading_deg": 71.2
+        "class": ""
       }
     },
     {
@@ -3253,38 +8624,38 @@
         "coordinates": [
           [
             [
-              25509596.717,
-              6679138.264
+              25509568.671,
+              6679173.183
             ],
             [
-              25509609.852,
-              6679143.17
+              25509567.595,
+              6679176.329
             ],
             [
-              25509610.657,
-              6679141.016
+              25509549.406,
+              6679170.104
             ],
             [
-              25509597.522,
-              6679136.109
+              25509550.483,
+              6679166.959
             ],
             [
-              25509596.717,
-              6679138.264
+              25509568.671,
+              6679173.183
             ]
           ]
         ]
       },
       "properties": {
-        "class": "",
+        "confidence": 0.781,
+        "length_m": 19.22,
+        "width_m": 3.32,
+        "heading_deg": 71.1,
+        "aoi": "r1-vuosaari-rahtarinkatu",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
         "status": "rejected",
-        "confidence": null,
-        "aoi": "r1-vuosaari-rahtarinkatu",
-        "source_layer": "Ortoilmakuva_2025_5cm",
-        "zoom": 16,
-        "length_m": 14.02,
-        "width_m": 2.3,
-        "heading_deg": 69.5
+        "class": ""
       }
     },
     {
@@ -3294,38 +8665,38 @@
         "coordinates": [
           [
             [
-              25509601.906,
-              6679095.957
+              25509544.475,
+              6679181.232
             ],
             [
-              25509597.253,
-              6679109.289
+              25509543.82,
+              6679185.008
             ],
             [
-              25509599.424,
-              6679110.047
+              25509539.718,
+              6679184.296
             ],
             [
-              25509604.077,
-              6679096.715
+              25509540.373,
+              6679180.52
             ],
             [
-              25509601.906,
-              6679095.957
+              25509544.475,
+              6679181.232
             ]
           ]
         ]
       },
       "properties": {
-        "class": "",
+        "confidence": 0.717,
+        "length_m": 4.16,
+        "width_m": 3.83,
+        "heading_deg": 80.2,
+        "aoi": "r1-vuosaari-rahtarinkatu",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
         "status": "rejected",
-        "confidence": null,
-        "aoi": "r1-vuosaari-rahtarinkatu",
-        "source_layer": "Ortoilmakuva_2025_5cm",
-        "zoom": 16,
-        "length_m": 14.12,
-        "width_m": 2.3,
-        "heading_deg": 160.8
+        "class": ""
       }
     },
     {
@@ -3335,38 +8706,79 @@
         "coordinates": [
           [
             [
-              25509591.226,
-              6679102.126
+              25509525.156,
+              6678970.885
             ],
             [
-              25509586.694,
-              6679115
+              25509526.909,
+              6678969.663
             ],
             [
-              25509588.863,
-              6679115.764
+              25509529.462,
+              6678973.324
             ],
             [
-              25509593.396,
-              6679102.89
+              25509527.709,
+              6678974.546
             ],
             [
-              25509591.226,
-              6679102.126
+              25509525.156,
+              6678970.885
             ]
           ]
         ]
       },
       "properties": {
-        "class": "",
+        "confidence": 0.595,
+        "length_m": 4.46,
+        "width_m": 2.14,
+        "heading_deg": 34.9,
+        "aoi": "r1-vuosaari-rahtarinkatu",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "confirmed",
+        "class": "car"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25509586.55,
+              6679162.399
+            ],
+            [
+              25509585.413,
+              6679165.537
+            ],
+            [
+              25509571.947,
+              6679160.663
+            ],
+            [
+              25509573.083,
+              6679157.524
+            ],
+            [
+              25509586.55,
+              6679162.399
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.594,
+        "length_m": 14.32,
+        "width_m": 3.34,
+        "heading_deg": 70.1,
+        "aoi": "r1-vuosaari-rahtarinkatu",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
         "status": "rejected",
-        "confidence": null,
-        "aoi": "r1-vuosaari-rahtarinkatu",
-        "source_layer": "Ortoilmakuva_2025_5cm",
-        "zoom": 16,
-        "length_m": 13.65,
-        "width_m": 2.3,
-        "heading_deg": 160.6
+        "class": ""
       }
     },
     {
@@ -3376,38 +8788,38 @@
         "coordinates": [
           [
             [
-              25509349.113,
-              6679084.793
+              25509542.392,
+              6678928.053
             ],
             [
-              25509355.089,
-              6679087.597
+              25509544.741,
+              6678929.834
             ],
             [
-              25509356.491,
-              6679084.61
+              25509540.698,
+              6678935.165
             ],
             [
-              25509350.515,
-              6679081.805
+              25509538.349,
+              6678933.383
             ],
             [
-              25509349.113,
-              6679084.793
+              25509542.392,
+              6678928.053
             ]
           ]
         ]
       },
       "properties": {
-        "class": "truck",
-        "status": "added",
-        "confidence": null,
+        "confidence": 0.534,
+        "length_m": 6.69,
+        "width_m": 2.95,
+        "heading_deg": 142.8,
         "aoi": "r1-vuosaari-rahtarinkatu",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
-        "length_m": 6.6,
-        "width_m": 3.3,
-        "heading_deg": 64.9
+        "status": "rejected",
+        "class": ""
       }
     },
     {
@@ -3417,202 +8829,38 @@
         "coordinates": [
           [
             [
-              25509354.592,
-              6679079.61
+              25509572.208,
+              6679044.427
             ],
             [
-              25509348.895,
-              6679076.814
+              25509570.781,
+              6679048.562
             ],
             [
-              25509347.441,
-              6679079.777
+              25509549.716,
+              6679041.293
             ],
             [
-              25509353.138,
-              6679082.573
+              25509551.143,
+              6679037.158
             ],
             [
-              25509354.592,
-              6679079.61
+              25509572.208,
+              6679044.427
             ]
           ]
         ]
       },
       "properties": {
-        "class": "truck",
-        "status": "added",
-        "confidence": null,
+        "confidence": 0.502,
+        "length_m": 22.28,
+        "width_m": 4.37,
+        "heading_deg": 71,
         "aoi": "r1-vuosaari-rahtarinkatu",
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
-        "length_m": 6.35,
-        "width_m": 3.3,
-        "heading_deg": 63.9
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Polygon",
-        "coordinates": [
-          [
-            [
-              25509354.443,
-              6679082.633
-            ],
-            [
-              25509360.206,
-              6679085.64
-            ],
-            [
-              25509361.732,
-              6679082.714
-            ],
-            [
-              25509355.969,
-              6679079.708
-            ],
-            [
-              25509354.443,
-              6679082.633
-            ]
-          ]
-        ]
-      },
-      "properties": {
-        "class": "truck",
-        "status": "added",
-        "confidence": null,
-        "aoi": "r1-vuosaari-rahtarinkatu",
-        "source_layer": "Ortoilmakuva_2025_5cm",
-        "zoom": 16,
-        "length_m": 6.5,
-        "width_m": 3.3,
-        "heading_deg": 62.4
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Polygon",
-        "coordinates": [
-          [
-            [
-              25509323.653,
-              6679056.229
-            ],
-            [
-              25509329.899,
-              6679056.93
-            ],
-            [
-              25509330.267,
-              6679053.65
-            ],
-            [
-              25509324.022,
-              6679052.949
-            ],
-            [
-              25509323.653,
-              6679056.229
-            ]
-          ]
-        ]
-      },
-      "properties": {
-        "class": "truck",
-        "status": "added",
-        "confidence": null,
-        "aoi": "r1-vuosaari-rahtarinkatu",
-        "source_layer": "Ortoilmakuva_2025_5cm",
-        "zoom": 16,
-        "length_m": 6.28,
-        "width_m": 3.3,
-        "heading_deg": 83.6
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Polygon",
-        "coordinates": [
-          [
-            [
-              25509320.769,
-              6679056.735
-            ],
-            [
-              25509313.789,
-              6679057.17
-            ],
-            [
-              25509313.994,
-              6679060.463
-            ],
-            [
-              25509320.974,
-              6679060.028
-            ],
-            [
-              25509320.769,
-              6679056.735
-            ]
-          ]
-        ]
-      },
-      "properties": {
-        "class": "truck",
-        "status": "added",
-        "confidence": null,
-        "aoi": "r1-vuosaari-rahtarinkatu",
-        "source_layer": "Ortoilmakuva_2025_5cm",
-        "zoom": 16,
-        "length_m": 6.99,
-        "width_m": 3.3,
-        "heading_deg": 93.6
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Polygon",
-        "coordinates": [
-          [
-            [
-              25509340.558,
-              6679060.463
-            ],
-            [
-              25509340.339,
-              6679068.528
-            ],
-            [
-              25509343.637,
-              6679068.618
-            ],
-            [
-              25509343.857,
-              6679060.552
-            ],
-            [
-              25509340.558,
-              6679060.463
-            ]
-          ]
-        ]
-      },
-      "properties": {
-        "class": "truck",
-        "status": "added",
-        "confidence": null,
-        "aoi": "r1-vuosaari-rahtarinkatu",
-        "source_layer": "Ortoilmakuva_2025_5cm",
-        "zoom": 16,
-        "length_m": 8.07,
-        "width_m": 3.3,
-        "heading_deg": 178.4
+        "status": "rejected",
+        "class": ""
       }
     }
   ]

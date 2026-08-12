@@ -93,6 +93,21 @@ class FetchResult:
     from_cache: bool
 
 
+class InvalidTileError(Exception):
+    """A 200 response whose body is not a JPEG.
+
+    GeoServer answers some failures -- an out-of-range tile, or the service
+    itself falling over (observed: an OutOfMemoryError under load) -- with an
+    XML exception report and status 200, so the status code alone cannot be
+    trusted. Caching that body would poison the cache with a ``.jpg`` that
+    decodes as nothing and crashes every later sweep that touches it.
+    """
+
+    def __init__(self, response: httpx.Response) -> None:
+        super().__init__(f"response body is not a JPEG: {response.content[:80]!r}")
+        self.response = response
+
+
 class TileFetcher:
     """Fetches tiles into an on-disk cache.
 
@@ -196,8 +211,17 @@ class TileFetcher:
             try:
                 response = self._client.get(ENDPOINT, params=params)
                 response.raise_for_status()
+                if not response.content.startswith(b"\xff\xd8"):
+                    # JPEG SOI marker. An XML exception report with status 200
+                    # is usually transient (the service is overloaded), so it
+                    # goes through the same retry path as a 5xx.
+                    raise InvalidTileError(response)
                 return response.content
-            except (httpx.TransportError, httpx.HTTPStatusError) as exc:
+            except (
+                httpx.TransportError,
+                httpx.HTTPStatusError,
+                InvalidTileError,
+            ) as exc:
                 response = getattr(exc, "response", None)
                 status = getattr(response, "status_code", None)
                 # A 4xx means the request itself is wrong -- retrying will not

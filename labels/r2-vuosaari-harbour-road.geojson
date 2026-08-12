@@ -1,0 +1,2266 @@
+{
+  "type": "FeatureCollection",
+  "crs": {
+    "type": "name",
+    "properties": {
+      "name": "urn:ogc:def:crs:EPSG::3879"
+    }
+  },
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25510418.907,
+              6678261.693
+            ],
+            [
+              25510417.168,
+              6678263.612
+            ],
+            [
+              25510412.428,
+              6678259.316
+            ],
+            [
+              25510414.166,
+              6678257.397
+            ],
+            [
+              25510418.907,
+              6678261.693
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.8721,
+        "length_m": 6.4,
+        "width_m": 2.59,
+        "heading_deg": 47.8,
+        "aoi": "r2-vuosaari-harbour-road",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "confirmed",
+        "class": "van"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25510129.372,
+              6678134.114
+            ],
+            [
+              25510129.181,
+              6678137.123
+            ],
+            [
+              25510116.818,
+              6678136.339
+            ],
+            [
+              25510117.009,
+              6678133.33
+            ],
+            [
+              25510129.372,
+              6678134.114
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.8462,
+        "length_m": 12.39,
+        "width_m": 3.02,
+        "heading_deg": 86.4,
+        "aoi": "r2-vuosaari-harbour-road",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "rejected",
+        "class": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25510251.149,
+              6678150.55
+            ],
+            [
+              25510251.446,
+              6678153.497
+            ],
+            [
+              25510239.948,
+              6678154.657
+            ],
+            [
+              25510239.651,
+              6678151.71
+            ],
+            [
+              25510251.149,
+              6678150.55
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.8369,
+        "length_m": 11.56,
+        "width_m": 2.96,
+        "heading_deg": 95.8,
+        "aoi": "r2-vuosaari-harbour-road",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "rejected",
+        "class": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25510152.973,
+              6678135.329
+            ],
+            [
+              25510152.685,
+              6678138.417
+            ],
+            [
+              25510133.297,
+              6678136.608
+            ],
+            [
+              25510133.585,
+              6678133.519
+            ],
+            [
+              25510152.973,
+              6678135.329
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.8317,
+        "length_m": 19.47,
+        "width_m": 3.1,
+        "heading_deg": 84.7,
+        "aoi": "r2-vuosaari-harbour-road",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "rejected",
+        "class": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25510131.467,
+              6678129.741
+            ],
+            [
+              25510131.291,
+              6678132.678
+            ],
+            [
+              25510119.099,
+              6678131.948
+            ],
+            [
+              25510119.275,
+              6678129.011
+            ],
+            [
+              25510131.467,
+              6678129.741
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.8279,
+        "length_m": 12.21,
+        "width_m": 2.94,
+        "heading_deg": 86.6,
+        "aoi": "r2-vuosaari-harbour-road",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "rejected",
+        "class": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25510423.536,
+              6678266.157
+            ],
+            [
+              25510421.842,
+              6678268.133
+            ],
+            [
+              25510417.858,
+              6678264.717
+            ],
+            [
+              25510419.552,
+              6678262.741
+            ],
+            [
+              25510423.536,
+              6678266.157
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.7346,
+        "length_m": 5.25,
+        "width_m": 2.6,
+        "heading_deg": 49.4,
+        "aoi": "r2-vuosaari-harbour-road",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "confirmed",
+        "class": "van"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25510248.875,
+              6678376.739
+            ],
+            [
+              25510248.136,
+              6678380.13
+            ],
+            [
+              25510233.933,
+              6678377.033
+            ],
+            [
+              25510234.672,
+              6678373.642
+            ],
+            [
+              25510248.875,
+              6678376.739
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.6006,
+        "length_m": 14.54,
+        "width_m": 3.47,
+        "heading_deg": 77.7,
+        "aoi": "r2-vuosaari-harbour-road",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "rejected",
+        "class": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25510180.312,
+              6678216.254
+            ],
+            [
+              25510183.634,
+              6678216.561
+            ],
+            [
+              25510182.671,
+              6678226.988
+            ],
+            [
+              25510179.349,
+              6678226.681
+            ],
+            [
+              25510180.312,
+              6678216.254
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.5873,
+        "length_m": 10.47,
+        "width_m": 3.34,
+        "heading_deg": 174.7,
+        "aoi": "r2-vuosaari-harbour-road",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "rejected",
+        "class": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25510243.414,
+              6678186.64
+            ],
+            [
+              25510243.616,
+              6678189.631
+            ],
+            [
+              25510236.694,
+              6678190.099
+            ],
+            [
+              25510236.492,
+              6678187.108
+            ],
+            [
+              25510243.414,
+              6678186.64
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.5869,
+        "length_m": 6.94,
+        "width_m": 3,
+        "heading_deg": 93.9,
+        "aoi": "r2-vuosaari-harbour-road",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "rejected",
+        "class": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25510169.093,
+              6678347.247
+            ],
+            [
+              25510172.181,
+              6678347.331
+            ],
+            [
+              25510171.839,
+              6678359.789
+            ],
+            [
+              25510168.751,
+              6678359.704
+            ],
+            [
+              25510169.093,
+              6678347.247
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.5826,
+        "length_m": 12.46,
+        "width_m": 3.09,
+        "heading_deg": 178.4,
+        "aoi": "r2-vuosaari-harbour-road",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "rejected",
+        "class": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25510177.249,
+              6678347.314
+            ],
+            [
+              25510180.345,
+              6678347.428
+            ],
+            [
+              25510179.879,
+              6678360.071
+            ],
+            [
+              25510176.783,
+              6678359.957
+            ],
+            [
+              25510177.249,
+              6678347.314
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.5306,
+        "length_m": 12.65,
+        "width_m": 3.1,
+        "heading_deg": 177.9,
+        "aoi": "r2-vuosaari-harbour-road",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "rejected",
+        "class": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25510173.338,
+              6678347.329
+            ],
+            [
+              25510176.523,
+              6678347.457
+            ],
+            [
+              25510176.018,
+              6678360.104
+            ],
+            [
+              25510172.833,
+              6678359.977
+            ],
+            [
+              25510173.338,
+              6678347.329
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.5282,
+        "length_m": 12.66,
+        "width_m": 3.19,
+        "heading_deg": 177.7,
+        "aoi": "r2-vuosaari-harbour-road",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "rejected",
+        "class": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25510182.355,
+              6678251.509
+            ],
+            [
+              25510185.323,
+              6678251.666
+            ],
+            [
+              25510184.68,
+              6678263.812
+            ],
+            [
+              25510181.712,
+              6678263.655
+            ],
+            [
+              25510182.355,
+              6678251.509
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.4632,
+        "length_m": 12.16,
+        "width_m": 2.97,
+        "heading_deg": 177,
+        "aoi": "r2-vuosaari-harbour-road",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "rejected",
+        "class": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25510251.228,
+              6678168.846
+            ],
+            [
+              25510251.336,
+              6678172.112
+            ],
+            [
+              25510239.329,
+              6678172.509
+            ],
+            [
+              25510239.221,
+              6678169.244
+            ],
+            [
+              25510251.228,
+              6678168.846
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.4621,
+        "length_m": 12.01,
+        "width_m": 3.27,
+        "heading_deg": 91.9,
+        "aoi": "r2-vuosaari-harbour-road",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "rejected",
+        "class": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25510175.425,
+              6678216.373
+            ],
+            [
+              25510178.561,
+              6678216.495
+            ],
+            [
+              25510178.082,
+              6678228.914
+            ],
+            [
+              25510174.946,
+              6678228.793
+            ],
+            [
+              25510175.425,
+              6678216.373
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.4611,
+        "length_m": 12.43,
+        "width_m": 3.14,
+        "heading_deg": 177.8,
+        "aoi": "r2-vuosaari-harbour-road",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "rejected",
+        "class": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25510409.971,
+              6678254.967
+            ],
+            [
+              25510408.498,
+              6678256.646
+            ],
+            [
+              25510405.008,
+              6678253.582
+            ],
+            [
+              25510406.481,
+              6678251.904
+            ],
+            [
+              25510409.971,
+              6678254.967
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.438,
+        "length_m": 4.64,
+        "width_m": 2.23,
+        "heading_deg": 48.7,
+        "aoi": "r2-vuosaari-harbour-road",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "confirmed",
+        "class": "car"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25510175.64,
+              6678216.27
+            ],
+            [
+              25510178.78,
+              6678216.458
+            ],
+            [
+              25510178.151,
+              6678226.983
+            ],
+            [
+              25510175.011,
+              6678226.795
+            ],
+            [
+              25510175.64,
+              6678216.27
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.4342,
+        "length_m": 10.54,
+        "width_m": 3.15,
+        "heading_deg": 176.6,
+        "aoi": "r2-vuosaari-harbour-road",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "rejected",
+        "class": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25510248.094,
+              6678186.429
+            ],
+            [
+              25510248.21,
+              6678189.5
+            ],
+            [
+              25510236.652,
+              6678189.937
+            ],
+            [
+              25510236.536,
+              6678186.866
+            ],
+            [
+              25510248.094,
+              6678186.429
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.4322,
+        "length_m": 11.57,
+        "width_m": 3.07,
+        "heading_deg": 92.2,
+        "aoi": "r2-vuosaari-harbour-road",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "rejected",
+        "class": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25510171.579,
+              6678303.381
+            ],
+            [
+              25510174.839,
+              6678303.572
+            ],
+            [
+              25510173.615,
+              6678324.429
+            ],
+            [
+              25510170.355,
+              6678324.238
+            ],
+            [
+              25510171.579,
+              6678303.381
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.33,
+        "length_m": 20.89,
+        "width_m": 3.27,
+        "heading_deg": 176.6,
+        "aoi": "r2-vuosaari-harbour-road",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "rejected",
+        "class": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25510146.137,
+              6678129.934
+            ],
+            [
+              25510145.917,
+              6678133.298
+            ],
+            [
+              25510133.433,
+              6678132.481
+            ],
+            [
+              25510133.653,
+              6678129.118
+            ],
+            [
+              25510146.137,
+              6678129.934
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.3246,
+        "length_m": 12.51,
+        "width_m": 3.37,
+        "heading_deg": 86.3,
+        "aoi": "r2-vuosaari-harbour-road",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "rejected",
+        "class": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25510180.192,
+              6678216.462
+            ],
+            [
+              25510183.352,
+              6678216.684
+            ],
+            [
+              25510182.459,
+              6678229.403
+            ],
+            [
+              25510179.299,
+              6678229.181
+            ],
+            [
+              25510180.192,
+              6678216.462
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.2716,
+        "length_m": 12.75,
+        "width_m": 3.17,
+        "heading_deg": 176,
+        "aoi": "r2-vuosaari-harbour-road",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "rejected",
+        "class": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25510243.508,
+              6678169.444
+            ],
+            [
+              25510243.423,
+              6678172.771
+            ],
+            [
+              25510239.008,
+              6678172.659
+            ],
+            [
+              25510239.092,
+              6678169.332
+            ],
+            [
+              25510243.508,
+              6678169.444
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.2703,
+        "length_m": 4.42,
+        "width_m": 3.33,
+        "heading_deg": 88.5,
+        "aoi": "r2-vuosaari-harbour-road",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "rejected",
+        "class": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25510173.169,
+              6678259.476
+            ],
+            [
+              25510176.173,
+              6678259.561
+            ],
+            [
+              25510175.697,
+              6678276.49
+            ],
+            [
+              25510172.693,
+              6678276.405
+            ],
+            [
+              25510173.169,
+              6678259.476
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.2395,
+        "length_m": 16.94,
+        "width_m": 3.01,
+        "heading_deg": 178.4,
+        "aoi": "r2-vuosaari-harbour-road",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "rejected",
+        "class": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25510250.872,
+              6678150.7
+            ],
+            [
+              25510251.098,
+              6678153.57
+            ],
+            [
+              25510239.757,
+              6678154.46
+            ],
+            [
+              25510239.532,
+              6678151.59
+            ],
+            [
+              25510250.872,
+              6678150.7
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.2234,
+        "length_m": 11.38,
+        "width_m": 2.88,
+        "heading_deg": 94.5,
+        "aoi": "r2-vuosaari-harbour-road",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "rejected",
+        "class": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25510404.688,
+              6678333.299
+            ],
+            [
+              25510407.087,
+              6678335.345
+            ],
+            [
+              25510397.984,
+              6678346.011
+            ],
+            [
+              25510395.585,
+              6678343.964
+            ],
+            [
+              25510404.688,
+              6678333.299
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.1969,
+        "length_m": 14.02,
+        "width_m": 3.15,
+        "heading_deg": 139.5,
+        "aoi": "r2-vuosaari-harbour-road",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "rejected",
+        "class": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25510251.995,
+              6678173.358
+            ],
+            [
+              25510252.005,
+              6678176.756
+            ],
+            [
+              25510238.983,
+              6678176.793
+            ],
+            [
+              25510238.974,
+              6678173.395
+            ],
+            [
+              25510251.995,
+              6678173.358
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.1748,
+        "length_m": 13.02,
+        "width_m": 3.4,
+        "heading_deg": 90.2,
+        "aoi": "r2-vuosaari-harbour-road",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "rejected",
+        "class": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25510323.279,
+              6678278.091
+            ],
+            [
+              25510325.687,
+              6678280.151
+            ],
+            [
+              25510319.486,
+              6678287.404
+            ],
+            [
+              25510317.077,
+              6678285.345
+            ],
+            [
+              25510323.279,
+              6678278.091
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.1406,
+        "length_m": 9.54,
+        "width_m": 3.17,
+        "heading_deg": 139.5,
+        "aoi": "r2-vuosaari-harbour-road",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "rejected",
+        "class": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25510341.354,
+              6678303.215
+            ],
+            [
+              25510343.97,
+              6678305.345
+            ],
+            [
+              25510338.211,
+              6678312.42
+            ],
+            [
+              25510335.594,
+              6678310.29
+            ],
+            [
+              25510341.354,
+              6678303.215
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.1382,
+        "length_m": 9.12,
+        "width_m": 3.37,
+        "heading_deg": 140.9,
+        "aoi": "r2-vuosaari-harbour-road",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "rejected",
+        "class": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25510159.874,
+              6678130.599
+            ],
+            [
+              25510159.712,
+              6678133.571
+            ],
+            [
+              25510147.198,
+              6678132.888
+            ],
+            [
+              25510147.36,
+              6678129.916
+            ],
+            [
+              25510159.874,
+              6678130.599
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.1375,
+        "length_m": 12.53,
+        "width_m": 2.98,
+        "heading_deg": 86.9,
+        "aoi": "r2-vuosaari-harbour-road",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "rejected",
+        "class": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25510300.826,
+              6678304.498
+            ],
+            [
+              25510303.212,
+              6678306.464
+            ],
+            [
+              25510298.763,
+              6678311.863
+            ],
+            [
+              25510296.377,
+              6678309.897
+            ],
+            [
+              25510300.826,
+              6678304.498
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.1253,
+        "length_m": 7,
+        "width_m": 3.09,
+        "heading_deg": 140.5,
+        "aoi": "r2-vuosaari-harbour-road",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "rejected",
+        "class": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25510243.341,
+              6678190.06
+            ],
+            [
+              25510243.447,
+              6678192.958
+            ],
+            [
+              25510236.301,
+              6678193.22
+            ],
+            [
+              25510236.194,
+              6678190.322
+            ],
+            [
+              25510243.341,
+              6678190.06
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.1219,
+        "length_m": 7.15,
+        "width_m": 2.9,
+        "heading_deg": 92.1,
+        "aoi": "r2-vuosaari-harbour-road",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "rejected",
+        "class": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25510180.258,
+              6678299.458
+            ],
+            [
+              25510183.39,
+              6678299.614
+            ],
+            [
+              25510182.866,
+              6678310.137
+            ],
+            [
+              25510179.734,
+              6678309.981
+            ],
+            [
+              25510180.258,
+              6678299.458
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.1207,
+        "length_m": 10.54,
+        "width_m": 3.14,
+        "heading_deg": 177.1,
+        "aoi": "r2-vuosaari-harbour-road",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "rejected",
+        "class": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25510341.061,
+              6678310.251
+            ],
+            [
+              25510343.538,
+              6678312.126
+            ],
+            [
+              25510337.774,
+              6678319.743
+            ],
+            [
+              25510335.297,
+              6678317.868
+            ],
+            [
+              25510341.061,
+              6678310.251
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.1007,
+        "length_m": 9.55,
+        "width_m": 3.11,
+        "heading_deg": 142.9,
+        "aoi": "r2-vuosaari-harbour-road",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "rejected",
+        "class": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25510179.925,
+              6678303.419
+            ],
+            [
+              25510183.214,
+              6678303.556
+            ],
+            [
+              25510182.332,
+              6678324.756
+            ],
+            [
+              25510179.042,
+              6678324.619
+            ],
+            [
+              25510179.925,
+              6678303.419
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.0993,
+        "length_m": 21.22,
+        "width_m": 3.29,
+        "heading_deg": 177.6,
+        "aoi": "r2-vuosaari-harbour-road",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "rejected",
+        "class": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25510190.079,
+              6678172.622
+            ],
+            [
+              25510190.5,
+              6678175.109
+            ],
+            [
+              25510185.898,
+              6678175.889
+            ],
+            [
+              25510185.477,
+              6678173.402
+            ],
+            [
+              25510190.079,
+              6678172.622
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.0949,
+        "length_m": 4.67,
+        "width_m": 2.52,
+        "heading_deg": 99.6,
+        "aoi": "r2-vuosaari-harbour-road",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "rejected",
+        "class": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25510341.015,
+              6678367.194
+            ],
+            [
+              25510343.511,
+              6678368.562
+            ],
+            [
+              25510341.345,
+              6678372.515
+            ],
+            [
+              25510338.848,
+              6678371.148
+            ],
+            [
+              25510341.015,
+              6678367.194
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.0939,
+        "length_m": 4.51,
+        "width_m": 2.85,
+        "heading_deg": 151.3,
+        "aoi": "r2-vuosaari-harbour-road",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "rejected",
+        "class": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25510341.152,
+              6678276.928
+            ],
+            [
+              25510343.602,
+              6678278.775
+            ],
+            [
+              25510337.9,
+              6678286.336
+            ],
+            [
+              25510335.45,
+              6678284.489
+            ],
+            [
+              25510341.152,
+              6678276.928
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.0922,
+        "length_m": 9.47,
+        "width_m": 3.07,
+        "heading_deg": 143,
+        "aoi": "r2-vuosaari-harbour-road",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "rejected",
+        "class": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25510300.736,
+              6678278.128
+            ],
+            [
+              25510303.097,
+              6678280.166
+            ],
+            [
+              25510298.229,
+              6678285.804
+            ],
+            [
+              25510295.869,
+              6678283.766
+            ],
+            [
+              25510300.736,
+              6678278.128
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.0921,
+        "length_m": 7.45,
+        "width_m": 3.12,
+        "heading_deg": 139.2,
+        "aoi": "r2-vuosaari-harbour-road",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "rejected",
+        "class": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25510173.298,
+              6678251.559
+            ],
+            [
+              25510176.729,
+              6678251.621
+            ],
+            [
+              25510176.359,
+              6678272.148
+            ],
+            [
+              25510172.927,
+              6678272.086
+            ],
+            [
+              25510173.298,
+              6678251.559
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.0891,
+        "length_m": 20.53,
+        "width_m": 3.43,
+        "heading_deg": 179,
+        "aoi": "r2-vuosaari-harbour-road",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "rejected",
+        "class": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25510243.453,
+              6678157.106
+            ],
+            [
+              25510243.619,
+              6678160.291
+            ],
+            [
+              25510239.415,
+              6678160.51
+            ],
+            [
+              25510239.249,
+              6678157.325
+            ],
+            [
+              25510243.453,
+              6678157.106
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.0852,
+        "length_m": 4.21,
+        "width_m": 3.19,
+        "heading_deg": 93,
+        "aoi": "r2-vuosaari-harbour-road",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "rejected",
+        "class": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25510341.095,
+              6678243.782
+            ],
+            [
+              25510343.646,
+              6678245.643
+            ],
+            [
+              25510338.08,
+              6678253.273
+            ],
+            [
+              25510335.528,
+              6678251.411
+            ],
+            [
+              25510341.095,
+              6678243.782
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.0839,
+        "length_m": 9.44,
+        "width_m": 3.16,
+        "heading_deg": 143.9,
+        "aoi": "r2-vuosaari-harbour-road",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "rejected",
+        "class": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25510298.79,
+              6678319.911
+            ],
+            [
+              25510301.306,
+              6678321.941
+            ],
+            [
+              25510296.628,
+              6678327.737
+            ],
+            [
+              25510294.113,
+              6678325.707
+            ],
+            [
+              25510298.79,
+              6678319.911
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.0793,
+        "length_m": 7.45,
+        "width_m": 3.23,
+        "heading_deg": 141.1,
+        "aoi": "r2-vuosaari-harbour-road",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "rejected",
+        "class": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25510322.337,
+              6678306.196
+            ],
+            [
+              25510324.605,
+              6678308.167
+            ],
+            [
+              25510321.272,
+              6678312.003
+            ],
+            [
+              25510319.003,
+              6678310.032
+            ],
+            [
+              25510322.337,
+              6678306.196
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.0749,
+        "length_m": 5.08,
+        "width_m": 3,
+        "heading_deg": 139,
+        "aoi": "r2-vuosaari-harbour-road",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "rejected",
+        "class": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25510298.85,
+              6678253.255
+            ],
+            [
+              25510301.36,
+              6678255.405
+            ],
+            [
+              25510296.527,
+              6678261.048
+            ],
+            [
+              25510294.017,
+              6678258.898
+            ],
+            [
+              25510298.85,
+              6678253.255
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.0741,
+        "length_m": 7.43,
+        "width_m": 3.3,
+        "heading_deg": 139.4,
+        "aoi": "r2-vuosaari-harbour-road",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "rejected",
+        "class": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25510212.727,
+              6678168.397
+            ],
+            [
+              25510213.946,
+              6678168.125
+            ],
+            [
+              25510214.981,
+              6678172.765
+            ],
+            [
+              25510213.763,
+              6678173.037
+            ],
+            [
+              25510212.727,
+              6678168.397
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.0725,
+        "length_m": 4.75,
+        "width_m": 1.25,
+        "heading_deg": 12.6,
+        "aoi": "r2-vuosaari-harbour-road",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "rejected",
+        "class": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25510341.196,
+              6678303.109
+            ],
+            [
+              25510343.875,
+              6678305.138
+            ],
+            [
+              25510338.482,
+              6678312.261
+            ],
+            [
+              25510335.802,
+              6678310.232
+            ],
+            [
+              25510341.196,
+              6678303.109
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.0721,
+        "length_m": 8.93,
+        "width_m": 3.36,
+        "heading_deg": 142.9,
+        "aoi": "r2-vuosaari-harbour-road",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "rejected",
+        "class": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25510397.113,
+              6678278.316
+            ],
+            [
+              25510399.257,
+              6678280.388
+            ],
+            [
+              25510395.064,
+              6678284.726
+            ],
+            [
+              25510392.92,
+              6678282.654
+            ],
+            [
+              25510397.113,
+              6678278.316
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.0662,
+        "length_m": 6.03,
+        "width_m": 2.98,
+        "heading_deg": 136,
+        "aoi": "r2-vuosaari-harbour-road",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "rejected",
+        "class": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25510238.18,
+              6678140.452
+            ],
+            [
+              25510240.495,
+              6678140.584
+            ],
+            [
+              25510240.202,
+              6678145.715
+            ],
+            [
+              25510237.887,
+              6678145.583
+            ],
+            [
+              25510238.18,
+              6678140.452
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.0628,
+        "length_m": 5.14,
+        "width_m": 2.32,
+        "heading_deg": 176.7,
+        "aoi": "r2-vuosaari-harbour-road",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "rejected",
+        "class": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25510243.482,
+              6678186.736
+            ],
+            [
+              25510243.666,
+              6678189.554
+            ],
+            [
+              25510236.515,
+              6678190.021
+            ],
+            [
+              25510236.331,
+              6678187.203
+            ],
+            [
+              25510243.482,
+              6678186.736
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.0622,
+        "length_m": 7.17,
+        "width_m": 2.82,
+        "heading_deg": 93.7,
+        "aoi": "r2-vuosaari-harbour-road",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "rejected",
+        "class": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25510243.365,
+              6678194.164
+            ],
+            [
+              25510243.62,
+              6678196.854
+            ],
+            [
+              25510236.135,
+              6678197.565
+            ],
+            [
+              25510235.879,
+              6678194.875
+            ],
+            [
+              25510243.365,
+              6678194.164
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.0614,
+        "length_m": 7.52,
+        "width_m": 2.7,
+        "heading_deg": 95.4,
+        "aoi": "r2-vuosaari-harbour-road",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "rejected",
+        "class": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25510328.816,
+              6678278.003
+            ],
+            [
+              25510331.322,
+              6678280.081
+            ],
+            [
+              25510322.866,
+              6678290.279
+            ],
+            [
+              25510320.36,
+              6678288.201
+            ],
+            [
+              25510328.816,
+              6678278.003
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.0609,
+        "length_m": 13.25,
+        "width_m": 3.26,
+        "heading_deg": 140.3,
+        "aoi": "r2-vuosaari-harbour-road",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "rejected",
+        "class": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25510140.808,
+              6678121.107
+            ],
+            [
+              25510140.554,
+              6678124.313
+            ],
+            [
+              25510121.683,
+              6678122.815
+            ],
+            [
+              25510121.938,
+              6678119.61
+            ],
+            [
+              25510140.808,
+              6678121.107
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.0592,
+        "length_m": 18.93,
+        "width_m": 3.22,
+        "heading_deg": 85.5,
+        "aoi": "r2-vuosaari-harbour-road",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "rejected",
+        "class": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25510170.409,
+              6678096.952
+            ],
+            [
+              25510172.673,
+              6678098.95
+            ],
+            [
+              25510164.891,
+              6678107.768
+            ],
+            [
+              25510162.627,
+              6678105.77
+            ],
+            [
+              25510170.409,
+              6678096.952
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.0584,
+        "length_m": 11.76,
+        "width_m": 3.02,
+        "heading_deg": 138.6,
+        "aoi": "r2-vuosaari-harbour-road",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "rejected",
+        "class": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25510175.686,
+              6678216.252
+            ],
+            [
+              25510178.877,
+              6678216.456
+            ],
+            [
+              25510178.183,
+              6678227.314
+            ],
+            [
+              25510174.992,
+              6678227.11
+            ],
+            [
+              25510175.686,
+              6678216.252
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.682,
+        "length_m": 10.88,
+        "width_m": 3.2,
+        "heading_deg": 176.3,
+        "aoi": "r2-vuosaari-harbour-road",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "rejected",
+        "class": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25510180.264,
+              6678216.311
+            ],
+            [
+              25510183.452,
+              6678216.617
+            ],
+            [
+              25510182.428,
+              6678227.297
+            ],
+            [
+              25510179.24,
+              6678226.991
+            ],
+            [
+              25510180.264,
+              6678216.311
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.591,
+        "length_m": 10.73,
+        "width_m": 3.2,
+        "heading_deg": 174.5,
+        "aoi": "r2-vuosaari-harbour-road",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "rejected",
+        "class": ""
+      }
+    }
+  ]
+}

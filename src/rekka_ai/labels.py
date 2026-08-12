@@ -27,10 +27,11 @@ from typing import Any
 from rekka_ai.detect.detections import Detection
 from rekka_ai.geo import COORD_DECIMALS, GRID_CRS_NAME, crs_member
 
-#: What a labelled object is. ``van`` is a real class rather than an exclusion:
-#: the detector fires on vans, and labelling them explicitly is better than
-#: leaving them as unlabelled background the model must guess about.
-CLASSES = ("truck", "bus", "van")
+#: What a labelled object is. ``van`` and ``car`` are real classes rather than
+#: exclusions: the detector fires on both, and labelling them explicitly is
+#: better than leaving them as unlabelled background the model must guess
+#: about. See docs/DESIGN.md §5.
+CLASSES = ("truck", "bus", "van", "car")
 
 #: ``candidate`` is the detector's guess, awaiting review. ``confirmed`` and
 #: ``rejected`` are human verdicts on it; ``added`` is a human-drawn object the

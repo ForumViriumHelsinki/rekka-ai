@@ -3,7 +3,7 @@
  *
  * Pure functions of a feature to an OpenLayers style — no component state, so
  * they can be reasoned about (and tested) without a map. The palette lives
- * here too: these five colours are map *symbology*, and deliberately share
+ * here too: these six colours are map *symbology*, and deliberately share
  * nothing with the interface chrome, so a colour on the map always means a
  * classification and never a selection.
  */
@@ -20,6 +20,7 @@ export const COLOURS: Record<string, string> = {
 	truck: '#3ddc84',
 	bus: '#4aa3ff',
 	van: '#c07cf5',
+	car: '#2dd4bf',
 	rejected: '#ff5a5a',
 	// Hand-drawn boxes render in their class colour; the swatch is symbolic.
 	added: '#94a3b8',

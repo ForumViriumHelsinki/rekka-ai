@@ -13,8 +13,13 @@ from dataclasses import dataclass
 from pathlib import Path
 from typing import Any
 
+from shapely import STRtree
+from shapely.geometry import shape
+from shapely.geometry.base import BaseGeometry
+
 from rekka_ai import labels, track
-from rekka_ai.detect.sweep import Detector, YoloObb, sweep
+from rekka_ai.detect.detections import Detection
+from rekka_ai.detect.sweep import MIN_LENGTH_M, Detector, YoloObb, sweep
 from rekka_ai.imagery.aoi import Aoi
 from rekka_ai.imagery.windows import WINDOW_SIZE
 from rekka_ai.imagery.wmts import TileSource
@@ -24,8 +29,35 @@ from rekka_ai.imagery.wmts import TileSource
 GATE_RECALL = 0.90
 GATE_PRECISION = 0.85
 GATE_COUNT_ERROR = 0.10
-#: The hard-negative regression check tolerates a couple of blips, not a habit.
-GATE_NEGATIVE_DETECTIONS = 2
+#: The hard-negative regression check is **reported, not gated** (2026-08-11).
+#: It counts the right thing — see ``unexplained`` — but three runs of one
+#: dataset at seeds 0/1/2 produced 1, 7 and 3, against what used to be a
+#: threshold of 2. A quantity noisier than its own threshold cannot decide a
+#: ship question. Above this level the report says so, loudly, and a human
+#: looks; nothing fails on it. Restore it to a gate when validation holds a
+#: held-out negative area big enough to resolve it (docs/DESIGN.md §7, §11.3).
+NEGATIVE_DETECTIONS_WATCH = 2
+#: A detection this far onto a labelled vehicle is that vehicle, so a negative
+#: area is not marked down for finding it. Loose on purpose: the question is
+#: "did the model invent something", which a half-overlapping box answers no to.
+NEGATIVE_MATCH_IOU = 0.3
+#: Fewest ground-truth trucks an area needs before its count check may gate.
+#: Was 10, from box arithmetic: at 10 trucks a 10% error is exactly one box.
+#: Raised to 60 on 2026-08-11 from a *measurement* instead. Training the same
+#: dataset at three seeds moved r1-jatkasaari's count error by 20 points and
+#: r1-kaivoksela's by 6.5 — about ``0.77*sqrt(n)`` boxes of noise against
+#: ``0.1*n`` boxes of tolerance. Those curves cross at **n = 60**: below it the
+#: seed decides the verdict, above it the model does. (Tolerance would reach
+#: twice the noise only at n = 240, which no area in the collection has.)
+#: Today exactly one area clears this, and that is the honest state of the
+#: validation split rather than a reason to lower the bar.
+GATE_COUNT_MIN_TRUCKS = 60
+#: Below this, "operating point" stops meaning anything: a point near conf=0
+#: keeps every raw proposal the detector makes. A curve whose recall never
+#: clears the gate above this floor has picked "keep everything" rather than
+#: a point anyone would deploy at — the recall gate then fails by
+#: construction instead of silently reporting a pass at a useless confidence.
+MIN_OPERATING_CONFIDENCE = 0.05
 
 
 @dataclass(frozen=True, slots=True)
@@ -47,20 +79,49 @@ def ground_truth_counts(collection: dict[str, Any]) -> Counter[str]:
     )
 
 
+def count_gate(found: int, truth: int) -> tuple[bool | None, str]:
+    """One area's truck-count verdict, or ``None`` when it may not gate.
+
+    The product's question is "how many vehicles per site", so per-area count
+    error is a gate rather than box geometry — but only where the area holds
+    enough trucks for the tolerance to cover a whole box
+    (``GATE_COUNT_MIN_TRUCKS``). Below that, including the no-trucks case, the
+    count is reported and left out of the verdict: r1-kamppi failed its area
+    gate on 8 trucks because one seam-smeared box is 12% of 8, which said
+    nothing about the model (docs/DESIGN.md §7).
+    """
+    if truth < GATE_COUNT_MIN_TRUCKS:
+        return None, (
+            f"{found} vs {truth} trucks — not gated, under {GATE_COUNT_MIN_TRUCKS}"
+        )
+    error = (found - truth) / truth
+    return abs(error) <= GATE_COUNT_ERROR, f"{found} vs {truth} trucks ({error:+.0%})"
+
+
 def pick_operating_point(
-    px: list[float], p: list[float], r: list[float], *, min_recall: float = GATE_RECALL
+    px: list[float],
+    p: list[float],
+    r: list[float],
+    *,
+    min_recall: float = GATE_RECALL,
+    min_confidence: float = MIN_OPERATING_CONFIDENCE,
 ) -> tuple[float, float, float]:
     """The operating confidence from a class's PR curve.
 
-    The best precision among points still meeting the recall gate; if no point
-    meets it, the F1 maximum instead — the honest fallback, reported as such
-    by the caller since the gate then fails by construction.
+    The best precision among points at or above ``min_confidence`` that still
+    meet the recall gate; if none qualify, the F1 maximum among points at or
+    above the floor instead — the honest fallback, reported as such by the
+    caller since the gate then fails by construction. Points below the floor
+    are never candidates, even for the fallback: a "point" near conf=0 keeps
+    every raw proposal the detector makes, which is not an operating point at
+    all.
     """
-    meeting = [i for i in range(len(px)) if r[i] >= min_recall]
+    candidates = [i for i in range(len(px)) if px[i] >= min_confidence]
+    meeting = [i for i in candidates if r[i] >= min_recall]
     if meeting:
         i = max(meeting, key=lambda j: p[j])
     else:
-        i = max(range(len(px)), key=lambda j: _f1(p[j], r[j]))
+        i = max(candidates, key=lambda j: _f1(p[j], r[j]))
     return px[i], p[i], r[i]
 
 
@@ -126,6 +187,39 @@ def load_detector(weights: Path, confidence: float) -> YoloObb:
     return YoloObb(str(weights), confidence=confidence, keep=frozenset(labels.CLASSES))
 
 
+def sweep_area(
+    aoi: Aoi,
+    *,
+    detector: Detector,
+    layer: str,
+    zoom: int,
+    cache_root: Path,
+    fetcher: TileSource,
+    min_length_m: float = MIN_LENGTH_M,
+) -> list[Detection]:
+    """What a trained model would report over one area.
+
+    The length floor is on by default, unlike the per-class metrics: the two
+    measurement layers ask different questions (docs/DESIGN.md §7). Standard
+    metrics judge the *model*, so they see every raw proposal. The operational
+    gates — per-area counts and the negative check — judge what a city sweep
+    would *emit*, and a sweep runs ``detect``, which drops everything under
+    ``MIN_LENGTH_M`` as measured noise. Without the floor the gates counted
+    boxes the pipeline would never produce: on round 2, sixteen of the twenty
+    detections failing the negative check were 2-4 m slivers of parked cars
+    (docs/rounds.md, 2026-08-11).
+    """
+    return sweep(
+        aoi,
+        detector=detector,
+        layer=layer,
+        zoom=zoom,
+        cache_root=cache_root,
+        fetcher=fetcher,
+        min_length_m=min_length_m,
+    )
+
+
 def count_detections(
     aoi: Aoi,
     *,
@@ -136,16 +230,61 @@ def count_detections(
     fetcher: TileSource,
 ) -> Counter[str]:
     """Run a trained model over one area; class tallies of what it finds."""
-    found = sweep(
-        aoi,
-        detector=detector,
-        layer=layer,
-        zoom=zoom,
-        cache_root=cache_root,
-        fetcher=fetcher,
-        min_length_m=0.0,  # no gate: eval measures the model, not the filter
+    return Counter(
+        d.label
+        for d in sweep_area(
+            aoi,
+            detector=detector,
+            layer=layer,
+            zoom=zoom,
+            cache_root=cache_root,
+            fetcher=fetcher,
+        )
     )
-    return Counter(d.label for d in found)
+
+
+def unexplained(
+    found: list[Detection],
+    collection: dict[str, Any],
+    *,
+    iou_threshold: float = NEGATIVE_MATCH_IOU,
+) -> list[Detection]:
+    """Detections in a negative area that no labelled vehicle accounts for.
+
+    The regression check asks "has fine-tuning started pulling lookalikes in",
+    and the honest way to count that is to forgive every detection sitting on
+    a vehicle the area really holds. A negative area is negative about
+    *targets*, not empty: `r1-puotinharju` holds 93 cars and 5 vans,
+    `r1-marjaniemi` two vans. Counting raw detections marked a model down by
+    an order of magnitude for being right about them (docs/rounds.md,
+    2026-08-11).
+
+    Class is deliberately ignored in the match. The question is whether the
+    model invented a vehicle, not whether it named it correctly — naming is
+    what the per-class metrics are for.
+    """
+    truth = [
+        shape(f["geometry"])
+        for f in collection.get("features", [])
+        if f.get("properties", {}).get("status") in ("confirmed", "added")
+    ]
+    if not truth:
+        return list(found)
+    tree = STRtree(truth)
+    out = []
+    for detection in found:
+        box = detection.polygon()
+        if not any(_iou(box, truth[j]) > iou_threshold for j in tree.query(box)):
+            out.append(detection)
+    return out
+
+
+def _iou(a: BaseGeometry, b: BaseGeometry) -> float:
+    if not a.intersects(b):
+        return 0.0
+    intersection = a.intersection(b).area
+    union = a.area + b.area - intersection
+    return intersection / union if union > 0 else 0.0
 
 
 def log_eval_run(
