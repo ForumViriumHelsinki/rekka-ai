@@ -33,20 +33,22 @@ model do the prospecting.
    ```python
    from pathlib import Path
    from rekka_ai.osm import fetch_industrial
-   cache = fetch_industrial("Helsinki", profile="commercial",
-                            cache_root=Path("data/osm"), refresh=True)
+
+   cache = fetch_industrial(
+       "Helsinki", profile="commercial", cache_root=Path("data/osm"), refresh=True
+   )
    ```
 
 2. **Grid and exclude.** Reuse `rekka_ai.mine` — do not reimplement:
 
    ```python
    from rekka_ai.imagery.aoi import load_aois
-   from rekka_ai.mine import (cells_covering, exclude_existing,
-                              project_features_to_tm35fin)
+   from rekka_ai.mine import cells_covering, exclude_existing, project_features_to_tm35fin
+
    union = project_features_to_tm35fin(cache.features)
    cells = exclude_existing(
-       cells_covering(union, municipality_ref=cache.ref),
-       load_aois("aois/helsinki.yaml"))
+       cells_covering(union, municipality_ref=cache.ref), load_aois("aois/helsinki.yaml")
+   )
    ```
 
 3. **Detections for the cells.** If an existing sweep covers the ground
