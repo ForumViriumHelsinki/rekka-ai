@@ -46,10 +46,13 @@ MUNICIPALITIES: dict[str, str] = {
 SUPPORTED_MUNICIPALITIES = frozenset({"Helsinki"})
 
 #: Profile name -> Overpass tag filters (AND within a filter, OR across them).
-#: ``industrial`` is the first profile; warehouse / depot / marina
-#: can be added later without changing the query plumbing.
+#: ``industrial`` is the first profile; the others exist for van mining:
+#: parcel depots and fleets sit on commercial ground, and tradesmen's vans
+#: cluster on construction sites — neither is reliably ``industrial`` in OSM.
 PROFILES: dict[str, tuple[str, ...]] = {
     "industrial": ('["landuse"="industrial"]',),
+    "commercial": ('["landuse"="commercial"]',),
+    "construction": ('["landuse"="construction"]',),
     #: RV/motorhome-shaped ground: camp and caravan sites, and caravan
     #: dealers/storage. Rastila's train-side counterpart lives here.
     "camping": (
