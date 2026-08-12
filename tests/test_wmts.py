@@ -17,6 +17,10 @@ from rekka_ai.imagery.wmts import (
 
 TILE = Tile(zoom=16, col=32661, row=53612)
 
+#: Stands in for a tile in every test: the fetcher validates the JPEG SOI
+#: marker, so fake payloads have to carry it.
+JPEG = b"\xff\xd8jpeg-bytes"
+
 
 Handler = Callable[[httpx.Request], httpx.Response]
 
@@ -47,7 +51,7 @@ def test_fetch_writes_tile_then_serves_it_from_cache(tmp_path: Path) -> None:
     def handler(request: httpx.Request) -> httpx.Response:
         nonlocal calls
         calls += 1
-        return httpx.Response(200, content=b"jpeg-bytes")
+        return httpx.Response(200, content=JPEG)
 
     with _fetcher(tmp_path, handler) as fetcher:
         first = fetcher.fetch("Ortoilmakuva_2025_5cm", TILE)
@@ -55,13 +59,13 @@ def test_fetch_writes_tile_then_serves_it_from_cache(tmp_path: Path) -> None:
 
     assert first.from_cache is False
     assert second.from_cache is True
-    assert first.path.read_bytes() == b"jpeg-bytes"
+    assert first.path.read_bytes() == JPEG
     assert calls == 1
 
 
 def test_fetch_leaves_no_partial_file_behind(tmp_path: Path) -> None:
     def handler(request: httpx.Request) -> httpx.Response:
-        return httpx.Response(200, content=b"jpeg-bytes")
+        return httpx.Response(200, content=JPEG)
 
     with _fetcher(tmp_path, handler) as fetcher:
         result = fetcher.fetch("Ortoilmakuva_2025_5cm", TILE)
@@ -77,13 +81,13 @@ def test_fetch_retries_transient_failures(tmp_path: Path) -> None:
         attempts += 1
         if attempts < 3:
             return httpx.Response(503)
-        return httpx.Response(200, content=b"jpeg-bytes")
+        return httpx.Response(200, content=JPEG)
 
     with _fetcher(tmp_path, handler) as fetcher:
         result = fetcher.fetch("Ortoilmakuva_2025_5cm", TILE)
 
     assert attempts == 3
-    assert result.path.read_bytes() == b"jpeg-bytes"
+    assert result.path.read_bytes() == JPEG
 
 
 def test_fetch_does_not_retry_client_errors(tmp_path: Path) -> None:
@@ -101,9 +105,56 @@ def test_fetch_does_not_retry_client_errors(tmp_path: Path) -> None:
     assert attempts == 1
 
 
+XML_ERROR = (
+    b"<?xml version='1.0'?><ows:ExceptionReport><ows:Exception/></ows:ExceptionReport>"
+)
+
+
+def test_fetch_retries_an_xml_exception_report(tmp_path: Path) -> None:
+    """A 200 with an XML exception report is not a tile and must not be cached.
+
+    GeoServer answers some failures this way (observed: an OutOfMemoryError
+    under load), so the status code alone cannot be trusted; such a response
+    is usually transient and goes through the same retry path as a 5xx.
+    """
+    attempts = 0
+
+    def handler(request: httpx.Request) -> httpx.Response:
+        nonlocal attempts
+        attempts += 1
+        if attempts < 3:
+            return httpx.Response(200, content=XML_ERROR)
+        return httpx.Response(200, content=JPEG)
+
+    with _fetcher(tmp_path, handler) as fetcher:
+        result = fetcher.fetch("Ortoilmakuva_2025_5cm", TILE)
+
+    assert attempts == 3
+    assert result.path.read_bytes() == JPEG
+
+
+def test_fetch_all_does_not_cache_an_xml_exception_report(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    """Persistently invalid tiles are recorded as failures, never written."""
+    # One attempt, no backoff: the retry behaviour itself is covered above.
+    monkeypatch.setattr("rekka_ai.imagery.wmts.MAX_ATTEMPTS", 1)
+
+    def handler(request: httpx.Request) -> httpx.Response:
+        return httpx.Response(200, content=XML_ERROR)
+
+    with _fetcher(tmp_path, handler) as fetcher:
+        results = list(fetcher.fetch_all("Ortoilmakuva_2025_5cm", [TILE]))
+        failures = list(fetcher.failures)
+
+    assert results == []
+    assert [tile for tile, _ in failures] == [TILE]
+    assert not cache_path(tmp_path, "Ortoilmakuva_2025_5cm", TILE).exists()
+
+
 def test_fetch_all_returns_one_result_per_tile(tmp_path: Path) -> None:
     def handler(request: httpx.Request) -> httpx.Response:
-        return httpx.Response(200, content=b"jpeg-bytes")
+        return httpx.Response(200, content=JPEG)
 
     tiles = [Tile(zoom=16, col=32661 + i, row=53612) for i in range(5)]
     with _fetcher(tmp_path, handler, workers=4) as fetcher:
@@ -126,7 +177,7 @@ def test_fetch_all_does_not_drain_a_lazy_tile_iterator(tmp_path: Path) -> None:
     """
 
     def handler(request: httpx.Request) -> httpx.Response:
-        return httpx.Response(200, content=b"jpeg-bytes")
+        return httpx.Response(200, content=JPEG)
 
     taken = 0
 
@@ -155,7 +206,7 @@ def test_fetch_all_records_failures_and_carries_on(
     def handler(request: httpx.Request) -> httpx.Response:
         if request.url.params["TILECOL"] == "32662":
             return httpx.Response(500)
-        return httpx.Response(200, content=b"jpeg-bytes")
+        return httpx.Response(200, content=JPEG)
 
     tiles = [Tile(zoom=16, col=32661 + i, row=53612) for i in range(3)]
     with _fetcher(tmp_path, handler, workers=2) as fetcher:
