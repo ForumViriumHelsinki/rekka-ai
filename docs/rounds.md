@@ -98,3 +98,69 @@ is a wider validation split (DESIGN §11.3), not a lower bar.
 ```bash
 time uv run rekka-ai detect --aoi data/osm/091_helsinki_industrial.fgb --weights runs/train/round3/weights/best.pt --confidence 0.25 --out data/detections/industrial-conf25.geojson 
 ```
+
+## Round 4 begins, 2026-08-13
+
+`r4-kruununhaka` (downtown, by Senate Square) added — hand-picked, intended
+as validation's first `sparse` area ahead of a city-wide run. Round-3 `detect`
+candidates over it (168 at conf 0.25, mostly parked cars, no false-positive
+storm on shadowed ground) showed the model handles the character but misses
+cars in deep shadow — and the reviewer cannot call those shapes confidently
+either. Per the kamppi precedent (untrustworthy ground truth, not difficulty,
+is the disqualifier) it could not be validation — but labelling proved the
+ground readable, so it went to `split: train` as `positive`: keeping it
+`sparse` would have exported its confirmed shadow cars as background and
+taught the model to ignore them. Proximity caveat:
+743 m from `r1-jatkasaari` (validation). Validation still has no `sparse` or
+`hard-negative` area — the city-wide hold-out gap remains open, to be filled
+with cleanly-imaged ground, not deep-shadow downtown.
+
+Also on record: `bootstrap --weights <trained.pt>` silently proposes nothing
+(trained class names never match its hardcoded DOTA `large vehicle` filter);
+round-N candidate proposals are `detect → stage`, as the pipeline diagram
+says. The bootstrap guard is unfixed.
+
+**Van cells accepted, 2026-08-13.** Eight of the 19 distinct cells in
+`data/mining/van-candidates-combined.yaml` (one exact duplicate dropped, one
+cell per shared yard) joined train, aimed at the truck/van confusion:
+`r4-tattarisuo`, `r4-tapulikaupunki`, `r4-konala`, `r4-laippatie`,
+`r4-sepanmaki`, `r4-viikinranta`, `r4-hernesaari`, `r4-herttoniemi-n`.
+Round-3 `detect` at conf 0.25 staged 2,554 candidates: 339 van, 197 truck,
+7 bus, ~2,010 car — the mining's van counts reproduced almost exactly, so
+the cells are the 4-8 m band ground the confusion needs. Proximity caveat:
+`r4-hernesaari` sits 553 m from `r1-jatkasaari` (validation) — closer than
+any previously accepted pair, and jatkasaari now has train ground on two
+sides (`r4-kruununhaka` 743 m); its held-out read joins the optimistic-caveat
+list. The cost: ~2,550 new candidates on top of kruununhaka's, the largest
+review batch since round 1. Later the same day: `r4-sepanmaki` and
+`r4-viikinranta` dropped before review — the reviewer judged their ground
+repetitive of cells already labelled (mostly cars and vans); both label files
+were untouched candidates, so nothing human was discarded. Six van cells
+remain, ~2,050 candidates.
+
+**Validation gains a negative, 2026-08-13.** `r4-mustavuori` (Mustavuori
+forest, Vuosaari) added as `hard-negative`/`validation` — hand-picked from
+imagery, 2.2 km from the nearest collection area (the round's first entry
+with no proximity caveat). Pure canopy and rock outcrops: an easy negative
+with no lookalikes, measuring "does the model fire on nothing" rather than
+resistance to truck-shaped clutter, and the first held-out negative since
+`r1-rastila` left validation — the negative-area check has held-out ground
+again. Validation's missing `sparse` role remains open.
+
+**Validation gains residential, 2026-08-13.** `r4-kapyla` (Käpylä apartment
+rows) added as `sparse`/`validation` — hand-picked, 1,635 m from the nearest
+train area (no caveat). Round-3 `detect` staged 105 candidates, mostly
+courtyard cars; review is confirm-the-cars work, and the negative check
+forgives only labelled vehicles. With it, validation holds all three roles
+and the `aois` warning is clear. Still open: the second truck-dense
+validation area (DESIGN §11.3).
+
+**`r4-orakas` joins validation, 2026-08-13.** Small industrial estate in
+Heikinlaakso housing — the ordinary small-yard character a city-wide sweep's
+trucks mostly sit in, absent from validation until now. Found by ranking the
+existing industrial/commercial/construction sweeps by truck detections:
+**model-guided selection**, so its recall read leans optimistic by
+construction — accepted anyway because the alternative truck-dense grounds
+all duplicate Vuosaari harbour character already in train. Proximity caveat:
+1,069 m from `r4-tattarisuo` (train). Staged 90 candidates: 19 truck,
+14 van, 57 car.

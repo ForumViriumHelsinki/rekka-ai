@@ -8780,6 +8780,252 @@
         "status": "confirmed",
         "class": "car"
       }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25498474.444,
+              6676285.38
+            ],
+            [
+              25498467.701,
+              6676283.478
+            ],
+            [
+              25498466.821,
+              6676286.596
+            ],
+            [
+              25498473.564,
+              6676288.499
+            ],
+            [
+              25498474.444,
+              6676285.38
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "class": "truck",
+        "status": "added",
+        "confidence": null,
+        "aoi": "r1-kylasaari",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "length_m": 7.01,
+        "width_m": 3.24,
+        "heading_deg": 74.2
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25498481.805,
+              6676287.651
+            ],
+            [
+              25498474.858,
+              6676285.778
+            ],
+            [
+              25498474.066,
+              6676288.713
+            ],
+            [
+              25498481.014,
+              6676290.586
+            ],
+            [
+              25498481.805,
+              6676287.651
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "class": "truck",
+        "status": "added",
+        "confidence": null,
+        "aoi": "r1-kylasaari",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "length_m": 7.2,
+        "width_m": 3.04,
+        "heading_deg": 74.9
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25498490.777,
+              6676289.931
+            ],
+            [
+              25498483.157,
+              6676287.882
+            ],
+            [
+              25498482.419,
+              6676290.625
+            ],
+            [
+              25498490.04,
+              6676292.674
+            ],
+            [
+              25498490.777,
+              6676289.931
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "class": "truck",
+        "status": "added",
+        "confidence": null,
+        "aoi": "r1-kylasaari",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "length_m": 7.89,
+        "width_m": 2.84,
+        "heading_deg": 75
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25498396.546,
+              6676337.651
+            ],
+            [
+              25498393.055,
+              6676343.335
+            ],
+            [
+              25498395.475,
+              6676344.821
+            ],
+            [
+              25498398.965,
+              6676339.137
+            ],
+            [
+              25498396.546,
+              6676337.651
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "class": "truck",
+        "status": "added",
+        "confidence": null,
+        "aoi": "r1-kylasaari",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "length_m": 6.67,
+        "width_m": 2.84,
+        "heading_deg": 148.4
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25498407.915,
+              6676340.509
+            ],
+            [
+              25498404.407,
+              6676346.399
+            ],
+            [
+              25498406.847,
+              6676347.852
+            ],
+            [
+              25498410.355,
+              6676341.963
+            ],
+            [
+              25498407.915,
+              6676340.509
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "class": "truck",
+        "status": "added",
+        "confidence": null,
+        "aoi": "r1-kylasaari",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "length_m": 6.85,
+        "width_m": 2.84,
+        "heading_deg": 149.2
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25498424.352,
+              6676345.173
+            ],
+            [
+              25498421.597,
+              6676350.822
+            ],
+            [
+              25498423.879,
+              6676351.935
+            ],
+            [
+              25498426.634,
+              6676346.286
+            ],
+            [
+              25498424.352,
+              6676345.173
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "class": "van",
+        "status": "added",
+        "confidence": null,
+        "aoi": "r1-kylasaari",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "length_m": 6.29,
+        "width_m": 2.54,
+        "heading_deg": 154
+      }
     }
   ]
 }

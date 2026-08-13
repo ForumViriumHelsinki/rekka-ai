@@ -5746,6 +5746,211 @@
         "status": "confirmed",
         "class": "car"
       }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25495687.207,
+              6672117.021
+            ],
+            [
+              25495682.795,
+              6672114.086
+            ],
+            [
+              25495681.357,
+              6672116.247
+            ],
+            [
+              25495685.769,
+              6672119.182
+            ],
+            [
+              25495687.207,
+              6672117.021
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "class": "car",
+        "status": "added",
+        "confidence": null,
+        "aoi": "r1-jatkasaari",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "length_m": 5.3,
+        "width_m": 2.6,
+        "heading_deg": 56.4
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25495692.104,
+              6672120.191
+            ],
+            [
+              25495688.176,
+              6672117.302
+            ],
+            [
+              25495686.579,
+              6672119.474
+            ],
+            [
+              25495690.506,
+              6672122.363
+            ],
+            [
+              25495692.104,
+              6672120.191
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "class": "car",
+        "status": "added",
+        "confidence": null,
+        "aoi": "r1-jatkasaari",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "length_m": 4.88,
+        "width_m": 2.7,
+        "heading_deg": 53.7
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25495674.186,
+              6671971.713
+            ],
+            [
+              25495674.203,
+              6671967.694
+            ],
+            [
+              25495672.107,
+              6671967.685
+            ],
+            [
+              25495672.09,
+              6671971.704
+            ],
+            [
+              25495674.186,
+              6671971.713
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "class": "car",
+        "status": "added",
+        "confidence": null,
+        "aoi": "r1-jatkasaari",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "length_m": 4.02,
+        "width_m": 2.1,
+        "heading_deg": 179.8
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25495669.786,
+              6671946.982
+            ],
+            [
+              25495666.845,
+              6671942.671
+            ],
+            [
+              25495665.114,
+              6671943.852
+            ],
+            [
+              25495668.054,
+              6671948.163
+            ],
+            [
+              25495669.786,
+              6671946.982
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "class": "car",
+        "status": "added",
+        "confidence": null,
+        "aoi": "r1-jatkasaari",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "length_m": 5.22,
+        "width_m": 2.1,
+        "heading_deg": 34.3
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25495597.345,
+              6671956.197
+            ],
+            [
+              25495597.89,
+              6671948.177
+            ],
+            [
+              25495594.801,
+              6671947.967
+            ],
+            [
+              25495594.256,
+              6671955.987
+            ],
+            [
+              25495597.345,
+              6671956.197
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "class": "truck",
+        "status": "added",
+        "confidence": null,
+        "aoi": "r1-jatkasaari",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "length_m": 8.04,
+        "width_m": 3.1,
+        "heading_deg": 176.1
+      }
     }
   ]
 }

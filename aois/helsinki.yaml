@@ -222,3 +222,110 @@ aois:
       Roihupelto metro and tram depots — rolling stock on the tracks is not
       labelled at all, however truck-shaped it looks from above. The service
       vehicles and vans around the halls are labelled as usual.
+
+  # ---------------------------------------------------------------------------
+  #  round four aois
+  # ---------------------------------------------------------------------------
+  - name: r4-kruununhaka
+    bbox: [385425, 6671250, 385725, 6671550]
+    role: positive
+    split: train
+    notes: >-
+      Downtown Kruununhaka, by Senate Square — old blocks, tram tracks, deep
+      building shadow across the streets. Candidates are from the round-3
+      weights (detect, conf 0.25): ~170, mostly parked cars, with misses in
+      the deep shadows — add those by hand where readable. A shape in shadow
+      whose class cannot be called with confidence is a reject, never a
+      guess. Trams are not labelled.
+
+  #  van-mined cells (docs/rounds.md, 2026-08-13): the top of
+  #  data/mining/van-candidates-combined.yaml, one per shared yard, aimed at
+  #  the truck/van confusion — every cell is dense in the 4-8 m band.
+  - name: r4-tattarisuo
+    bbox: [392100, 6681900, 392400, 6682200]
+    role: positive
+    split: train
+    notes: >-
+      Tattarisuo, Tuulilasintie — van-mined (z17 industrial sweep): 66 van
+      detections (62 at conf>=0.5). Classify the truck/van band carefully:
+      cab that stops and a load body that starts is a truck, one continuous
+      shell is a van.
+
+  - name: r4-tapulikaupunki
+    bbox: [390600, 6684600, 390900, 6684900]
+    role: positive
+    split: train
+    notes: >-
+      Tapulikaupunki, Aamuruskontie — van-mined (z16 sweep of commercial
+      landuse): 63 van detections (63 at conf>=0.5). Classify the truck/van
+      band carefully.
+
+  - name: r4-konala
+    bbox: [380700, 6679800, 381000, 6680100]
+    role: positive
+    split: train
+    notes: >-
+      Konala, Ajomiehentie — van-mined (z16 sweep of commercial landuse): 48
+      van detections (45 at conf>=0.5). Classify the truck/van band
+      carefully.
+
+  - name: r4-laippatie
+    bbox: [392100, 6676200, 392400, 6676500]
+    role: positive
+    split: train
+    notes: >-
+      Roihupelto retail, Laippatie — van-mined (z16 sweep of commercial
+      landuse): 45 van detections (44 at conf>=0.5). Classify the truck/van
+      band carefully.
+
+  - name: r4-hernesaari
+    bbox: [384900, 6670200, 385200, 6670500]
+    role: positive
+    split: train
+    notes: >-
+      Hernesaari, Laivakatu — van-mined (z16 sweep of construction
+      landuse): 34 van detections (32 at conf>=0.5). Active construction
+      ground: keep working rigs and vans, reject plant and stored
+      equipment. Classify the truck/van band carefully.
+
+  - name: r4-herttoniemi-n
+    bbox: [391500, 6675300, 391800, 6675600]
+    role: positive
+    split: train
+    notes: >-
+      Herttoniemen yritysalue north, Teollisuusneuvoksenkatu — found by both
+      van-mining runs (z17 industrial: 32 detections; z16 construction: 33).
+      Classify the truck/van band carefully.
+
+  - name: r4-mustavuori
+    bbox: [398567, 6680039, 398867, 6680339]
+    role: hard-negative
+    split: validation
+    notes: >-
+      Mustavuori forest — pure canopy and rock outcrops; a road and field
+      skirt the NE corner but stay outside the cell. No candidates are
+      staged (hard-negative role): if anything vehicle-like turns up, add a
+      box; otherwise the area needs no work. This is validation's negative
+      ground — the point is that there is nothing here.
+
+  - name: r4-kapyla
+    bbox: [386552, 6676755, 386852, 6677055]
+    role: sparse
+    split: validation
+    notes: >-
+      Käpylä apartment rows — red-brick blocks in mature greenery, courtyard
+      parking pockets, little through traffic. This is validation's
+      residential ground: label every car you can read (the negative check
+      forgives only labelled vehicles), reject anything the tree canopy
+      hides. Trains on the rail corridor at the southern edge are not
+      labelled.
+
+  - name: r4-orakas
+    bbox: [393300, 6682800, 393600, 6683100]
+    role: positive
+    split: validation
+    notes: >-
+      Orakas, Heikinlaakso — a small industrial estate embedded in housing:
+      little halls and contractor yards with trucks and trailers scattered
+      among homes. Bare trailers with no tractor are negatives; a coupled
+      rig is one box. Cars in the yards are labelled as usual.
