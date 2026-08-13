@@ -8,13 +8,13 @@ proposes the next batch on new ground.
 
 ```mermaid
 flowchart TD
-    fetch[fetch<br>orthophoto tiles] --> bootstrap[bootstrap<br>zero-shot pre-labels]
-    bootstrap --> stage[stage<br>per-area label files]
-    stage --> review[web/<br>human review]
-    review --> export[export<br>YOLO-OBB dataset]
-    export --> train[train<br>fine-tune, MLflow]
-    train --> eval[eval<br>operational gates]
-    eval --> detect[detect<br>new ground]
+    fetch["fetch<br/>orthophoto tiles"] --> bootstrap["bootstrap<br/>zero-shot pre-labels"]
+    bootstrap --> stage["stage<br/>per-area label files"]
+    stage --> review["web/<br/>human review"]
+    review --> export["export<br/>YOLO-OBB dataset"]
+    export --> train["train<br/>fine-tune, MLflow"]
+    train --> eval["eval<br/>operational gates"]
+    eval --> detect["detect<br/>new ground"]
     detect --> stage
 ```
 
