@@ -3,9 +3,7 @@
 import json
 from pathlib import Path
 
-import geopandas
 import httpx
-import pandas as pd
 import pytest
 from shapely.geometry import LineString, Point, Polygon
 
@@ -126,6 +124,7 @@ def test_fetch_layer_error_is_not_retried(tmp_path: Path) -> None:
 
 
 def test_layer_frame_has_the_project_grid_crs(tmp_path: Path) -> None:
+    pytest.importorskip("geopandas")  # optional 'detect' extra
     payload = _feature_collection(
         [_polygon_feature({DISTRICT_NAME_COLUMN: "MEILAHTI"}, SQUARE_RING)]
     )
@@ -143,6 +142,8 @@ def test_layer_frame_has_the_project_grid_crs(tmp_path: Path) -> None:
 
 
 def test_attach_area_attribute_matches_by_centroid_within_the_polygon() -> None:
+    geopandas = pytest.importorskip("geopandas")  # optional 'detect' extra
+    pd = pytest.importorskip("pandas")  # geopandas dependency, same extra
     areas = geopandas.GeoDataFrame(
         [{DISTRICT_NAME_COLUMN: "MEILAHTI", "geometry": SQUARE}], crs=GRID
     )
@@ -159,6 +160,8 @@ def test_attach_area_attribute_matches_by_centroid_within_the_polygon() -> None:
 
 
 def test_attach_nearest_street_respects_max_distance() -> None:
+    geopandas = pytest.importorskip("geopandas")  # optional 'detect' extra
+    pd = pytest.importorskip("pandas")  # geopandas dependency, same extra
     streets = geopandas.GeoDataFrame(
         [
             {
@@ -181,6 +184,7 @@ def test_attach_nearest_street_respects_max_distance() -> None:
 
 
 def test_intersects_any_flags_only_overlapping_detections() -> None:
+    geopandas = pytest.importorskip("geopandas")  # optional 'detect' extra
     parking = geopandas.GeoDataFrame(
         [{"geometry": Polygon([(0, 0), (50, 0), (50, 100), (0, 100)])}], crs=GRID
     )
@@ -211,6 +215,8 @@ def test_enrich_end_to_end_with_a_prepopulated_cache(tmp_path: Path) -> None:
     degrees -- exactly the round trip geo.py's crs_member() exists to avoid
     for this project's own files. GeoPackage has no such default.
     """
+    geopandas = pytest.importorskip("geopandas")  # optional 'detect' extra
+    pd = pytest.importorskip("pandas")  # geopandas dependency, same extra
     cache_root = tmp_path / "wfs"
     cache_root.mkdir()
     fixtures = {
