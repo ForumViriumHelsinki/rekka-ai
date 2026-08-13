@@ -1036,7 +1036,7 @@ def detect(
         typer.Option(
             help="Minimum detection confidence. eval picks this from the PR curve."
         ),
-    ] = 0.15,  # eval-round1's operating point; re-check with each round's eval
+    ] = 0.15,  # follows eval's operating point (round 1: 0.108 in the 2026-08 replay); re-check each round
     name: Annotated[
         str | None, typer.Option(help="Select one AOI from a collection.")
     ] = None,

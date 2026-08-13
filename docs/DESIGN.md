@@ -1,16 +1,13 @@
 # rekka-ai — pipeline design
 
 Status: the full loop is built — `rekka-ai fetch`, `aois`, `bootstrap`,
-`stage`, `progress`, `export`, `train`, `eval`, `detect`, plus the `web/`
-labelling tool. The loop was proven over two recorded rounds on an earlier,
-over-large collection — round 1 passed the recall gate and failed precision
-on truck/van confusion; round 2 proved the loop closes — told in
-`docs/rounds.md`. The collection has since been restructured into small
-plots (currently 27 areas, 23 train / 4 validation) and `labels/` wiped for
-a fresh start. Three rounds have run on it. Round 3 **passes four of the five
-gates** — truck recall 0.910, truck precision 0.956, the kaivoksela count and
-the negative check — and fails the jatkasaari count at −13%, under-counting.
-See `docs/rounds.md`.
+`stage`, `progress`, `export`, `train`, `eval`, `detect`, `mine`, plus the
+`web/` labelling tool. The collection holds 27 areas (23 train /
+4 validation). Three rounds have trained on it, and round 3 passes all
+three ship gates (§7): truck recall 0.904, truck precision 0.884, the
+kaivoksela count at +5%. The dated history — the earlier over-large
+collection, the restructure into small plots, the per-round numbers — is
+in `docs/rounds.md`.
 
 ## 1. What this is
 
@@ -261,14 +258,12 @@ Consequences:
   on truck-shaped objects is exactly what could start pulling containers in, so
   these areas are cheap insurance against a regression rather than dead weight.
 
-**What happened next is in `docs/rounds.md`:** the prediction held — the
-fine-tuned model produced 11 detections across the negative areas, and
-`vuosaari` was retired. The `hard-negative` role was refilled in train:
-`r1-marjaniemi` (a marina — boat hulls on cradles are the most truck-like
-presentation in the collection). `r1-rastila` (van-fronted motorhomes)
-briefly held the role in validation, but review turned up real trucks and
-vans among the RVs, so it moved to `positive`/train — validation currently
-has no `hard-negative` area for the regression check to measure against.
+The prediction held — the dated story is in `docs/rounds.md`. The present
+state: the `hard-negative` role is held by `r1-marjaniemi` (a marina — boat
+hulls on cradles are the most truck-like presentation in the collection) and
+`r2-vuosaari-harbour-road` (a container terminal), both in train, so
+validation has no `hard-negative` area for the regression check to measure
+against (§11).
 
 ### The length gate is a noise floor, not a class exclusion
 
@@ -524,18 +519,22 @@ labels become pixel labels, so its rules are strict:
   clamped, distorted label.
 - **`rejected` is not a label.** Those windows export anyway, so a rejected
   container or van-fronted lookalike teaches "background" rather than
-  vanishing. `hard-negative` and `sparse` areas have no label file at all and
-  export as pure background windows.
-- **Refuses to run dirty:** any unreviewed candidate or schema problem
-  (`labels.validate`) blocks the export — pixel labels are baked to a zoom and
-  tiling, so errors baked with them are expensive to find later.
+  vanishing. `hard-negative` and `sparse` areas export as pure background
+  windows; their reviewed label files record the non-target vehicles the
+  ground really holds — what the negative-area check forgives detections
+  against — and a missing file for these roles is tolerated.
+- **Refuses to run dirty:** any unreviewed candidate, schema problem
+  (`labels.validate`), or box whose centre has drifted outside its area
+  (`labels.displaced`) blocks the export — pixel labels are baked to a zoom
+  and tiling, so errors baked with them are expensive to find later.
 
 `train` fine-tunes the bootstrap weights on the exported dataset — Ultralytics
 owns the loop, MLflow owns the record (see Experiment tracking). Defaults are
-the dataset's own 1024 px windows and autobatch; on a small or display-shared
-GPU, pass `--batch 2` — autobatch sizes to free memory and can still OOM in
-the validation pass (`PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True` is set
-by the command, which helps but is not magic). Needs the `train` extra.
+the dataset's own 1024 px windows and batch 4; autobatch (`--batch -1`) sizes
+to free memory but measured badly here, so it is deliberately not the default.
+On a small or display-shared GPU, pass `--batch 2`
+(`PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True` is set by the command,
+which helps but is not magic). Needs the `train` extra.
 
 `progress` reports reviewed/total per area, class tallies, a per-area
 rejection rate (`rejected / (confirmed + rejected)`, `added` excluded since a
@@ -629,7 +628,7 @@ different questions:
    - negative-role areas: **reported, not gated** since 2026-08-11. The check
      counts *unexplained* detections — ones matching no vehicle the area really
      holds, since a negative area is negative about **targets**, not empty
-     (`r1-puotinharju` has 93 confirmed cars). Class is ignored in the match:
+     (`r1-puotinharju` has 107 confirmed cars). Class is ignored in the match:
      the question is whether the model invented a vehicle, not whether it named
      it right. Rejected boxes forgive nothing. It was a gate at ≤ 2 until three
      seeds of one dataset produced **1, 7 and 3** — a quantity noisier than its
@@ -647,8 +646,9 @@ different questions:
    sweep would ever report (2026-08-11).
 
    The operating confidence is chosen from the PR curve, not left at the 0.25
-   default. Whatever is chosen is logged to MLflow and becomes `detect`'s
-   confidence, so the number eval reports is the number detect reproduces.
+   default. Whatever is chosen is logged to MLflow; `detect`'s default
+   confidence follows it by hand (currently 0.15 — re-check against each
+   round's eval), so the number eval reports is the number a sweep ships at.
    The search never picks below `--min-confidence` (default 0.05, even as
    the F1 fallback): a curve whose recall only clears the gate at conf≈0 has
    found "keep every raw proposal," not an operating point, so the recall
@@ -662,11 +662,11 @@ the validation split before trusting them with a big decision.
 **An area too small to gate must not gate.** A 10% count error over an area
 holding 8 trucks is 0.8 of a truck: the area passes or fails on a single
 box, which measures the imagery rather than the model. `count_gate` therefore
-skips any area below `GATE_COUNT_MIN_TRUCKS` — derived rather than picked, as
-`1 / GATE_COUNT_ERROR` = 10 trucks, the point where the tolerance first
-covers a whole box — and reports its count without a verdict. The no-trucks
-case goes the same way: a bus yard holding no trucks says nothing about
-truck counting either. That leaves no blind spot, because a false positive
+skips any area below `GATE_COUNT_MIN_TRUCKS` — the measured floor of 60
+above, where the 10% tolerance first exceeds the seed noise — and reports its
+count without a verdict. The no-trucks case goes the same way: a bus yard
+holding no trucks says nothing about truck counting either. That leaves no
+blind spot, because a false positive
 anywhere in the split still lands on the precision gate, which is measured
 over every validation window.
 
@@ -683,13 +683,13 @@ where a wrong class is one noisy example among many rather than a verdict.
 
 `r1-veturitie` took over the held-out bus job the same day, on the opposite
 principle: it is the cleanest imagery in the collection, so its ground truth
-can be trusted, which is what a held-out area needs most. It holds ~70 buses
-and few trucks, so the floor above is what keeps it from distorting the
+can be trusted, which is what a held-out area needs most. It holds 56 buses
+and one truck, so the floor above is what keeps it from distorting the
 count gate — the two changes are one decision.
 
 Validation is now four areas: `r1-kaivoksela`, `r1-jatkasaari`,
 `r1-pohjois-haaga`, `r1-veturitie`. It is thinner than that sounds — at the
-finished round `r1-kaivoksela` alone holds 106 of validation's 121 trucks
+finished round `r1-kaivoksela` alone holds 107 of validation's 123 trucks
 and `r1-pohjois-haaga` holds none, so the truck gates rest almost
 entirely on one area. `r1-veturitie` widens the *bus* side, not the truck
 side; a second truck-dense, cleanly-imaged validation area is still the
@@ -724,8 +724,9 @@ After a round is trained and evaluated, the next labelling batch should come
 from where the model is uncertain or wrong — not from another hand-picked
 yard. `mine` does that:
 
-1. Fetch (and cache under `data/osm/`) OpenStreetMap `landuse=industrial`
-   polygons inside Helsinki (municipal `ref=091`), via one Overpass query with
+1. Fetch (and cache under `data/osm/`) the OpenStreetMap landuse polygons of
+   the selected `--profile` (`industrial` by default; `PROFILES` in `osm.py`)
+   inside Helsinki (municipal `ref=091`), via one Overpass query with
    an identifying User-Agent. Attribution: © OpenStreetMap contributors.
 2. Grid them into 300 m cells in EPSG:3067, anchored at the national origin so
    indices are stable. Drop cells that overlap the existing collection (plus a
@@ -743,12 +744,15 @@ yard. `mine` does that:
 Helsinki only. The current `Ortoilmakuva_2025_5cm` WMTS covers Helsinki; public
 HSY metro imagery for Espoo/Vantaa is a different provider and resolution
 (2023, 25 cm open mosaic) and needs its own imagery abstraction before those
-municipal codes can be enabled. Profile definitions in `osm.PROFILES` are
-extensible for warehouse / depot / marina / camping confusers later.
+municipal codes can be enabled. Beyond the default `industrial`, `PROFILES`
+already carries `commercial`, `construction` and `camping` — added for
+class-targeted mining (van hunting lives in commercial ground) — and is
+extensible for warehouse / depot / marina confusers later.
 
-Round 1's numbers are in `docs/rounds.md`; the shape matters more than the
-decimals: the recall gate was met, precision failed on truck/van confusion
-at the short end, and the §4 container prediction held.
+The recorded rounds are in `docs/rounds.md`; the failure shape that motivates
+mining is precision lost to truck-shaped background — containers, stored
+bodies, trailers — which more *windows* of that geography fix, not more
+labels on the same ground.
 
 ### Fetch etiquette
 
@@ -815,7 +819,7 @@ properties, each feature carries two editable fields:
 The state machine is small on purpose:
 
 ```
-candidate ──T/B/V──> confirmed (class set)
+candidate ──T/B/V/C──> confirmed (class set)
     └──────X───────> rejected  (class cleared)
 (drawn by hand) ───> added     (class set at creation)
 ```
@@ -942,7 +946,7 @@ possible without separate bookkeeping.
   and far wider than a 128 m window, so no window straddles the split; the
   risk is shared character, not shared pixels. The last pair is the one that
   really carries that risk — two bus depots of the same operator (§5).
-- *A thin validation split.* Three areas, and one of them (`r1-kaivoksela`)
+- *A thin validation split.* Four areas, and one of them (`r1-kaivoksela`)
   holds most of the trucks. See §7 — the gates read trends, not decimals.
 - *Validation used to be blind to negatives.* Partly resolved since the
   original assessment: `r1-marjaniemi` (a marina — boat hulls on cradles)
@@ -1026,7 +1030,7 @@ Details that make it usable rather than merely correct:
   Every shape edit rebuilds the ring from its centreline rather than moving
   vertices, so a box can never stop being a rectangle — `labels.validate`
   rejects anything else at export.
-- Almost nothing animates. `T`/`B`/`V`/`X`/`N`/`P` are the hot path and get
+- Almost nothing animates. `T`/`B`/`V`/`C`/`X`/`N`/`P` are the hot path and get
   pressed hundreds of times a session; animating them would make every one feel
   slow. Motion is confined to what you see occasionally — switching area, the
   progress meter, press feedback.
@@ -1062,14 +1066,13 @@ browser is read back by Python as 16.0 × 3.0 m.
 
 ## 11. Next step
 
-The loop is closed and proven on the old collection; on the new one it has
-run only as far as staging. What remains is doing it well:
+The loop is closed and proven on the rebuilt collection. What remains is
+doing it well:
 
-1. **Finish the fresh-start labelling round.** In progress now — bootstrap,
-   stage, review over the current 21 areas (17 train / 4 validation), in
-   small chunks rather than 6 km² sweeps. The confirmed/rejected ratio per
-   chunk is the signal for whether more ground of that character is worth
-   sweeping at all. Review can run on a branch while other work continues on
+1. ~~**Finish the fresh-start labelling round.**~~ **Done** — three rounds
+   trained and evaluated on the rebuilt collection (now 27 areas, 23 train /
+   4 validation); round 3 passes all three gates (`docs/rounds.md`). Review
+   can run on a branch while other work continues on
    `main`: since the label files stopped churning (§2), two people editing
    different areas touch disjoint files, and two people editing the *same*
    area touch a few `status`/`class` lines that merge cleanly. Under the old
@@ -1083,13 +1086,14 @@ run only as far as staging. What remains is doing it well:
    gives training its first `hard-negative` area, but `r1-rastila` — which
    briefly gave validation one — moved to `positive`/train once review
    turned up real trucks and vans, so validation currently has no negative
-   area for the regression gate to measure against. `r1-kamppi` moved to
+   area for the regression check to measure against. `r1-kamppi` moved to
    train and `r1-veturitie` replaced it (§7), which fixes the bus side but
    not the truck side: `r1-kaivoksela` still holds nearly all of validation's
    trucks, so the truck gates rest on one area. **Widen validation with a
    second truck-dense, cleanly-imaged area** before the gates decide anything
    big. What `rekka-ai aois`
-   still warns about is `sparse` ground in validation. Model-mined proposals
+   still warns about is validation missing the `hard-negative` and `sparse`
+   roles. Model-mined proposals
    stay in `split: train` on purpose — do not promote them into validation
    without a separate, untouched hold-out plan.
 4. ~~**Hold the toolchain bump for between batches.**~~ **Done** (2026-08-07,
