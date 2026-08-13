@@ -17,6 +17,15 @@ from rekka_ai.detect.sweep import (
     YoloObb,
     sweep,
 )
+from rekka_ai.enrich import (
+    CACHE_DIR as DEFAULT_WFS_CACHE,
+)
+from rekka_ai.enrich import (
+    STREET_MAX_DISTANCE_M,
+)
+from rekka_ai.enrich import (
+    enrich as run_enrich,
+)
 from rekka_ai.evaluate import (
     GATE_PRECISION,
     GATE_RECALL,
@@ -296,6 +305,60 @@ def bootstrap(
     except ValueError as exc:
         raise typer.BadParameter(str(exc)) from exc
     typer.echo(f"done: {len(found)} candidates -> {out} in {_elapsed(start)}")
+
+
+@app.command()
+def enrich(
+    detections: Annotated[
+        Path,
+        typer.Option(help="Detections GeoJSON/FlatGeobuf/GeoPackage from detect."),
+    ],
+    out: Annotated[
+        Path,
+        typer.Option(
+            help="Output file for enriched detections: .geojson, .fgb or .gpkg."
+        ),
+    ],
+    wfs_cache: Annotated[
+        Path, typer.Option(help="Directory for cached WFS layers.")
+    ] = DEFAULT_WFS_CACHE,
+    refresh_wfs: Annotated[
+        bool,
+        typer.Option(
+            help="Re-fetch WFS layers (districts, postal areas, streets, parking)."
+        ),
+    ] = False,
+    street_max_distance: Annotated[
+        float,
+        typer.Option(
+            help="How far (metres) a detection's centre may be from the nearest "
+            "street and still be attributed to it."
+        ),
+    ] = STREET_MAX_DISTANCE_M,
+) -> None:
+    """Add district/postal_code/street/parked attributes from Helsinki's open WFS.
+
+    Reads detect's output and joins in attributes from *other* datasets --
+    detection-derived numbers (length_m, width_m, heading_deg) are untouched.
+    WFS layers are cached under --wfs-cache so a re-run does not depend on
+    the network; --refresh-wfs re-fetches. Needs the 'detect' extra
+    (uv sync --extra detect), for geopandas.
+    """
+    if not detections.exists():
+        raise typer.BadParameter(f"no detections file at {detections}")
+
+    start = time.monotonic()
+    try:
+        run_enrich(
+            detections,
+            out,
+            cache_root=wfs_cache,
+            refresh_wfs=refresh_wfs,
+            street_max_distance_m=street_max_distance,
+        )
+    except ValueError as exc:
+        raise typer.BadParameter(str(exc)) from exc
+    typer.echo(f"done: enriched {detections} -> {out} in {_elapsed(start)}")
 
 
 @app.command()
