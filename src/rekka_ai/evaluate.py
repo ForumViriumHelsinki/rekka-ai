@@ -254,7 +254,7 @@ def unexplained(
     The regression check asks "has fine-tuning started pulling lookalikes in",
     and the honest way to count that is to forgive every detection sitting on
     a vehicle the area really holds. A negative area is negative about
-    *targets*, not empty: `r1-puotinharju` holds 93 cars and 5 vans,
+    *targets*, not empty: `r1-puotinharju` holds 107 cars and 5 vans,
     `r1-marjaniemi` two vans. Counting raw detections marked a model down by
     an order of magnitude for being right about them (docs/rounds.md,
     2026-08-11).

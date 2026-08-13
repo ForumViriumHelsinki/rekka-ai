@@ -40,9 +40,9 @@ Two parts, two licenses:
   install — and CI — has none of them, and that is intentional: `fetch` and
   `aois` must stay usable without a multi-gigabyte install. `pyproject.toml`
   has `[[tool.ty.overrides]]` ignoring `unresolved-import` in exactly the
-  files that do lazy imports (`detect/sweep.py`, `evaluate.py`,
-  `imagery/aoi.py`, `track.py`, `train.py`). If you add lazy imports of
-  optional deps, extend that list — do not make the imports eager.
+  files that do lazy imports (`detect/sweep.py`, `detect/detections.py`,
+  `evaluate.py`, `imagery/aoi.py`, `track.py`, `train.py`). If you add lazy
+  imports of optional deps, extend that list — do not make the imports eager.
 - Dev tools (uv dependency group `dev`): pytest, pytest-cov, ruff, ty.
 - **MLflow.** Local tracking store is `runs/mlflow.db` (`track.py` is the
   single place that configures it; `MLFLOW_TRACKING_URI` overrides). Agents
@@ -55,7 +55,7 @@ src/rekka_ai/
   cli.py               # thin typer layer; every command lives here
   geo.py               # CRS transforms — the ONE place they happen
   labels.py            # label schema, measurements (always recomputed), validation
-  evaluate.py          # ship gates: recall ≥ 0.90, precision ≥ 0.85, counts, negatives
+  evaluate.py          # ship gates: recall ≥ 0.90, precision ≥ 0.85, counts; negatives reported
   export.py            # geographic labels -> YOLO-OBB pixel dataset (the only such place)
   train.py             # Ultralytics fine-tuning wrapper
   track.py             # MLflow configuration — single place; runs/mlflow.db, MLFLOW_TRACKING_URI overrides
@@ -88,11 +88,12 @@ when changing either side**: `grid.ts` ↔ `imagery/tiles.py` (tile grid),
 
 ### Data and configuration
 
-- `aois/helsinki.yaml` — the AOI collection (20 areas, 15 train / 5
-  validation), in **EPSG:3067**, with `role` (`positive` | `hard-negative` |
-  `sparse`) and `split` (`train` | `validation`) per area. `crs` is required
-  and always wins over `--crs`. The per-area `notes` *are* the annotation
-  guide — the web tool displays them beside the map.
+- `aois/helsinki.yaml` — the AOI collection (27 areas as of 2026-08, 23
+  train / 4 validation — the count grows each round; `rekka-ai aois` reports
+  the current shape), in **EPSG:3067**, with `role` (`positive` |
+  `hard-negative` | `sparse`) and `split` (`train` | `validation`) per area.
+  `crs` is required and always wins over `--crs`. The per-area `notes` *are*
+  the annotation guide — the web tool displays them beside the map.
 - `labels/<aoi>.geojson` — one file per area, **EPSG:3879** declared via a
   `crs` member. Feature properties: `class` (`""`/`truck`/`bus`/`van`/`car`)
   and `status` (`candidate`/`confirmed`/`rejected`/`added`).
@@ -106,10 +107,12 @@ when changing either side**: `grid.ts` ↔ `imagery/tiles.py` (tile grid),
 ### Round-N AOI mining (`mine`)
 
 After a trained round exists, do not hand-pick the next yards. `rekka-ai mine`
-proposes new 300 m training AOIs from cached OpenStreetMap
-`landuse=industrial` geometry and the current weights (near-threshold,
-truck/van-band, dense, and quiet strata). It writes a proposal YAML + GeoJSON
-report under `data/mining/` and **never** edits `aois/` or `labels/`. Helsinki
+proposes new 300 m training AOIs from cached OpenStreetMap landuse geometry
+and the current weights (near-threshold, truck/van-band, dense, and quiet
+strata). `--profile` selects the OSM landuse profile (`industrial` default,
+plus `commercial`, `construction`, `camping` — `PROFILES` in `osm.py`). It
+writes a proposal YAML + GeoJSON report under `data/mining/` and **never**
+edits `aois/` or `labels/`. Helsinki
 only: the 2025 5 cm WMTS covers Helsinki (`ref=091`); Espoo/Vantaa wait on an
 HSY imagery source. OSM responses live in `data/osm/` (gitignored);
 `--refresh-osm` re-fetches. Attribution: © OpenStreetMap contributors.
@@ -143,8 +146,6 @@ bun run lint                 # prettier --check
 CI (`.github/workflows/ci.yml`, on PRs and pushes to main) runs **both**:
 the Python four (ruff check, ruff format --check, ty check, pytest) and the
 web three (bun run lint, check, test). Run all of them before pushing.
-(Note: `README.md` still says the web checks are not in CI — it is stale; the
-`web` job exists.)
 
 ## Code style and conventions
 
@@ -206,8 +207,10 @@ web three (bun run lint, check, test). Run all of them before pushing.
 - **Measurements (`length_m`, `width_m`, `heading_deg`) are always recomputed
   from geometry**, never trusted from a file.
 - **Rejects are kept, not deleted** — rejected candidates are the project's
-  hard negatives. `hard-negative`/`sparse` areas have no label file and
-  export as pure background.
+  hard negatives. `hard-negative`/`sparse` areas export as pure background;
+  their label files (reviewed, like any other area) record the non-target
+  vehicles the ground really holds, which is what the negative-area check
+  forgives detections against. A missing file for these roles is tolerated.
 - **The pipeline is deterministic**: same collection + same weights + same
   zoom → same candidates. The tile cache never invalidates (past flight years
   never change).

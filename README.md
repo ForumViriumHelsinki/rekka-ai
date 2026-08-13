@@ -8,13 +8,13 @@ proposes the next batch on new ground.
 
 ```mermaid
 flowchart TD
-    fetch[fetch<br>orthophoto tiles] --> bootstrap[bootstrap<br>zero-shot pre-labels]
-    bootstrap --> stage[stage<br>per-area label files]
-    stage --> review[web/<br>human review]
-    review --> export[export<br>YOLO-OBB dataset]
-    export --> train[train<br>fine-tune, MLflow]
-    train --> eval[eval<br>operational gates]
-    eval --> detect[detect<br>new ground]
+    fetch["fetch<br/>orthophoto tiles"] --> bootstrap["bootstrap<br/>zero-shot pre-labels"]
+    bootstrap --> stage["stage<br/>per-area label files"]
+    stage --> review["web/<br/>human review"]
+    review --> export["export<br/>YOLO-OBB dataset"]
+    export --> train["train<br/>fine-tune, MLflow"]
+    train --> eval["eval<br/>operational gates"]
+    eval --> detect["detect<br/>new ground"]
     detect --> stage
 ```
 
@@ -82,7 +82,7 @@ uv run rekka-ai bootstrap --aoi aois/helsinki.yaml --name r1-tattariharjuntie \
 
 # Every area with a given role — the labelling batch
 uv run rekka-ai bootstrap --aoi aois/helsinki.yaml --role positive \
-    --min-length 4.0 --out data/candidates/round1.geojson
+    --out data/candidates/round1.geojson
 ```
 
 A whole labelling batch is named by **round** — a single-area peek by its area,
@@ -91,11 +91,11 @@ nothing, and the areas are in the file anyway: each feature carries its `aoi`,
 which the collection maps back to a role. What a file cannot tell you is which
 model proposed its boxes, and that is what the round number records.
 
-The labelling batch uses `--min-length 4.0` rather than the 6 m default: vans
-are a labelled class of their own, and the 5–6 m band is exactly where they
-live — over the current 17 positive areas that is 713 candidates at 4.0 m
-against 559 at 6 m, so a quarter of the batch would otherwise never be seen.
-See docs/DESIGN.md §5.
+The length floor defaults to 4.0 m rather than 6 m because vans are a labelled
+class of their own, and the 5–6 m band is exactly where they live — measured
+over the 17 round-1 positive areas, that is 713 candidates at 4.0 m against
+559 at 6 m, so a quarter of the batch would otherwise never be seen. See
+docs/DESIGN.md §5.
 
 Output is a GeoJSON of oriented polygons carrying `length_m`, `width_m`,
 `heading_deg`, `confidence`, and the source layer. Coordinates are **EPSG:3879**
@@ -142,6 +142,7 @@ Click an area, then:
 | wheel | vehicle width once the tail is set, while drawing |
 | `Esc` | redo the in-progress sketch, or stop drawing |
 | drag | move the selected box |
+| drag an end handle | resize the selected box from that end only |
 | `⇧` scroll | width of the selected box |
 | `↑` / `↓` | length of the selected box (`⇧` coarse) |
 | `←` / `→` | rotate the selected box (`⇧` coarse) |
@@ -159,9 +160,10 @@ The surrounding areas are drawn on the map too, in a quieter outline with their
 name. Clicking one opens it, so moving to the next area does not mean going back
 to the sidebar.
 
-An area with `role: hard-negative` — currently just `r1-marjaniemi`, a marina —
-is there for what it does *not* contain: its imagery exports as background, so
-the model learns that moored boats and hulls on cradles are not trucks. It is
+An area with `role: hard-negative` — currently `r1-marjaniemi`, a marina, and
+`r2-vuosaari-harbour-road`, a container terminal — is there for what it does
+*not* contain: its imagery exports as background, so the model learns that
+moored boats, hulls on cradles and stacked containers are not trucks. It is
 still reviewed like any other area, because a negative square usually turns out
 to hold a few real vehicles anyway (marjaniemi has two vans). See
 docs/DESIGN.md §5.
@@ -187,7 +189,7 @@ the loop, MLflow owns the record (`runs/mlflow.db`). Needs the `train` extra:
 
 ```sh
 uv sync --extra train
-uv run rekka-ai train --name round1       # autobatch, dataset's own 1024 px windows
+uv run rekka-ai train --name round1       # batch 4, dataset's own 1024 px windows
 uv run rekka-ai train --batch 2           # small or display-shared GPU
 
 # Inspect runs
@@ -197,8 +199,10 @@ uv run mlflow ui --backend-store-uri sqlite:///runs/mlflow.db
 ### Evaluation, and the loop closing
 
 `eval` judges a weights file against the ship gates — truck recall ≥ 0.90 and
-precision ≥ 0.85 at a PR-chosen operating confidence, per-area counts within
-10%, negative-role areas silent (see docs/DESIGN.md §7):
+precision ≥ 0.85 at a PR-chosen operating confidence, and per-area counts
+within 10% where an area holds enough trucks for a count to gate (≥ 60).
+Detections on negative-role areas are reported as a regression check but never
+gate (see docs/DESIGN.md §7):
 
 ```sh
 uv run rekka-ai eval --weights runs/train/round1/weights/best.pt \
@@ -290,9 +294,16 @@ uv run rekka-ai mine \
 A real run writes `data/mining/round2.yaml` (collection-shaped proposals) and
 a sibling `.geojson` report with the signals that justified each pick. It
 **never edits** `aois/helsinki.yaml` or `labels/`. Review the GeoJSON, copy
-accepted entries into the collection, then `detect` and `stage`. Quiet cells
-(no detections) still need an empty label file before export — pass the
-proposal collection to stage:
+accepted entries into the collection, then `detect` and `stage`.
+
+The landuse profile defaults to OSM `landuse=industrial`; `--profile` selects
+another (`commercial`, `construction`, `camping` — see `PROFILES` in
+`src/rekka_ai/osm.py`), which is how class-targeted mining reaches ground the
+industrial profile misses, e.g. hunting more van training data in commercial
+areas.
+
+Quiet cells (no detections) still need an empty label file before export —
+pass the proposal collection to stage:
 
 ```sh
 uv run rekka-ai stage \
@@ -313,7 +324,7 @@ end to end — fetch the tiles, detect, split into per-area files, report:
 ```sh
 uv run rekka-ai fetch --aoi aois/helsinki.yaml
 uv run rekka-ai bootstrap --aoi aois/helsinki.yaml --role positive \
-    --min-length 4.0 --out data/candidates/round1.geojson
+    --out data/candidates/round1.geojson
 uv run rekka-ai stage --candidates data/candidates/round1.geojson
 uv run rekka-ai progress
 ```
