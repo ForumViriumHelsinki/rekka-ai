@@ -58,6 +58,7 @@ include = [
     "src/rekka_ai/imagery/aoi.py",
     "src/rekka_ai/track.py",
     "src/rekka_ai/train.py",
+    "tests/test_enrich.py",
 ]
 
 [tool.ty.overrides.rules]
