@@ -22,12 +22,15 @@ hand-editing — verified byte-identical to the recorded ablation YAMLs
 
 ```
 export  (collection + labels -> data/dataset-<tag>[-z17])
-train   (--data dataset.yaml --name roundN[-z17] --weights <previous round or bootstrap>)
+train   (--data dataset.yaml --name roundN[-z17])
 eval    (--collection aois/helsinki.yaml --weights runs/train/roundN/weights/best.pt --name eval-roundN)
 ```
 
-- Round 1 starts from `yolo11x-obb.pt`; rounds 2+ start from the previous
-  round's `best.pt`.
+- **Every round starts from `yolo11x-obb.pt`** — do NOT chain the previous
+  round's `best.pt`. The ablation varies only the training ground, and the
+  recorded runs confirm it: MLflow params show `model=yolo11x-obb.pt` for
+  round1, round2 and round3 alike (checked 2026-08-13). Chaining would make
+  the rounds non-comparable.
 - Defaults are deliberate: batch 4, seed 0, patience 30. Changing batch
   changes training dynamics — treat it as an experiment config, not a free
   speed knob, and re-baseline comparisons if you change it.
@@ -55,14 +58,17 @@ eval    (--collection aois/helsinki.yaml --weights runs/train/roundN/weights/bes
   the clean 6/12-run history is a presentation artifact; one-off
   experiments with ad-hoc names are what made the original store messy.
 
-## Interpreting results honestly
+## Interpreting results
 
-- Gates: truck precision ≥ 0.85, recall ≥ 0.90, count error ≤ 10% per
-  validation area, 0 detections on hard-negative areas. Validation is
-  4 whole AOIs, never a random split.
+- Gates: truck recall ≥ 0.90, truck precision ≥ 0.85, count error ≤ 10% on
+  areas with ≥ 60 truth trucks (today only `r1-kaivoksela`), negative-area
+  detections reported not gated. Validation is whole AOIs, never a random
+  split.
 - Single-seed results carry **±2–3 pt noise** (measured). round2-z17 scored
   *worse* than round1-z17 purely from shuffle luck. Before quoting any
   single run — especially a gates-passing one — run a second seed.
+- Diagnosing a failed or surprising gate — which diagnostic per gate, and
+  why relabelling lookalikes buys nothing — is the **triage-eval** skill.
 - Zoom effects decay with rounds: z17's +14 pt precision in round 1 is real
   (beyond seed noise); by round 3 the zooms converge (0.884 vs 0.901, inside
   noise) and z17's remaining edge is cleaner negatives (0 vs 1) and class
