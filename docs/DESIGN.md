@@ -390,10 +390,10 @@ reporting decision rather than one baked into the data.
 
 This changes the length gate for labelling: the 6 m rule was cutting off a
 spike of 94 candidates in the 5–6 m band, which is exactly the van population.
-Bootstrap for labelling with `--min-length 4.0` (392 candidates, versus 286 at
-6 m); the 9 detections below 4 m are noise. `car` reuses the same 4 m floor —
-real cars clear it naturally, and it was already the measured noise line, not
-a value chosen for this class specifically.
+The labelling floor is 4.0 m — the `MIN_LENGTH_M` default — measured at 392
+candidates versus 286 at 6 m; the 9 detections below 4 m are noise. `car`
+reuses the same 4 m floor — real cars clear it naturally, and it was already
+the measured noise line, not a value chosen for this class specifically.
 
 `car` was initially scoped as a separate model, but DOTA's pretrain already
 carries a `small vehicle` class alongside `large vehicle` — bootstrap was
