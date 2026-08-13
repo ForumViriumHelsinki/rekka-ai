@@ -240,3 +240,8 @@ node_modules/
 .svelte-kit/
 web/build/
 web/package-lock.json
+
+# Agent tooling: skills are committed (real files in .agents/skills/, with
+# .claude/skills a symlink so Claude Code sees them too), but Claude's local
+# permission file is per-machine and must not be.
+.claude/settings.local.json
