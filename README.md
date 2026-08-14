@@ -8,7 +8,7 @@ proposes the next batch on new ground.
 
 ```mermaid
 flowchart TD
-    fetch["fetch<br/>orthophoto tiles"] --> bootstrap["bootstrap<br/>zero-shot pre-labels"]
+    fetch["fetch<br/>orthophoto tiles"] --> bootstrap["bootstrap<br/>zero-shot pre-labels<br/><i>round 1 only</i>"]
     bootstrap --> stage["stage<br/>per-area label files"]
     stage --> review["web/<br/>human review"]
     review --> export["export<br/>YOLO-OBB dataset"]
@@ -18,8 +18,23 @@ flowchart TD
     detect --> stage
 ```
 
-Round one starts at `bootstrap` with off-the-shelf weights; every round after
-that starts at `detect` with the weights the previous round produced.
+**`bootstrap` was a one-shot.** It ran once, to get round one's labels started
+from off-the-shelf DOTA weights so the first pass was correction rather than
+drawing from scratch, and it has not been needed since. Every round after that
+starts at `detect` with the weights the previous round produced:
+
+```sh
+uv run rekka-ai detect --aoi aois/helsinki.yaml --name <area> \
+    --weights runs/train/round<N-1>/weights/best.pt \
+    --confidence 0.15 --out data/candidates/roundN-<area>.geojson
+```
+
+The command is kept for the cold start it exists for — a new city, or any
+ground with no trained model yet — not as part of the round loop. It only
+understands DOTA's `large vehicle`/`small vehicle` classes, so pointing it at
+trained weights used to sweep every tile and propose **nothing**, exiting
+cleanly as though the ground were empty; it now refuses those weights and says
+to use `detect` instead.
 
 ## Requirements
 
