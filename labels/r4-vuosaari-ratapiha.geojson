@@ -1,0 +1,1118 @@
+{
+  "type": "FeatureCollection",
+  "crs": {
+    "type": "name",
+    "properties": {
+      "name": "urn:ogc:def:crs:EPSG::3879"
+    }
+  },
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25510096.778,
+              6679153.342
+            ],
+            [
+              25510097.579,
+              6679155.476
+            ],
+            [
+              25510092.947,
+              6679157.215
+            ],
+            [
+              25510092.146,
+              6679155.081
+            ],
+            [
+              25510096.778,
+              6679153.342
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.9354,
+        "length_m": 4.95,
+        "width_m": 2.28,
+        "heading_deg": 110.6,
+        "aoi": "r4-vuosaari-ratapiha",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "confirmed",
+        "class": "car"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25509838.643,
+              6679034.763
+            ],
+            [
+              25509839.821,
+              6679036.891
+            ],
+            [
+              25509835.337,
+              6679039.375
+            ],
+            [
+              25509834.158,
+              6679037.246
+            ],
+            [
+              25509838.643,
+              6679034.763
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.9291,
+        "length_m": 5.13,
+        "width_m": 2.43,
+        "heading_deg": 119,
+        "aoi": "r4-vuosaari-ratapiha",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "confirmed",
+        "class": "car"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25509834.19,
+              6679027.806
+            ],
+            [
+              25509835.319,
+              6679029.896
+            ],
+            [
+              25509831.1,
+              6679032.174
+            ],
+            [
+              25509829.972,
+              6679030.084
+            ],
+            [
+              25509834.19,
+              6679027.806
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.9259,
+        "length_m": 4.79,
+        "width_m": 2.38,
+        "heading_deg": 118.4,
+        "aoi": "r4-vuosaari-ratapiha",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "confirmed",
+        "class": "car"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25510037.73,
+              6679081.515
+            ],
+            [
+              25510039.897,
+              6679080.792
+            ],
+            [
+              25510041.353,
+              6679085.153
+            ],
+            [
+              25510039.185,
+              6679085.876
+            ],
+            [
+              25510037.73,
+              6679081.515
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.9201,
+        "length_m": 4.6,
+        "width_m": 2.28,
+        "heading_deg": 18.5,
+        "aoi": "r4-vuosaari-ratapiha",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "confirmed",
+        "class": "car"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25510004.156,
+              6679099.142
+            ],
+            [
+              25510006.084,
+              6679098.188
+            ],
+            [
+              25510008.196,
+              6679102.457
+            ],
+            [
+              25510006.268,
+              6679103.411
+            ],
+            [
+              25510004.156,
+              6679099.142
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.9133,
+        "length_m": 4.76,
+        "width_m": 2.15,
+        "heading_deg": 26.3,
+        "aoi": "r4-vuosaari-ratapiha",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "confirmed",
+        "class": "car"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25509835.853,
+              6679030.039
+            ],
+            [
+              25509837.099,
+              6679032.119
+            ],
+            [
+              25509832.66,
+              6679034.779
+            ],
+            [
+              25509831.413,
+              6679032.7
+            ],
+            [
+              25509835.853,
+              6679030.039
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.9057,
+        "length_m": 5.17,
+        "width_m": 2.42,
+        "heading_deg": 120.9,
+        "aoi": "r4-vuosaari-ratapiha",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "confirmed",
+        "class": "car"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25510057.409,
+              6679076.446
+            ],
+            [
+              25510059.569,
+              6679075.541
+            ],
+            [
+              25510061.587,
+              6679080.354
+            ],
+            [
+              25510059.426,
+              6679081.259
+            ],
+            [
+              25510057.409,
+              6679076.446
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.9043,
+        "length_m": 5.22,
+        "width_m": 2.34,
+        "heading_deg": 22.7,
+        "aoi": "r4-vuosaari-ratapiha",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "confirmed",
+        "class": "car"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25509864.578,
+              6679086.982
+            ],
+            [
+              25509866.223,
+              6679088.736
+            ],
+            [
+              25509862.487,
+              6679092.241
+            ],
+            [
+              25509860.841,
+              6679090.486
+            ],
+            [
+              25509864.578,
+              6679086.982
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.9022,
+        "length_m": 5.12,
+        "width_m": 2.4,
+        "heading_deg": 133.2,
+        "aoi": "r4-vuosaari-ratapiha",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "confirmed",
+        "class": "car"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25509833.063,
+              6679025.358
+            ],
+            [
+              25509834.166,
+              6679027.506
+            ],
+            [
+              25509830.097,
+              6679029.596
+            ],
+            [
+              25509828.994,
+              6679027.448
+            ],
+            [
+              25509833.063,
+              6679025.358
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.9003,
+        "length_m": 4.57,
+        "width_m": 2.41,
+        "heading_deg": 117.2,
+        "aoi": "r4-vuosaari-ratapiha",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "confirmed",
+        "class": "car"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25509837.072,
+              6679032.622
+            ],
+            [
+              25509838.167,
+              6679034.572
+            ],
+            [
+              25509834.186,
+              6679036.808
+            ],
+            [
+              25509833.091,
+              6679034.858
+            ],
+            [
+              25509837.072,
+              6679032.622
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.8608,
+        "length_m": 4.57,
+        "width_m": 2.24,
+        "heading_deg": 119.3,
+        "aoi": "r4-vuosaari-ratapiha",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "confirmed",
+        "class": "car"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25509829.23,
+              6678991.316
+            ],
+            [
+              25509830.692,
+              6678993.06
+            ],
+            [
+              25509827.117,
+              6678996.057
+            ],
+            [
+              25509825.655,
+              6678994.313
+            ],
+            [
+              25509829.23,
+              6678991.316
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.8478,
+        "length_m": 4.67,
+        "width_m": 2.28,
+        "heading_deg": 130,
+        "aoi": "r4-vuosaari-ratapiha",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "confirmed",
+        "class": "car"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25509907.857,
+              6679096.21
+            ],
+            [
+              25509909.17,
+              6679097.724
+            ],
+            [
+              25509904.757,
+              6679101.55
+            ],
+            [
+              25509903.444,
+              6679100.035
+            ],
+            [
+              25509907.857,
+              6679096.21
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.8422,
+        "length_m": 5.84,
+        "width_m": 2,
+        "heading_deg": 130.9,
+        "aoi": "r4-vuosaari-ratapiha",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "confirmed",
+        "class": "van"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25509943.633,
+              6679123.172
+            ],
+            [
+              25509946.215,
+              6679121.831
+            ],
+            [
+              25509949.197,
+              6679127.576
+            ],
+            [
+              25509946.615,
+              6679128.916
+            ],
+            [
+              25509943.633,
+              6679123.172
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.8025,
+        "length_m": 6.47,
+        "width_m": 2.91,
+        "heading_deg": 27.4,
+        "aoi": "r4-vuosaari-ratapiha",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "confirmed",
+        "class": "truck"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25510075.181,
+              6679034.364
+            ],
+            [
+              25510078.504,
+              6679034.919
+            ],
+            [
+              25510077.269,
+              6679042.313
+            ],
+            [
+              25510073.946,
+              6679041.758
+            ],
+            [
+              25510075.181,
+              6679034.364
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.7719,
+        "length_m": 7.5,
+        "width_m": 3.37,
+        "heading_deg": 170.5,
+        "aoi": "r4-vuosaari-ratapiha",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "rejected",
+        "class": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25510070.544,
+              6679033.243
+            ],
+            [
+              25510073.779,
+              6679034.049
+            ],
+            [
+              25510071.164,
+              6679044.537
+            ],
+            [
+              25510067.929,
+              6679043.731
+            ],
+            [
+              25510070.544,
+              6679033.243
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.6424,
+        "length_m": 10.81,
+        "width_m": 3.33,
+        "heading_deg": 166,
+        "aoi": "r4-vuosaari-ratapiha",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "rejected",
+        "class": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25509836.2,
+              6679019.758
+            ],
+            [
+              25509837.574,
+              6679022.76
+            ],
+            [
+              25509828.438,
+              6679026.94
+            ],
+            [
+              25509827.064,
+              6679023.937
+            ],
+            [
+              25509836.2,
+              6679019.758
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.6355,
+        "length_m": 10.05,
+        "width_m": 3.3,
+        "heading_deg": 114.6,
+        "aoi": "r4-vuosaari-ratapiha",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "confirmed",
+        "class": "truck"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25510082.638,
+              6679077.241
+            ],
+            [
+              25510083.927,
+              6679080.184
+            ],
+            [
+              25510078.586,
+              6679082.522
+            ],
+            [
+              25510077.297,
+              6679079.579
+            ],
+            [
+              25510082.638,
+              6679077.241
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.5438,
+        "length_m": 5.83,
+        "width_m": 3.21,
+        "heading_deg": 113.6,
+        "aoi": "r4-vuosaari-ratapiha",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "confirmed",
+        "class": "truck"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25510081.767,
+              6679035.214
+            ],
+            [
+              25510084.49,
+              6679035.936
+            ],
+            [
+              25510082.836,
+              6679042.171
+            ],
+            [
+              25510080.113,
+              6679041.449
+            ],
+            [
+              25510081.767,
+              6679035.214
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.3766,
+        "length_m": 6.45,
+        "width_m": 2.82,
+        "heading_deg": 165.1,
+        "aoi": "r4-vuosaari-ratapiha",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "confirmed",
+        "class": "truck"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25510088.987,
+              6679036.766
+            ],
+            [
+              25510091.657,
+              6679037.475
+            ],
+            [
+              25510090.098,
+              6679043.35
+            ],
+            [
+              25510087.427,
+              6679042.641
+            ],
+            [
+              25510088.987,
+              6679036.766
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.3539,
+        "length_m": 6.08,
+        "width_m": 2.76,
+        "heading_deg": 165.1,
+        "aoi": "r4-vuosaari-ratapiha",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "confirmed",
+        "class": "truck"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25509960.842,
+              6679113.815
+            ],
+            [
+              25509962.985,
+              6679112.7
+            ],
+            [
+              25509965.375,
+              6679117.294
+            ],
+            [
+              25509963.232,
+              6679118.409
+            ],
+            [
+              25509960.842,
+              6679113.815
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.2982,
+        "length_m": 5.18,
+        "width_m": 2.42,
+        "heading_deg": 27.5,
+        "aoi": "r4-vuosaari-ratapiha",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "confirmed",
+        "class": "car"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25509920.116,
+              6679197.492
+            ],
+            [
+              25509921.921,
+              6679195.754
+            ],
+            [
+              25509926.774,
+              6679200.794
+            ],
+            [
+              25509924.969,
+              6679202.531
+            ],
+            [
+              25509920.116,
+              6679197.492
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.273,
+        "length_m": 7,
+        "width_m": 2.51,
+        "heading_deg": 43.9,
+        "aoi": "r4-vuosaari-ratapiha",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "rejected",
+        "class": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25510093.286,
+              6679037.63
+            ],
+            [
+              25510096.764,
+              6679038.558
+            ],
+            [
+              25510094.826,
+              6679045.823
+            ],
+            [
+              25510091.348,
+              6679044.895
+            ],
+            [
+              25510093.286,
+              6679037.63
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.2137,
+        "length_m": 7.52,
+        "width_m": 3.6,
+        "heading_deg": 165.1,
+        "aoi": "r4-vuosaari-ratapiha",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "rejected",
+        "class": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25510099.795,
+              6679022.326
+            ],
+            [
+              25510093.67,
+              6679020.814
+            ],
+            [
+              25510093.052,
+              6679023.315
+            ],
+            [
+              25510099.178,
+              6679024.828
+            ],
+            [
+              25510099.795,
+              6679022.326
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.1713,
+        "length_m": 6.31,
+        "width_m": 2.58,
+        "heading_deg": 76.1,
+        "aoi": "r4-vuosaari-ratapiha",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "confirmed",
+        "class": "truck"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25510085.164,
+              6679036.643
+            ],
+            [
+              25510087.973,
+              6679037.222
+            ],
+            [
+              25510086.701,
+              6679043.388
+            ],
+            [
+              25510083.893,
+              6679042.809
+            ],
+            [
+              25510085.164,
+              6679036.643
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "confidence": 0.1524,
+        "length_m": 6.3,
+        "width_m": 2.87,
+        "heading_deg": 168.3,
+        "aoi": "r4-vuosaari-ratapiha",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "status": "confirmed",
+        "class": "truck"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25510048.09,
+              6679037.608
+            ],
+            [
+              25510048.848,
+              6679032.005
+            ],
+            [
+              25510045.998,
+              6679031.619
+            ],
+            [
+              25510045.239,
+              6679037.222
+            ],
+            [
+              25510048.09,
+              6679037.608
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "class": "truck",
+        "status": "added",
+        "confidence": null,
+        "aoi": "r4-vuosaari-ratapiha",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "length_m": 5.65,
+        "width_m": 2.88,
+        "heading_deg": 172.3
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25510055.431,
+              6679038.057
+            ],
+            [
+              25510056.423,
+              6679032.551
+            ],
+            [
+              25510053.691,
+              6679032.059
+            ],
+            [
+              25510052.699,
+              6679037.565
+            ],
+            [
+              25510055.431,
+              6679038.057
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "class": "truck",
+        "status": "added",
+        "confidence": null,
+        "aoi": "r4-vuosaari-ratapiha",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "length_m": 5.59,
+        "width_m": 2.78,
+        "heading_deg": 169.8
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25510041.359,
+              6679038.101
+            ],
+            [
+              25510041.884,
+              6679032.575
+            ],
+            [
+              25510038.921,
+              6679032.294
+            ],
+            [
+              25510038.396,
+              6679037.819
+            ],
+            [
+              25510041.359,
+              6679038.101
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "class": "truck",
+        "status": "added",
+        "confidence": null,
+        "aoi": "r4-vuosaari-ratapiha",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "length_m": 5.55,
+        "width_m": 2.98,
+        "heading_deg": 174.6
+      }
+    }
+  ]
+}

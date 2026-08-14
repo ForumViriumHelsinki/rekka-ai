@@ -164,3 +164,74 @@ construction — accepted anyway because the alternative truck-dense grounds
 all duplicate Vuosaari harbour character already in train. Proximity caveat:
 1,069 m from `r4-tattarisuo` (train). Staged 90 candidates: 19 truck,
 14 van, 57 car.
+
+**`r4-toukola` added, then moved to train, 2026-08-14.** Toukola by Hermannin
+rantatie, hand-picked as a candidate replacement so `r4-orakas` could move to
+train. Review settled it against that: 13 trucks against orakas's 21, at a
+6.6 m length median against 10.0 m, and its *darkest* truck (107.9 mean
+luminance) is brighter than orakas's *median* (110.8) — 1 of 13 in shadow
+against 10 of 21. It cannot carry orakas's job, so orakas stays held out and
+toukola joins train for its 212 cars and 41 vans of dense urban ground, which
+also retires its 553 m proximity to `r1-kylasaari` (train). Validation returns
+to seven areas. What it cost: 286 candidates reviewed to establish that the
+swap does not work.
+
+**Shadow mining, 2026-08-14.** The round-4 miss analysis found orakas's
+failures are appearance, not class: 0 misnamed, 7 boxed nowhere at all, and
+the missed trucks average 90.9 mean luminance against 140.6 for the found
+ones. Ranking mining cells by truck-detection count finds the opposite of
+what that needs — the top cell by count held 31 trucks and 1 dark one — so
+205 industrial/commercial/construction cells were swept at conf 0.10 and
+ranked by *shadowed* truck detections instead. Two accepted into train:
+`r4-vuosaari-terminal` and `r4-vuosaari-ratapiha`. The method's known bias:
+in harbour ground the model reads detached semi-trailers as trucks, so
+trailer yards rank high on a count the human then rejects — one proposal was
+59% the already-rejected Paulig cell.
+
+**The bootstrap guard, 2026-08-14.** `bootstrap` now refuses weights whose
+class names are not DOTA's `large vehicle`/`small vehicle`, naming what the
+weights emit and pointing at `detect --weights`. The silent-zero recorded on
+2026-08-13 had bitten a second time that morning, including a sweep over
+`r1-vuosaari-rahtarinkatu` — 55 labelled trucks — that reported 0 candidates
+and a clean exit. The check is a pure function on class names
+(`sweep.emits_dota_vehicles`) so it is tested against the base install with no
+torch. The `new-aoi` skill said `bootstrap` in its sequence, which is how an
+agent reached for it twice; it now says `detect`, and both this trap and the
+`stage --aoi` empty-file trap are written up under its failure modes.
+
+**Round 4 passes all three gates, 2026-08-14.** Truck recall 0.902, precision
+0.906, `r1-kaivoksela` count +1% — measured with `r4-orakas` still held out,
+which is the claim worth having: the gates were earned on the hardest ground
+in validation, not on validation with that ground removed. The lever was
+ground, not tuning. Round 4 went from precision 0.845 (failing on two seeds,
+0.845/0.849) to 0.906 at held recall after `r4-toukola`,
+`r4-vuosaari-terminal` and `r4-vuosaari-ratapiha` added 42 trucks and 45
+rejects — the rejects matter as much, since a rejected tractor or forestry
+machine exports as background in exactly the window that held it. Caveat on
+the pass: the operating confidence is 0.124, near "keep almost everything",
+where round 3 cleared at 0.605. Negative-area detections were 21, above the
+watch level.
+
+**`r4-orakas` moves to train, 2026-08-14.** Done *after* the gates above were
+measured, so a replay of round 4 will not reproduce them — the recorded
+numbers belong to the collection as it stood, and this entry is the reason
+they will not come back. The experiment behind the move
+(`exp-orakas-in-train`): the gate numbers rise, but validation lost its
+hardest area so most of that is the yardstick — the same weights gain
+0.845 -> 0.895 precision from the removal alone. What survives the change of
+yardstick is the case: the truck operating confidence moves 0.124 -> 0.772
+(a curve-shape number, and round 3's real-move benchmark was 0.776),
+negative-area detections halve 21 -> 10, and on `r1-jatkasaari` — held out in
+both runs, same 16 trucks, both read at conf 0.25 — the misses drop from 4 to
+1 and the remaining one is *bright* (147.2) where the four were dark (mean
+96.7). Shadow detection generalised from ~10 examples, which contradicted the
+prediction that it would not. Two trucks moved from found into misnamed, so
+some failure shifted from detection to naming. The cost: validation's shadow
+signal is now `r1-jatkasaari` alone — 16 trucks, 1 remaining miss — thin
+enough to hide a regression, and the second shadow validation area remains
+unfound. Automated mining could not locate one: ranking cells by dark truck
+detections returns harbour trailer yards (the model reads standing trailers
+as trucks), adding a rigid 8-12 m filter returns city-centre street shadow
+already covered by `r1-kamppi`, and ranking by raw ground darkness returns
+dark roofs and water. The signal wanted — paved yard in shadow — needs
+building heights and sun geometry, not the detector's own output.

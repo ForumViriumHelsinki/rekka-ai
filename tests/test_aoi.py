@@ -291,11 +291,26 @@ def test_real_collection_parses(tmp_path: Path) -> None:
     # The split membership *is* pinned: it decides which numbers are honest,
     # so moving ground between train and validation should never be a quiet
     # diff. Update this list deliberately, never to make the test pass.
+    #
+    # Round 4 added `r4-mustavuori` and `r4-kapyla` (docs/rounds.md,
+    # 2026-08-13): validation held only `positive` ground before them, so the
+    # negative-area check had nothing held out and the `sparse` role went
+    # unmeasured. They also make round 4's gate numbers *not* directly
+    # comparable with rounds 1-3, which were scored on the first four alone.
+    #
+    # `r4-orakas` was here too, and moved to train on 2026-08-14 *after*
+    # round 4's gates were measured against it — so a replay of round 4 will
+    # not reproduce the recorded numbers. Its 10 shadowed trucks are the
+    # densest such ground in the corpus and were worth more in training:
+    # held-out `r1-jatkasaari` went from 4 missed trucks to 1 with it. The
+    # cost is that jatkasaari's 16 trucks are now the whole shadow signal.
     assert [a.name for a in aois if a.split == "validation"] == [
         "r1-veturitie",
         "r1-pohjois-haaga",
         "r1-kaivoksela",
         "r1-jatkasaari",
+        "r4-mustavuori",
+        "r4-kapyla",
     ]
 
 

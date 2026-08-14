@@ -3819,6 +3819,88 @@
         "width_m": 2.5,
         "heading_deg": 110.7
       }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25496951.634,
+              6673282.683
+            ],
+            [
+              25496951.276,
+              6673287.685
+            ],
+            [
+              25496953.652,
+              6673287.855
+            ],
+            [
+              25496954.009,
+              6673282.852
+            ],
+            [
+              25496951.634,
+              6673282.683
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "class": "car",
+        "status": "added",
+        "confidence": null,
+        "aoi": "r1-kamppi",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "length_m": 5.02,
+        "width_m": 2.38,
+        "heading_deg": 175.9
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25496901.87,
+              6673268.834
+            ],
+            [
+              25496902.246,
+              6673263.472
+            ],
+            [
+              25496900.069,
+              6673263.319
+            ],
+            [
+              25496899.693,
+              6673268.681
+            ],
+            [
+              25496901.87,
+              6673268.834
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "class": "van",
+        "status": "added",
+        "confidence": null,
+        "aoi": "r1-kamppi",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "length_m": 5.37,
+        "width_m": 2.18,
+        "heading_deg": 176
+      }
     }
   ]
 }
