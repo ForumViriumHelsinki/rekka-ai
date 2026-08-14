@@ -51,6 +51,7 @@ testpaths = ["tests"]
 # feature, not a bug. Ignore unresolved-import only in the files that do this.
 [[tool.ty.overrides]]
 include = [
+    "scripts/prepare_production_aoi.py",
     "src/rekka_ai/detect/detections.py",
     "src/rekka_ai/detect/sweep.py",
     "src/rekka_ai/enrich.py",
