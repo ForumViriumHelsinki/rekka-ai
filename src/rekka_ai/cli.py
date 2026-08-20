@@ -68,7 +68,11 @@ from rekka_ai.imagery.aoi import (
 )
 from rekka_ai.imagery.layers import LATEST_YEAR, layer_for_year
 from rekka_ai.imagery.tiles import count_tiles, resolution, tiles_covering
-from rekka_ai.imagery.wmts import DEFAULT_WORKERS, MAX_ATTEMPTS, TileFetcher
+from rekka_ai.imagery.wmts import (
+    DEFAULT_WORKERS,
+    MAX_ATTEMPTS,
+    TileFetcher,
+)
 from rekka_ai.mine import (
     DEFAULT_COUNT,
     DEFAULT_POOL_SIZE,
@@ -359,7 +363,16 @@ def enrich(
         ),
     ] = STREET_MAX_DISTANCE_M,
 ) -> None:
-    """Add district/postal_code/street/parked attributes from Helsinki's open WFS.
+    """Add district/postal_code/street/street_type/context/street_part.
+
+    `street_type` is the street-area register's own purpose (Asuntokatu,
+    Katuaukio, Tori, ...) -- the layer covers squares and pedestrian areas
+    too, and the type is what tells them apart. `context` is
+    parking/street/other and `street_part` refines the street
+    case with the city's own YLRE terms (Ajorata/Pysakointialue/
+    Tonttiliittymä/Koroke) -- where the vehicle *is*, not whether it is
+    parked; one orthophoto cannot tell that. See rekka_ai.enrich's module
+    docstring for the layers and the measurements.
 
     Reads detect's output and joins in attributes from *other* datasets --
     detection-derived numbers (length_m, width_m, heading_deg) are untouched.
@@ -1279,9 +1292,11 @@ def detect(
     confidence: Annotated[
         float,
         typer.Option(
-            help="Minimum detection confidence. eval picks this from the PR curve."
+            help="Minimum detection confidence. eval picks this from the PR "
+            "curve; the default is a census threshold, so pass a lower one "
+            "when staging candidates for review."
         ),
-    ] = 0.15,  # follows eval's operating point (round 1: 0.108 in the 2026-08 replay); re-check each round
+    ] = 0.77,  # eval-round4's operating point (0.772, 2026-08-16); re-check each round
     name: Annotated[
         str | None, typer.Option(help="Select one AOI from a collection.")
     ] = None,

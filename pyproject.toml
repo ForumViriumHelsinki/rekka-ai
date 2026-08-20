@@ -57,6 +57,7 @@ include = [
     "src/rekka_ai/enrich.py",
     "src/rekka_ai/evaluate.py",
     "src/rekka_ai/imagery/aoi.py",
+    "src/rekka_ai/segment.py",
     "src/rekka_ai/track.py",
     "src/rekka_ai/train.py",
 ]

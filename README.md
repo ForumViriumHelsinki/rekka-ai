@@ -26,8 +26,12 @@ starts at `detect` with the weights the previous round produced:
 ```sh
 uv run rekka-ai detect --aoi aois/helsinki.yaml --name <area> \
     --weights runs/train/round<N-1>/weights/best.pt \
-    --confidence 0.15 --out data/candidates/roundN-<area>.geojson
+    --confidence 0.25 --out data/candidates/roundN-<area>.geojson
 ```
+
+The explicit `--confidence` is well below `detect`'s default, on purpose: the
+default is the operating point a *census* ships at, and staging wants the
+near-misses in front of the reviewer instead.
 
 The command is kept for the cold start it exists for — a new city, or any
 ground with no trained model yet — not as part of the round loop. It only

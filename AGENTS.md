@@ -41,7 +41,8 @@ Two parts, two licenses:
   `aois` must stay usable without a multi-gigabyte install. `pyproject.toml`
   has `[[tool.ty.overrides]]` ignoring `unresolved-import` in exactly the
   files that do lazy imports (`detect/sweep.py`, `detect/detections.py`,
-  `evaluate.py`, `imagery/aoi.py`, `track.py`, `train.py`). If you add lazy
+  `enrich.py`, `evaluate.py`, `imagery/aoi.py`, `segment.py`, `track.py`,
+  `train.py`, `scripts/prepare_production_aoi.py`). If you add lazy
   imports of optional deps, extend that list — do not make the imports eager.
 - Dev tools (uv dependency group `dev`): pytest, pytest-cov, ruff, ty.
 - **MLflow.** Local tracking store is `runs/mlflow.db` (`track.py` is the
@@ -59,6 +60,8 @@ src/rekka_ai/
   export.py            # geographic labels -> YOLO-OBB pixel dataset (the only such place)
   train.py             # Ultralytics fine-tuning wrapper
   track.py             # MLflow configuration — single place; runs/mlflow.db, MLFLOW_TRACKING_URI overrides
+  enrich.py            # WFS enrichment: district/postal/street(+type)/context/street_part on detections
+  segment.py           # SAM outline refinement — measured worse than the OBB vs labels, kept as a library only
   osm.py               # Overpass industrial geometry, cached under data/osm/
   mine.py              # grid / exclude / stratum selection for the next AOIs
   imagery/
@@ -125,7 +128,7 @@ Python (all via `uv run`):
 uv sync                      # base install (CI parity: uv sync --locked)
 uv sync --extra detect       # + torch/ultralytics, needed for bootstrap/detect
 uv sync --extra train        # + mlflow, needed for train
-uv run rekka-ai --help       # CLI: aois fetch bootstrap stage progress export train eval detect mine
+uv run rekka-ai --help       # CLI: aois fetch bootstrap stage progress export train eval detect enrich mine
 uv run ruff check            # lint (extend-select = I, UP, B)
 uv run ruff format           # format (CI runs ruff format --check)
 uv run ty check              # type check

@@ -647,8 +647,20 @@ different questions:
 
    The operating confidence is chosen from the PR curve, not left at the 0.25
    default. Whatever is chosen is logged to MLflow; `detect`'s default
-   confidence follows it by hand (currently 0.15 — re-check against each
-   round's eval), so the number eval reports is the number a sweep ships at.
+   confidence follows it by hand (currently 0.77, from round 4's 0.772 —
+   re-check against each round's eval), so the number eval reports is the
+   number a sweep ships at. It had lagged at 0.15 — a round-1 value — through
+   rounds 3 and 4, both of which operate near 0.77: measured over the
+   125,882-detection city sweep, the two thresholds disagree by **34% of the
+   truck census** (3,729 trucks at conf 0.25 against 2,442 at 0.772), which is
+   the size of the error a stale default hides (2026-08-16).
+
+   That default is a **census** threshold, and `detect` has a second job the
+   census number does not fit: proposing candidates for review. Staging wants
+   the near-misses in front of the reviewer — the trucks the operating point
+   discards are exactly the ones the next round has to fix — so the round loop
+   passes an explicit low `--confidence` (0.25 through round 4) rather than
+   taking the default.
    The search never picks below `--min-confidence` (default 0.05, even as
    the F1 fallback): a curve whose recall only clears the gate at conf≈0 has
    found "keep every raw proposal," not an operating point, so the recall

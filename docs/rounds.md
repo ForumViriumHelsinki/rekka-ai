@@ -235,3 +235,41 @@ as trucks), adding a rigid 8-12 m filter returns city-centre street shadow
 already covered by `r1-kamppi`, and ranking by raw ground darkness returns
 dark roofs and water. The signal wanted — paved yard in shadow — needs
 building heights and sun geometry, not the detector's own output.
+
+**City-wide sweep, 2026-08-17.** Round-4 z16 weights at conf 0.25 over the
+208.3 km2 WFS-derived region: **125,882 detections in 22 minutes**, 314 cells,
+zero failed cells and zero windows skipped for missing tiles. 108,780 car,
+12,936 van, 3,729 truck, 437 bus — 17.9 trucks/km2. Class length medians land
+on the labelling guide's measured bands almost exactly (car 4.71 m, van
+5.49 m, bus 13.80 m); truck at 7.99 m sits at the low edge of the 8.0–11.3 m
+band, as a city-wide census should against a corpus weighted toward
+industrial yards. The chunked sweep's merge removed **17 seam duplicates out
+of 125,882** (0.013%), which is the check that 1 km cells are not hiding
+vehicles at their boundaries.
+
+**`detect`'s default confidence catches up, 2026-08-17.** It was 0.15, a
+round-1 value, through rounds 3 and 4 — both of which operate near 0.77.
+DESIGN §7 already said the default must follow eval's operating point; it had
+simply not been carried across two rounds. Now 0.77, from round 4's 0.772.
+The cost of the lag, measured on the 2026-08-14 city sweep: **3,729 trucks at
+conf 0.25 against 2,442 at 0.772** — a third of the truck census riding on a
+threshold nobody chose. Same shape as the `bootstrap` silent-zero: a clean
+run, a plausible number, and no one checking what produced it. The round
+loop's staging `detect` now passes an explicit
+`--confidence 0.25` instead of relying on the default, because staging wants
+the near-misses the census threshold discards.
+
+**Validation mining is exhausted, 2026-08-17.** The more useful result is the
+negative one. Ranked for held-out truck ground at an honest separation
+(≥1 km from every existing area, against the 553 m of `r4-hernesaari` that
+already carries a caveat), the best untouched 300 m cell in Helsinki holds
+**13 trucks**; the top five run 9–13. Nothing approaches
+`GATE_COUNT_MIN_TRUCKS` (60), and nothing beats `r4-orakas` (21), which was
+already judged thin and then moved to train. Dropping the separation floor
+finds denser ground — 43 trucks in Vuosaari, 20 in Suurmetsä — but at 300–556 m
+from train, which is how you get an optimistic held-out read rather than a
+yardstick. **The one-count-gate problem cannot be mined away at 300 m.** The
+remaining options are a pooled count gate across the validation split (124
+trucks clears 60 today, and costs no labelling), one deliberately larger
+validation plot, or Espoo/Vantaa ground once HSY imagery exists. Recorded so
+the next round does not re-run this search expecting a different answer.
