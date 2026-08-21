@@ -1,10 +1,19 @@
 # AGENTS.md
 
 Guidance for AI coding agents working in this repository. The reader is assumed
-to know nothing about the project. `README.md` (usage) and `docs/DESIGN.md` (the
-*why*, in detail — read it before changing anything conceptual) are the primary
-docs and are kept current; when they and this file disagree, trust them.
-`docs/rounds.md` is the dated log of correction rounds — history, not rules.
+to know nothing about the project. `README.md` and `docs/DESIGN.md` are the
+primary docs and are kept current; when they and this file disagree, trust
+them.
+
+**The rationale is in `docs/DESIGN.md`, and only there.** `README.md` is
+commands and consequences — it leads with inference (running the shipped
+model) and keeps the training loop below that — and it deliberately does not
+repeat the reasoning. So: never answer a *why* from the README, read the
+matching DESIGN section before changing anything the README merely asserts,
+and do not migrate rationale back into it. `docs/model-card.md` describes the
+weights currently shipped and where they fail; `docs/LABELLING.md` is the
+labeller's card. `docs/rounds.md` is the dated log of correction rounds —
+history, not rules.
 
 ## Project overview
 
@@ -18,6 +27,13 @@ batch on new ground.
 ```
 fetch → bootstrap → stage → review (web/) → export → train → eval → detect → stage → …
                                          ↘ mine (propose next AOIs) ↗
+```
+
+Four rounds in, that loop has produced shipping weights, so there is a second
+chain that only runs the model — the one `README.md` leads with:
+
+```
+prepare_production_aoi.py → detect (chunked, resumable) → enrich → package/analyse
 ```
 
 Two parts, two licenses:
@@ -42,7 +58,7 @@ Two parts, two licenses:
   has `[[tool.ty.overrides]]` ignoring `unresolved-import` in exactly the
   files that do lazy imports (`detect/sweep.py`, `detect/detections.py`,
   `enrich.py`, `evaluate.py`, `imagery/aoi.py`, `segment.py`, `track.py`,
-  `train.py`, `scripts/prepare_production_aoi.py`). If you add lazy
+  `train.py`, and the three `scripts/*.py`). If you add lazy
   imports of optional deps, extend that list — do not make the imports eager.
 - Dev tools (uv dependency group `dev`): pytest, pytest-cov, ruff, ty.
 - **MLflow.** Local tracking store is `runs/mlflow.db` (`track.py` is the
@@ -73,6 +89,11 @@ src/rekka_ai/
   detect/
     sweep.py           # detector protocol, YOLO-OBB adapter, area sweep
     detections.py      # oriented-box geometry, seam merging (global NMS via STRtree), GeoJSON output
+
+scripts/                 # production run, outside the CLI: one-off, not loop steps
+  prepare_production_aoi.py  # WFS districts + roads -> the 208 km2 detection region
+  package_detections.py      # enriched per-year sweeps -> one delivery GeoPackage
+  analyse_detections.py      # truck density grids + point layers, per flight year
 ```
 
 ### Labelling web app (`web/`)
@@ -91,8 +112,8 @@ when changing either side**: `grid.ts` ↔ `imagery/tiles.py` (tile grid),
 
 ### Data and configuration
 
-- `aois/helsinki.yaml` — the AOI collection (27 areas as of 2026-08, 23
-  train / 4 validation — the count grows each round; `rekka-ai aois` reports
+- `aois/helsinki.yaml` — the AOI collection (40 areas as of 2026-08, 34
+  train / 6 validation — the count grows each round; `rekka-ai aois` reports
   the current shape), in **EPSG:3067**, with `role` (`positive` |
   `hard-negative` | `sparse`) and `split` (`train` | `validation`) per area.
   `crs` is required and always wins over `--crs`. The per-area `notes` *are*
@@ -162,9 +183,11 @@ web three (bun run lint, check, test). Run all of them before pushing.
   nothing animates on the hot path; one desaturated amber drives the chrome;
   class colours are map symbology only; Geist / Geist Mono typography.
   Prettier (with the Svelte plugin) owns formatting there.
-- **Docs have two genres, kept apart.** `docs/DESIGN.md` is evergreen: it
-  describes the present — update it in the same change as the behaviour it
-  documents. `docs/rounds.md` is the dated log: when a labelling, training,
+- **Docs have three genres, kept apart.** `README.md` is operational: the
+  command, what it produces, and the caveat that costs you if you ignore it —
+  no rationale, no history. `docs/DESIGN.md` is evergreen: it
+  describes the present, with the reasoning and the measured evidence —
+  update it in the same change as the behaviour it documents. `docs/rounds.md` is the dated log: when a labelling, training,
   or eval round completes (or an area is retired, or a decision is made on
   record), *append* a dated entry there — do not add "Update after round N"
   blocks to DESIGN.md, and do not rewrite old log entries when the present

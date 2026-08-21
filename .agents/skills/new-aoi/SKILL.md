@@ -72,7 +72,10 @@ uv run rekka-ai fetch --aoi aois/helsinki.yaml
 #    seen. Name the batch by round.
 uv run rekka-ai detect --aoi aois/helsinki.yaml --name rN-place \
     --weights runs/train/round<N-1>/weights/best.pt \
-    --confidence 0.15 --out data/candidates/roundN-rN-place.geojson
+    --confidence 0.25 --out data/candidates/roundN-rN-place.geojson
+#    0.25 is the staging confidence, always explicit: the default (0.77) is
+#    the census operating point and discards exactly the near-misses the
+#    next round has to fix.
 #    (--role positive instead of --name to do every positive area at once)
 
 # 5. Stage into labels/. NEVER --force: stage skipping an existing file is

@@ -19,8 +19,13 @@ uv run rekka-ai detect --aoi <region.fgb|collection.yaml> \
 ```
 
 - Match zoom to the weights: z17 weights need `--zoom 17`; default is z16.
+- **`--confidence` is always explicit.** The default is 0.77 — round 4's
+  operating point, a *census* threshold. Any sweep whose output will be
+  staged, compared, or re-thresholded should pass 0.25 and cut higher on
+  read; `confidence` is per-feature, so a higher cut is a filter over a file
+  while a lower one is another full sweep.
 - Output format follows the suffix: `.geojson` direct, `.fgb`/`.gpkg` via
-  geopandas (lazy optional dep).
+  geopandas (lazy optional dep). City-scale output should be `.fgb`.
 - `--time uv run …` or the CLI's own `done: … in Xh Ym` line both work for
   timing; progress prints as `window N/total, K detections` (K is pre-merge).
 
@@ -36,14 +41,24 @@ uv run rekka-ai detect --aoi <region.fgb|collection.yaml> \
   (fixed-metre overlap costs more at higher zoom). Reference: full OSM
   industrial Helsinki = 38k windows / 48 min at z16, 313.7k windows / 4h 39m
   at z17.
+- City-wide reference (2025, 208.3 km², 314 cells / ~31.4k windows at z16):
+  **22 min warm, 47 min cold**, 28.5 ms/window, zero failed cells.
 
 ## Caching and restarts
 
 - Tiles live in `data/cache/<layer>/<zoom>/<col>/<row>.jpg` and never
-  invalidate. A restarted sweep **does not resume window progress** — it
-  replays from window 1, but cached tiles make the replay GPU-bound, so the
-  catch-up is ~2× faster than the first pass. Detections from the aborted
-  run are lost.
+  invalidate.
+- **`--checkpoint-dir` makes a sweep resumable — use it for anything
+  city-scale.** The region is split into `--cell-size` cells (1 km default),
+  each cell's detections written to its own file, each cell's status appended
+  to `manifest.jsonl`. A re-run redoes only what is not `done`; a failed cell
+  is recorded and stepped over instead of ending the run (`--retry-failed`
+  redoes those), and `--merge-only` rebuilds the output from cells already on
+  disk. Recovery is "invoke it again", so the overnight wrapper is a retry
+  loop around the same command — see `data/detections/run-2023-sweep.sh`.
+- **Without `--checkpoint-dir` there is no resume**: a killed sweep replays
+  from window 1 and its detections are lost. Cached tiles make the replay
+  GPU-bound (~2× the first pass), but that is a re-run, not a resume.
 - The fetcher validates the JPEG SOI marker: GeoServer can answer failures
   with an XML exception report and status 200. Such tiles are retried, then
   recorded in `failures`, and the affected windows are skipped and reported —
@@ -60,8 +75,19 @@ uv run rekka-ai detect --aoi <region.fgb|collection.yaml> \
   at 0.3).
 - `heading_deg` is the long axis **modulo 180°** by design — a rectangle has
   no front.
-- Counts at conf 0.25 are recall-flavoured; per-class totals shift with zoom
-  (z16 inflated trucks ~25% with misread vans; trust z17 class mix more).
+- Counts at conf 0.25 are **recall-flavoured and must not be quoted as a
+  census**: on the 2025 city sweep the same detections read 3,729 trucks at
+  0.25 and 2,442 at 0.772, and at 0.25 only ~53% of predicted trucks are
+  trucks (model card §5).
+- Zoom: **z16 is the production model** — at round 4 z17 fails the gates for
+  7.4× the training time, and z16 wins truck and van (model card §8). Earlier
+  advice to trust the z17 class mix was a round-1/2 observation and no longer
+  holds.
+
+## Shipping a sweep
+
+A sweep meant for delivery — city-wide, enriched, packaged — is the
+**city-census** skill, not this one. This skill stops at the `.fgb`.
 
 ## Comparing two sweeps
 

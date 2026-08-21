@@ -276,7 +276,11 @@ regardless of length. Now that `car` is an annotated class (§5), bootstrap
 also keeps DOTA's `small vehicle` class, and the length gate's only job is
 filtering raw noise below real-vehicle size — measured at 4 m
 (`--min-length`, default `MIN_LENGTH_M`), so a human is not asked to reject
-the same sub-4 m noise in every area.
+the same sub-4 m noise in every area. The 4 m floor rather than 6 m is what
+puts vans in front of a reviewer at all: over the 17 round-1 positive areas
+it is **713 candidates at 4.0 m against 559 at 6 m**, so a quarter of the
+batch would otherwise never be seen, and the 5–6 m band is exactly where the
+van class lives.
 
 A bobtail tractor unit can fall under the 6 m truck/van boundary described in
 the annotation guide below; that is a known limit of that judgement call, not
@@ -472,6 +476,84 @@ AOI (GeoJSON / bbox)
 - **Georeference.** Window pixel → EPSG:3879 is exact and analytic from §3; no
   warping, and no reprojection at output either — that is what §2 buys.
 
+### Running it over a whole city
+
+The loop above sweeps 300 m areas. At city scale three things change: the
+region has to be defined, the sweep has to survive interruption, and the
+result has to reach someone who did not run it.
+
+**The region is not a bounding box.** `scripts/prepare_production_aoi.py`
+builds it from districts split into land and water parts
+(`avoindata:Maavesi_kaupunginosat`) and the traffic-way network
+(`avoindata:Liikennevaylat`). It exists to remove islands and skerries, and
+they are not separate features — Santahamina arrives as one MultiPolygon of
+25 parts, Lauttasaari 30 (checked 2026-08-14) — so a feature-level filter
+would keep every skerry attached to a district that has roads. Districts are
+therefore **exploded to single polygons first** and each part tested for road
+coverage on its own: a part with no traffic way in it is ground no truck can
+reach. Result, 208.3 km² in EPSG:3879, with no transform anywhere in the
+script — the WFS serves the grid CRS natively.
+
+**The sweep is chunked and resumable.** `detect --checkpoint-dir` splits the
+region into cells (`--cell-size`, 1 km default), writes each cell's
+detections to its own file, and appends its status to an append-only
+manifest. The status line is written *before* the work, and cell files land
+on a `.part` sibling and are renamed: a process killed mid-cell leaves
+evidence and the resume redoes that cell instead of trusting a half-written
+file. A failed cell is recorded and stepped over rather than ending the run
+(`--retry-failed` redoes those); `--merge-only` rebuilds the output from
+cells already on disk. Recovery is "invoke it again", which is why the
+overnight wrapper is a five-line shell loop and not a scheduler.
+
+A production sweep runs at a **low** `--confidence` (0.25 on the recorded
+city runs) and is thresholded on read, which is not a contradiction of the
+census threshold above: `confidence` is stored per feature, so cutting higher
+afterwards is a filter over a file while cutting lower is another 22 minutes.
+Sweep permissively, report at the operating point.
+
+The merge is the global NMS above, over the union rather than per cell — the
+check that cells are not hiding vehicles on their boundaries. On the 2025
+city sweep it removed **17 duplicates out of 125,882** (0.013%). Clipping is
+to the cell *and* the region: the cell keeps units disjoint, the region keeps
+the sea out.
+
+**Enrichment happens after, not during.** `enrich` adds attributes from other
+datasets — district, postal code, street name and register type, and a
+location `context` — and touches no detection-derived number. Separating it
+keeps the expensive part (the sweep) cacheable while the cheap part (a WFS
+join, offline from `data/wfs/`) is re-run whenever the attribute set changes;
+it has changed twice already. `context` is `parking`/`street`/`other`, with
+`street_part` refining the street case, and is deliberately **not** a
+`parked` boolean: parked is a behaviour, and one orthophoto cannot tell a
+parked vehicle from a queued one. The boolean it replaced (2026-08-20) was
+also wrong in the data — its only source is a registry of *regulated*
+parking, so 73% of the 8,051 cars sitting inside digitized on-street bays
+read `parked = false`.
+
+**Delivery is repackaging, nothing more.** One FlatGeobuf per flight year is
+right for the pipeline and wrong for handing over: three files with a naming
+convention are three chances to open the wrong one, or the un-enriched one.
+`scripts/package_detections.py` collects the enriched years into one
+GeoPackage as named layers, so *which years exist* is visible instead of
+implied. It touches no geometry, recomputes no attribute, asserts row counts
+against the sources, and refuses a file in the wrong CRS, a file that was
+never enriched, or an existing output without `--force` — a stale GeoPackage
+that *gained* a layer instead of being replaced is the failure worth
+preventing.
+
+`scripts/analyse_detections.py` writes the one derived product worth shipping
+beside them, in a file of its own because one is evidence and the other a
+summary that rebuilds in a minute. Per year: a 250 m truck count grid (cells
+are uniform, so the count *is* the density) and the same trucks as centroid
+points, because QGIS's heatmap renderer and the Processing KDE algorithm take
+points only while detections are polygons. Empty cells are dropped; cell ids
+are stable across years, so joining years on `cell` reconstructs anything
+cross-year without the script taking a view on it. Like the packaging step it
+refuses an existing output without `--force`, for the same reason.
+`--min-confidence`
+defaults to the operating point and is recorded on every layer, because a
+count presented as a census must name its threshold.
+
 ## 7. CLI surface
 
 Commands map onto the loop in §2. Every command below exists.
@@ -492,11 +574,22 @@ rekka-ai eval       --weights <path> [--data] [--aoi <file>] [--min-recall]
                     [--min-confidence]
 rekka-ai detect     --aoi <file> --weights <path> --out detections.geojson
                     [--confidence] [--name] [--role] [--crs] [--min-length]
+                    [--year] [--zoom] [--checkpoint-dir] [--cell-size]
+                    [--merge-only] [--retry-failed]
+rekka-ai enrich     --detections <file> --out enriched.fgb
+                    [--wfs-cache data/wfs] [--refresh-wfs] [--street-max-distance]
 rekka-ai mine       --weights <path> --operating-confidence <float>
                     [--existing aois/helsinki.yaml] [--out data/mining/round2.yaml]
                     [--municipality Helsinki] [--profile industrial]
                     [--count 12] [--pool-size 100] [--dry-run] [--refresh-osm]
 ```
+
+A candidate file is named by the **round** that produced it, a single-area
+peek by its area. `--role positive` is a filter every round passes, so it
+distinguishes nothing, and each feature already carries its `aoi`, which the
+collection maps back to a role. What a file cannot tell you is which model
+proposed its boxes — that is what the round number records, and it is the
+weakest form of the provenance gap in the open questions below.
 
 `stage` splits one candidate file into per-AOI label files. It **refuses to
 overwrite an existing file** unless `--force`, and reports how many reviewed
@@ -543,6 +636,15 @@ nothing judged yet sort last as `n/a`), and any schema problems that would
 block training — a confirmed feature with no class, a ring that is not a
 rectangle. Sorted worst-rate first, so the areas most worth re-sweeping or
 deprioritising surface at a glance.
+
+`enrich` is post-processing, not detection: it reads a sweep's output and
+adds attributes from other datasets, so it is a separate command from
+`detect` and a re-run costs a cached WFS join rather than a re-sweep. See §6.
+
+`bootstrap` **refuses trained weights.** It filters to DOTA's `large
+vehicle`/`small vehicle`, which trained weights never emit, so pointing it at
+them swept every tile and proposed *nothing* — a clean run, a plausible
+exit code, an empty file. Rounds after the first start at `detect`.
 
 `bootstrap` needs the optional `detect` extra (`uv sync --extra detect`), which
 pulls in torch. It is optional so that `fetch` and `aois` — and CI — stay usable
@@ -699,13 +801,116 @@ can be trusted, which is what a held-out area needs most. It holds 56 buses
 and one truck, so the floor above is what keeps it from distorting the
 count gate — the two changes are one decision.
 
-Validation is now four areas: `r1-kaivoksela`, `r1-jatkasaari`,
-`r1-pohjois-haaga`, `r1-veturitie`. It is thinner than that sounds — at the
-finished round `r1-kaivoksela` alone holds 107 of validation's 123 trucks
-and `r1-pohjois-haaga` holds none, so the truck gates rest almost
+Validation is six areas: `r1-kaivoksela`, `r1-jatkasaari`,
+`r1-pohjois-haaga` and `r1-veturitie` (positive), plus `r4-mustavuori`
+(hard-negative) and `r4-kapyla` (sparse). It is thinner than that sounds —
+`r1-kaivoksela` alone holds most of validation's trucks and
+`r1-pohjois-haaga` holds none, so the truck gates rest almost
 entirely on one area. `r1-veturitie` widens the *bus* side, not the truck
 side; a second truck-dense, cleanly-imaged validation area is still the
 outstanding work here (§11).
+
+### Reading the numbers
+
+What `eval`, `train` and MLflow report, in plain terms — the thresholds
+themselves are above; this is what each value tells you.
+
+| term | what it measures | how to read it |
+|---|---|---|
+| **precision** | of the boxes the model emitted, the share that were real vehicles | Low precision costs a *glance* — you scroll past junk in the labelling tool. |
+| **recall** | of the vehicles really there, the share the model found | Low recall costs *drawing* — a missed truck has to be hand-labelled from blank imagery. This is why the gates are recall-first. |
+| **IoU** | overlap ÷ union of two boxes | 1.0 identical, 0 disjoint. ~0.5 means "clearly the same vehicle", ~0.9 means "pixel-tight". For OBB the boxes are rotated, so heading errors cost IoU. |
+| **mAP50** | average precision across the whole confidence range, counting a box correct at IoU ≥ 0.50 | "Did it find the thing", forgiving about box fit. Independent of the threshold you ship at, so it is the fair number for comparing two runs. |
+| **mAP50‑95** | the same, averaged over IoU 0.50 → 0.95 in 0.05 steps | The *geometry* score. A large mAP50 → mAP50‑95 gap means right vehicles, loose boxes. |
+| **operating confidence** | the score threshold `eval` picks off the PR curve, which `detect` then uses | Not a quality score on its own — a *calibration* signal. Of two models at equal recall, the one holding it at a higher confidence separates trucks from background better. Round 2 needed conf 0.105 for recall 0.904; round 3 held the same recall at 0.776, and round 4 at 0.772. |
+| **count error** | per-area `(found − truth) / truth`, trucks only | The product's actual question: how many vehicles at this site. Gated only where an area holds ≥ 60 trucks — below that one box is a double-digit percentage and the random seed decides the verdict, so the number is printed without a pass/fail. |
+| **unexplained detection** | a box in a negative-role area matching no vehicle the area really holds | The regression check: has fine-tuning started pulling lookalikes (containers, boat hulls) in? Reported, never gated — three seeds of one dataset gave 1, 7 and 3. |
+| **hard negative** | a candidate a human rejected, kept in the label file rather than deleted | Free training signal: it teaches the model what a truck-shaped non-truck looks like. Never "clean these up". |
+
+Training logs four losses per epoch, each as `train/*` and `val/*`:
+`box` (where the box is), `cls` (what it is called), `dfl` (how sharply the
+edges are localised) and `angle` (heading). Absolute values mean little; the
+*gap* is the signal — `val` drifting upward while `train` keeps falling is
+overfitting.
+
+#### The confusion matrix
+
+`runs/train/<name>/confusion_matrix_normalized.png` shows where the classes
+leak into each other. Two conventions trip people up:
+
+- **Predicted is the Y axis, True is the X axis** — the transpose of the
+  layout most tools use.
+- **It is normalized down each column**, so columns sum to 1. Every cell is
+  therefore a recall-flavoured number: *"of all real vans, what fraction did
+  the model call this?"* Read it column by column, never row by row.
+
+The `background` **column** is the exception to that reading: it is the
+*composition* of the false positives, not how many there are. "39% of what
+the model invented, it called a car" says nothing about whether that was five
+boxes or five hundred — for the magnitude, read `negative_detections` and the
+per-area counts. The `background` **row**, conversely, is the miss rate: how
+much of each true class got no box at all.
+
+Round 4 reads: trucks 0.953 recall with 0.533 precision, vans 0.652 recall
+with 0.411 precision, and 16% of real vans called `car` against 12% called
+`truck`. That van column is most of the truck/van confusion the rounds log
+keeps returning to — the model is not hallucinating trucks on empty asphalt,
+it is calling vans trucks, and calling vans cars. Note the matrix is drawn at
+a **fixed conf 0.25, not at the operating confidence**, so it describes a far
+more permissive model than the one `detect` ships (§6): the same weights at
+0.772 are the 0.911/0.945 the gates recorded.
+
+### Replaying the recorded rounds
+
+A fresh clone already holds the two things that cannot be regenerated —
+`labels/` and `aois/helsinki.yaml` — so the recorded training rounds
+(`docs/rounds.md`) replay without any labelling. Everything else (`data/`,
+`runs/`, the weights) regenerates:
+
+```sh
+uv sync --extra train             # ultralytics + mlflow
+uv run rekka-ai fetch --aoi aois/helsinki.yaml    # one-off z16 tile download
+```
+
+Each round trains on its **cumulative** ground: round 1 on the `r1-*` areas,
+round 2 adds `r2-*`, and so on. The per-round collections are prefix filters
+of the committed collection, regenerated rather than hand-edited:
+
+```sh
+uv run python - <<'EOF'
+import yaml
+from pathlib import Path
+
+coll = yaml.safe_load(Path("aois/helsinki.yaml").read_text())
+Path("data/ablation").mkdir(parents=True, exist_ok=True)
+for out, rounds in [("r1", "r1"), ("r1r2", "r1 r2"),
+                    ("r1r2r3", "r1 r2 r3"), ("r1r2r3r4", "r1 r2 r3 r4")]:
+    keep = rounds.split()
+    sub = {**coll, "aois": [a for a in coll["aois"]
+                            if a["name"].split("-")[0] in keep]}
+    Path(f"data/ablation/{out}.yaml").write_text(
+        yaml.safe_dump(sub, sort_keys=False, allow_unicode=True))
+EOF
+
+for r in 1 2 3 4; do
+  case $r in 1) aoi=r1;; 2) aoi=r1r2;; 3) aoi=r1r2r3;; 4) aoi=r1r2r3r4;; esac
+  uv run rekka-ai export --aoi data/ablation/$aoi.yaml --out data/dataset-r$r &&
+  uv run rekka-ai train  --data data/dataset-r$r/dataset.yaml --name round$r &&
+  uv run rekka-ai eval   --weights runs/train/round$r/weights/best.pt \
+      --data data/dataset-r$r/dataset.yaml --aoi data/ablation/$aoi.yaml \
+      --name eval-round$r || break
+done
+```
+
+Training is seeded and deterministic, so the same data reproduces a run
+exactly — but **the collection is the data**, and it keeps moving. The gate
+numbers in `docs/rounds.md` belong to the collection as it stood on the day
+they were measured; `r4-orakas` moving from validation to train after round
+4's gates were read is the recorded example of why a replay will not
+reproduce them exactly. What replays is the *progression*: rounds 1 and 2
+fail the precision and count gates, and the later rounds pass. Budget roughly
+half an hour of GPU time per round on a 16 GB card. The bootstrap weights
+(`yolo11x-obb.pt`, gitignored) download automatically on the first `train`.
 
 ### The detect round
 
@@ -920,7 +1125,7 @@ detection. The collection carries the `crs` member; each feature looks like:
   "type": "Feature",
   "geometry": { "type": "Polygon", "coordinates": [[[25496000.123, 6673000.877], "..."]] },
   "properties": {
-    "label": "large vehicle",
+    "label": "truck",
     "confidence": 0.87,
     "length_m": 16.2,
     "width_m": 3.0,
@@ -932,9 +1137,23 @@ detection. The collection carries the `crs` member; each feature looks like:
 }
 ```
 
-`length_m`, `width_m` and `heading_deg` fall out of the oriented box for
-free. Carrying `source_layer` per feature makes multi-year comparison
-possible without separate bookkeeping.
+`label` is one of `truck`/`bus`/`van`/`car` from the trained model; the
+zero-shot bootstrap emitted DOTA's `large vehicle`/`small vehicle` instead,
+which is the one place the two differ. `length_m`, `width_m` and
+`heading_deg` fall out of the oriented box for free and are always recomputed
+from geometry, never read back from a file. `aoi` is the collection area, or
+the sweep cell on a chunked run. Carrying `source_layer` per feature makes
+multi-year comparison possible without separate bookkeeping.
+
+`enrich` adds `district`, `postal_code`, `street`, `street_type`, `context`
+and `street_part` to those properties, and changes nothing else (§6).
+
+**GeoJSON is the debugging format, not the shipping one.** An `--out` ending
+in `.fgb` or `.gpkg` writes FlatGeobuf or GeoPackage through geopandas (the
+`detect` extra), which carry the CRS natively and hold a city-scale sweep
+without a 100 MB text file; the city runs use them throughout. For a consumer
+that honours neither the `crs` member nor a file-level CRS, convert once:
+`ogr2ogr -f GeoJSON out.geojson -t_srs EPSG:4326 in.fgb`.
 
 ## 9. Risks and open questions
 
@@ -1078,12 +1297,14 @@ browser is read back by Python as 16.0 × 3.0 m.
 
 ## 11. Next step
 
-The loop is closed and proven on the rebuilt collection. What remains is
-doing it well:
+The loop is closed, and it has shipped: four rounds trained on the rebuilt
+collection, round-4 weights passing all three gates, and a city-wide sweep
+delivered from them (§6, `docs/model-card.md`). What remains is doing it
+well:
 
-1. ~~**Finish the fresh-start labelling round.**~~ **Done** — three rounds
-   trained and evaluated on the rebuilt collection (now 27 areas, 23 train /
-   4 validation); round 3 passes all three gates (`docs/rounds.md`). Review
+1. ~~**Finish the fresh-start labelling round.**~~ **Done** — four rounds
+   trained and evaluated on the rebuilt collection (now 40 areas, 34 train /
+   6 validation); round 4 passes all three gates (`docs/rounds.md`). Review
    can run on a branch while other work continues on
    `main`: since the label files stopped churning (§2), two people editing
    different areas touch disjoint files, and two people editing the *same*
@@ -1094,20 +1315,21 @@ doing it well:
    kind* of data buys anything: new area types (marinas, rail yards), or
    another flight year. Use `rekka-ai mine` to propose the next industrial
    cells from the trained model rather than hand-picking yards.
-3. **Mind the validation set's honesty.** Unanswered again: `r1-marjaniemi`
-   gives training its first `hard-negative` area, but `r1-rastila` — which
-   briefly gave validation one — moved to `positive`/train once review
-   turned up real trucks and vans, so validation currently has no negative
-   area for the regression check to measure against. `r1-kamppi` moved to
-   train and `r1-veturitie` replaced it (§7), which fixes the bus side but
-   not the truck side: `r1-kaivoksela` still holds nearly all of validation's
-   trucks, so the truck gates rest on one area. **Widen validation with a
-   second truck-dense, cleanly-imaged area** before the gates decide anything
-   big. What `rekka-ai aois`
-   still warns about is validation missing the `hard-negative` and `sparse`
-   roles. Model-mined proposals
-   stay in `split: train` on purpose — do not promote them into validation
-   without a separate, untouched hold-out plan.
+3. **Mind the validation set's honesty.** Half-answered. Validation now
+   carries the missing roles — `r4-mustavuori` (hard-negative) and
+   `r4-kapyla` (sparse) — so the negative-area regression check finally has
+   held-out ground and `rekka-ai aois` no longer warns. The truck side is
+   still open: `r1-kaivoksela` holds nearly all of validation's trucks, so
+   the one count gate rests on one area, and `r1-jatkasaari` alone carries
+   the shadow signal since `r4-orakas` moved to train. **This cannot be
+   mined away at 300 m** — ranked for held-out truck ground at an honest
+   ≥ 1 km separation, the best untouched cell in Helsinki holds 13 trucks
+   against the gate's floor of 60 (2026-08-17, `docs/rounds.md`). The
+   remaining options are a pooled count gate across the validation split
+   (124 trucks clears 60 today, and costs no labelling), one deliberately
+   larger validation plot, or Espoo/Vantaa ground once HSY imagery exists.
+   Model-mined proposals stay in `split: train` on purpose — do not promote
+   them into validation without a separate, untouched hold-out plan.
 4. ~~**Hold the toolchain bump for between batches.**~~ **Done** (2026-08-07,
    between batches as prescribed): `web/` now runs Vite 8 with
    `@sveltejs/vite-plugin-svelte` 7, SvelteKit 2.70 and Svelte 5.56; lint,
