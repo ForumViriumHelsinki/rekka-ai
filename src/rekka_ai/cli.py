@@ -7,7 +7,20 @@ from typing import Annotated
 import typer
 
 from rekka_ai import labels
-from rekka_ai.detect.detections import Detection, within_region, write
+from rekka_ai.detect.chunks import (
+    DEFAULT_CELL_SIZE_M,
+    DONE,
+    FAILED,
+    RUNNING,
+    append,
+    cell_path,
+    grid_cells,
+    load_cells,
+    manifest_path,
+    read_manifest,
+    run_key,
+)
+from rekka_ai.detect.detections import Detection, merge, within_region, write
 from rekka_ai.detect.sweep import (
     DEFAULT_CONFIDENCE,
     DEFAULT_WEIGHTS,
@@ -15,6 +28,7 @@ from rekka_ai.detect.sweep import (
     MIN_LENGTH_M,
     SMALL_VEHICLE,
     YoloObb,
+    emits_dota_vehicles,
     sweep,
 )
 from rekka_ai.enrich import (
@@ -54,7 +68,11 @@ from rekka_ai.imagery.aoi import (
 )
 from rekka_ai.imagery.layers import LATEST_YEAR, layer_for_year
 from rekka_ai.imagery.tiles import count_tiles, resolution, tiles_covering
-from rekka_ai.imagery.wmts import DEFAULT_WORKERS, MAX_ATTEMPTS, TileFetcher
+from rekka_ai.imagery.wmts import (
+    DEFAULT_WORKERS,
+    MAX_ATTEMPTS,
+    TileFetcher,
+)
 from rekka_ai.mine import (
     DEFAULT_COUNT,
     DEFAULT_POOL_SIZE,
@@ -280,6 +298,15 @@ def bootstrap(
     detector = YoloObb(
         weights, confidence=confidence, keep=frozenset({LARGE_VEHICLE, SMALL_VEHICLE})
     )
+    if not emits_dota_vehicles(detector.class_names):
+        raise typer.BadParameter(
+            f"{weights} emits {', '.join(sorted(detector.class_names)) or 'no classes'} "
+            f"— not DOTA's {LARGE_VEHICLE!r}/{SMALL_VEHICLE!r}, which is all "
+            "bootstrap keeps. It would sweep every tile and propose nothing. "
+            "bootstrap is the cold-start command, for the pretrained weights "
+            "only; propose from trained weights with "
+            "`rekka-ai detect --weights <best.pt>`."
+        )
 
     found: list[Detection] = []
     start = time.monotonic()
@@ -336,7 +363,16 @@ def enrich(
         ),
     ] = STREET_MAX_DISTANCE_M,
 ) -> None:
-    """Add district/postal_code/street/parked attributes from Helsinki's open WFS.
+    """Add district/postal_code/street/street_type/context/street_part.
+
+    `street_type` is the street-area register's own purpose (Asuntokatu,
+    Katuaukio, Tori, ...) -- the layer covers squares and pedestrian areas
+    too, and the type is what tells them apart. `context` is
+    parking/street/other and `street_part` refines the street
+    case with the city's own YLRE terms (Ajorata/Pysakointialue/
+    Tonttiliittymä/Koroke) -- where the vehicle *is*, not whether it is
+    parked; one orthophoto cannot tell that. See rekka_ai.enrich's module
+    docstring for the layers and the measurements.
 
     Reads detect's output and joins in attributes from *other* datasets --
     detection-derived numbers (length_m, width_m, heading_deg) are untouched.
@@ -1079,6 +1115,165 @@ def evaluate_cmd(
     typer.echo(f"\nlogged to MLflow as {run_name!r} in {_elapsed(start)}")
 
 
+def _detect_chunked(
+    *,
+    aoi: str,
+    out: Path,
+    weights: Path,
+    confidence: float,
+    crs: str,
+    layer: str,
+    year: int,
+    zoom: int,
+    min_length: float,
+    cache: Path,
+    workers: int,
+    root: Path,
+    cell_size: float,
+    merge_only: bool,
+    retry_failed: bool,
+) -> None:
+    """Sweep a region cell by cell, resuming from a manifest under ``root``.
+
+    Split out of ``detect`` rather than folded into it: the plain path holds
+    everything in memory and writes once, which is right for a 300 m AOI and
+    fatal for a city. Nothing here changes what a detection *is* -- the same
+    sweep, the same filters, and the same global NMS at the end.
+    """
+    try:
+        region = load_region(aoi, crs=crs)
+    except ValueError as exc:
+        raise typer.BadParameter(str(exc)) from exc
+
+    cells = grid_cells(region, cell_size)
+    key = run_key(
+        weights=weights,
+        confidence=confidence,
+        zoom=zoom,
+        year=year,
+        min_length=min_length,
+        cell_size=cell_size,
+        region=aoi,
+    )
+    header, recorded = read_manifest(root)
+    if header is None:
+        append(root, {"type": "run", **key})
+    else:
+        stored = {k: v for k, v in header.items() if k != "type"}
+        if stored != key:
+            differing = sorted(k for k in key if stored.get(k) != key[k])
+            raise typer.BadParameter(
+                f"{manifest_path(root)} was written with different settings "
+                f"({', '.join(differing)}). Detections from two models in one "
+                "file would be wrong in a way nothing downstream can see — "
+                "use a fresh --checkpoint-dir."
+            )
+
+    done = {n for n, r in recorded.items() if r.get("status") == DONE}
+    failed = {n for n, r in recorded.items() if r.get("status") == FAILED}
+    skip = done if retry_failed else done | failed
+    todo = [c for c in cells if c.name not in skip]
+
+    typer.echo(
+        f"{layer} z{zoom}, weights {weights.name}, conf {confidence}, "
+        f"cells {cell_size:g} m -> {root}"
+    )
+    typer.echo(
+        f"  {len(cells)} cells cover the region; {len(done)} done, "
+        f"{len(failed)} failed, {len(todo)} to sweep"
+    )
+
+    start = time.monotonic()
+    if not merge_only and todo:
+        detector = YoloObb(str(weights), confidence=confidence)
+        with TileFetcher(cache, workers=workers) as fetcher:
+            for index, cell in enumerate(todo, start=1):
+                # Written before the work, so a process killed mid-cell leaves
+                # the evidence and the resume redoes it instead of trusting a
+                # half-written file.
+                append(root, {"cell": cell.name, "status": RUNNING})
+                cell_started = time.monotonic()
+                # sweep reports one message per window dropped for missing
+                # tiles; collecting them counts the holes in this cell.
+                skipped: list[str] = []
+                try:
+                    candidates = sweep(
+                        Aoi(name=cell.name, bounds=cell.bounds),
+                        detector=detector,
+                        layer=layer,
+                        zoom=zoom,
+                        cache_root=cache,
+                        fetcher=fetcher,
+                        min_length_m=min_length,
+                        on_skip=skipped.append,
+                    )
+                    # Clip to the cell *and* the region: the cell keeps the
+                    # units disjoint, the region keeps the sea out.
+                    kept = within_region(
+                        candidates, cell.polygon().intersection(region)
+                    )
+                    path = cell_path(root, cell.name)
+                    path.parent.mkdir(parents=True, exist_ok=True)
+                    # Atomic, like enrich.py's layer cache: a kill mid-write
+                    # must not leave a truncated cell the resume then trusts.
+                    # The suffix stays .geojson because `write` picks the
+                    # format from it.
+                    partial = path.with_name(f"{path.stem}.part.geojson")
+                    write(kept, partial, source_layer=layer, zoom=zoom)
+                    partial.replace(path)
+                except Exception as exc:  # noqa: BLE001 - one cell must not end the run
+                    append(
+                        root,
+                        {"cell": cell.name, "status": FAILED, "error": repr(exc)},
+                    )
+                    typer.echo(f"  [{index}/{len(todo)}] {cell.name} FAILED: {exc}")
+                    continue
+
+                append(
+                    root,
+                    {
+                        "cell": cell.name,
+                        "status": DONE,
+                        "detections": len(kept),
+                        "windows_skipped": len(skipped),
+                        "seconds": round(time.monotonic() - cell_started, 1),
+                    },
+                )
+                typer.echo(
+                    f"  [{index}/{len(todo)}] {cell.name}: {len(kept)} detections "
+                    f"({_elapsed(start)} elapsed)"
+                )
+
+    _, final = read_manifest(root)
+    finished = [c.name for c in cells if final.get(c.name, {}).get("status") == DONE]
+    found = load_cells(root, finished)
+
+    # The cell test already makes units disjoint, but window overlap at a seam
+    # can produce a genuine duplicate pair whose centres land either side of
+    # the line. Run the same global NMS the unchunked path runs, and say how
+    # much it caught — if this is ever large, the cell size is hiding vehicles.
+    deduped = merge(found)
+    out.parent.mkdir(parents=True, exist_ok=True)
+    try:
+        write(deduped, out, source_layer=layer, zoom=zoom)
+    except ValueError as exc:
+        raise typer.BadParameter(str(exc)) from exc
+
+    still_pending = len(cells) - len(finished)
+    typer.echo(
+        f"done: {len(deduped)} detections from {len(finished)}/{len(cells)} cells "
+        f"-> {out} in {_elapsed(start)}"
+    )
+    if len(found) != len(deduped):
+        typer.echo(f"  seam duplicates removed at merge: {len(found) - len(deduped)}")
+    if still_pending:
+        typer.echo(
+            f"warning: {still_pending} cell(s) unfinished; re-run the same "
+            "command to continue",
+            err=True,
+        )
+
+
 @app.command()
 def detect(
     aoi: Annotated[
@@ -1097,9 +1292,11 @@ def detect(
     confidence: Annotated[
         float,
         typer.Option(
-            help="Minimum detection confidence. eval picks this from the PR curve."
+            help="Minimum detection confidence. eval picks this from the PR "
+            "curve; the default is a census threshold, so pass a lower one "
+            "when staging candidates for review."
         ),
-    ] = 0.15,  # follows eval's operating point (round 1: 0.108 in the 2026-08 replay); re-check each round
+    ] = 0.77,  # eval-round4's operating point (0.772, 2026-08-16); re-check each round
     name: Annotated[
         str | None, typer.Option(help="Select one AOI from a collection.")
     ] = None,
@@ -1121,6 +1318,26 @@ def detect(
     workers: Annotated[
         int, typer.Option(help="Concurrent requests.")
     ] = DEFAULT_WORKERS,
+    checkpoint_dir: Annotated[
+        Path | None,
+        typer.Option(
+            help="Sweep a polygon region cell by cell, recording progress here "
+            "so a re-run resumes instead of starting over. For city-scale runs."
+        ),
+    ] = None,
+    cell_size: Annotated[
+        float, typer.Option(help="Cell edge in metres, with --checkpoint-dir.")
+    ] = DEFAULT_CELL_SIZE_M,
+    merge_only: Annotated[
+        bool,
+        typer.Option(
+            help="Skip sweeping; just merge the cells already written to "
+            "--checkpoint-dir into --out."
+        ),
+    ] = False,
+    retry_failed: Annotated[
+        bool, typer.Option(help="Also redo cells recorded as failed.")
+    ] = False,
 ) -> None:
     """Detect vehicles with trained weights, over polygons or AOI areas.
 
@@ -1131,12 +1348,37 @@ def detect(
     'detect' extra) and carry their own CRS. Needs the 'detect' extra
     (uv sync --extra detect).
     """
-    if not weights.exists():
+    if not weights.exists() and not merge_only:
         raise typer.BadParameter(f"no weights at {weights}")
     try:
         layer = layer_for_year(year)
     except ValueError as exc:
         raise typer.BadParameter(str(exc)) from exc
+
+    if checkpoint_dir is not None:
+        if Path(aoi).suffix.lower() in YAML_SUFFIXES or not Path(aoi).exists():
+            raise typer.BadParameter(
+                "--checkpoint-dir needs a polygon region file; an AOI collection "
+                "is already a list of small areas and needs no chunking"
+            )
+        _detect_chunked(
+            aoi=aoi,
+            out=out,
+            weights=weights,
+            confidence=confidence,
+            crs=crs,
+            layer=layer,
+            year=year,
+            zoom=zoom,
+            min_length=min_length,
+            cache=cache,
+            workers=workers,
+            root=checkpoint_dir,
+            cell_size=cell_size,
+            merge_only=merge_only,
+            retry_failed=retry_failed,
+        )
+        return
 
     # Trained weights: keep every class the model was trained on.
     detector = YoloObb(str(weights), confidence=confidence)

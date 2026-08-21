@@ -222,3 +222,159 @@ aois:
       Roihupelto metro and tram depots — rolling stock on the tracks is not
       labelled at all, however truck-shaped it looks from above. The service
       vehicles and vans around the halls are labelled as usual.
+
+  # ---------------------------------------------------------------------------
+  #  round four aois
+  # ---------------------------------------------------------------------------
+  - name: r4-kruununhaka
+    bbox: [385425, 6671250, 385725, 6671550]
+    role: positive
+    split: train
+    notes: >-
+      Downtown Kruununhaka, by Senate Square — old blocks, tram tracks, deep
+      building shadow across the streets. Candidates are from the round-3
+      weights (detect, conf 0.25): ~170, mostly parked cars, with misses in
+      the deep shadows — add those by hand where readable. A shape in shadow
+      whose class cannot be called with confidence is a reject, never a
+      guess. Trams are not labelled.
+
+  #  van-mined cells (docs/rounds.md, 2026-08-13): the top of
+  #  data/mining/van-candidates-combined.yaml, one per shared yard, aimed at
+  #  the truck/van confusion — every cell is dense in the 4-8 m band.
+  - name: r4-tattarisuo
+    bbox: [392100, 6681900, 392400, 6682200]
+    role: positive
+    split: train
+    notes: >-
+      Tattarisuo, Tuulilasintie — van-mined (z17 industrial sweep): 66 van
+      detections (62 at conf>=0.5). Classify the truck/van band carefully:
+      cab that stops and a load body that starts is a truck, one continuous
+      shell is a van.
+
+  - name: r4-tapulikaupunki
+    bbox: [390600, 6684600, 390900, 6684900]
+    role: positive
+    split: train
+    notes: >-
+      Tapulikaupunki, Aamuruskontie — van-mined (z16 sweep of commercial
+      landuse): 63 van detections (63 at conf>=0.5). Classify the truck/van
+      band carefully.
+
+  - name: r4-konala
+    bbox: [380700, 6679800, 381000, 6680100]
+    role: positive
+    split: train
+    notes: >-
+      Konala, Ajomiehentie — van-mined (z16 sweep of commercial landuse): 48
+      van detections (45 at conf>=0.5). Classify the truck/van band
+      carefully.
+
+  - name: r4-laippatie
+    bbox: [392100, 6676200, 392400, 6676500]
+    role: positive
+    split: train
+    notes: >-
+      Roihupelto retail, Laippatie — van-mined (z16 sweep of commercial
+      landuse): 45 van detections (44 at conf>=0.5). Classify the truck/van
+      band carefully.
+
+  - name: r4-hernesaari
+    bbox: [384900, 6670200, 385200, 6670500]
+    role: positive
+    split: train
+    notes: >-
+      Hernesaari, Laivakatu — van-mined (z16 sweep of construction
+      landuse): 34 van detections (32 at conf>=0.5). Active construction
+      ground: keep working rigs and vans, reject plant and stored
+      equipment. Classify the truck/van band carefully.
+
+  - name: r4-herttoniemi-n
+    bbox: [391500, 6675300, 391800, 6675600]
+    role: positive
+    split: train
+    notes: >-
+      Herttoniemen yritysalue north, Teollisuusneuvoksenkatu — found by both
+      van-mining runs (z17 industrial: 32 detections; z16 construction: 33).
+      Classify the truck/van band carefully.
+
+  - name: r4-mustavuori
+    bbox: [398567, 6680039, 398867, 6680339]
+    role: hard-negative
+    split: validation
+    notes: >-
+      Mustavuori forest — pure canopy and rock outcrops; a road and field
+      skirt the NE corner but stay outside the cell. No candidates are
+      staged (hard-negative role): if anything vehicle-like turns up, add a
+      box; otherwise the area needs no work. This is validation's negative
+      ground — the point is that there is nothing here.
+
+  - name: r4-kapyla
+    bbox: [386552, 6676755, 386852, 6677055]
+    role: sparse
+    split: validation
+    notes: >-
+      Käpylä apartment rows — red-brick blocks in mature greenery, courtyard
+      parking pockets, little through traffic. This is validation's
+      residential ground: label every car you can read (the negative check
+      forgives only labelled vehicles), reject anything the tree canopy
+      hides. Trains on the rail corridor at the southern edge are not
+      labelled.
+
+  - name: r4-orakas
+    bbox: [393300, 6682800, 393600, 6683100]
+    role: positive
+    split: train
+    notes: >-
+      Orakas, Heikinlaakso — a small industrial estate embedded in housing:
+      little halls and contractor yards with trucks and trailers scattered
+      among homes. Bare trailers with no tractor are negatives; a coupled
+      rig is one box. Cars in the yards are labelled as usual.
+
+  - name: r4-vuosaari-terminal
+    bbox: [399600, 6677400, 399900, 6677700]
+    role: positive
+    split: train
+    notes: >-
+      Vuosaari harbour terminal — a long warehouse with loading bays on the
+      shoreline, rows of parked semi-trailers, and tractor units working
+      between them. Most of the yellow and white boxes are trailers standing
+      alone: negatives, however truck-shaped. A coupled rig is one box,
+      tractor and trailer together. The building throws a hard shadow along
+      its north-east side and vehicles sit inside it — those are the ones
+      worth the care, and the model will not propose them, so add them.
+    # shadow-mined from the round-4 sweep: 28 truck detections at conf>=0.25,
+    # 14 more marginal, 13 on ground under 110 luminance.
+
+  - name: r4-vuosaari-ratapiha
+    bbox: [399000, 6677700, 399300, 6678000]
+    role: positive
+    split: train
+    notes: >-
+      Vuosaari harbour, warehouse yard against the rail sidings — halls to the
+      north, a row of trucks and tractor units parked on the apron, a mobile
+      crane, and freight wagons on the tracks along the south edge. **Rail
+      rolling stock is never labelled**, wagons included, however boxy from
+      above. The woodland edge and the hall walls put much of the apron in
+      shadow: vehicles in the dark are the point of this square, and the model
+      does not propose what it cannot see, so expect to add rather than
+      confirm.
+    # shadow-mined from the round-4 sweep: 9 truck detections at conf>=0.25,
+    # 4 more marginal, 11 on ground under 110 luminance (cell median 92.7).
+
+  - name: r4-toukola
+    bbox: [387323, 6675658, 387623, 6675958]
+    role: positive
+    split: train
+    notes: >-
+      Toukola, by Hermannin rantatie — a dense city block rather than a yard:
+      apartment courtyards, kerbside and lot parking thick with cars, tram
+      tracks, a construction site, and one working materials yard in the
+      north-east corner where the trucks and vans are. Most of what the model
+      proposes here is car, and that is fine — label them, the negative check
+      forgives only labelled vehicles. The trucks run small, around the 6–8 m
+      band where length decides nothing: read the rear for a cab that stops
+      and a body that starts, and call the continuous shells van. **Sweep the
+      shadow by hand.** Long building shadows and the tree line cover part of
+      the block, and the model does not propose what it cannot see, so any
+      vehicle in shadow has to be added rather than confirmed — this area
+      exists to measure exactly that. Trams and rail stock are not labelled.

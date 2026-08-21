@@ -7,8 +7,9 @@ whenToUse: When the user asks to re-run/replay a training round, reproduce the r
 
 # Replaying training rounds
 
-The canonical command list lives in `README.md` §"Reproducing the recorded
-rounds" — read it first; this skill adds the operational knowledge around it.
+The canonical command list lives in `docs/DESIGN.md` §7 "Replaying the
+recorded rounds" (it moved out of the README on 2026-08-21) — read it first;
+this skill adds the operational knowledge around it.
 
 ## Collections are prefix filters
 

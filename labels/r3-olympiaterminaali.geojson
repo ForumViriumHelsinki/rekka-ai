@@ -1685,7 +1685,7 @@
         "source_layer": "Ortoilmakuva_2025_5cm",
         "zoom": 16,
         "status": "confirmed",
-        "class": "van"
+        "class": "truck"
       }
     },
     {
@@ -2260,6 +2260,47 @@
         "zoom": 16,
         "status": "confirmed",
         "class": "car"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25497622.82,
+              6672019.968
+            ],
+            [
+              25497626.836,
+              6672020.238
+            ],
+            [
+              25497626.977,
+              6672018.142
+            ],
+            [
+              25497622.961,
+              6672017.873
+            ],
+            [
+              25497622.82,
+              6672019.968
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "class": "car",
+        "status": "added",
+        "confidence": null,
+        "aoi": "r3-olympiaterminaali",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "length_m": 4.03,
+        "width_m": 2.1,
+        "heading_deg": 86.2
       }
     }
   ]

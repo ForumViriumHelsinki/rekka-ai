@@ -12,10 +12,14 @@ from rekka_ai.enrich import (
     LAYER_DISTRICTS,
     LAYER_PARKING,
     LAYER_POSTAL_AREAS,
+    LAYER_STREET_PARTS,
     LAYER_STREETS,
     POSTAL_CODE_COLUMN,
     STREET_NAME_COLUMN,
+    STREET_PART_COLUMN,
+    STREET_TYPE_COLUMN,
     _attach_area_attribute,
+    _attach_context,
     _attach_nearest_street,
     _cache_path,
     _intersects_any,
@@ -120,6 +124,29 @@ def test_fetch_layer_error_is_not_retried(tmp_path: Path) -> None:
     assert transport.calls == 1
 
 
+def test_fetch_layer_keep_trims_properties_before_caching(tmp_path: Path) -> None:
+    """`keep` exists so a 96 MB attribute dump caches as geometry plus the
+    one column the join reads -- the trim must land in the cached file, not
+    just in the returned payload."""
+    payload = _feature_collection(
+        [
+            _polygon_feature(
+                {STREET_PART_COLUMN: "Ajorata", "osan_pituus": 123}, SQUARE_RING
+            )
+        ]
+    )
+    data = fetch_layer(
+        LAYER_DISTRICTS,
+        cache_root=tmp_path,
+        keep=(STREET_PART_COLUMN,),
+        transport=_Transport(payload),
+    )
+    expected = {STREET_PART_COLUMN: "Ajorata"}
+    assert data["features"][0]["properties"] == expected
+    cached = json.loads(_cache_path(LAYER_DISTRICTS, tmp_path).read_text())
+    assert cached["features"][0]["properties"] == expected
+
+
 # ---------------------------------------------------------------- _layer_frame
 
 
@@ -135,6 +162,32 @@ def test_layer_frame_has_the_project_grid_crs(tmp_path: Path) -> None:
         transport=_Transport(payload),
     )
     assert frame.crs == GRID
+    assert frame.iloc[0][DISTRICT_NAME_COLUMN] == "MEILAHTI"
+
+
+def test_layer_frame_drops_features_without_usable_geometry(tmp_path: Path) -> None:
+    """Real WFS layers ship null geometries (16 in YLRE_Katualue_alue) and
+    malformed rings (1 in the street-parts layer), both measured 2026-08-20
+    -- the loader must skip them, not sink the layer."""
+    pytest.importorskip("geopandas")  # optional 'detect' extra
+    payload = _feature_collection(
+        [
+            _polygon_feature({DISTRICT_NAME_COLUMN: "MEILAHTI"}, SQUARE_RING),
+            {"type": "Feature", "properties": {}, "geometry": None},
+            {
+                "type": "Feature",
+                "properties": {},
+                "geometry": {"type": "Polygon", "coordinates": [[[0, 0], [1]]]},
+            },
+        ]
+    )
+    frame = _layer_frame(
+        LAYER_DISTRICTS,
+        cache_root=tmp_path,
+        refresh=False,
+        transport=_Transport(payload),
+    )
+    assert len(frame) == 1
     assert frame.iloc[0][DISTRICT_NAME_COLUMN] == "MEILAHTI"
 
 
@@ -166,6 +219,7 @@ def test_attach_nearest_street_respects_max_distance() -> None:
         [
             {
                 STREET_NAME_COLUMN: "Testikatu",
+                STREET_TYPE_COLUMN: "Asuntokatu",
                 "geometry": LineString([(0, 50), (100, 50)]),
             }
         ],
@@ -180,7 +234,9 @@ def test_attach_nearest_street_respects_max_distance() -> None:
     )
     result = _attach_nearest_street(detections, streets, max_distance_m=30.0)
     assert result["street"].iloc[0] == "Testikatu"
+    assert result["street_type"].iloc[0] == "Asuntokatu"
     assert pd.isna(result["street"].iloc[1])
+    assert pd.isna(result["street_type"].iloc[1])
 
 
 def test_intersects_any_flags_only_overlapping_detections() -> None:
@@ -196,6 +252,74 @@ def test_intersects_any_flags_only_overlapping_detections() -> None:
         crs=GRID,
     )
     assert list(_intersects_any(detections, parking)) == [True, False]
+
+
+def test_attach_context_and_street_part_values_are_verbatim_finnish() -> None:
+    geopandas = pytest.importorskip("geopandas")  # optional 'detect' extra
+    pd = pytest.importorskip("pandas")  # geopandas dependency, same extra
+    parking = geopandas.GeoDataFrame(
+        [{"geometry": Polygon([(0, 0), (50, 0), (50, 50), (0, 50)])}], crs=GRID
+    )
+    streets = geopandas.GeoDataFrame(
+        [
+            {STREET_TYPE_COLUMN: "Asuntokatu", "geometry": SQUARE},
+            # A whole parking field registered as a street area, like
+            # Mäntymäenkenttä -- the third parking source.
+            {
+                STREET_TYPE_COLUMN: "Pysäköintialue",
+                "geometry": Polygon([(600, 600), (700, 600), (700, 700), (600, 700)]),
+            },
+        ],
+        crs=GRID,
+    )
+    parts = geopandas.GeoDataFrame(
+        [
+            # A digitized bay covering only the square's top half.
+            {
+                STREET_PART_COLUMN: "Pysäköintialue",
+                "geometry": Polygon([(0, 50), (50, 50), (50, 100), (0, 100)]),
+            },
+            # Values pass through verbatim -- the city's YLRE terms are the
+            # official vocabulary, so a new alatyyppi must surface as itself
+            # rather than vanishing to None or being translated ad hoc.
+            {
+                STREET_PART_COLUMN: "Jokin uusi",
+                "geometry": Polygon([(500, 500), (600, 500), (600, 600), (500, 600)]),
+            },
+        ],
+        crs=GRID,
+    )
+    detections = geopandas.GeoDataFrame(
+        [
+            # On a regulated lot AND the street square: the lot counts.
+            {"label": "car", "geometry": Point(25, 25).buffer(1)},
+            # In a digitized on-street bay, off the lot: still parking.
+            {"label": "car", "geometry": Point(25, 75).buffer(1)},
+            # On the street square, in no parking source: street.
+            {"label": "car", "geometry": Point(75, 50).buffer(1)},
+            # Off everything.
+            {"label": "car", "geometry": Point(400, 400).buffer(1)},
+            # In the unknown-part square (not a street area: context other).
+            {"label": "car", "geometry": Point(550, 550).buffer(1)},
+            # In the parking field, in no lot and no bay: still parking.
+            {"label": "car", "geometry": Point(650, 650).buffer(1)},
+        ],
+        crs=GRID,
+    )
+    result = _attach_context(detections, parking, streets, parts)
+    assert list(result["context"]) == [
+        "parking",
+        "parking",
+        "street",
+        "other",
+        "other",
+        "parking",
+    ]
+    assert result["street_part"].iloc[1] == "Pysäköintialue"
+    # A missing join comes back as NaN, not None, once pandas has a say.
+    for i in (0, 2, 3, 5):
+        assert pd.isna(result["street_part"].iloc[i])
+    assert result["street_part"].iloc[4] == "Jokin uusi"
 
 
 # ---------------------------------------------------------------- enrich()
@@ -226,8 +350,40 @@ def test_enrich_end_to_end_with_a_prepopulated_cache(tmp_path: Path) -> None:
         LAYER_POSTAL_AREAS: _feature_collection(
             [_polygon_feature({POSTAL_CODE_COLUMN: "00250"}, SQUARE_RING)]
         ),
+        # Street *areas* are polygons in the real layer, so a vehicle on the
+        # carriageway is inside one: a 10 m wide strip along y = 45..55,
+        # with a parking-bay bulge at x = 60..75, y = 55..70 so the street
+        # part and the street area agree on where a bay is.
         LAYER_STREETS: _feature_collection(
-            [_line_feature({STREET_NAME_COLUMN: "Testikatu"}, [(0, 50), (100, 50)])]
+            [
+                _polygon_feature(
+                    {STREET_NAME_COLUMN: "Testikatu", STREET_TYPE_COLUMN: "Katuaukio"},
+                    [
+                        (0, 45),
+                        (100, 45),
+                        (100, 55),
+                        (75, 55),
+                        (75, 70),
+                        (60, 70),
+                        (60, 55),
+                        (0, 55),
+                    ],
+                )
+            ]
+        ),
+        # Street parts partition the street area: carriageway under the
+        # strip, a parking bay in the bulge.
+        LAYER_STREET_PARTS: _feature_collection(
+            [
+                _polygon_feature(
+                    {STREET_PART_COLUMN: "Ajorata"},
+                    [(0, 45), (100, 45), (100, 55), (0, 55)],
+                ),
+                _polygon_feature(
+                    {STREET_PART_COLUMN: "Pysäköintialue"},
+                    [(60, 55), (75, 55), (75, 70), (60, 70)],
+                ),
+            ]
         ),
         LAYER_PARKING: _feature_collection(
             [_polygon_feature({}, [(0, 0), (50, 0), (50, 100), (0, 100)])]
@@ -240,9 +396,15 @@ def test_enrich_end_to_end_with_a_prepopulated_cache(tmp_path: Path) -> None:
     output_path = tmp_path / "enriched.gpkg"
     geopandas.GeoDataFrame(
         [
-            # Inside the square, on the parking lot, 5 m from the street.
-            {"label": "truck", "geometry": Point(25, 55).buffer(1)},
-            # Nowhere near any of the four fixtures.
+            # Inside the square, on the parking lot, and on the street's
+            # carriageway: the parking lot must win the context.
+            {"label": "truck", "geometry": Point(25, 50).buffer(1)},
+            # In the on-street parking bay: a bay is a parking place, so
+            # parking even without a regulated-lot polygon under it.
+            {"label": "car", "geometry": Point(67, 62).buffer(1)},
+            # On the carriageway, off the parking lot and the bay.
+            {"label": "car", "geometry": Point(85, 50).buffer(1)},
+            # Nowhere near any of the fixtures.
             {"label": "truck", "geometry": Point(500, 500).buffer(1)},
         ],
         crs=GRID,
@@ -251,10 +413,18 @@ def test_enrich_end_to_end_with_a_prepopulated_cache(tmp_path: Path) -> None:
     enrich(input_path, output_path, cache_root=cache_root)
 
     result = geopandas.read_file(output_path)
-    assert result["district"].iloc[0] == "MEILAHTI"
-    assert pd.isna(result["district"].iloc[1])
-    assert result["postal_code"].iloc[0] == "00250"
-    assert pd.isna(result["postal_code"].iloc[1])
-    assert result["street"].iloc[0] == "Testikatu"
-    assert pd.isna(result["street"].iloc[1])
-    assert list(result["parked"]) == [True, False]
+    assert list(result["district"])[:3] == ["MEILAHTI"] * 3
+    assert pd.isna(result["district"].iloc[3])
+    assert list(result["postal_code"])[:3] == ["00250"] * 3
+    assert pd.isna(result["postal_code"].iloc[3])
+    assert list(result["street"])[:3] == ["Testikatu"] * 3
+    assert pd.isna(result["street"].iloc[3])
+    assert list(result["street_type"])[:3] == ["Katuaukio"] * 3
+    assert pd.isna(result["street_type"].iloc[3])
+    assert list(result["context"]) == ["parking", "parking", "street", "other"]
+    assert list(result["street_part"])[:3] == [
+        "Ajorata",
+        "Pysäköintialue",
+        "Ajorata",
+    ]
+    assert pd.isna(result["street_part"].iloc[3])

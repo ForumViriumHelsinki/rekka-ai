@@ -2589,6 +2589,47 @@
         "status": "rejected",
         "class": ""
       }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25510756.643,
+              6678327.898
+            ],
+            [
+              25510766.648,
+              6678316.508
+            ],
+            [
+              25510763.806,
+              6678314.012
+            ],
+            [
+              25510753.802,
+              6678325.402
+            ],
+            [
+              25510756.643,
+              6678327.898
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "class": "truck",
+        "status": "added",
+        "confidence": null,
+        "aoi": "r2-vuosaari-trailer-road",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "length_m": 15.16,
+        "width_m": 3.78,
+        "heading_deg": 138.7
+      }
     }
   ]
 }

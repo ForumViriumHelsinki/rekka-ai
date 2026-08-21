@@ -2466,6 +2466,47 @@
         "status": "confirmed",
         "class": "car"
       }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              25500753.004,
+              6685405.485
+            ],
+            [
+              25500755.042,
+              6685410.197
+            ],
+            [
+              25500757.045,
+              6685409.331
+            ],
+            [
+              25500755.006,
+              6685404.619
+            ],
+            [
+              25500753.004,
+              6685405.485
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "class": "car",
+        "status": "added",
+        "confidence": null,
+        "aoi": "r1-siltamaki",
+        "source_layer": "Ortoilmakuva_2025_5cm",
+        "zoom": 16,
+        "length_m": 5.13,
+        "width_m": 2.18,
+        "heading_deg": 23.4
+      }
     }
   ]
 }

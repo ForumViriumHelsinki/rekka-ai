@@ -12,7 +12,7 @@ windowing, georeferencing, and merging, all of which have a checkable right
 answer -- is testable without torch or downloaded weights.
 """
 
-from collections.abc import Callable, Iterator
+from collections.abc import Callable, Iterable, Iterator
 from dataclasses import dataclass
 from pathlib import Path
 from typing import Protocol
@@ -41,6 +41,21 @@ DEFAULT_CONFIDENCE = 0.25
 #: A noise floor, not a class exclusion: measured candidates below this are
 #: noise, not small real vehicles (docs/DESIGN.md §5).
 MIN_LENGTH_M = 4.0
+
+
+def emits_dota_vehicles(class_names: Iterable[str]) -> bool:
+    """Whether these class names are the pretrained DOTA ones ``bootstrap`` filters on.
+
+    ``bootstrap`` keeps only ``large vehicle``/``small vehicle``. Hand it
+    fine-tuned weights, whose classes are ``truck/bus/van/car``, and the
+    filter matches nothing: the sweep finishes clean and reports **0
+    candidates**, which reads exactly like empty ground. That silence cost
+    two debugging sessions (docs/rounds.md 2026-08-13, and again 2026-08-14
+    where it also returned 0 over an area holding 55 labelled trucks), so the
+    caller checks this up front instead of letting a wrong command look like
+    a wrong AOI.
+    """
+    return bool(set(class_names) & {LARGE_VEHICLE, SMALL_VEHICLE})
 
 
 @dataclass(frozen=True, slots=True)
@@ -84,6 +99,12 @@ class YoloObb:
                 "bootstrap needs the 'detect' extra: uv sync --extra detect"
             ) from exc
         self._model = YOLO(weights)
+        #: What the loaded weights actually emit, so a caller can check the
+        #: model matches the filter it is about to apply. See
+        #: ``emits_dota_vehicles``.
+        self.class_names = frozenset(
+            str(v) for v in (getattr(self._model, "names", None) or {}).values()
+        )
         self.confidence = confidence
         self.keep = keep
 
