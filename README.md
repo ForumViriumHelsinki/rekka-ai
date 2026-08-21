@@ -23,9 +23,15 @@ uv run rekka-ai --help
 ```
 
 Needs [uv](https://docs.astral.sh/uv/) and Python 3.14+ (uv installs it), plus
-weights at `runs/train/round4/weights/best.pt` — 118 MB, gitignored, so train
-them (docs/model-card.md §7) or copy them in. A GPU is optional: the city
-sweep was 28.5 ms per window on an RTX 5070 Ti, and CPU works.
+weights — 118 MB, gitignored. Download
+`yolo11x-obb-fvh-z16-<version>.pt` from the [releases][rel], or train your own
+(docs/model-card.md §7). `--weights` is always explicit; the examples below
+write the path training leaves them at, so substitute the downloaded
+filename if that is what you have. **The zoom in the name matters** — z16 and
+z17 weights are not interchangeable, and the mismatch degrades quietly.
+
+A GPU is optional: the city sweep was 28.5 ms per window on an RTX 5070 Ti,
+and CPU works.
 
 ## Run the detector
 
@@ -185,6 +191,8 @@ bun run lint
 ```
 
 CI runs the Python four and the web three on every PR and push to `main`.
+Publishing trained weights is `docs/releasing.md` — tag `model/vN.0.0`, upload
+the renamed `.pt`, publish.
 Optional extras stay **lazily imported**: the base install and CI have neither
 torch nor mlflow, so `fetch` and `aois` work without a multi-gigabyte install.
 
@@ -195,3 +203,5 @@ torch nor mlflow, so `fetch` and `aois` work without a multi-gigabyte install.
   network.
 - **Labelling web app** (`web/`) — [MIT](web/LICENSE); a separate work that
   talks to the backend only through data files.
+
+[rel]: https://github.com/ForumViriumHelsinki/rekka-ai/releases

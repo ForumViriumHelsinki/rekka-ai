@@ -11,7 +11,7 @@ development history is `docs/rounds.md`, the design rationale
 
 | | |
 |---|---|
-| Weights | `runs/train/round4/weights/best.pt` (118 MB, gitignored) |
+| Weights | `runs/train/round4/weights/best.pt` (118 MB, gitignored; published as `yolo11x-obb-fvh-z16-v4.0.0.pt` on release `model/v4.0.0`; see docs/releasing.md) |
 | MLflow run | `round4` / `eval-round4`, experiment `rekka-ai` |
 | Architecture | YOLO11x-OBB, 200 layers, 58,740,223 parameters, 203.1 GFLOPs |
 | Fine-tuned from | `yolo11x-obb.pt` (Ultralytics, pretrained on DOTAv1) |
