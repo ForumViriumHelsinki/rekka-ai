@@ -1,0 +1,203 @@
+# Publishing trained weights.
+#
+# The weights are ~118 MB, produced on whatever GPU was to hand, and
+# regenerable only with that GPU — so they travel as a release asset on a
+# tag, not in git and not in LFS (docs/DESIGN.md §7). CI cannot build them,
+# which shapes this workflow: it writes the release *around* a file only the
+# trainer has, then refuses to let that release go out empty or misnamed.
+#
+#   1. tag `model/vN.0.0` and push    -> `draft` opens a draft release whose
+#                                        body is the model card verbatim
+#   2. rename best.pt and upload it   -> the command is in the job summary
+#   3. publish the draft in the UI    -> `verify` checks the asset is there,
+#                                        named right, and records its sha256
+#
+# Tags are semver under a `model/` namespace, and **MAJOR is the round**:
+# `model/v4.0.0` is round 4, so one number ties the release to
+# `runs/train/round4`, the MLflow run `round4`, and the docs/rounds.md entry.
+# MINOR is a retrain of the same round (another seed, a zoom sibling), PATCH
+# a re-release of the same weights (a corrected card, a botched upload).
+# The namespace exists because code and weights move independently: a CLI fix
+# needs no retrain, and a bare `v4.0.0` would make the package — still at
+# 0.1.0 — look like it had jumped four majors.
+#
+# The asset is renamed on the way out: Ultralytics calls every model it ever
+# trains `best.pt`, which says nothing once it leaves the run directory. The
+# published name is `yolo11x-obb-fvh-z<zoom>-<version>.pt` — architecture and
+# task (so it is obvious what loads it), `fvh` for the org, the **zoom**
+# because z16 and z17 weights are not interchangeable and running one at the
+# other's zoom fails silently, and the version so two rounds cannot land on
+# the same filename in someone's downloads folder.
+name: Release
+
+on:
+  push:
+    tags: ["model/v*"]
+  release:
+    types: [published]
+
+permissions:
+  contents: write
+
+env:
+  ASSET_PREFIX: yolo11x-obb-fvh
+
+jobs:
+  draft:
+    if: github.event_name == 'push'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+
+      # A tag with no card would publish weights nobody can interpret: no
+      # gates, no operating confidence, no limitations, no attribution.
+      - name: Require the model card
+        run: test -f docs/model-card.md
+
+      # MAJOR is the round, so the run directory, the MLflow run and the
+      # rounds.md entry are all reachable from the tag alone.
+      - name: Read the tag
+        env:
+          TAG: ${{ github.ref_name }}
+        run: |
+          # Anchored, because $VERSION becomes part of the published
+          # filename: a glob accepts `v4.0.0-rc1` and `v45x.0.0` and ships
+          # them as the asset name.
+          if ! printf '%s' "$TAG" | grep -Eq '^model/v[0-9]+\.[0-9]+\.[0-9]+$'; then
+            echo "::error::tag $TAG is not model/vMAJOR.MINOR.PATCH"
+            exit 1
+          fi
+          VERSION=${TAG#model/}
+          MAJOR=${VERSION#v}
+          MAJOR=${MAJOR%%.*}
+          echo "VERSION=$VERSION" >> "$GITHUB_ENV"
+          echo "ROUND=round$MAJOR" >> "$GITHUB_ENV"
+          echo "ASSET=$ASSET_PREFIX-z16-$VERSION.pt" >> "$GITHUB_ENV"
+
+      - name: Build release notes
+        env:
+          TAG: ${{ github.ref_name }}
+          SHA: ${{ github.sha }}
+        run: |
+          {
+            echo "# rekka-ai weights \`$VERSION\` — YOLO11x-OBB vehicle detector"
+            echo
+            echo "Oriented-box truck/bus/van/car detection in Helsinki aerial"
+            echo "orthophotos at z16 (12.5 cm/px). The weights file is \`$ASSET\`."
+            echo
+            echo '```sh'
+            echo "gh release download $TAG --repo ${{ github.repository }}"
+            echo "sha256sum -c SHA256SUMS"
+            echo "uv sync --extra detect"
+            echo "uv run rekka-ai detect --aoi <region.gpkg> --weights $ASSET \\"
+            echo "    --year 2025 --zoom 16 --out detections.fgb"
+            echo '```'
+            echo
+            echo "**The zoom in the filename is not decoration** — z16 and z17"
+            echo "weights are not interchangeable, and running one at the other's"
+            echo "zoom degrades quietly rather than failing."
+            echo
+            echo "**Report counts at the operating confidence** — \`detect\`'s"
+            echo "default is already it. A lower \`--confidence\` is for staging"
+            echo "review candidates, not for census numbers: the same city sweep"
+            echo "reads 3,729 trucks at 0.25 and 2,442 at the operating point."
+            echo
+            echo "Trained as **$ROUND** — MLflow run \`$ROUND\`, history in"
+            echo "docs/rounds.md. Built from \`${{ github.repository }}@$SHA\`."
+            echo "The training data regenerates from the committed"
+            echo "\`aois/helsinki.yaml\` and \`labels/\` — see docs/DESIGN.md §7."
+            echo
+            echo "**License:** AGPL-3.0. These weights are fine-tuned from"
+            echo "Ultralytics \`yolo11x-obb.pt\` (AGPL-3.0) and inherit it —"
+            echo "offering the detector over a network gives those users the"
+            echo "right to the source. Imagery © Helsingin kaupunki,"
+            echo "Kaupunkimittauspalvelut."
+            echo
+            echo "---"
+            echo
+            cat docs/model-card.md
+          } > notes.md
+
+      # Fails if a release already exists for the tag, which is the wanted
+      # behaviour: re-releasing means a new PATCH tag, not overwriting the
+      # notes of something already published. To redo a botched *draft*,
+      # delete the draft and the tag, then push the tag again.
+      - name: Open the draft
+        env:
+          GH_TOKEN: ${{ github.token }}
+          TAG: ${{ github.ref_name }}
+        run: |
+          gh release create "$TAG" --draft --title "rekka-ai weights $VERSION" \
+            --notes-file notes.md docs/model-card.md
+
+      - name: Say what is left to do
+        env:
+          TAG: ${{ github.ref_name }}
+        run: |
+          {
+            echo "### Draft release \`$TAG\` is open ($ROUND weights)"
+            echo
+            echo "Upload the weights from the machine that trained them, then"
+            echo "publish the draft. The rename is what \`verify\` checks:"
+            echo
+            echo '```sh'
+            echo "cp runs/train/$ROUND/weights/best.pt $ASSET"
+            echo "gh release upload $TAG $ASSET --repo ${{ github.repository }}"
+            echo '```'
+            echo
+            echo "That name is the z16 one. A z17 sibling goes out under its"
+            echo "own MINOR tag, copied to \`$ASSET_PREFIX-z17-<version>.pt\`"
+            echo "instead — verify accepts either zoom, but only one asset."
+            echo
+            echo "Publishing with no matching asset will fail the verify job."
+          } >> "$GITHUB_STEP_SUMMARY"
+
+  # A release whose weights were never uploaded looks identical to a good one
+  # in the releases list — same tag, same notes, same card. And a `best.pt`
+  # uploaded by habit is worse than missing: it publishes fine and is
+  # anonymous forever after. Both are caught here.
+  verify:
+    if: >-
+      github.event_name == 'release'
+      && startsWith(github.event.release.tag_name, 'model/v')
+    runs-on: ubuntu-latest
+    steps:
+      - name: Read the tag
+        env:
+          TAG: ${{ github.event.release.tag_name }}
+        run: echo "VERSION=${TAG#model/}" >> "$GITHUB_ENV"
+
+      - name: Download the published weights
+        env:
+          GH_TOKEN: ${{ github.token }}
+          TAG: ${{ github.event.release.tag_name }}
+        run: |
+          gh release download "$TAG" --repo "${{ github.repository }}" \
+            --pattern "$ASSET_PREFIX-z*.pt" || {
+              echo "::error::release $TAG has no $ASSET_PREFIX-z<zoom>-<version>.pt asset"
+              exit 1
+            }
+
+      # The version has to be *in the filename*, not only on the release page:
+      # the filename is the only part that survives being downloaded.
+      - name: Check the asset name, and record the checksum
+        env:
+          GH_TOKEN: ${{ github.token }}
+          TAG: ${{ github.event.release.tag_name }}
+        run: |
+          shopt -s nullglob
+          found=("$ASSET_PREFIX"-z*.pt)
+          if [ "${#found[@]}" -ne 1 ]; then
+            echo "::error::expected exactly one weights asset, found ${#found[@]}"
+            exit 1
+          fi
+          weights="${found[0]}"
+          case "$weights" in
+            *"-$VERSION.pt") ;;
+            *) echo "::error::$weights does not carry the release version $VERSION"
+               exit 1 ;;
+          esac
+          test -s "$weights"
+          sha256sum "$weights" > SHA256SUMS
+          cat SHA256SUMS
+          gh release upload "$TAG" SHA256SUMS --repo "${{ github.repository }}" --clobber

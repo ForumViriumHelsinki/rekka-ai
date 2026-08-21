@@ -694,8 +694,21 @@ whatever is currently inconvenient. Two things were considered and left out:
 What the second machine actually needs is narrower than either:
 
 - **Trained weights**, so the labeller can run `detect` for the next round.
-  ~110 MB, regenerable only with the GPU that made them — a **release asset on
-  a tag**, not git and not LFS.
+  ~118 MB, regenerable only with the GPU that made them — a **release asset on
+  a tag**, not git and not LFS. Tags are semver under a `model/` namespace
+  with **MAJOR as the round**: `model/v4.0.0` is round 4, so one number ties
+  the release to `runs/train/round4`, the MLflow run, and the rounds log.
+  MINOR is a retrain of the same round, PATCH a re-release of the same
+  weights. The namespace keeps weight tags from colliding with any future
+  code tag: they version different things on different clocks — a CLI fix
+  needs no retrain, and a retrain changes no code.
+  The asset is renamed on the way out — `yolo11x-obb-fvh-z<zoom>-<version>.pt`
+  rather than Ultralytics' `best.pt`, which says nothing once it leaves the
+  run directory, and which carries no zoom even though z16 and z17 weights
+  are not interchangeable. `.github/workflows/release.yml` drafts the release
+  from the tag and fails loudly on weights that are missing, misnamed, or
+  from another version — loudly rather than preventively, since GitHub fires
+  the publish event after the fact. The runbook is `docs/releasing.md`.
 - **The decision**, not the store: which weights, which gates passed, what the
   numbers were. `eval` already computes exactly this and prints it before
   handing it to MLflow, so a few KB of committed record per round would make
