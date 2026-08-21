@@ -19,6 +19,9 @@ uv run rekka-ai detect --aoi <region.fgb|collection.yaml> \
 ```
 
 - Match zoom to the weights: z17 weights need `--zoom 17`; default is z16.
+  A **released** asset carries its zoom in the filename
+  (`yolo11x-obb-fvh-z16-v4.0.0.pt`); a `runs/train/<run>/weights/best.pt`
+  does not, so check the run it came from before sweeping with it.
 - **`--confidence` is always explicit.** The default is 0.77 — round 4's
   operating point, a *census* threshold. Any sweep whose output will be
   staged, compared, or re-thresholded should pass 0.25 and cut higher on

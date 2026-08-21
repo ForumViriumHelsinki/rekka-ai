@@ -3,9 +3,10 @@
 Truck (and bus, van, car) detection from Helsinki aerial orthophotos, as
 georeferenced oriented bounding boxes.
 
-The model is finished. Round-4 z16 weights pass the ship gates — truck recall
-0.911, precision 0.945 — and have swept the whole city on three
-flight years: 208 km², 22 minutes, 125,882 detections on the 2025 one. This page runs them.
+The model is finished. Round-4 z16 weights — published as `model/v4.0.0` —
+pass the ship gates at truck recall 0.911, precision 0.945, and have swept the
+whole city on three flight years: 208 km², 22 minutes, 125,882 detections on
+the 2025 one. This page runs them.
 [docs/model-card.md](docs/model-card.md) is what they do and where they fail;
 [docs/DESIGN.md](docs/DESIGN.md) is why anything is the way it is.
 
@@ -20,15 +21,21 @@ git clone git@github.com:ForumViriumHelsinki/rekka-ai.git
 cd rekka-ai
 uv sync --extra detect          # torch + geopandas; needed for everything below
 uv run rekka-ai --help
+
+gh release download --pattern 'yolo11x-obb-fvh-*'   # latest weights, 118 MB
+sha256sum -c SHA256SUMS
 ```
 
+Add a tag (`gh release download model/v4.0.0 …`) to pin a specific model
+rather than taking the newest.
+
 Needs [uv](https://docs.astral.sh/uv/) and Python 3.14+ (uv installs it), plus
-weights — 118 MB, gitignored. Download
-`yolo11x-obb-fvh-z16-<version>.pt` from the [releases][rel], or train your own
-(docs/model-card.md §7). `--weights` is always explicit; the examples below
-write the path training leaves them at, so substitute the downloaded
-filename if that is what you have. **The zoom in the name matters** — z16 and
-z17 weights are not interchangeable, and the mismatch degrades quietly.
+weights from the [releases][rel] — 118 MB, never in git. Training your own
+instead is docs/model-card.md §7; it leaves them at
+`runs/train/round<N>/weights/best.pt`, which is what the training-loop
+examples below use. **The zoom in the filename matters** — z16 and z17
+weights are not interchangeable, and the mismatch degrades quietly rather
+than failing.
 
 A GPU is optional: the city sweep was 28.5 ms per window on an RTX 5070 Ti,
 and CPU works.
@@ -48,7 +55,7 @@ where the box *centre* falls inside it.
 
 ```sh
 uv run rekka-ai detect --aoi my-study-area.gpkg \
-    --weights runs/train/round4/weights/best.pt \
+    --weights yolo11x-obb-fvh-z16-v4.0.0.pt \
     --year 2025 --zoom 16 --out data/detections/study-area.fgb
 ```
 
@@ -58,7 +65,7 @@ ending the run:
 
 ```sh
 uv run rekka-ai detect --aoi data/production/helsinki-region.gpkg \
-    --weights runs/train/round4/weights/best.pt \
+    --weights yolo11x-obb-fvh-z16-v4.0.0.pt \
     --year 2025 --zoom 16 --confidence 0.25 \
     --checkpoint-dir data/detections/helsinki-2025 --cell-size 1000 \
     --out data/detections/helsinki_2025_z16.fgb
