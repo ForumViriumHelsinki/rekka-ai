@@ -37,7 +37,7 @@ from typing import TYPE_CHECKING, Annotated
 
 import typer
 
-from rekka_ai.enrich import LAYER_STREETS, fetch_layer
+from rekka_ai.enrich import fetch_layer
 from rekka_ai.geo import GRID, crs_member
 
 if TYPE_CHECKING:
@@ -60,6 +60,16 @@ LAYER_LAND_WATER_DISTRICTS = "avoindata:Maavesi_kaupunginosat"
 #: ``--land-only`` is a guard against that changing, not the filter that does
 #: the work; the road test below is what removes the islands.
 LAND_TYPE = "Maa-alue"
+
+#: The road-coverage test layer. Deliberately NOT imported from enrich.py:
+#: enrich's ``LAYER_STREETS`` was ``avoindata:Liikennevaylat`` until
+#: 2026-08-20 and is now ``YLRE_Katualue_alue``, and this script followed it
+#: silently. The region shipped for the 2025 production sweep (built
+#: 2026-08-14) was made with Liikennevaylat, and re-runs must reproduce
+#: that -- the full ~111k LineString network is also the right test here:
+#: it counts a part reachable if any track, path or service road crosses it,
+#: where street-area polygons only cover named streets.
+LAYER_ROADS = "avoindata:Liikennevaylat"
 
 app = typer.Typer(add_completion=False)
 
@@ -122,9 +132,7 @@ def main(
         crs=GRID,
     )
     roads = geopandas.GeoDataFrame.from_features(
-        fetch_layer(LAYER_STREETS, cache_root=wfs_cache, refresh=refresh_wfs)[
-            "features"
-        ],
+        fetch_layer(LAYER_ROADS, cache_root=wfs_cache, refresh=refresh_wfs)["features"],
         crs=GRID,
     )
     typer.echo(f"districts: {len(districts)} features, roads: {len(roads)} features")
